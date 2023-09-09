@@ -1,0 +1,25 @@
+[
+  {
+    "index": 1,
+    "name": "Balances_Transfer_keep_alive",
+    "blob": "0a03008eaf04151687736326c9fea17e25fc5287613693c912909cb226aa4794f26a48a10f002800c60b00000800000099ded175d436bee7d751fa3f2f8c7a257ddc063a541f8daa5e6152604f66b2a099ded175d436bee7d751fa3f2f8c7a257ddc063a541f8daa5e6152604f66b2a0",
+    "output": [
+      "0 | Balances : Transfer keep alive",
+      "1 | Dest [1/2] : efSNgXkPYVLYwVfBWx4XSkiYKZQkyzL3GTdC2y",
+      "1 | Dest [2/2] : YhSgnfPSmKS",
+      "2 | Amount : EFI 0.000000000000001"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer keep alive",
+      "1 | Dest [1/2] : efSNgXkPYVLYwVfBWx4XSkiYKZQkyzL3GTdC2y",
+      "1 | Dest [2/2] : YhSgnfPSmKS",
+      "2 | Amount : EFI 0.000000000000001",
+      "3 | Chain : Efinity",
+      "4 | Nonce : 10",
+      "5 | Era Phase : 0",
+      "6 | Era Period : 0",
+      "7 | Block [1/2] : 99ded175d436bee7d751fa3f2f8c7a257ddc06",
+      "7 | Block [2/2] : 3a541f8daa5e6152604f66b2a0"
+    ]
+  }
+]
