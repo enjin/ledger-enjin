@@ -1,4 +1,4 @@
-# Polkadot App
+# Enjin Matrixchain App
 
 ## General structure
 

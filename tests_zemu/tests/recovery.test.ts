@@ -34,10 +34,10 @@ describe('Recovery', function () {
       await sim.start({ ...defaultOptions, model: m.name })
       const app = newPolkadotApp(sim.getTransport())
 
-      const polkadot_expected_address = '166wVhuQsKFeb7bd1faydHgVvX1bZU2rUuY7FJmWApNz2fQY'
-      const polkadot_expected_pk = 'e1b4d72d27b3e91b9b6116555b4ea17138ddc12ca7cdbab30e2e0509bd848419'
-      const kusama_expected_address = '16nK5XEGrPHjSwzHAdkKabmwu6L2t1RGW6drYyGgS84UZDRy'
-      const kusama_expected_pk = 'ffbc10f71d63e0da1b9e7ee2eb4037466551dc32b9d4641aafd73a65970fae42'
+      const enjin_expected_address = '166wVhuQsKFeb7bd1faydHgVvX1bZU2rUuY7FJmWApNz2fQY'
+      const enjin_expected_pk = 'e1b4d72d27b3e91b9b6116555b4ea17138ddc12ca7cdbab30e2e0509bd848419'
+      const matrixchain_expected_address = '16nK5XEGrPHjSwzHAdkKabmwu6L2t1RGW6drYyGgS84UZDRy'
+      const matrixchain_expected_pk = 'ffbc10f71d63e0da1b9e7ee2eb4037466551dc32b9d4641aafd73a65970fae42'
 
       let resp = await app.getAddress(0x80000000, 0x80000000, 0x80000000)
 
@@ -46,8 +46,8 @@ describe('Recovery', function () {
       expect(resp.return_code).toEqual(0x9000)
       expect(resp.error_message).toEqual('No errors')
 
-      expect(resp.address).toEqual(polkadot_expected_address)
-      expect(resp.pubKey).toEqual(polkadot_expected_pk)
+      expect(resp.address).toEqual(enjin_expected_address)
+      expect(resp.pubKey).toEqual(enjin_expected_pk)
 
       await sim.enableSpecialMode('Zondax', true)
 
@@ -58,8 +58,8 @@ describe('Recovery', function () {
       expect(resp.return_code).toEqual(0x9000)
       expect(resp.error_message).toEqual('No errors')
 
-      expect(resp.address).toEqual(kusama_expected_address)
-      expect(resp.pubKey).toEqual(kusama_expected_pk)
+      expect(resp.address).toEqual(matrixchain_expected_address)
+      expect(resp.pubKey).toEqual(matrixchain_expected_pk)
     } finally {
       await sim.close()
     }
