@@ -14,7 +14,7 @@
  *  limitations under the License.
  ********************************************************************************/
 
-#include "substrate_dispatch_V3.h"
+#include "substrate_dispatch_V2.h"
 #include "substrate_strings.h"
 #include "zxmacros.h"
 #include <stdint.h>
@@ -22,16 +22,16 @@
 #include "bolos_target.h"
 #endif
 
-__Z_INLINE parser_error_t _readMethod_balances_transfer_allow_death_V3(
-    parser_context_t* c, pd_balances_transfer_allow_death_V3_t* m)
+__Z_INLINE parser_error_t _readMethod_balances_transfer_allow_death_V2(
+    parser_context_t* c, pd_balances_transfer_allow_death_V2_t* m)
 {
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
     CHECK_ERROR(_readCompactBalance(c, &m->amount))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_balances_force_transfer_V3(
-    parser_context_t* c, pd_balances_force_transfer_V3_t* m)
+__Z_INLINE parser_error_t _readMethod_balances_force_transfer_V2(
+    parser_context_t* c, pd_balances_force_transfer_V2_t* m)
 {
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->source))
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
@@ -39,54 +39,54 @@ __Z_INLINE parser_error_t _readMethod_balances_force_transfer_V3(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_balances_transfer_keep_alive_V3(
-    parser_context_t* c, pd_balances_transfer_keep_alive_V3_t* m)
+__Z_INLINE parser_error_t _readMethod_balances_transfer_keep_alive_V2(
+    parser_context_t* c, pd_balances_transfer_keep_alive_V2_t* m)
 {
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
     CHECK_ERROR(_readCompactBalance(c, &m->amount))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_balances_transfer_all_V3(
-    parser_context_t* c, pd_balances_transfer_all_V3_t* m)
+__Z_INLINE parser_error_t _readMethod_balances_transfer_all_V2(
+    parser_context_t* c, pd_balances_transfer_all_V2_t* m)
 {
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
     CHECK_ERROR(_readbool(c, &m->keep_alive))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_balances_transfer_V3(
-    parser_context_t* c, pd_balances_transfer_V3_t* m)
+__Z_INLINE parser_error_t _readMethod_balances_transfer_V2(
+    parser_context_t* c, pd_balances_transfer_V2_t* m)
 {
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
     CHECK_ERROR(_readCompactBalance(c, &m->amount))
     return parser_ok;
 }
 
-parser_error_t _readMethod_V3(
+parser_error_t _readMethod_V2(
     parser_context_t* c,
     uint8_t moduleIdx,
     uint8_t callIdx,
-    pd_Method_V3_t* method)
+    pd_Method_V2_t* method)
 {
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
 
-    case 2560: /* module 10 call 0 */
-        CHECK_ERROR(_readMethod_balances_transfer_allow_death_V3(c, &method->nested.balances_transfer_allow_death_V3))
+    case 1536: /* module 6 call 0 */
+        CHECK_ERROR(_readMethod_balances_transfer_allow_death_V2(c, &method->nested.balances_transfer_allow_death_V2))
         break;
-    case 2562: /* module 10 call 2 */
-        CHECK_ERROR(_readMethod_balances_force_transfer_V3(c, &method->nested.balances_force_transfer_V3))
+    case 1538: /* module 6 call 2 */
+        CHECK_ERROR(_readMethod_balances_force_transfer_V2(c, &method->nested.balances_force_transfer_V2))
         break;
-    case 2563: /* module 10 call 3 */
-        CHECK_ERROR(_readMethod_balances_transfer_keep_alive_V3(c, &method->nested.balances_transfer_keep_alive_V3))
+    case 1539: /* module 6 call 3 */
+        CHECK_ERROR(_readMethod_balances_transfer_keep_alive_V2(c, &method->nested.balances_transfer_keep_alive_V2))
         break;
-    case 2564: /* module 10 call 4 */
-        CHECK_ERROR(_readMethod_balances_transfer_all_V3(c, &method->basic.balances_transfer_all_V3))
+    case 1540: /* module 6 call 4 */
+        CHECK_ERROR(_readMethod_balances_transfer_all_V2(c, &method->basic.balances_transfer_all_V2))
         break;
-    case 2567: /* module 10 call 7 */
-        CHECK_ERROR(_readMethod_balances_transfer_V3(c, &method->nested.balances_transfer_V3))
+    case 1543: /* module 6 call 7 */
+        CHECK_ERROR(_readMethod_balances_transfer_V2(c, &method->nested.balances_transfer_V2))
         break;
     default:
         return parser_unexpected_callIndex;
@@ -100,10 +100,10 @@ parser_error_t _readMethod_V3(
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 
-const char* _getMethod_ModuleName_V3(uint8_t moduleIdx)
+const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
 {
     switch (moduleIdx) {
-    case 10:
+    case 6:
         return STR_MO_BALANCES;
     default:
         return NULL;
@@ -112,20 +112,20 @@ const char* _getMethod_ModuleName_V3(uint8_t moduleIdx)
     return NULL;
 }
 
-const char* _getMethod_Name_V3(uint8_t moduleIdx, uint8_t callIdx)
+const char* _getMethod_Name_V2(uint8_t moduleIdx, uint8_t callIdx)
 {
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
-    case 2560: /* module 10 call 0 */
+    case 1536: /* module 6 call 0 */
         return STR_ME_TRANSFER_ALLOW_DEATH;
-    case 2562: /* module 10 call 2 */
+    case 1538: /* module 6 call 2 */
         return STR_ME_FORCE_TRANSFER;
-    case 2563: /* module 10 call 3 */
+    case 1539: /* module 6 call 3 */
         return STR_ME_TRANSFER_KEEP_ALIVE;
-    case 2564: /* module 10 call 4 */
+    case 1540: /* module 6 call 4 */
         return STR_ME_TRANSFER_ALL;
-    case 2567: /* module 10 call 7 */
+    case 1543: /* module 6 call 7 */
         return STR_ME_TRANSFER;
     default:
         return NULL;
@@ -134,20 +134,20 @@ const char* _getMethod_Name_V3(uint8_t moduleIdx, uint8_t callIdx)
     return NULL;
 }
 
-uint8_t _getMethod_NumItems_V3(uint8_t moduleIdx, uint8_t callIdx)
+uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
 {
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
-    case 2560: /* module 10 call 0 */
+    case 1536: /* module 6 call 0 */
         return 2;
-    case 2562: /* module 10 call 2 */
+    case 1538: /* module 6 call 2 */
         return 3;
-    case 2563: /* module 10 call 3 */
+    case 1539: /* module 6 call 3 */
         return 2;
-    case 2564: /* module 10 call 4 */
+    case 1540: /* module 6 call 4 */
         return 2;
-    case 2567: /* module 10 call 7 */
+    case 1543: /* module 6 call 7 */
         return 2;
     default:
         return 0;
@@ -156,12 +156,12 @@ uint8_t _getMethod_NumItems_V3(uint8_t moduleIdx, uint8_t callIdx)
     return 0;
 }
 
-const char* _getMethod_ItemName_V3(uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx)
+const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx)
 {
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
-    case 2560: /* module 10 call 0 */
+    case 1536: /* module 6 call 0 */
         switch (itemIdx) {
         case 0:
             return STR_IT_dest;
@@ -170,7 +170,7 @@ const char* _getMethod_ItemName_V3(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 2562: /* module 10 call 2 */
+    case 1538: /* module 6 call 2 */
         switch (itemIdx) {
         case 0:
             return STR_IT_source;
@@ -181,7 +181,7 @@ const char* _getMethod_ItemName_V3(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 2563: /* module 10 call 3 */
+    case 1539: /* module 6 call 3 */
         switch (itemIdx) {
         case 0:
             return STR_IT_dest;
@@ -190,7 +190,7 @@ const char* _getMethod_ItemName_V3(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 2564: /* module 10 call 4 */
+    case 1540: /* module 6 call 4 */
         switch (itemIdx) {
         case 0:
             return STR_IT_dest;
@@ -199,7 +199,7 @@ const char* _getMethod_ItemName_V3(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 2567: /* module 10 call 7 */
+    case 1543: /* module 6 call 7 */
         switch (itemIdx) {
         case 0:
             return STR_IT_dest;
@@ -215,8 +215,8 @@ const char* _getMethod_ItemName_V3(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
     return NULL;
 }
 
-parser_error_t _getMethod_ItemValue_V3(
-    pd_Method_V3_t* m,
+parser_error_t _getMethod_ItemValue_V2(
+    pd_Method_V2_t* m,
     uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx,
     char* outValue, uint16_t outValueLen,
     uint8_t pageIdx, uint8_t* pageCount)
@@ -224,81 +224,81 @@ parser_error_t _getMethod_ItemValue_V3(
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
-    case 2560: /* module 10 call 0 */
+    case 1536: /* module 6 call 0 */
         switch (itemIdx) {
-        case 0: /* balances_transfer_allow_death_V3 - dest */;
+        case 0: /* balances_transfer_allow_death_V2 - dest */;
             return _toStringAccountIdLookupOfT(
-                &m->nested.balances_transfer_allow_death_V3.dest,
+                &m->nested.balances_transfer_allow_death_V2.dest,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 1: /* balances_transfer_allow_death_V3 - amount */;
+        case 1: /* balances_transfer_allow_death_V2 - amount */;
             return _toStringCompactBalance(
-                &m->nested.balances_transfer_allow_death_V3.amount,
+                &m->nested.balances_transfer_allow_death_V2.amount,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
             return parser_no_data;
         }
-    case 2562: /* module 10 call 2 */
+    case 1538: /* module 6 call 2 */
         switch (itemIdx) {
-        case 0: /* balances_force_transfer_V3 - source */;
+        case 0: /* balances_force_transfer_V2 - source */;
             return _toStringAccountIdLookupOfT(
-                &m->nested.balances_force_transfer_V3.source,
+                &m->nested.balances_force_transfer_V2.source,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 1: /* balances_force_transfer_V3 - dest */;
+        case 1: /* balances_force_transfer_V2 - dest */;
             return _toStringAccountIdLookupOfT(
-                &m->nested.balances_force_transfer_V3.dest,
+                &m->nested.balances_force_transfer_V2.dest,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 2: /* balances_force_transfer_V3 - amount */;
+        case 2: /* balances_force_transfer_V2 - amount */;
             return _toStringCompactBalance(
-                &m->nested.balances_force_transfer_V3.amount,
+                &m->nested.balances_force_transfer_V2.amount,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
             return parser_no_data;
         }
-    case 2563: /* module 10 call 3 */
+    case 1539: /* module 6 call 3 */
         switch (itemIdx) {
-        case 0: /* balances_transfer_keep_alive_V3 - dest */;
+        case 0: /* balances_transfer_keep_alive_V2 - dest */;
             return _toStringAccountIdLookupOfT(
-                &m->nested.balances_transfer_keep_alive_V3.dest,
+                &m->nested.balances_transfer_keep_alive_V2.dest,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 1: /* balances_transfer_keep_alive_V3 - amount */;
+        case 1: /* balances_transfer_keep_alive_V2 - amount */;
             return _toStringCompactBalance(
-                &m->nested.balances_transfer_keep_alive_V3.amount,
+                &m->nested.balances_transfer_keep_alive_V2.amount,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
             return parser_no_data;
         }
-    case 2564: /* module 10 call 4 */
+    case 1540: /* module 6 call 4 */
         switch (itemIdx) {
-        case 0: /* balances_transfer_all_V3 - dest */;
+        case 0: /* balances_transfer_all_V2 - dest */;
             return _toStringAccountIdLookupOfT(
-                &m->basic.balances_transfer_all_V3.dest,
+                &m->basic.balances_transfer_all_V2.dest,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 1: /* balances_transfer_all_V3 - keep_alive */;
+        case 1: /* balances_transfer_all_V2 - keep_alive */;
             return _toStringbool(
-                &m->basic.balances_transfer_all_V3.keep_alive,
+                &m->basic.balances_transfer_all_V2.keep_alive,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
             return parser_no_data;
         }
-    case 2567: /* module 10 call 7 */
+    case 1543: /* module 6 call 7 */
         switch (itemIdx) {
-        case 0: /* balances_transfer_V3 - dest */;
+        case 0: /* balances_transfer_V2 - dest */;
             return _toStringAccountIdLookupOfT(
-                &m->nested.balances_transfer_V3.dest,
+                &m->nested.balances_transfer_V2.dest,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 1: /* balances_transfer_V3 - amount */;
+        case 1: /* balances_transfer_V2 - amount */;
             return _toStringCompactBalance(
-                &m->nested.balances_transfer_V3.amount,
+                &m->nested.balances_transfer_V2.amount,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -311,7 +311,7 @@ parser_error_t _getMethod_ItemValue_V3(
     return parser_ok;
 }
 
-bool _getMethod_ItemIsExpert_V3(uint8_t moduleIdx, uint8_t callIdx, __Z_UNUSED uint8_t itemIdx)
+bool _getMethod_ItemIsExpert_V2(uint8_t moduleIdx, uint8_t callIdx, __Z_UNUSED uint8_t itemIdx)
 {
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
@@ -321,7 +321,7 @@ bool _getMethod_ItemIsExpert_V3(uint8_t moduleIdx, uint8_t callIdx, __Z_UNUSED u
     }
 }
 
-bool _getMethod_IsNestingSupported_V3(uint8_t moduleIdx, uint8_t callIdx)
+bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
 {
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 

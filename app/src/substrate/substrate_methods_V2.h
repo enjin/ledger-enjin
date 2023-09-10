@@ -23,61 +23,61 @@ extern "C" {
 #endif
 
 #include "substrate_types.h"
-#include "substrate_types_V3.h"
+#include "substrate_types_V2.h"
 #include <stddef.h>
 #include <stdint.h>
 #ifdef LEDGER_SPECIFIC
 #include "bolos_target.h"
 #endif
 
-#define PD_CALL_BALANCES_V3 10
+#define PD_CALL_BALANCES_V2 6
 
-#define PD_CALL_BALANCES_TRANSFER_ALL_V3 4
+#define PD_CALL_BALANCES_TRANSFER_ALL_V2 4
 typedef struct {
     pd_AccountIdLookupOfT_t dest;
     pd_bool_t keep_alive;
-} pd_balances_transfer_all_V3_t;
+} pd_balances_transfer_all_V2_t;
 
 typedef union {
-    pd_balances_transfer_all_V3_t balances_transfer_all_V3;
-} pd_MethodBasic_V3_t;
+    pd_balances_transfer_all_V2_t balances_transfer_all_V2;
+} pd_MethodBasic_V2_t;
 
-#define PD_CALL_BALANCES_TRANSFER_ALLOW_DEATH_V3 0
+#define PD_CALL_BALANCES_TRANSFER_ALLOW_DEATH_V2 0
 typedef struct {
     pd_AccountIdLookupOfT_t dest;
     pd_CompactBalance_t amount;
-} pd_balances_transfer_allow_death_V3_t;
+} pd_balances_transfer_allow_death_V2_t;
 
-#define PD_CALL_BALANCES_FORCE_TRANSFER_V3 2
+#define PD_CALL_BALANCES_FORCE_TRANSFER_V2 2
 typedef struct {
     pd_AccountIdLookupOfT_t source;
     pd_AccountIdLookupOfT_t dest;
     pd_CompactBalance_t amount;
-} pd_balances_force_transfer_V3_t;
+} pd_balances_force_transfer_V2_t;
 
-#define PD_CALL_BALANCES_TRANSFER_KEEP_ALIVE_V3 3
+#define PD_CALL_BALANCES_TRANSFER_KEEP_ALIVE_V2 3
 typedef struct {
     pd_AccountIdLookupOfT_t dest;
     pd_CompactBalance_t amount;
-} pd_balances_transfer_keep_alive_V3_t;
+} pd_balances_transfer_keep_alive_V2_t;
 
-#define PD_CALL_BALANCES_TRANSFER_V3 7
+#define PD_CALL_BALANCES_TRANSFER_V2 7
 typedef struct {
     pd_AccountIdLookupOfT_t dest;
     pd_CompactBalance_t amount;
-} pd_balances_transfer_V3_t;
+} pd_balances_transfer_V2_t;
 
 typedef union {
-    pd_balances_transfer_allow_death_V3_t balances_transfer_allow_death_V3;
-    pd_balances_force_transfer_V3_t balances_force_transfer_V3;
-    pd_balances_transfer_keep_alive_V3_t balances_transfer_keep_alive_V3;
-    pd_balances_transfer_V3_t balances_transfer_V3;
-} pd_MethodNested_V3_t;
+    pd_balances_transfer_allow_death_V2_t balances_transfer_allow_death_V2;
+    pd_balances_force_transfer_V2_t balances_force_transfer_V2;
+    pd_balances_transfer_keep_alive_V2_t balances_transfer_keep_alive_V2;
+    pd_balances_transfer_V2_t balances_transfer_V2;
+} pd_MethodNested_V2_t;
 
 typedef union {
-    pd_MethodBasic_V3_t basic;
-    pd_MethodNested_V3_t nested;
-} pd_Method_V3_t;
+    pd_MethodBasic_V2_t basic;
+    pd_MethodNested_V2_t nested;
+} pd_Method_V2_t;
 
 #ifdef __cplusplus
 }

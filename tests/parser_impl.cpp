@@ -186,9 +186,9 @@ TEST(SCALE, TransferTXBadTxVersion) {
     parser_context_t ctx;
     parser_error_t err;
 
-    const auto testTx = "0400ff8d16d62802ca55326ec52bf76a8543b90e2aba5bcf6cd195c0d6fc1ef38fa1b3000600ae11030000c801"
-                        "00003fd7b9eb6a00376e5be61f01abb429ffb0b104be05eaff4d458da48fcd425baf3fd7b9eb6a00376e5be61f"
-                        "01abb429ffb0b104be05eaff4d458da48fcd425baf";
+    const auto testTx = "0a0004b22980761c00f236b46bcd5903e769c5bca6b52503d2029649d503ae11030003d20296495b0200000100"
+                        "0000123cb2660ec45d5fc0326ff93447a704f651fa35f00ccb4694429047aca6400a123cb2660ec45d5fc0326f"
+                        "f93447a704f651fa35f00ccb4694429047aca6400a";
 
     uint8_t buffer[500];
     auto bufferLen = parseHexString(buffer, sizeof(buffer), testTx);
@@ -208,8 +208,9 @@ TEST(SCALE, TransferTXBadSpec) {
     parser_context_t ctx;
     parser_error_t err;
 
-    const auto testTx = "00004d3dcb99d5038d240b63ce64c10c05010000000300000091b171bb158e2d3848fa23a9f1c25182fb8e20313b"
-                        "2c1eb49219da7a70ce90c391b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3";
+    const auto testTx = "0a0300a5b93596af98b12b1d2d573a4a4f16ed498c7c02abd50b5c5687b7dea721420c0b63ce64c10c05d50391"
+                        "0100025b00001800000091b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c391b171"
+                        "bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3";
 
 
     uint8_t buffer[500];

@@ -19,30 +19,13 @@
 extern "C" {
 #endif
 
-#include "parser_impl.h"
-#include "stdbool.h"
-#include "substrate_functions.h"
-#include "substrate_functions_V3.h"
+#include "parser_common.h"
+#include "substrate_methods_V2.h"
+#include "substrate_types_V2.h"
 #include <stddef.h>
 #include <stdint.h>
 
-parser_error_t _readMethod_V3(parser_context_t* c, uint8_t moduleIdx, uint8_t callIdx, pd_Method_V3_t* method);
-
-const char* _getMethod_ModuleName_V3(uint8_t moduleIdx);
-
-const char* _getMethod_Name_V3(uint8_t moduleIdx, uint8_t callIdx);
-
-const char* _getMethod_ItemName_V3(uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx);
-
-uint8_t _getMethod_NumItems_V3(uint8_t moduleIdx, uint8_t callIdx);
-
-parser_error_t _getMethod_ItemValue_V3(
-    pd_Method_V3_t* m, uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx,
-    char* outValue, uint16_t outValueLen,
-    uint8_t pageIdx, uint8_t* pageCount);
-
-bool _getMethod_ItemIsExpert_V3(uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx);
-bool _getMethod_IsNestingSupported_V3(uint8_t moduleIdx, uint8_t callIdx);
+// Versioned types functions for tx version V2
 
 #ifdef __cplusplus
 }
