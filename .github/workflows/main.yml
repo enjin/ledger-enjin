@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
     branches:
-      - main
+      - master
       - develop
 
 jobs:
@@ -118,8 +118,11 @@ jobs:
           make test_all
 
   build_package_nanos:
+    permissions:
+      contents: write
+      
     needs: [configure, build, build_ledger, test_zemu]
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     container:
       image: zondax/ledger-app-builder:latest
@@ -154,8 +157,11 @@ jobs:
           prerelease: false
 
   build_package_nanos_xl:
+    permissions:
+      contents: write
+      
     needs: [configure, build, build_ledger, test_zemu]
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     container:
       image: zondax/ledger-app-builder:latest
@@ -190,8 +196,11 @@ jobs:
           prerelease: false
 
   build_package_nanosp:
+    permissions:
+      contents: write
+      
     needs: [configure, build, build_ledger, test_zemu]
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     container:
       image: zondax/ledger-app-builder:latest
@@ -226,8 +235,11 @@ jobs:
           prerelease: false
 
   build_package_stax:
+    permissions:
+      contents: write
+      
     needs: [configure, build, build_ledger, test_zemu]
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     container:
       image: zondax/ledger-app-builder:latest
