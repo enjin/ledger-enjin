@@ -31,6 +31,8 @@ extern "C" {
 #endif
 
 #define PD_CALL_BALANCES_V2 6
+#define PD_CALL_STAKING_V2 7
+#define PD_CALL_NOMINATIONPOOLS_V2 39
 
 #define PD_CALL_BALANCES_TRANSFER_ALL_V2 4
 typedef struct {
@@ -38,8 +40,243 @@ typedef struct {
     pd_bool_t keep_alive;
 } pd_balances_transfer_all_V2_t;
 
+#define PD_CALL_STAKING_VALIDATE_V2 4
+typedef struct {
+    pd_ValidatorPrefs_t prefs;
+} pd_staking_validate_V2_t;
+
+#define PD_CALL_STAKING_PAYOUT_STAKERS_V2 18
+typedef struct {
+    pd_AccountId_t validator_stash;
+    pd_EraIndex_t era;
+} pd_staking_payout_stakers_V2_t;
+
+#define PD_CALL_STAKING_SET_VALIDATOR_COUNT_V2 9
+typedef struct {
+    pd_Compactu32_t new_;
+} pd_staking_set_validator_count_V2_t;
+
+#define PD_CALL_STAKING_INCREASE_VALIDATOR_COUNT_V2 10
+typedef struct {
+    pd_Compactu32_t additional;
+} pd_staking_increase_validator_count_V2_t;
+
+#define PD_CALL_STAKING_SCALE_VALIDATOR_COUNT_V2 11
+typedef struct {
+    pd_Percent_t factor;
+} pd_staking_scale_validator_count_V2_t;
+
+#define PD_CALL_STAKING_FORCE_NO_ERAS_V2 12
+typedef struct {
+} pd_staking_force_no_eras_V2_t;
+
+#define PD_CALL_STAKING_FORCE_NEW_ERA_V2 13
+typedef struct {
+} pd_staking_force_new_era_V2_t;
+
+#define PD_CALL_STAKING_SET_INVULNERABLES_V2 14
+typedef struct {
+    pd_VecAccountId_t invulnerables;
+} pd_staking_set_invulnerables_V2_t;
+
+#define PD_CALL_STAKING_FORCE_UNSTAKE_V2 15
+typedef struct {
+    pd_AccountId_t stash;
+    pd_u32_t num_slashing_spans;
+} pd_staking_force_unstake_V2_t;
+
+#define PD_CALL_STAKING_FORCE_NEW_ERA_ALWAYS_V2 16
+typedef struct {
+} pd_staking_force_new_era_always_V2_t;
+
+#define PD_CALL_STAKING_CANCEL_DEFERRED_SLASH_V2 17
+typedef struct {
+    pd_EraIndex_t era;
+    pd_Vecu32_t slash_indices;
+} pd_staking_cancel_deferred_slash_V2_t;
+
+#define PD_CALL_STAKING_REAP_STASH_V2 20
+typedef struct {
+    pd_AccountId_t stash;
+    pd_u32_t num_slashing_spans;
+} pd_staking_reap_stash_V2_t;
+
+#define PD_CALL_STAKING_KICK_V2 21
+typedef struct {
+    pd_VecAccountIdLookupOfT_t who;
+} pd_staking_kick_V2_t;
+
+#define PD_CALL_STAKING_SET_STAKING_CONFIGS_V2 22
+typedef struct {
+    pd_ConfigOpBalanceOfT_t min_nominator_bond;
+    pd_ConfigOpBalanceOfT_t min_validator_bond;
+    pd_ConfigOpu32_t max_nominator_count;
+    pd_ConfigOpu32_t max_validator_count;
+    pd_ConfigOpPercent_t chill_threshold;
+    pd_ConfigOpPerbill_t min_commission;
+} pd_staking_set_staking_configs_V2_t;
+
+#define PD_CALL_STAKING_CHILL_OTHER_V2 23
+typedef struct {
+    pd_AccountId_t controller;
+} pd_staking_chill_other_V2_t;
+
+#define PD_CALL_STAKING_FORCE_APPLY_MIN_COMMISSION_V2 24
+typedef struct {
+    pd_AccountId_t validator_stash;
+} pd_staking_force_apply_min_commission_V2_t;
+
+#define PD_CALL_STAKING_SET_MIN_COMMISSION_V2 25
+typedef struct {
+    pd_Perbill_t new_;
+} pd_staking_set_min_commission_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_POOL_WITHDRAW_UNBONDED_V2 4
+typedef struct {
+    pd_PoolId_t pool_id;
+    pd_u32_t num_slashing_spans;
+} pd_nominationpools_pool_withdraw_unbonded_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_CREATE_WITH_POOL_ID_V2 7
+typedef struct {
+    pd_CompactBalance_t amount;
+    pd_AccountIdLookupOfT_t root;
+    pd_AccountIdLookupOfT_t nominator;
+    pd_AccountIdLookupOfT_t bouncer;
+    pd_PoolId_t pool_id;
+} pd_nominationpools_create_with_pool_id_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_SET_CONFIGS_V2 11
+typedef struct {
+    pd_ConfigOpBalanceOfT_t min_join_bond;
+    pd_ConfigOpBalanceOfT_t min_create_bond;
+    pd_ConfigOpu32_t max_pools;
+    pd_ConfigOpu32_t max_members;
+    pd_ConfigOpu32_t max_members_per_pool;
+    pd_ConfigOpPerbill_t global_max_commission;
+} pd_nominationpools_set_configs_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_BOND_EXTRA_OTHER_V2 14
+typedef struct {
+    pd_AccountIdLookupOfT_t member;
+    pd_BondExtraBalanceOfT_t extra;
+} pd_nominationpools_bond_extra_other_V2_t;
+
+
+#ifdef SUBSTRATE_PARSER_FULL
+#ifndef TARGET_NANOS
+#endif
+
+#define PD_CALL_STAKING_SET_VALIDATOR_COUNT_V2 9
+typedef struct {
+    pd_Compactu32_t new_;
+} pd_staking_set_validator_count_V2_t;
+
+#define PD_CALL_STAKING_INCREASE_VALIDATOR_COUNT_V2 10
+typedef struct {
+    pd_Compactu32_t additional;
+} pd_staking_increase_validator_count_V2_t;
+
+#define PD_CALL_STAKING_SCALE_VALIDATOR_COUNT_V2 11
+typedef struct {
+    pd_Percent_t factor;
+} pd_staking_scale_validator_count_V2_t;
+
+#define PD_CALL_STAKING_FORCE_NO_ERAS_V2 12
+typedef struct {
+} pd_staking_force_no_eras_V2_t;
+
+#define PD_CALL_STAKING_FORCE_NEW_ERA_V2 13
+typedef struct {
+} pd_staking_force_new_era_V2_t;
+
+#define PD_CALL_STAKING_SET_INVULNERABLES_V2 14
+typedef struct {
+    pd_VecAccountId_t invulnerables;
+} pd_staking_set_invulnerables_V2_t;
+
+#define PD_CALL_STAKING_FORCE_UNSTAKE_V2 15
+typedef struct {
+    pd_AccountId_t stash;
+    pd_u32_t num_slashing_spans;
+} pd_staking_force_unstake_V2_t;
+
+#define PD_CALL_STAKING_FORCE_NEW_ERA_ALWAYS_V2 16
+typedef struct {
+} pd_staking_force_new_era_always_V2_t;
+
+#define PD_CALL_STAKING_CANCEL_DEFERRED_SLASH_V2 17
+typedef struct {
+    pd_EraIndex_t era;
+    pd_Vecu32_t slash_indices;
+} pd_staking_cancel_deferred_slash_V2_t;
+
+#define PD_CALL_STAKING_REAP_STASH_V2 20
+typedef struct {
+    pd_AccountId_t stash;
+    pd_u32_t num_slashing_spans;
+} pd_staking_reap_stash_V2_t;
+
+#define PD_CALL_STAKING_KICK_V2 21
+typedef struct {
+    pd_VecAccountIdLookupOfT_t who;
+} pd_staking_kick_V2_t;
+
+#define PD_CALL_STAKING_SET_STAKING_CONFIGS_V2 22
+typedef struct {
+    pd_ConfigOpBalanceOfT_t min_nominator_bond;
+    pd_ConfigOpBalanceOfT_t min_validator_bond;
+    pd_ConfigOpu32_t max_nominator_count;
+    pd_ConfigOpu32_t max_validator_count;
+    pd_ConfigOpPercent_t chill_threshold;
+    pd_ConfigOpPerbill_t min_commission;
+} pd_staking_set_staking_configs_V2_t;
+
+#define PD_CALL_STAKING_CHILL_OTHER_V2 23
+typedef struct {
+    pd_AccountId_t controller;
+} pd_staking_chill_other_V2_t;
+
+#define PD_CALL_STAKING_FORCE_APPLY_MIN_COMMISSION_V2 24
+typedef struct {
+    pd_AccountId_t validator_stash;
+} pd_staking_force_apply_min_commission_V2_t;
+
+#define PD_CALL_STAKING_SET_MIN_COMMISSION_V2 25
+typedef struct {
+    pd_Perbill_t new_;
+} pd_staking_set_min_commission_V2_t;
+
+#endif
+
+
 typedef union {
     pd_balances_transfer_all_V2_t balances_transfer_all_V2;
+    pd_staking_validate_V2_t staking_validate_V2;
+    pd_staking_payout_stakers_V2_t staking_payout_stakers_V2;
+    pd_nominationpools_pool_withdraw_unbonded_V2_t nominationpools_pool_withdraw_unbonded_V2;
+    pd_nominationpools_create_with_pool_id_V2_t nominationpools_create_with_pool_id_V2;
+    pd_nominationpools_set_configs_V2_t nominationpools_set_configs_V2;
+    pd_nominationpools_bond_extra_other_V2_t nominationpools_bond_extra_other_V2;
+#ifdef SUBSTRATE_PARSER_FULL
+#ifndef TARGET_NANOS
+#endif
+    pd_staking_set_validator_count_V2_t staking_set_validator_count_V2;
+    pd_staking_increase_validator_count_V2_t staking_increase_validator_count_V2;
+    pd_staking_scale_validator_count_V2_t staking_scale_validator_count_V2;
+    pd_staking_force_no_eras_V2_t staking_force_no_eras_V2;
+    pd_staking_force_new_era_V2_t staking_force_new_era_V2;
+    pd_staking_set_invulnerables_V2_t staking_set_invulnerables_V2;
+    pd_staking_force_unstake_V2_t staking_force_unstake_V2;
+    pd_staking_force_new_era_always_V2_t staking_force_new_era_always_V2;
+    pd_staking_cancel_deferred_slash_V2_t staking_cancel_deferred_slash_V2;
+    pd_staking_reap_stash_V2_t staking_reap_stash_V2;
+    pd_staking_kick_V2_t staking_kick_V2;
+    pd_staking_set_staking_configs_V2_t staking_set_staking_configs_V2;
+    pd_staking_chill_other_V2_t staking_chill_other_V2;
+    pd_staking_force_apply_min_commission_V2_t staking_force_apply_min_commission_V2;
+    pd_staking_set_min_commission_V2_t staking_set_min_commission_V2;
+#endif
 } pd_MethodBasic_V2_t;
 
 #define PD_CALL_BALANCES_TRANSFER_ALLOW_DEATH_V2 0
@@ -67,11 +304,182 @@ typedef struct {
     pd_CompactBalance_t amount;
 } pd_balances_transfer_V2_t;
 
+
+#define PD_CALL_STAKING_BOND_V2 0
+typedef struct {
+    pd_CompactBalance_t amount;
+    pd_RewardDestination_t payee;
+} pd_staking_bond_V2_t;
+
+#define PD_CALL_STAKING_BOND_EXTRA_V2 1
+typedef struct {
+    pd_CompactBalance_t amount;
+} pd_staking_bond_extra_V2_t;
+
+#define PD_CALL_STAKING_UNBOND_V2 2
+typedef struct {
+    pd_CompactBalance_t amount;
+} pd_staking_unbond_V2_t;
+
+#define PD_CALL_STAKING_WITHDRAW_UNBONDED_V2 3
+typedef struct {
+    pd_u32_t num_slashing_spans;
+} pd_staking_withdraw_unbonded_V2_t;
+
+#define PD_CALL_STAKING_NOMINATE_V2 5
+typedef struct {
+    pd_VecAccountIdLookupOfT_t targets;
+} pd_staking_nominate_V2_t;
+
+#define PD_CALL_STAKING_CHILL_V2 6
+typedef struct {
+} pd_staking_chill_V2_t;
+
+#define PD_CALL_STAKING_SET_PAYEE_V2 7
+typedef struct {
+    pd_RewardDestination_t payee;
+} pd_staking_set_payee_V2_t;
+
+#define PD_CALL_STAKING_SET_CONTROLLER_V2 8
+typedef struct {
+} pd_staking_set_controller_V2_t;
+
+#define PD_CALL_STAKING_REBOND_V2 19
+typedef struct {
+    pd_CompactBalance_t amount;
+} pd_staking_rebond_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_JOIN_V2 0
+typedef struct {
+    pd_CompactBalance_t amount;
+    pd_PoolId_t pool_id;
+} pd_nominationpools_join_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_BOND_EXTRA_V2 1
+typedef struct {
+    pd_BondExtraBalanceOfT_t extra;
+} pd_nominationpools_bond_extra_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_CLAIM_PAYOUT_V2 2
+typedef struct {
+} pd_nominationpools_claim_payout_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_UNBOND_V2 3
+typedef struct {
+    pd_AccountIdLookupOfT_t member_account;
+    pd_CompactBalance_t unbonding_points;
+} pd_nominationpools_unbond_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_WITHDRAW_UNBONDED_V2 5
+typedef struct {
+    pd_AccountIdLookupOfT_t member_account;
+    pd_u32_t num_slashing_spans;
+} pd_nominationpools_withdraw_unbonded_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_CREATE_V2 6
+typedef struct {
+    pd_CompactBalance_t amount;
+    pd_AccountIdLookupOfT_t root;
+    pd_AccountIdLookupOfT_t nominator;
+    pd_AccountIdLookupOfT_t bouncer;
+} pd_nominationpools_create_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_NOMINATE_V2 8
+typedef struct {
+    pd_PoolId_t pool_id;
+    pd_VecAccountId_t validators;
+} pd_nominationpools_nominate_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_SET_STATE_V2 9
+typedef struct {
+    pd_PoolId_t pool_id;
+    pd_PoolState_t state;
+} pd_nominationpools_set_state_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_SET_METADATA_V2 10
+typedef struct {
+    pd_PoolId_t pool_id;
+    pd_Vecu8_t metadata;
+} pd_nominationpools_set_metadata_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_UPDATE_ROLES_V2 12
+typedef struct {
+    pd_PoolId_t pool_id;
+    pd_ConfigOpAccountId_t new_root;
+    pd_ConfigOpAccountId_t new_nominator;
+    pd_ConfigOpAccountId_t new_bouncer;
+} pd_nominationpools_update_roles_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_CHILL_V2 13
+typedef struct {
+    pd_PoolId_t pool_id;
+} pd_nominationpools_chill_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_SET_CLAIM_PERMISSION_V2 15
+typedef struct {
+    pd_ClaimPermission_t permission;
+} pd_nominationpools_set_claim_permission_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_CLAIM_PAYOUT_OTHER_V2 16
+typedef struct {
+    pd_AccountId_t other;
+} pd_nominationpools_claim_payout_other_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_SET_COMMISSION_V2 17
+typedef struct {
+    pd_PoolId_t pool_id;
+    pd_OptionTuplePerbillAccountId_t new_commission;
+} pd_nominationpools_set_commission_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_SET_COMMISSION_MAX_V2 18
+typedef struct {
+    pd_PoolId_t pool_id;
+    pd_Perbill_t max_commission;
+} pd_nominationpools_set_commission_max_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_SET_COMMISSION_CHANGE_RATE_V2 19
+typedef struct {
+    pd_PoolId_t pool_id;
+    pd_CommissionChangeRateBlockNumber_t change_rate;
+} pd_nominationpools_set_commission_change_rate_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_CLAIM_COMMISSION_V2 20
+typedef struct {
+    pd_PoolId_t pool_id;
+} pd_nominationpools_claim_commission_V2_t;
+
+
 typedef union {
     pd_balances_transfer_allow_death_V2_t balances_transfer_allow_death_V2;
     pd_balances_force_transfer_V2_t balances_force_transfer_V2;
     pd_balances_transfer_keep_alive_V2_t balances_transfer_keep_alive_V2;
     pd_balances_transfer_V2_t balances_transfer_V2;
+    pd_staking_bond_V2_t staking_bond_V2;
+    pd_staking_bond_extra_V2_t staking_bond_extra_V2;
+    pd_staking_unbond_V2_t staking_unbond_V2;
+    pd_staking_withdraw_unbonded_V2_t staking_withdraw_unbonded_V2;
+    pd_staking_nominate_V2_t staking_nominate_V2;
+    pd_staking_chill_V2_t staking_chill_V2;
+    pd_staking_set_payee_V2_t staking_set_payee_V2;
+    pd_staking_set_controller_V2_t staking_set_controller_V2;
+    pd_staking_rebond_V2_t staking_rebond_V2;
+    pd_nominationpools_join_V2_t nominationpools_join_V2;
+    pd_nominationpools_bond_extra_V2_t nominationpools_bond_extra_V2;
+    pd_nominationpools_claim_payout_V2_t nominationpools_claim_payout_V2;
+    pd_nominationpools_unbond_V2_t nominationpools_unbond_V2;
+    pd_nominationpools_withdraw_unbonded_V2_t nominationpools_withdraw_unbonded_V2;
+    pd_nominationpools_create_V2_t nominationpools_create_V2;
+    pd_nominationpools_nominate_V2_t nominationpools_nominate_V2;
+    pd_nominationpools_set_state_V2_t nominationpools_set_state_V2;
+    pd_nominationpools_set_metadata_V2_t nominationpools_set_metadata_V2;
+    pd_nominationpools_update_roles_V2_t nominationpools_update_roles_V2;
+    pd_nominationpools_chill_V2_t nominationpools_chill_V2;
+    pd_nominationpools_set_claim_permission_V2_t nominationpools_set_claim_permission_V2;
+    pd_nominationpools_claim_payout_other_V2_t nominationpools_claim_payout_other_V2;
+    pd_nominationpools_set_commission_V2_t nominationpools_set_commission_V2;
+    pd_nominationpools_set_commission_max_V2_t nominationpools_set_commission_max_V2;
+    pd_nominationpools_set_commission_change_rate_V2_t nominationpools_set_commission_change_rate_V2;
+    pd_nominationpools_claim_commission_V2_t nominationpools_claim_commission_V2;
 } pd_MethodNested_V2_t;
 
 typedef union {
