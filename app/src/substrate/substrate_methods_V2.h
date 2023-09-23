@@ -135,7 +135,7 @@ typedef struct {
 typedef struct {
     pd_PoolId_t pool_id;
     pd_u32_t num_slashing_spans;
-} pd_nominationpools_pool_withdraw_unbonded_V2_t;
+} pd_nominationpools_payout_rewards_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_CREATE_WITH_POOL_ID_V2 7
 typedef struct {
@@ -144,7 +144,7 @@ typedef struct {
     pd_AccountIdLookupOfT_t nominator;
     pd_AccountIdLookupOfT_t bouncer;
     pd_PoolId_t pool_id;
-} pd_nominationpools_create_with_pool_id_V2_t;
+} pd_nominationpools_queue_early_bird_bonus_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_SET_CONFIGS_V2 11
 typedef struct {
@@ -160,7 +160,7 @@ typedef struct {
 typedef struct {
     pd_AccountIdLookupOfT_t member;
     pd_BondExtraBalanceOfT_t extra;
-} pd_nominationpools_bond_extra_other_V2_t;
+} pd_nominationpools_withdraw_unbonded_V2_t;
 
 
 #ifdef SUBSTRATE_PARSER_FULL
@@ -254,10 +254,10 @@ typedef union {
     pd_balances_transfer_all_V2_t balances_transfer_all_V2;
     pd_staking_validate_V2_t staking_validate_V2;
     pd_staking_payout_stakers_V2_t staking_payout_stakers_V2;
-    pd_nominationpools_pool_withdraw_unbonded_V2_t nominationpools_pool_withdraw_unbonded_V2;
-    pd_nominationpools_create_with_pool_id_V2_t nominationpools_create_with_pool_id_V2;
+    pd_nominationpools_payout_rewards_V2_t nominationpools_pool_payout_rewards_V2;
+    pd_nominationpools_queue_early_bird_bonus_V2_t nominationpools_queue_early_bird_bonus_V2;
     pd_nominationpools_set_configs_V2_t nominationpools_set_configs_V2;
-    pd_nominationpools_bond_extra_other_V2_t nominationpools_bond_extra_other_V2;
+    pd_nominationpools_withdraw_unbonded_V2_t nominationpools_withdraw_unbonded_V2;
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS
 #endif
@@ -353,28 +353,28 @@ typedef struct {
 typedef struct {
     pd_CompactBalance_t amount;
     pd_PoolId_t pool_id;
-} pd_nominationpools_join_V2_t;
+} pd_nominationpools_bond_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_BOND_EXTRA_V2 1
 typedef struct {
     pd_BondExtraBalanceOfT_t extra;
-} pd_nominationpools_bond_extra_V2_t;
+} pd_nominationpools_destroy_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_CLAIM_PAYOUT_V2 2
 typedef struct {
-} pd_nominationpools_claim_payout_V2_t;
+} pd_nominationpools_distribute_early_bird_bonus_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_UNBOND_V2 3
 typedef struct {
     pd_AccountIdLookupOfT_t member_account;
     pd_CompactBalance_t unbonding_points;
-} pd_nominationpools_unbond_V2_t;
+} pd_nominationpools_mutate_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_WITHDRAW_UNBONDED_V2 5
 typedef struct {
     pd_AccountIdLookupOfT_t member_account;
     pd_u32_t num_slashing_spans;
-} pd_nominationpools_withdraw_unbonded_V2_t;
+} pd_nominationpools_pool_withdraw_unbonded_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_CREATE_V2 6
 typedef struct {
@@ -394,13 +394,13 @@ typedef struct {
 typedef struct {
     pd_PoolId_t pool_id;
     pd_PoolState_t state;
-} pd_nominationpools_set_state_V2_t;
+} pd_nominationpools_unbond_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_SET_METADATA_V2 10
 typedef struct {
     pd_PoolId_t pool_id;
     pd_Vecu8_t metadata;
-} pd_nominationpools_set_metadata_V2_t;
+} pd_nominationpools_unbond_deposit_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_UPDATE_ROLES_V2 12
 typedef struct {
@@ -408,7 +408,7 @@ typedef struct {
     pd_ConfigOpAccountId_t new_root;
     pd_ConfigOpAccountId_t new_nominator;
     pd_ConfigOpAccountId_t new_bouncer;
-} pd_nominationpools_update_roles_V2_t;
+} pd_nominationpools_withdraw_deposit_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_CHILL_V2 13
 typedef struct {
@@ -463,18 +463,18 @@ typedef union {
     pd_staking_set_payee_V2_t staking_set_payee_V2;
     pd_staking_set_controller_V2_t staking_set_controller_V2;
     pd_staking_rebond_V2_t staking_rebond_V2;
-    pd_nominationpools_join_V2_t nominationpools_join_V2;
-    pd_nominationpools_bond_extra_V2_t nominationpools_bond_extra_V2;
-    pd_nominationpools_claim_payout_V2_t nominationpools_claim_payout_V2;
-    pd_nominationpools_unbond_V2_t nominationpools_unbond_V2;
-    pd_nominationpools_withdraw_unbonded_V2_t nominationpools_withdraw_unbonded_V2;
+    pd_nominationpools_bond_V2_t nominationpools_bond_V2;
+    pd_nominationpools_destroy_V2_t nominationpools_destroy_V2;
+    pd_nominationpools_distribute_early_bird_bonus_V2_t nominationpools_distribute_early_bird_bonus_V2;
+    pd_nominationpools_mutate_V2_t nominationpools_mutate_V2;
+    pd_nominationpools_pool_withdraw_unbonded_V2_t nominationpools_withdraw_unbonded_V2;
     pd_nominationpools_create_V2_t nominationpools_create_V2;
     pd_nominationpools_nominate_V2_t nominationpools_nominate_V2;
-    pd_nominationpools_set_state_V2_t nominationpools_set_state_V2;
-    pd_nominationpools_set_metadata_V2_t nominationpools_set_metadata_V2;
-    pd_nominationpools_update_roles_V2_t nominationpools_update_roles_V2;
+    pd_nominationpools_unbond_V2_t nominationpools_unbond_V2;
+    pd_nominationpools_unbond_deposit_V2_t nominationpools_unbond_deposit_V2;
+    pd_nominationpools_withdraw_deposit_V2_t nominationpools_withdraw_deposit_V2;
     pd_nominationpools_chill_V2_t nominationpools_chill_V2;
-    pd_nominationpools_set_claim_permission_V2_t nominationpools_set_claim_permission_V2;
+    pd_nominationpools_set_claim_permission_V2_t nominationpools_set_staking_info_V2;
     pd_nominationpools_claim_payout_other_V2_t nominationpools_claim_payout_other_V2;
     pd_nominationpools_set_commission_V2_t nominationpools_set_commission_V2;
     pd_nominationpools_set_commission_max_V2_t nominationpools_set_commission_max_V2;
