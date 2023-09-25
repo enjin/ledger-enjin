@@ -181,15 +181,6 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_withdraw_unbonded_V2(
 }
 
 #ifdef SUBSTRATE_PARSER_FULL
-__Z_INLINE parser_error_t _readMethod_balances_set_balance_deprecated_V2(
-        parser_context_t* c, pd_balances_set_balance_deprecated_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->who))
-    CHECK_ERROR(_readCompactBalance(c, &m->new_free))
-    CHECK_ERROR(_readCompactBalance(c, &m->old_reserved))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_balances_force_unreserve_V2(
         parser_context_t* c, pd_balances_force_unreserve_V2_t* m)
 {
@@ -431,7 +422,6 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_set_configs_V2(
 }
 #endif
 
-
 parser_error_t _readMethod_V2(
         parser_context_t* c,
         uint8_t moduleIdx,
@@ -514,82 +504,82 @@ parser_error_t _readMethod_V2(
         case 1544: /* module 6 call 8 */
         CHECK_ERROR(_readMethod_balances_force_set_balance_V2(c, &method->basic.balances_force_set_balance_V2))
             break;
-        case 1792: /* module 7 call 0 */
+        case 2304: /* module 9 call 0 */
         CHECK_ERROR(_readMethod_staking_bond_V2(c, &method->nested.staking_bond_V2))
             break;
-        case 1793: /* module 7 call 1 */
+        case 2305: /* module 9 call 1 */
         CHECK_ERROR(_readMethod_staking_bond_extra_V2(c, &method->nested.staking_bond_extra_V2))
             break;
-        case 1794: /* module 7 call 2 */
+        case 2306: /* module 9 call 2 */
         CHECK_ERROR(_readMethod_staking_unbond_V2(c, &method->nested.staking_unbond_V2))
             break;
-        case 1795: /* module 7 call 3 */
+        case 2307: /* module 9 call 3 */
         CHECK_ERROR(_readMethod_staking_withdraw_unbonded_V2(c, &method->nested.staking_withdraw_unbonded_V2))
             break;
-        case 1796: /* module 7 call 4 */
+        case 2308: /* module 9 call 4 */
         CHECK_ERROR(_readMethod_staking_validate_V2(c, &method->basic.staking_validate_V2))
             break;
-        case 1797: /* module 7 call 5 */
+        case 2309: /* module 9 call 5 */
         CHECK_ERROR(_readMethod_staking_nominate_V2(c, &method->nested.staking_nominate_V2))
             break;
-        case 1798: /* module 7 call 6 */
+        case 2310: /* module 9 call 6 */
         CHECK_ERROR(_readMethod_staking_chill_V2(c, &method->nested.staking_chill_V2))
             break;
-        case 1799: /* module 7 call 7 */
+        case 2311: /* module 9 call 7 */
         CHECK_ERROR(_readMethod_staking_set_payee_V2(c, &method->nested.staking_set_payee_V2))
             break;
-        case 1800: /* module 7 call 8 */
+        case 2312: /* module 9 call 8 */
         CHECK_ERROR(_readMethod_staking_set_controller_V2(c, &method->nested.staking_set_controller_V2))
             break;
-        case 1810: /* module 7 call 18 */
-        CHECK_ERROR(_readMethod_staking_payout_stakers_V2(c, &method->basic.staking_payout_stakers_V2))
-            break;
-        case 1811: /* module 7 call 19 */
-        CHECK_ERROR(_readMethod_staking_rebond_V2(c, &method->nested.staking_rebond_V2))
-            break;
-        case 1801: /* module 7 call 9 */
+        case 2313: /* module 9 call 9 */
         CHECK_ERROR(_readMethod_staking_set_validator_count_V2(c, &method->basic.staking_set_validator_count_V2))
             break;
-        case 1802: /* module 7 call 10 */
+        case 2314: /* module 9 call 10 */
         CHECK_ERROR(_readMethod_staking_increase_validator_count_V2(c, &method->basic.staking_increase_validator_count_V2))
             break;
-        case 1803: /* module 7 call 11 */
+        case 2315: /* module 9 call 11 */
         CHECK_ERROR(_readMethod_staking_scale_validator_count_V2(c, &method->basic.staking_scale_validator_count_V2))
             break;
-        case 1804: /* module 7 call 12 */
+        case 2316: /* module 9 call 12 */
         CHECK_ERROR(_readMethod_staking_force_no_eras_V2(c, &method->basic.staking_force_no_eras_V2))
             break;
-        case 1805: /* module 7 call 13 */
+        case 2317: /* module 9 call 13 */
         CHECK_ERROR(_readMethod_staking_force_new_era_V2(c, &method->basic.staking_force_new_era_V2))
             break;
-        case 1806: /* module 7 call 14 */
+        case 2318: /* module 9 call 14 */
         CHECK_ERROR(_readMethod_staking_set_invulnerables_V2(c, &method->basic.staking_set_invulnerables_V2))
             break;
-        case 1807: /* module 7 call 15 */
+        case 2319: /* module 9 call 15 */
         CHECK_ERROR(_readMethod_staking_force_unstake_V2(c, &method->basic.staking_force_unstake_V2))
             break;
-        case 1808: /* module 7 call 16 */
+        case 2320: /* module 9 call 16 */
         CHECK_ERROR(_readMethod_staking_force_new_era_always_V2(c, &method->basic.staking_force_new_era_always_V2))
             break;
-        case 1809: /* module 7 call 17 */
+        case 2321: /* module 9 call 17 */
         CHECK_ERROR(_readMethod_staking_cancel_deferred_slash_V2(c, &method->basic.staking_cancel_deferred_slash_V2))
             break;
-        case 1812: /* module 7 call 20 */
+        case 2322: /* module 9 call 18 */
+        CHECK_ERROR(_readMethod_staking_payout_stakers_V2(c, &method->basic.staking_payout_stakers_V2))
+            break;
+        case 2323: /* module 9 call 19 */
+        CHECK_ERROR(_readMethod_staking_rebond_V2(c, &method->nested.staking_rebond_V2))
+            break;
+        case 2324: /* module 9 call 20 */
         CHECK_ERROR(_readMethod_staking_reap_stash_V2(c, &method->basic.staking_reap_stash_V2))
             break;
-        case 1813: /* module 7 call 21 */
+        case 2325: /* module 9 call 21 */
         CHECK_ERROR(_readMethod_staking_kick_V2(c, &method->basic.staking_kick_V2))
             break;
-        case 1814: /* module 7 call 22 */
+        case 2326: /* module 9 call 22 */
         CHECK_ERROR(_readMethod_staking_set_staking_configs_V2(c, &method->basic.staking_set_staking_configs_V2))
             break;
-        case 1815: /* module 7 call 23 */
+        case 2327: /* module 9 call 23 */
         CHECK_ERROR(_readMethod_staking_chill_other_V2(c, &method->basic.staking_chill_other_V2))
             break;
-        case 1816: /* module 7 call 24 */
+        case 2328: /* module 9 call 24 */
         CHECK_ERROR(_readMethod_staking_force_apply_min_commission_V2(c, &method->basic.staking_force_apply_min_commission_V2))
             break;
-        case 1817: /* module 7 call 25 */
+        case 2329: /* module 9 call 25 */
         CHECK_ERROR(_readMethod_staking_set_min_commission_V2(c, &method->basic.staking_set_min_commission_V2))
             break;
         case 4619: /* module 18 call 11 */
@@ -619,7 +609,7 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
         case 18:
             return STR_MO_NOMINATIONPOOLS;
 #ifdef SUBSTRATE_PARSER_FULL
-        case 7:
+        case 9:
             return STR_MO_STAKING;
 #endif
         default:
@@ -689,57 +679,57 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
             return STR_ME_UPGRADE_ACCOUNTS;
         case 1544: /* module 6 call 8 */
             return STR_ME_FORCE_SET_BALANCE;
-        case 1792: /* module 7 call 0 */
+        case 2304: /* module 9 call 0 */
             return STR_ME_BOND;
-        case 1793: /* module 7 call 1 */
+        case 2305: /* module 9 call 1 */
             return STR_ME_BOND_EXTRA;
-        case 1794: /* module 7 call 2 */
+        case 2306: /* module 9 call 2 */
             return STR_ME_UNBOND;
-        case 1795: /* module 7 call 3 */
+        case 2307: /* module 9 call 3 */
             return STR_ME_WITHDRAW_UNBONDED;
-        case 1796: /* module 7 call 4 */
+        case 2308: /* module 9 call 4 */
             return STR_ME_VALIDATE;
-        case 1797: /* module 7 call 5 */
+        case 2309: /* module 9 call 5 */
             return STR_ME_NOMINATE;
-        case 1798: /* module 7 call 6 */
+        case 2310: /* module 9 call 6 */
             return STR_ME_CHILL;
-        case 1799: /* module 7 call 7 */
+        case 2311: /* module 9 call 7 */
             return STR_ME_SET_PAYEE;
-        case 1800: /* module 7 call 8 */
+        case 2312: /* module 9 call 8 */
             return STR_ME_SET_CONTROLLER;
-        case 1810: /* module 7 call 18 */
-            return STR_ME_PAYOUT_STAKERS;
-        case 1811: /* module 7 call 19 */
-            return STR_ME_REBOND;
-        case 1801: /* module 7 call 9 */
+        case 2313: /* module 9 call 9 */
             return STR_ME_SET_VALIDATOR_COUNT;
-        case 1802: /* module 7 call 10 */
+        case 2314: /* module 9 call 10 */
             return STR_ME_INCREASE_VALIDATOR_COUNT;
-        case 1803: /* module 7 call 11 */
+        case 2315: /* module 9 call 11 */
             return STR_ME_SCALE_VALIDATOR_COUNT;
-        case 1804: /* module 7 call 12 */
+        case 2316: /* module 9 call 12 */
             return STR_ME_FORCE_NO_ERAS;
-        case 1805: /* module 7 call 13 */
+        case 2317: /* module 9 call 13 */
             return STR_ME_FORCE_NEW_ERA;
-        case 1806: /* module 7 call 14 */
+        case 2318: /* module 9 call 14 */
             return STR_ME_SET_INVULNERABLES;
-        case 1807: /* module 7 call 15 */
+        case 2319: /* module 9 call 15 */
             return STR_ME_FORCE_UNSTAKE;
-        case 1808: /* module 7 call 16 */
+        case 2320: /* module 9 call 16 */
             return STR_ME_FORCE_NEW_ERA_ALWAYS;
-        case 1809: /* module 7 call 17 */
+        case 2321: /* module 9 call 17 */
             return STR_ME_CANCEL_DEFERRED_SLASH;
-        case 1812: /* module 7 call 20 */
+        case 2322: /* module 9 call 18 */
+            return STR_ME_PAYOUT_STAKERS;
+        case 2323: /* module 9 call 19 */
+            return STR_ME_REBOND;
+        case 2324: /* module 9 call 20 */
             return STR_ME_REAP_STASH;
-        case 1813: /* module 7 call 21 */
+        case 2325: /* module 9 call 21 */
             return STR_ME_KICK;
-        case 1814: /* module 7 call 22 */
+        case 2326: /* module 9 call 22 */
             return STR_ME_SET_STAKING_CONFIGS;
-        case 1815: /* module 7 call 23 */
+        case 2327: /* module 9 call 23 */
             return STR_ME_CHILL_OTHER;
-        case 1816: /* module 7 call 24 */
+        case 2328: /* module 9 call 24 */
             return STR_ME_FORCE_APPLY_MIN_COMMISSION;
-        case 1817: /* module 7 call 25 */
+        case 2329: /* module 9 call 25 */
             return STR_ME_SET_MIN_COMMISSION;
         case 4619: /* module 18 call 11 */
             return STR_ME_SET_CONFIGS;
@@ -798,63 +788,63 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         case 4632: /* module 18 call 24 */
             return 1;
 #ifdef SUBSTRATE_PARSER_FULL
-        case 1541: /* module 5 call 5 */
+        case 1541: /* module 6 call 5 */
             return 2;
-        case 1542: /* module 5 call 6 */
+        case 1542: /* module 6 call 6 */
             return 1;
-        case 1544: /* module 5 call 8 */
+        case 1544: /* module 6 call 8 */
             return 2;
-        case 1792: /* module 7 call 0 */
+        case 2304: /* module 9 call 0 */
             return 2;
-        case 1793: /* module 7 call 1 */
+        case 2305: /* module 9 call 1 */
             return 1;
-        case 1794: /* module 7 call 2 */
+        case 2306: /* module 9 call 2 */
             return 1;
-        case 1795: /* module 7 call 3 */
+        case 2307: /* module 9 call 3 */
             return 1;
-        case 1796: /* module 7 call 4 */
+        case 2308: /* module 9 call 4 */
             return 1;
-        case 1797: /* module 7 call 5 */
+        case 2309: /* module 9 call 5 */
             return 1;
-        case 1798: /* module 7 call 6 */
+        case 2310: /* module 9 call 6 */
             return 0;
-        case 1799: /* module 7 call 7 */
+        case 2311: /* module 9 call 7 */
             return 1;
-        case 1800: /* module 7 call 8 */
+        case 2312: /* module 9 call 8 */
             return 0;
-        case 1810: /* module 7 call 18 */
-            return 2;
-        case 1811: /* module 7 call 19 */
+        case 2313: /* module 9 call 9 */
             return 1;
-        case 1801: /* module 7 call 9 */
+        case 2314: /* module 9 call 10 */
             return 1;
-        case 1802: /* module 7 call 10 */
+        case 2315: /* module 9 call 11 */
             return 1;
-        case 1803: /* module 7 call 11 */
-            return 1;
-        case 1804: /* module 7 call 12 */
+        case 2316: /* module 9 call 12 */
             return 0;
-        case 1805: /* module 7 call 13 */
+        case 2317: /* module 9 call 13 */
             return 0;
-        case 1806: /* module 7 call 14 */
+        case 2318: /* module 9 call 14 */
             return 1;
-        case 1807: /* module 7 call 15 */
+        case 2319: /* module 7 call 15 */
             return 2;
-        case 1808: /* module 7 call 16 */
+        case 2320: /* module 9 call 16 */
             return 0;
-        case 1809: /* module 7 call 17 */
+        case 2321: /* module 9 call 17 */
             return 2;
-        case 1812: /* module 7 call 20 */
+        case 2322: /* module 9 call 18 */
             return 2;
-        case 1813: /* module 7 call 21 */
+        case 2324: /* module 9 call 19 */
             return 1;
-        case 1814: /* module 7 call 22 */
+        case 2325: /* module 9 call 20 */
+            return 2;
+        case 2326: /* module 9 call 21 */
+            return 1;
+        case 2327: /* module 9 call 22 */
             return 6;
-        case 1815: /* module 7 call 23 */
+        case 2328: /* module 9 call 23 */
             return 1;
-        case 1816: /* module 7 call 24 */
+        case 2329: /* module 9 call 24 */
             return 1;
-        case 1817: /* module 7 call 25 */
+        case 2330: /* module 9 call 25 */
             return 1;
         case 4619: /* module 18 call 11 */
             return 3;
@@ -1070,7 +1060,7 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        case 1792: /* module 7 call 0 */
+        case 2304: /* module 9 call 0 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_amount;
@@ -1079,113 +1069,97 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        case 1793: /* module 7 call 1 */
+        case 2305: /* module 9 call 1 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_amount;
                 default:
                     return NULL;
             }
-        case 1794: /* module 7 call 2 */
+        case 2306: /* module 9 call 2 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_amount;
                 default:
                     return NULL;
             }
-        case 1795: /* module 7 call 3 */
+        case 2307: /* module 9 call 3 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_num_slashing_spans;
                 default:
                     return NULL;
             }
-        case 1796: /* module 7 call 4 */
+        case 2308: /* module 9 call 4 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_prefs;
                 default:
                     return NULL;
             }
-        case 1797: /* module 7 call 5 */
+        case 2309: /* module 9 call 5 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_targets;
                 default:
                     return NULL;
             }
-        case 1798: /* module 7 call 6 */
+        case 2310: /* module 9 call 6 */
             switch (itemIdx) {
                 default:
                     return NULL;
             }
-        case 1799: /* module 7 call 7 */
+        case 2311: /* module 9 call 7 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_payee;
                 default:
                     return NULL;
             }
-        case 1800: /* module 7 call 8 */
+        case 2312: /* module 9 call 8 */
             switch (itemIdx) {
                 default:
                     return NULL;
             }
-        case 1810: /* module 7 call 18 */
-            switch (itemIdx) {
-                case 0:
-                    return STR_IT_validator_stash;
-                case 1:
-                    return STR_IT_era;
-                default:
-                    return NULL;
-            }
-        case 1811: /* module 7 call 19 */
-            switch (itemIdx) {
-                case 0:
-                    return STR_IT_amount;
-                default:
-                    return NULL;
-            }
-        case 1801: /* module 7 call 9 */
+        case 2313: /* module 9 call 9 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_new_;
                 default:
                     return NULL;
             }
-        case 1802: /* module 7 call 10 */
+        case 2314: /* module 9 call 10 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_additional;
                 default:
                     return NULL;
             }
-        case 1803: /* module 7 call 11 */
+        case 2315: /* module 9 call 11 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_factor;
                 default:
                     return NULL;
             }
-        case 1804: /* module 7 call 12 */
+        case 2316: /* module 9 call 12 */
             switch (itemIdx) {
                 default:
                     return NULL;
             }
-        case 1805: /* module 7 call 13 */
+        case 2317: /* module 9 call 13 */
             switch (itemIdx) {
                 default:
                     return NULL;
             }
-        case 1806: /* module 7 call 14 */
+        case 2318: /* module 9 call 14 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_invulnerables;
                 default:
                     return NULL;
             }
-        case 1807: /* module 7 call 15 */
+        case 2319: /* module 9 call 15 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_stash;
@@ -1194,12 +1168,12 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        case 1808: /* module 7 call 16 */
+        case 2320: /* module 9 call 16 */
             switch (itemIdx) {
                 default:
                     return NULL;
             }
-        case 1809: /* module 7 call 17 */
+        case 2321: /* module 9 call 17 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_era;
@@ -1208,7 +1182,23 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        case 1812: /* module 7 call 20 */
+        case 2322: /* module 9 call 18 */
+            switch (itemIdx) {
+                case 0:
+                    return STR_IT_validator_stash;
+                case 1:
+                    return STR_IT_era;
+                default:
+                    return NULL;
+            }
+        case 2323: /* module 9 call 19 */
+            switch (itemIdx) {
+                case 0:
+                    return STR_IT_amount;
+                default:
+                    return NULL;
+            }
+        case 2324: /* module 9 call 20 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_stash;
@@ -1217,14 +1207,14 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        case 1813: /* module 7 call 21 */
+        case 2325: /* module 9 call 21 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_who;
                 default:
                     return NULL;
             }
-        case 1814: /* module 7 call 22 */
+        case 2326: /* module 9 call 22 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_min_nominator_bond;
@@ -1241,21 +1231,21 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        case 1815: /* module 7 call 23 */
+        case 2327: /* module 9 call 23 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_controller;
                 default:
                     return NULL;
             }
-        case 1816: /* module 7 call 24 */
+        case 2328: /* module 9 call 24 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_validator_stash;
                 default:
                     return NULL;
             }
-        case 1817: /* module 7 call 25 */
+        case 2329: /* module 9 call 25 */
             switch (itemIdx) {
                 case 0:
                     return STR_IT_new_;
@@ -1583,7 +1573,7 @@ parser_error_t _getMethod_ItemValue_V2(
                     return parser_no_data;
             }
 #ifdef SUBSTRATE_PARSER_FULL
-        case 1541: /* module 5 call 5 */
+        case 1541: /* module 6 call 5 */
             switch (itemIdx) {
                 case 0: /* balances_force_unreserve_V24 - who */;
                     return _toStringAccountIdLookupOfT(
@@ -1598,7 +1588,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1542: /* module 5 call 6 */
+        case 1542: /* module 6 call 6 */
             switch (itemIdx) {
                 case 0: /* balances_upgrade_accounts_V24 - who */;
                     return _toStringVecAccountId(
@@ -1608,7 +1598,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1544: /* module 5 call 8 */
+        case 1544: /* module 6 call 8 */
             switch (itemIdx) {
                 case 0: /* balances_force_set_balance_V24 - who */;
                     return _toStringAccountIdLookupOfT(
@@ -1623,7 +1613,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1792: /* module 7 call 0 */
+        case 2304: /* module 9 call 0 */
             switch (itemIdx) {
                 case 0: /* staking_bond_V2 - amount */;
                     return _toStringCompactBalance(
@@ -1638,7 +1628,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1793: /* module 7 call 1 */
+        case 2305: /* module 9 call 1 */
             switch (itemIdx) {
                 case 0: /* staking_bond_extra_V2 - amount */;
                     return _toStringCompactBalance(
@@ -1648,7 +1638,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1794: /* module 7 call 2 */
+        case 2306: /* module 9 call 2 */
             switch (itemIdx) {
                 case 0: /* staking_unbond_V2 - amount */;
                     return _toStringCompactBalance(
@@ -1658,7 +1648,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1795: /* module 7 call 3 */
+        case 2307: /* module 9 call 3 */
             switch (itemIdx) {
                 case 0: /* staking_withdraw_unbonded_V2 - num_slashing_spans */;
                     return _toStringu32(
@@ -1668,7 +1658,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1796: /* module 7 call 4 */
+        case 2308: /* module 9 call 4 */
             switch (itemIdx) {
                 case 0: /* staking_validate_V2 - prefs */;
                     return _toStringValidatorPrefs(
@@ -1678,7 +1668,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1797: /* module 7 call 5 */
+        case 2309: /* module 9 call 5 */
             switch (itemIdx) {
                 case 0: /* staking_nominate_V2 - targets */;
                     return _toStringVecAccountIdLookupOfT(
@@ -1688,12 +1678,12 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1798: /* module 7 call 6 */
+        case 2310: /* module 9 call 6 */
             switch (itemIdx) {
                 default:
                     return parser_no_data;
             }
-        case 1799: /* module 7 call 7 */
+        case 2311: /* module 9 call 7 */
             switch (itemIdx) {
                 case 0: /* staking_set_payee_V2 - payee */;
                     return _toStringRewardDestination(
@@ -1703,37 +1693,12 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1800: /* module 7 call 8 */
+        case 2312: /* module 9 call 8 */
             switch (itemIdx) {
                 default:
                     return parser_no_data;
             }
-        case 1810: /* module 7 call 18 */
-            switch (itemIdx) {
-                case 0: /* staking_payout_stakers_V2 - validator_stash */;
-                    return _toStringAccountId(
-                            &m->basic.staking_payout_stakers_V2.validator_stash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_payout_stakers_V2 - era */;
-                    return _toStringEraIndex(
-                            &m->basic.staking_payout_stakers_V2.era,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1811: /* module 7 call 19 */
-            switch (itemIdx) {
-                case 0: /* staking_rebond_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.staking_rebond_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1801: /* module 7 call 9 */
+        case 2313: /* module 9 call 9 */
             switch (itemIdx) {
                 case 0: /* staking_set_validator_count_V2 - new_ */;
                     return _toStringCompactu32(
@@ -1743,7 +1708,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1802: /* module 7 call 10 */
+        case 2314: /* module 9 call 10 */
             switch (itemIdx) {
                 case 0: /* staking_increase_validator_count_V2 - additional */;
                     return _toStringCompactu32(
@@ -1753,7 +1718,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1803: /* module 7 call 11 */
+        case 2315: /* module 9 call 11 */
             switch (itemIdx) {
                 case 0: /* staking_scale_validator_count_V2 - factor */;
                     return _toStringPercent(
@@ -1763,17 +1728,17 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1804: /* module 7 call 12 */
+        case 2316: /* module 9 call 12 */
             switch (itemIdx) {
                 default:
                     return parser_no_data;
             }
-        case 1805: /* module 7 call 13 */
+        case 2317: /* module 9 call 13 */
             switch (itemIdx) {
                 default:
                     return parser_no_data;
             }
-        case 1806: /* module 7 call 14 */
+        case 2318: /* module 9 call 14 */
             switch (itemIdx) {
                 case 0: /* staking_set_invulnerables_V2 - invulnerables */;
                     return _toStringVecAccountId(
@@ -1783,7 +1748,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1807: /* module 7 call 15 */
+        case 2319: /* module 9 call 15 */
             switch (itemIdx) {
                 case 0: /* staking_force_unstake_V2 - stash */;
                     return _toStringAccountId(
@@ -1798,12 +1763,12 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1808: /* module 7 call 16 */
+        case 2320: /* module 9 call 16 */
             switch (itemIdx) {
                 default:
                     return parser_no_data;
             }
-        case 1809: /* module 7 call 17 */
+        case 2321: /* module 9 call 17 */
             switch (itemIdx) {
                 case 0: /* staking_cancel_deferred_slash_V2 - era */;
                     return _toStringEraIndex(
@@ -1818,7 +1783,32 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1812: /* module 7 call 20 */
+        case 2322: /* module 9 call 18 */
+            switch (itemIdx) {
+                case 0: /* staking_payout_stakers_V2 - validator_stash */;
+                    return _toStringAccountId(
+                            &m->basic.staking_payout_stakers_V2.validator_stash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* staking_payout_stakers_V2 - era */;
+                    return _toStringEraIndex(
+                            &m->basic.staking_payout_stakers_V2.era,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2323: /* module 9 call 19 */
+            switch (itemIdx) {
+                case 0: /* staking_rebond_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->nested.staking_rebond_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2324: /* module 9 call 20 */
             switch (itemIdx) {
                 case 0: /* staking_reap_stash_V2 - stash */;
                     return _toStringAccountId(
@@ -1833,7 +1823,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1813: /* module 7 call 21 */
+        case 2325: /* module 9 call 21 */
             switch (itemIdx) {
                 case 0: /* staking_kick_V2 - who */;
                     return _toStringVecAccountIdLookupOfT(
@@ -1843,7 +1833,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1814: /* module 7 call 22 */
+        case 2326: /* module 9 call 22 */
             switch (itemIdx) {
                 case 0: /* staking_set_staking_configs_V2 - min_nominator_bond */;
                     return _toStringConfigOpBalanceOfT(
@@ -1878,7 +1868,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1815: /* module 7 call 23 */
+        case 2327: /* module 9 call 23 */
             switch (itemIdx) {
                 case 0: /* staking_chill_other_V2 - controller */;
                     return _toStringAccountId(
@@ -1888,7 +1878,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1816: /* module 7 call 24 */
+        case 2328: /* module 9 call 24 */
             switch (itemIdx) {
                 case 0: /* staking_force_apply_min_commission_V2 - validator_stash */;
                     return _toStringAccountId(
@@ -1898,7 +1888,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1817: /* module 7 call 25 */
+        case 2329: /* module 9 call 25 */
             switch (itemIdx) {
                 case 0: /* staking_set_min_commission_V2 - new_ */;
                     return _toStringPerbill(
@@ -1972,14 +1962,14 @@ bool _getMethod_ItemIsExpert_V2(uint8_t moduleIdx, uint8_t callIdx, __Z_UNUSED u
                 default:
                     return false;
             }
-        case 9988: // NominationPools:Pool withdraw unbonded
+        case 4612: // NominationPools:Pool withdraw unbonded
             switch (itemIdx) {
                 case 1: // Num slashing spans
                     return true;
                 default:
                     return false;
             }
-        case 9989: // NominationPools:Withdraw Unbonded
+        case 4613: // NominationPools:Withdraw Unbonded
             switch (itemIdx) {
                 case 1: // Num slashing spans
                     return true;
@@ -2013,10 +2003,10 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
         case 1815: // Staking:Chill other
         case 1816: // Staking:Force apply min commission
         case 1817: // Staking:Set min commission
-        case 9988: // NominationPools:Pool withdraw unbonded
-        case 9991: // NominationPools:Create with pool id
-        case 9995: // NominationPools:Set configs
-        case 9998: // NominationPools:Bond extra other
+        case 4612: // NominationPools:Pool withdraw unbonded
+//        case 4608: // NominationPools:Create with pool id // TODO: Doesn't exists, only create
+        case 4619: // NominationPools:Set configs
+//        case 4608: // NominationPools:Bond extra other // TODO: Doesnt exists, only bond
 
         default:
             return true;
