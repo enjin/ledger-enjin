@@ -9,7 +9,21 @@
 | Transfer keep alive    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | `AccountIdLookupOfT`dest<br/>`CompactBalance`amount<br/>                                   |
 | Transfer all           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `AccountIdLookupOfT`dest<br/>`bool`keep_alive<br/>                                         |
 | Transfer               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | `AccountIdLookupOfT`dest<br/>`CompactBalance`amount<br/>                                   |
+| Force unreserve        |                    | :heavy_check_mark: | :heavy_check_mark: |                    | `AccountIdLookupOfT`who<br/>`Balance`amount<br/>                                           |
+| Upgrade accounts       |                    | :heavy_check_mark: | :heavy_check_mark: |                    | `VecAccountId`who<br/>                                                                     |
+| Transfer               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | `AccountIdLookupOfT`dest<br/>`CompactBalance`amount<br/>                                   |
+| Force set balance      |                    | :heavy_check_mark: | :heavy_check_mark: |                    | `AccountIdLookupOfT`who<br/>`CompactBalance`new_free<br/>                                  |
 
+## StakeExchange
+
+| Name                        | Nano S | Nano S XL          | Nano SP/X - Stax   | Nesting            | Arguments |
+|-----------------------------| ------ | ------------------ | ------------------ | ------------------ |-----------|
+| Add liquidity               |        |                    |                    |                    |           |
+| Buy                         |        |                    |                    |                    |           |
+| Cancel offer                |        |                    |                    |                    |           |
+| Configure liquidity account |        |                    |                    |                    |           |
+| Create offer                |        |                    |                    |                    |           |
+| Withdraw liquidity          |        |                    |                    |                    |           |
 
 ## Staking
 
@@ -41,7 +55,6 @@
 | Chill other                |                    |                    |                    |                    | `AccountId`controller<br/>                                                                                                                                                                                                                |
 | Force apply min commission |                    |                    |                    |                    | `AccountId`validator_stash<br/>                                                                                                                                                                                                           |
 | Set min commission         |                    |                    |                    |                    | `Perbill`new\_<br/>                                                                                                                                                                                                                       |
-
 
 ## NominationPools
 

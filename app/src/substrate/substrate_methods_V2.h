@@ -222,6 +222,7 @@ typedef struct {
     pd_VecAccountIdLookupOfT_t who;
 } pd_staking_kick_V2_t;
 
+
 #define PD_CALL_STAKING_SET_STAKING_CONFIGS_V2 22
 typedef struct {
     pd_ConfigOpBalanceOfT_t min_nominator_bond;
