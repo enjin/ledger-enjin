@@ -58,42 +58,42 @@
 
 ## MultiTokens
 
-| Name                         | Nano S             | Nano S XL          | Nano SP/X - Stax   | Nesting            | Arguments |
-|------------------------------|--------------------|--------------------|--------------------| ------------------ |-----------|
-| Approve collection           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Approve token                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Batch mint                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Batch set attribute          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Batch transfer               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Burn                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Claim collections            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Claim tokens                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Create collection            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Destroy collection           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force approve collection     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force burn                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force create collection      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force freeze                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force mint                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force mutate collection      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force set attribute          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force set collection         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force set collection account | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force set next collection id | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force set token              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force set token account      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Force transfer               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Freeze                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Mint                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Mutate collection            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Mutate token                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Remove all attributes        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Remove attribute             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Set attribute                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Thaw                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Transfer                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Unapprove collection         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
-| Unapprove token              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Name                         | Nano S             | Nano S XL          | Nano SP/X - Stax   | Nesting | Arguments                                                                                                                                                           |
+|------------------------------|--------------------|--------------------|--------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Approve collection           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`AccountId`operator<br/>`Expiration`expiration<br/>                                                                                 |
+| Approve token                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`TokenId`token_id<br/>`AccountId`operator<br/>`TokenBalance`amount<br/>`Expiration`expiration<br/>`TokenBalance`current_amount<br/> |
+| Batch mint                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`VecMintRecipientsOf`recipients<br/>                                                                                                |
+| Batch set attribute          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`TokenId`token_id<br/>`VecAttributesOf`attributes<br/>                                                                              |
+| Batch transfer               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`VecTransferRecipientsOf`recipients<br/>                                                                                            |
+| Burn                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`BurnParamsOf`params<br/>                                                                                                           |
+| Claim collections            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `AccountId`destination<br/>`SpCoreEcdsaSignature`ethereum_signature<br/>`H160`ethereum_address<br/>                                                                 |
+| Claim tokens                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `AccountId`destination<br/>`SpCoreEcdsaSignature`ethereum_signature<br/>`H160`ethereum_address<br/>                                                                 |
+| Create collection            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionDescriptor`descriptor<br/>                                                                                                                               |
+| Destroy collection           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>                                                                                                                                    |
+| Force approve collection     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`AccountId`operator<br/>`Expiration`expiration<br/>                                                                                 |
+| Force burn                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`BurnParamsOf`params<br/>                                                                                                           |
+| Force create collection      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionDescriptor`descriptor<br/>                                                                                                                               |
+| Force freeze                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `FreezeOf`info                                                                                                                                                      |
+| Force mint                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `AccountIdLookupOfT`recipient<br/>`CollectionId`collection_id<br/>`MintParamsOf`params<br/>                                                                         |
+| Force mutate collection      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`CollectionMutation`mutation<br/>                                                                                                   |
+| Force set attribute          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`TokenId`token_id<br/>`Bytes`key<br/>`Bytes`value<br/>                                                                              |
+| Force set collection         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`CollectionOf`value<br/>                                                                                                            |
+| Force set collection account | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`AccountIdLookupOfT`account_id<br/>`CollectionAccountOf`value<br/>                                                                  |
+| Force set next collection id | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`value<br/>                                                                                                                                            |
+| Force set token              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`TokenId`token_id<br/>`TokenOf`value<br/>                                                                                           |
+| Force set token account      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`TokenId`token_id<br/>`AccountIdLookupOfT`account_id<br/>`TokenAccountOf`value<br/>                                                 |
+| Force transfer               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `AccountIdLookupOfT`source<br/>`AccountIdLookupOfT`destination<br/>`CollectionId`collection_id<br/>`TransferParamsOf`params<br/>                                    |
+| Freeze                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `FreezeOf`info                                                                                                                                                      |
+| Mint                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `AccountIdLookupOfT`recipient<br/>`CollectionId`collection_id<br/>`MintParamsOf`params<br/>                                                                         |
+| Mutate collection            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`CollectionMutation`mutation<br/>                                                                                                   |
+| Mutate token                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`TokenId`token_id<br/>`TokenMutation`mutation<br/>                                                                                  |
+| Remove all attributes        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`TokenId`token_id<br/>`u32`attribute_count<br/>                                                                                     |
+| Remove attribute             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`TokenId`token_id<br/>`Bytes`key<br/>                                                                                               |
+| Set attribute                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`TokenId`token_id<br/>`Bytes`key<br/>`Bytes`value<br/>                                                                              |
+| Thaw                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `FreezeOf`info<br/>                                                                                                                                                 |
+| Transfer                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `AccountIdLookupOfT`recipient<br/>`CollectionId`collection_id<br/>`TransferParamsOf`params<br/>                                                                     |
+| Unapprove collection         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`AccountId`operator<br/>                                                                                                            |
+| Unapprove token              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |         | `CollectionId`collection_id<br/>`TokenId`token_id<br/>`AccountId`operator<br/>                                                                                      |
 
 ## NominationPools
 
