@@ -56,6 +56,44 @@
 | Force apply min commission | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `AccountId`validator_stash<br/>                                                                                                                                                                                                           |
 | Set min commission         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `Perbill`new\_<br/>                                                                                                                                                                                                                       |
 
+## MultiTokens
+
+| Name                         | Nano S             | Nano S XL          | Nano SP/X - Stax   | Nesting            | Arguments |
+|------------------------------|--------------------|--------------------|--------------------| ------------------ |-----------|
+| Approve collection           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Approve token                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Batch mint                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Batch set attribute          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Batch transfer               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Burn                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Claim collections            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Claim tokens                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Create collection            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Destroy collection           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force approve collection     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force burn                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force create collection      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force freeze                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force mint                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force mutate collection      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force set attribute          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force set collection         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force set collection account | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force set next collection id | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force set token              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force set token account      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Force transfer               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Freeze                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Mint                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Mutate collection            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Mutate token                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Remove all attributes        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Remove attribute             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Set attribute                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Thaw                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Transfer                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Unapprove collection         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
+| Unapprove token              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |           |
 
 ## NominationPools
 
