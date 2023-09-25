@@ -146,26 +146,6 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_queue_early_bird_bonus_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_nominationpools_set_staking_info_V2(
-        parser_context_t* c, pd_nominationpools_set_staking_info_V2_t* m)
-{
-    CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    CHECK_ERROR(_readPoolState(c, &m->state))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_nominationpools_set_configs_V2(
-        parser_context_t* c, pd_nominationpools_set_configs_V2_t* m)
-{
-    CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_join_bond))
-    CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_create_bond))
-    CHECK_ERROR(_readConfigOpu32(c, &m->max_pools))
-    CHECK_ERROR(_readConfigOpu32(c, &m->max_members))
-    CHECK_ERROR(_readConfigOpu32(c, &m->max_members_per_pool))
-    CHECK_ERROR(_readConfigOpPerbill(c, &m->global_max_commission))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_nominationpools_unbond_V2(
         parser_context_t* c, pd_nominationpools_unbond_V2_t* m)
 {
@@ -429,6 +409,26 @@ __Z_INLINE parser_error_t _readMethod_staking_set_min_commission_V2(
     CHECK_ERROR(_readPerbill(c, &m->new_))
     return parser_ok;
 }
+
+__Z_INLINE parser_error_t _readMethod_nominationpools_set_staking_info_V2(
+        parser_context_t* c, pd_nominationpools_set_staking_info_V2_t* m)
+{
+    CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    CHECK_ERROR(_readPoolState(c, &m->state))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_nominationpools_set_configs_V2(
+        parser_context_t* c, pd_nominationpools_set_configs_V2_t* m)
+{
+    CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_join_bond))
+    CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_create_bond))
+    CHECK_ERROR(_readConfigOpu32(c, &m->max_pools))
+    CHECK_ERROR(_readConfigOpu32(c, &m->max_members))
+    CHECK_ERROR(_readConfigOpu32(c, &m->max_members_per_pool))
+    CHECK_ERROR(_readConfigOpPerbill(c, &m->global_max_commission))
+    return parser_ok;
+}
 #endif
 
 
@@ -477,9 +477,6 @@ parser_error_t _readMethod_V2(
         case 4616: /* module 18 call 8 */
         CHECK_ERROR(_readMethod_nominationpools_nominate_V2(c, &method->nested.nominationpools_nominate_V2))
             break;
-        case 4619: /* module 18 call 11 */
-        CHECK_ERROR(_readMethod_nominationpools_set_configs_V2(c, &method->basic.nominationpools_set_configs_V2))
-            break;
         case 4621: /* module 18 call 13 */
         CHECK_ERROR(_readMethod_nominationpools_chill_V2(c, &method->nested.nominationpools_chill_V2))
             break;
@@ -499,9 +496,6 @@ parser_error_t _readMethod_V2(
         case 4629: /* module 18 call 21 */
         CHECK_ERROR(_readMethod_nominationpools_withdraw_deposit_V2(c, &method->nested.nominationpools_withdraw_deposit_V2))
             break;
-        case 4630: /* module 39 call 22 */
-        CHECK_ERROR(_readMethod_nominationpools_set_staking_info_V2(c, &method->nested.nominationpools_set_staking_info_V2))
-            break;
         case 4631: /* module 18 call 23 */
         CHECK_ERROR(_readMethod_nominationpools_queue_early_bird_bonus_V2(c,
                                                                           &method->basic.nominationpools_queue_early_bird_bonus_V2))
@@ -511,6 +505,15 @@ parser_error_t _readMethod_V2(
                                                                                &method->nested.nominationpools_distribute_early_bird_bonus_V2))
             break;
 #ifdef SUBSTRATE_PARSER_FULL
+        case 1541: /* module 6 call 5 */
+        CHECK_ERROR(_readMethod_balances_force_unreserve_V2(c, &method->basic.balances_force_unreserve_V2))
+            break;
+        case 1542: /* module 6 call 6 */
+        CHECK_ERROR(_readMethod_balances_upgrade_accounts_V2(c, &method->basic.balances_upgrade_accounts_V2))
+            break;
+        case 1544: /* module 6 call 8 */
+        CHECK_ERROR(_readMethod_balances_force_set_balance_V2(c, &method->basic.balances_force_set_balance_V2))
+            break;
         case 1792: /* module 7 call 0 */
         CHECK_ERROR(_readMethod_staking_bond_V2(c, &method->nested.staking_bond_V2))
             break;
@@ -589,6 +592,12 @@ parser_error_t _readMethod_V2(
         case 1817: /* module 7 call 25 */
         CHECK_ERROR(_readMethod_staking_set_min_commission_V2(c, &method->basic.staking_set_min_commission_V2))
             break;
+        case 4619: /* module 18 call 11 */
+        CHECK_ERROR(_readMethod_nominationpools_set_configs_V2(c, &method->basic.nominationpools_set_configs_V2))
+            break;
+        case 4630: /* module 18 call 22 */
+        CHECK_ERROR(_readMethod_nominationpools_set_staking_info_V2(c, &method->nested.nominationpools_set_staking_info_V2))
+            break;
 #endif
         default:
             return parser_unexpected_callIndex;
@@ -607,10 +616,12 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
     switch (moduleIdx) {
         case 6:
             return STR_MO_BALANCES;
-        case 7:
-            return STR_MO_STAKING;
         case 18:
             return STR_MO_NOMINATIONPOOLS;
+#ifdef SUBSTRATE_PARSER_FULL
+        case 7:
+            return STR_MO_STAKING;
+#endif
         default:
             return NULL;
     }
@@ -645,8 +656,6 @@ const char* _getMethod_Name_V2(uint8_t moduleIdx, uint8_t callIdx)
             return STR_ME_CREATE;
         case 4616: /* module 18 call 8 */
             return STR_ME_NOMINATE;
-        case 4619: /* module 18 call 11 */
-            return STR_ME_SET_CONFIGS;
         case 4621: /* module 18 call 13 */
             return STR_ME_CHILL;
         case 4622: /* module 18 call 14 */
@@ -659,8 +668,6 @@ const char* _getMethod_Name_V2(uint8_t moduleIdx, uint8_t callIdx)
             return STR_ME_UNBOND_DEPOSIT;
         case 4629: /* module 18 call 21 */
             return STR_ME_WITHDRAW_DEPOSIT;
-        case 4630: /* module 18 call 22 */
-            return STR_ME_SET_STAKING_INFO;
         case 4631: /* module 18 call 23 */
             return STR_ME_QUEUE_EARLY_BIRD_BONUS;
         case 4632: /* module 18 call 24 */
@@ -676,6 +683,12 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
 {
     switch (callPrivIdx) {
 #ifdef SUBSTRATE_PARSER_FULL
+        case 1541: /* module 6 call 5 */
+            return STR_ME_FORCE_UNRESERVE;
+        case 1542: /* module 6 call 6 */
+            return STR_ME_UPGRADE_ACCOUNTS;
+        case 1544: /* module 6 call 8 */
+            return STR_ME_FORCE_SET_BALANCE;
         case 1792: /* module 7 call 0 */
             return STR_ME_BOND;
         case 1793: /* module 7 call 1 */
@@ -728,6 +741,10 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
             return STR_ME_FORCE_APPLY_MIN_COMMISSION;
         case 1817: /* module 7 call 25 */
             return STR_ME_SET_MIN_COMMISSION;
+        case 4619: /* module 18 call 11 */
+            return STR_ME_SET_CONFIGS;
+        case 4630: /* module 18 call 22 */
+            return STR_ME_SET_STAKING_INFO;
 #endif
         default:
             return NULL;
@@ -763,8 +780,6 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
             return 6;
         case 4616: /* module 18 call 8 */
             return 2;
-        case 4619: /* module 18 call 11 */
-            return 3;
         case 4621: /* module 18 call 13 */
             return 1;
         case 4622: /* module 18 call 14 */
@@ -778,13 +793,17 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
             return 1;
         case 4629: /* module 18 call 21 */
             return 1;
-        case 4630: /* module 18 call 22 */
-            return 1;
         case 4631: /* module 18 call 23 */
             return 0;
         case 4632: /* module 18 call 24 */
             return 1;
 #ifdef SUBSTRATE_PARSER_FULL
+        case 1541: /* module 5 call 5 */
+            return 2;
+        case 1542: /* module 5 call 6 */
+            return 1;
+        case 1544: /* module 5 call 8 */
+            return 2;
         case 1792: /* module 7 call 0 */
             return 2;
         case 1793: /* module 7 call 1 */
@@ -836,6 +855,10 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         case 1816: /* module 7 call 24 */
             return 1;
         case 1817: /* module 7 call 25 */
+            return 1;
+        case 4619: /* module 18 call 11 */
+            return 3;
+        case 4630: /* module 18 call 22 */
             return 1;
 #endif
         default:
@@ -963,17 +986,6 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        case 4619: /* module 18 call 11 */
-            switch (itemIdx) {
-                case 0:
-                    return STR_IT_min_join_bond;
-                case 1:
-                    return STR_IT_min_create_bond;
-                case 2:
-                    return STR_IT_global_max_commission;
-                default:
-                    return NULL;
-            }
         case 4621: /* module 18 call 13 */
             switch (itemIdx) {
                 case 0:
@@ -1020,13 +1032,6 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        case 4630: /* module 18 call 22 */
-            switch (itemIdx) {
-                case 0: // TODO: Check if info or annualInflation (setStakingInfo)
-                    return STR_IT_info;
-                default:
-                    return NULL;
-            }
         case 4631: /* module 18 call 23 */
             switch (itemIdx) {
                 default:
@@ -1040,6 +1045,31 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                     return NULL;
             }
 #ifdef SUBSTRATE_PARSER_FULL
+        case 1541: /* module 6 call 5 */
+            switch (itemIdx) {
+                case 0:
+                    return STR_IT_who;
+                case 1:
+                    return STR_IT_amount;
+                default:
+                    return NULL;
+            }
+        case 1542: /* module 6 call 6 */
+            switch (itemIdx) {
+                case 0:
+                    return STR_IT_who;
+                default:
+                    return NULL;
+            }
+        case 1544: /* module 6 call 8 */
+            switch (itemIdx) {
+                case 0:
+                    return STR_IT_who;
+                case 1:
+                    return STR_IT_new_free;
+                default:
+                    return NULL;
+            }
         case 1792: /* module 7 call 0 */
             switch (itemIdx) {
                 case 0:
@@ -1229,6 +1259,24 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             switch (itemIdx) {
                 case 0:
                     return STR_IT_new_;
+                default:
+                    return NULL;
+            }
+        case 4619: /* module 18 call 11 */
+            switch (itemIdx) {
+                case 0:
+                    return STR_IT_min_join_bond;
+                case 1:
+                    return STR_IT_min_create_bond;
+                case 2:
+                    return STR_IT_global_max_commission;
+                default:
+                    return NULL;
+            }
+        case 4630: /* module 18 call 22 */
+            switch (itemIdx) {
+                case 0: // TODO: Check if info or annualInflation (setStakingInfo)
+                    return STR_IT_info;
                 default:
                     return NULL;
             }
@@ -1449,26 +1497,6 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 4619: /* module 18 call 11 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_set_configs_V2 - min_join_bond */;
-                    return _toStringCompactBalance(
-                            &m->basic.nominationpools_set_configs_V2.min_join_bond,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_set_configs_V2 - min_create_bond */;
-                    return _toStringCompactBalance(
-                            &m->basic.nominationpools_set_configs_V2.min_create_bond,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_set_configs_V2 - global_max_commission */;
-                    return _toStringCompactu32(
-                            &m->basic.nominationpools_set_configs_V2.global_max_commission,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
         case 4621: /* module 18 call 13 */
             switch (itemIdx) {
                 case 0: /* nominationpools_chill_V2 - pool_id */;
@@ -1539,16 +1567,6 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 4630: /* module 18 call 22 */ //TODO: Probably wrong
-            switch (itemIdx) {
-                case 0: /* nominationpools_set_staking_info_V2 - info */;
-                    return _toStringStakingInfo(
-                            &m->basic.nominationpools_set_staking_info_V2.info,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
         case 4631: /* module 18 call 23 */
             switch (itemIdx) {
                 default:
@@ -1565,6 +1583,46 @@ parser_error_t _getMethod_ItemValue_V2(
                     return parser_no_data;
             }
 #ifdef SUBSTRATE_PARSER_FULL
+        case 1541: /* module 5 call 5 */
+            switch (itemIdx) {
+                case 0: /* balances_force_unreserve_V24 - who */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.balances_force_unreserve_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* balances_force_unreserve_V24 - amount */;
+                    return _toStringBalance(
+                            &m->basic.balances_force_unreserve_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1542: /* module 5 call 6 */
+            switch (itemIdx) {
+                case 0: /* balances_upgrade_accounts_V24 - who */;
+                    return _toStringVecAccountId(
+                            &m->basic.balances_upgrade_accounts_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1544: /* module 5 call 8 */
+            switch (itemIdx) {
+                case 0: /* balances_force_set_balance_V24 - who */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.balances_force_set_balance_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* balances_force_set_balance_V24 - new_free */;
+                    return _toStringCompactBalance(
+                            &m->basic.balances_force_set_balance_V2.new_free,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
         case 1792: /* module 7 call 0 */
             switch (itemIdx) {
                 case 0: /* staking_bond_V2 - amount */;
@@ -1845,6 +1903,36 @@ parser_error_t _getMethod_ItemValue_V2(
                 case 0: /* staking_set_min_commission_V2 - new_ */;
                     return _toStringPerbill(
                             &m->basic.staking_set_min_commission_V2.new_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4619: /* module 18 call 11 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_set_configs_V2 - min_join_bond */;
+                    return _toStringCompactBalance(
+                            &m->basic.nominationpools_set_configs_V2.min_join_bond,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_set_configs_V2 - min_create_bond */;
+                    return _toStringCompactBalance(
+                            &m->basic.nominationpools_set_configs_V2.min_create_bond,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* nominationpools_set_configs_V2 - global_max_commission */;
+                    return _toStringCompactu32(
+                            &m->basic.nominationpools_set_configs_V2.global_max_commission,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4630: /* module 18 call 22 */ //TODO: Probably wrong
+            switch (itemIdx) {
+                case 0: /* nominationpools_set_staking_info_V2 - info */;
+                    return _toStringStakingInfo(
+                            &m->basic.nominationpools_set_staking_info_V2.info,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
