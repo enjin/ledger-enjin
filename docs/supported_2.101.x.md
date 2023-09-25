@@ -16,14 +16,14 @@
 
 ## StakeExchange
 
-| Name                        | Nano S | Nano S XL          | Nano SP/X - Stax   | Nesting            | Arguments |
-|-----------------------------| ------ | ------------------ | ------------------ | ------------------ |-----------|
-| Add liquidity               |        |                    |                    |                    |           |
-| Buy                         |        |                    |                    |                    |           |
-| Cancel offer                |        |                    |                    |                    |           |
-| Configure liquidity account |        |                    |                    |                    |           |
-| Create offer                |        |                    |                    |                    |           |
-| Withdraw liquidity          |        |                    |                    |                    |           |
+| Name                        | Nano S             | Nano S XL          | Nano SP/X - Stax   | Nesting            | Arguments                                                            |
+|-----------------------------|--------------------|--------------------|--------------------| ------------------ |----------------------------------------------------------------------|
+| Add liquidity               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `OfferId`offer_id<br/>`BalanceOf`amount<br/>                         |
+| Buy                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `OfferId`offer_id<br/>`BalanceOf`amount<br/>`TokenIdOf`token_id<br/> |
+| Cancel offer                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `OfferId`offer_id<br/>                                               |
+| Configure liquidity account | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `LiquidityAccountConfigOf`config<br/>                                |
+| Create offer                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `OfferOf`offer<br/>                                                  |
+| Withdraw liquidity          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `OfferId`offer_id<br/>`BalanceOf`amount<br/>                         |
 
 ## Staking
 
@@ -59,22 +59,22 @@
 
 ## NominationPools
 
-| Name                        | Nano S             | Nano S XL          | Nano SP/X - Stax   | Nesting            | Arguments                                        |
-|-----------------------------|--------------------|--------------------|--------------------| ------------------ |--------------------------------------------------|
-| Bond                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                                                  |
-| Chill                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>                             |
-| Create                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                                                  |
-| Destroy                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>                             |
-| Distribute early bird bonus | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `u32`transfer_count<br/>                         |
-| Mutate                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                                                  |
-| Nominate                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                                                  |
-| Payout rewards              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `AccountId`validator_stash<br/>`u32`era<br/>     |
-| Pool withdraw unbonded      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>`u32`num_slashing_spans<br/> |
-| Queue early bird bonus      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                                                  |
-| Set configs                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                                                  |
-| Set staking info            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                                                  |
-| Unbond                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                                                  |
-| Unbond deposit              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>                             |
-| Withdraw deposit            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>                             |
-| Withdraw unbonded           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                                                  |
+| Name                        | Nano S             | Nano S XL          | Nano SP/X - Stax   | Nesting            | Arguments                                                                                                                                                           |
+|-----------------------------|--------------------|--------------------|--------------------| ------------------ |---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Bond                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>`BondValueOf`amount<br/>                                                                                                                        |
+| Chill                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>                                                                                                                                                |
+| Create                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `TokenIdOf`token_id<br/>`CompactBalance`deposit<br/>`CompactBalance`capacity<br/>`EraIndex`duration<br/>`AccountIdLookupOfT`admin<br/>`AccountIdLookupOfT`nominator<br/> |
+| Destroy                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>                                                                                                                                                |
+| Distribute early bird bonus | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `u32`transfer_count<br/>                                                                                                                                            |
+| Mutate                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>`PoolMutationOf`mutation                                                                                                                        |
+| Nominate                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>`VecAccountId`validators<br/>                                                                                                                   |
+| Payout rewards              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `AccountId`validator_stash<br/>`EraIndex`era<br/>                                                                                                                   |
+| Pool withdraw unbonded      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>`u32`num_slashing_spans<br/>                                                                                                                    |
+| Queue early bird bonus      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |                                                                                                                                                                     |
+| Set configs                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `ConfigOpu128`min_join_bond<br/>`ConfigOpu128`min_create_bond<br/>`ConfigOpPerbill`global_max_comission<br/>                                                        |
+| Set staking info            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `StakingInfo`info<br/>                                                                                                                                              |
+| Unbond                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>`AccountIdLookupOfT`member_account<br/>`CompactBalance`unbonding_points<br/>                                                                    |
+| Unbond deposit              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>                                                                                                                                                |
+| Withdraw deposit            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>                                                                                                                                                |
+| Withdraw unbonded           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    | `PoolId`pool_id<br/>`AccountIdLookupOfT`member_account<br/>`u32`num_slashing_spans<br/>                                                                             |
 
