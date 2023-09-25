@@ -23,6 +23,7 @@ extern "C" {
 static const char* STR_MO_BALANCES = "Balances";
 static const char* STR_MO_STAKING = "Staking";
 static const char* STR_MO_NOMINATIONPOOLS = "Nominationpools";
+static const char* STR_MO_STAKEEXCHANGE = "Stakeexchange";
 
 // Methods names
 static const char* STR_ME_REMARK = "Remark";
@@ -73,6 +74,12 @@ static const char* STR_ME_SET_STAKING_CONFIGS = "Set staking configs";
 static const char* STR_ME_CHILL_OTHER = "Chill other";
 static const char* STR_ME_FORCE_APPLY_MIN_COMMISSION = "Force apply min commission";
 static const char* STR_ME_SET_MIN_COMMISSION = "Set min commission";
+static const char* STR_ME_CREATE_OFFER = "Create offer";
+static const char* STR_ME_CANCEL_OFFER = "Cancel offer";
+static const char* STR_ME_CONFIGURE_LIQUIDITY_ACCOUNT = "Configure liquidity account";
+static const char* STR_ME_WITHDRAW_LIQUIDITY = "Withdraw liquidity";
+static const char* STR_ME_ADD_LIQUIDITY = "Add liquidity";
+static const char* STR_ME_BUY = "Buy";
 static const char* STR_ME_SET_KEYS = "Set keys";
 static const char* STR_ME_PURGE_KEYS = "Purge keys";
 static const char* STR_ME_PROPOSE = "Propose";
@@ -310,6 +317,8 @@ static const char* STR_IT_capacity = "Capacity";
 static const char* STR_IT_admin = "Admin";
 static const char* STR_IT_mutation = "Mutation";
 static const char* STR_IT_transfer_count = "Transfer count";
+static const char* STR_IT_offer = "Offer";
+static const char* STR_IT_offer_id = "Offer id";
 static const char* STR_IT_proof = "Proof";
 static const char* STR_IT_proposal = "Proposal";
 static const char* STR_IT_ref_index = "Ref index";

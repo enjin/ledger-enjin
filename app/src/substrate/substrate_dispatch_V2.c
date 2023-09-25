@@ -66,8 +66,8 @@ __Z_INLINE parser_error_t _readMethod_balances_transfer_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_bond_V2(
         parser_context_t* c, pd_nominationpools_bond_V2_t* m)
 {
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
     CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount)) // TODO: Probably wrong
     return parser_ok;
 }
 
@@ -81,32 +81,33 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_chill_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_create_V2(
         parser_context_t* c, pd_nominationpools_create_V2_t* m)
 {
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->root))
+    CHECK_ERROR(_readMultiAssetIdV3(c, &m->token_id))
+    CHECK_ERROR(_readCompactBalance(c, &m->deposit))
+    CHECK_ERROR(_readCompactBalance(c, &m->capacity))
+    CHECK_ERROR(_readEraIndex(c, &m->duration))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->admin))
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->nominator))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->bouncer))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_destroy_V2(
         parser_context_t* c, pd_nominationpools_destroy_V2_t* m)
 {
-    CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
+    CHECK_ERROR(_readPoolId(c, &m->pool_id))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_distribute_early_bird_bonus_V2(
         parser_context_t* c, pd_nominationpools_distribute_early_bird_bonus_V2_t* m)
 {
-    UNUSED(c);
-    UNUSED(m);
+    CHECK_ERROR(_readu32(c, &m->transfer_count))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_mutate_V2(
         parser_context_t* c, pd_nominationpools_mutate_V2_t* m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account)) // TODO: Check
     CHECK_ERROR(_readCompactBalance(c, &m->unbonding_points))
     return parser_ok;
 }
@@ -122,15 +123,15 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_nominate_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_payout_rewards_V2(
         parser_context_t* c, pd_nominationpools_payout_rewards_V2_t* m)
 {
-    CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
+    CHECK_ERROR(_readAccountId(c, &m->validator_stash))
+    CHECK_ERROR(_readEraIndex(c, &m->era))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_pool_withdraw_unbonded_V2(
         parser_context_t* c, pd_nominationpools_pool_withdraw_unbonded_V2_t* m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
+    CHECK_ERROR(_readPoolId(c, &m->pool_id))
     CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
     return parser_ok;
 }
@@ -138,11 +139,8 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_pool_withdraw_unbonded_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_queue_early_bird_bonus_V2(
         parser_context_t* c, pd_nominationpools_queue_early_bird_bonus_V2_t* m)
 {
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->root))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->nominator))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->bouncer))
-    CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    UNUSED(c);
+    UNUSED(m);
     return parser_ok;
 }
 
@@ -150,7 +148,8 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_unbond_V2(
         parser_context_t* c, pd_nominationpools_unbond_V2_t* m)
 {
     CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    CHECK_ERROR(_readPoolState(c, &m->state))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
+    CHECK_ERROR(_readCompactBalance(c, &m->unbonding_points))
     return parser_ok;
 }
 
@@ -158,7 +157,6 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_unbond_deposit_V2(
         parser_context_t* c, pd_nominationpools_unbond_deposit_V2_t* m)
 {
     CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    CHECK_ERROR(_readVecu8(c, &m->metadata))
     return parser_ok;
 }
 
@@ -166,17 +164,15 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_withdraw_deposit_V2(
         parser_context_t* c, pd_nominationpools_withdraw_deposit_V2_t* m)
 {
     CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    CHECK_ERROR(_readConfigOpAccountId(c, &m->new_root))
-    CHECK_ERROR(_readConfigOpAccountId(c, &m->new_nominator))
-    CHECK_ERROR(_readConfigOpAccountId(c, &m->new_bouncer))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_withdraw_unbonded_V2(
         parser_context_t* c, pd_nominationpools_withdraw_unbonded_V2_t* m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
-    CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
+    CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
+    CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
     return parser_ok;
 }
 
@@ -452,7 +448,7 @@ __Z_INLINE parser_error_t _readMethod_staking_set_min_commission_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_set_staking_info_V2(
         parser_context_t* c, pd_nominationpools_set_staking_info_V2_t* m)
 {
-    CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    CHECK_ERROR(_readPoolId(c, &m->pool_id)) // TODO: Come back here
     CHECK_ERROR(_readPoolState(c, &m->state))
     return parser_ok;
 }
@@ -462,9 +458,6 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_set_configs_V2(
 {
     CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_join_bond))
     CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_create_bond))
-    CHECK_ERROR(_readConfigOpu32(c, &m->max_pools))
-    CHECK_ERROR(_readConfigOpu32(c, &m->max_members))
-    CHECK_ERROR(_readConfigOpu32(c, &m->max_members_per_pool))
     CHECK_ERROR(_readConfigOpPerbill(c, &m->global_max_commission))
     return parser_ok;
 }
