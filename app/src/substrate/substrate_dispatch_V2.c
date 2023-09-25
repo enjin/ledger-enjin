@@ -1986,23 +1986,23 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
-        case 1796: // Staking:Validate
-        case 1801: // Staking:Set validator count
-        case 1802: // Staking:Increase validator count
-        case 1803: // Staking:Scale validator count
-        case 1804: // Staking:Force no eras
-        case 1805: // Staking:Force new era
-        case 1806: // Staking:Set invulnerables
-        case 1807: // Staking:Force unstake
-        case 1808: // Staking:Force new era always
-        case 1809: // Staking:Cancel deferred slash
-        case 1810: // Staking:Payout stakers
-        case 1812: // Staking:Reap stash
-        case 1813: // Staking:Kick
-        case 1814: // Staking:Set staking configs
-        case 1815: // Staking:Chill other
-        case 1816: // Staking:Force apply min commission
-        case 1817: // Staking:Set min commission
+        case 2308: // Staking:Validate
+        case 2313: // Staking:Set validator count
+        case 2314: // Staking:Increase validator count
+        case 2315: // Staking:Scale validator count
+        case 2316: // Staking:Force no eras
+        case 2317: // Staking:Force new era
+        case 2318: // Staking:Set invulnerables
+        case 2319: // Staking:Force unstake
+        case 2320: // Staking:Force new era always
+        case 2321: // Staking:Cancel deferred slash
+        case 2322: // Staking:Payout stakers
+        case 2324: // Staking:Reap stash
+        case 2325: // Staking:Kick
+        case 2326: // Staking:Set staking configs
+        case 2327: // Staking:Chill other
+        case 2328: // Staking:Force apply min commission
+        case 2329: // Staking:Set min commission
         case 4612: // NominationPools:Pool withdraw unbonded
 //        case 4608: // NominationPools:Create with pool id // TODO: Doesn't exists, only create
         case 4619: // NominationPools:Set configs
