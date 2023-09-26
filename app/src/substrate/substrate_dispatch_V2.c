@@ -81,26 +81,26 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_chill_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_create_V2(
         parser_context_t* c, pd_nominationpools_create_V2_t* m)
 {
-    CHECK_ERROR(_readMultiAssetIdV3(c, &m->token_id))
-    CHECK_ERROR(_readCompactBalance(c, &m->deposit))
-    CHECK_ERROR(_readCompactBalance(c, &m->capacity))
-    CHECK_ERROR(_readEraIndex(c, &m->duration))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->admin))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->nominator))
+    // CHECK_ERROR(_readMultiAssetIdV3(c, &m->token_id))
+    // CHECK_ERROR(_readCompactBalance(c, &m->deposit))
+    // CHECK_ERROR(_readCompactBalance(c, &m->capacity))
+    // CHECK_ERROR(_readEraIndex(c, &m->duration))
+    // CHECK_ERROR(_readAccountIdLookupOfT(c, &m->admin))
+    // CHECK_ERROR(_readAccountIdLookupOfT(c, &m->nominator))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_destroy_V2(
         parser_context_t* c, pd_nominationpools_destroy_V2_t* m)
 {
-    CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    // CHECK_ERROR(_readPoolId(c, &m->pool_id))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_distribute_early_bird_bonus_V2(
         parser_context_t* c, pd_nominationpools_distribute_early_bird_bonus_V2_t* m)
 {
-    CHECK_ERROR(_readu32(c, &m->transfer_count))
+    // CHECK_ERROR(_readu32(c, &m->transfer_count))
     return parser_ok;
 }
 
@@ -123,16 +123,16 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_nominate_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_payout_rewards_V2(
         parser_context_t* c, pd_nominationpools_payout_rewards_V2_t* m)
 {
-    CHECK_ERROR(_readAccountId(c, &m->validator_stash))
-    CHECK_ERROR(_readEraIndex(c, &m->era))
+    // CHECK_ERROR(_readAccountId(c, &m->validator_stash))
+    // CHECK_ERROR(_readEraIndex(c, &m->era))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_pool_withdraw_unbonded_V2(
         parser_context_t* c, pd_nominationpools_pool_withdraw_unbonded_V2_t* m)
 {
-    CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
+    // CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    // CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
     return parser_ok;
 }
 
@@ -147,9 +147,9 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_queue_early_bird_bonus_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_unbond_V2(
         parser_context_t* c, pd_nominationpools_unbond_V2_t* m)
 {
-    CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
-    CHECK_ERROR(_readCompactBalance(c, &m->unbonding_points))
+    // CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    // CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
+    // CHECK_ERROR(_readCompactBalance(c, &m->unbonding_points))
     return parser_ok;
 }
 
@@ -170,59 +170,59 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_withdraw_deposit_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_withdraw_unbonded_V2(
         parser_context_t* c, pd_nominationpools_withdraw_unbonded_V2_t* m)
 {
-    CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
-    CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
+    // CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    // CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
+    // CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_stakeexchange_add_liquidity_V2(
-        parser_context_t* c, pd_stakeexchange_add_liquidity_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
-    CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
-    return parser_ok;
-}
+// __Z_INLINE parser_error_t _readMethod_stakeexchange_add_liquidity_V2(
+//         parser_context_t* c, pd_stakeexchange_add_liquidity_V2_t* m)
+// {
+//     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
+//     CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
+//     return parser_ok;
+// }
 
-__Z_INLINE parser_error_t _readMethod_stakeexchange_buy_V2(
-        parser_context_t* c, pd_stakeexchange_buy_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
-    CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
-    return parser_ok;
-}
+// __Z_INLINE parser_error_t _readMethod_stakeexchange_buy_V2(
+//         parser_context_t* c, pd_stakeexchange_buy_V2_t* m)
+// {
+//     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
+//     CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
+//     return parser_ok;
+// }
 
-__Z_INLINE parser_error_t _readMethod_stakeexchange_cancel_offer_V2(
-        parser_context_t* c, pd_stakeexchange_cancel_offer_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
-    CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
-    return parser_ok;
-}
+// __Z_INLINE parser_error_t _readMethod_stakeexchange_cancel_offer_V2(
+//         parser_context_t* c, pd_stakeexchange_cancel_offer_V2_t* m)
+// {
+//     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
+//     CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
+//     return parser_ok;
+// }
 
-__Z_INLINE parser_error_t _readMethod_stakeexchange_configure_liquidity_account_V2(
-        parser_context_t* c, pd_stakeexchange_configure_liquidity_account_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
-    CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
-    return parser_ok;
-}
+// __Z_INLINE parser_error_t _readMethod_stakeexchange_configure_liquidity_account_V2(
+//         parser_context_t* c, pd_stakeexchange_configure_liquidity_account_V2_t* m)
+// {
+//     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
+//     CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
+//     return parser_ok;
+// }
 
-__Z_INLINE parser_error_t _readMethod_stakeexchange_create_offer_V2(
-        parser_context_t* c, pd_stakeexchange_create_offer_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
-    CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
-    return parser_ok;
-}
+// __Z_INLINE parser_error_t _readMethod_stakeexchange_create_offer_V2(
+//         parser_context_t* c, pd_stakeexchange_create_offer_V2_t* m)
+// {
+//     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
+//     CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
+//     return parser_ok;
+// }
 
-__Z_INLINE parser_error_t _readMethod_stakeexchange_withdraw_liquidity_V2(
-        parser_context_t* c, pd_stakeexchange_withdraw_liquidity_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
-    CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
-    return parser_ok;
-}
+// __Z_INLINE parser_error_t _readMethod_stakeexchange_withdraw_liquidity_V2(
+//         parser_context_t* c, pd_stakeexchange_withdraw_liquidity_V2_t* m)
+// {
+//     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
+//     CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
+//     return parser_ok;
+// }
 
 #ifdef SUBSTRATE_PARSER_FULL
 __Z_INLINE parser_error_t _readMethod_balances_force_unreserve_V2(
@@ -325,7 +325,7 @@ __Z_INLINE parser_error_t _readMethod_staking_payout_stakers_V2(
 __Z_INLINE parser_error_t _readMethod_staking_rebond_V2(
         parser_context_t* c, pd_staking_rebond_V2_t* m)
 {
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    CHECK_ERROR(_readCompactBalance(c, &m->value))
     return parser_ok;
 }
 
@@ -445,22 +445,22 @@ __Z_INLINE parser_error_t _readMethod_staking_set_min_commission_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_nominationpools_set_staking_info_V2(
-        parser_context_t* c, pd_nominationpools_set_staking_info_V2_t* m)
-{
-    CHECK_ERROR(_readPoolId(c, &m->pool_id)) // TODO: Come back here
-    CHECK_ERROR(_readPoolState(c, &m->state))
-    return parser_ok;
-}
+// __Z_INLINE parser_error_t _readMethod_nominationpools_set_staking_info_V2(
+//         parser_context_t* c, pd_nominationpools_set_staking_info_V2_t* m)
+// {
+//     CHECK_ERROR(_readPoolId(c, &m->pool_id)) // TODO: Come back here
+//     CHECK_ERROR(_readPoolState(c, &m->state))
+//     return parser_ok;
+// }
 
-__Z_INLINE parser_error_t _readMethod_nominationpools_set_configs_V2(
-        parser_context_t* c, pd_nominationpools_set_configs_V2_t* m)
-{
-    CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_join_bond))
-    CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_create_bond))
-    CHECK_ERROR(_readConfigOpPerbill(c, &m->global_max_commission))
-    return parser_ok;
-}
+// __Z_INLINE parser_error_t _readMethod_nominationpools_set_configs_V2(
+//         parser_context_t* c, pd_nominationpools_set_configs_V2_t* m)
+// {
+//     CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_join_bond))
+//     CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_create_bond))
+//     CHECK_ERROR(_readConfigOpPerbill(c, &m->global_max_commission))
+//     return parser_ok;
+// }
 #endif
 
 parser_error_t _readMethod_V2(
@@ -535,24 +535,24 @@ parser_error_t _readMethod_V2(
         CHECK_ERROR(_readMethod_nominationpools_distribute_early_bird_bonus_V2(c,
                                                                                &method->nested.nominationpools_distribute_early_bird_bonus_V2))
             break;
-        case 4864: /* module 19 call 0 */
-        CHECK_ERROR(_readMethod_stakeexchange_create_offer_V2(c, &method->basic.stakeexchange_create_offer_V2))
-            break;
-        case 4865: /* module 19 call 1 */
-        CHECK_ERROR(_readMethod_stakeexchange_cancel_offer_V2(c, &method->basic.stakeexchange_cancel_offer_V2))
-            break;
-        case 4866: /* module 19 call 2 */
-        CHECK_ERROR(_readMethod_stakeexchange_configure_liquidity_account_V2(c, &method->basic.stakeexchange_configure_liquidity_account_V2))
-            break;
-        case 4867: /* module 19 call 3 */
-        CHECK_ERROR(_readMethod_stakeexchange_withdraw_liquidity_V2(c, &method->basic.stakeexchange_withdraw_liquidity_V2))
-            break;
-        case 4868: /* module 19 call 4 */
-        CHECK_ERROR(_readMethod_stakeexchange_add_liquidity_V2(c, &method->basic.stakeexchange_add_liquidity_V2))
-            break;
-        case 4869: /* module 19 call 5 */
-        CHECK_ERROR(_readMethod_stakeexchange_buy_V2(c, &method->basic.stakeexchange_buy_V2))
-            break;
+        // case 4864: /* module 19 call 0 */
+        // CHECK_ERROR(_readMethod_stakeexchange_create_offer_V2(c, &method->basic.stakeexchange_create_offer_V2))
+        //     break;
+        // case 4865: /* module 19 call 1 */
+        // CHECK_ERROR(_readMethod_stakeexchange_cancel_offer_V2(c, &method->basic.stakeexchange_cancel_offer_V2))
+        //     break;
+        // case 4866: /* module 19 call 2 */
+        // CHECK_ERROR(_readMethod_stakeexchange_configure_liquidity_account_V2(c, &method->basic.stakeexchange_configure_liquidity_account_V2))
+        //     break;
+        // case 4867: /* module 19 call 3 */
+        // CHECK_ERROR(_readMethod_stakeexchange_withdraw_liquidity_V2(c, &method->basic.stakeexchange_withdraw_liquidity_V2))
+        //     break;
+        // case 4868: /* module 19 call 4 */
+        // CHECK_ERROR(_readMethod_stakeexchange_add_liquidity_V2(c, &method->basic.stakeexchange_add_liquidity_V2))
+        //     break;
+        // case 4869: /* module 19 call 5 */
+        // CHECK_ERROR(_readMethod_stakeexchange_buy_V2(c, &method->basic.stakeexchange_buy_V2))
+        //     break;
 #ifdef SUBSTRATE_PARSER_FULL
         case 1541: /* module 6 call 5 */
         CHECK_ERROR(_readMethod_balances_force_unreserve_V2(c, &method->basic.balances_force_unreserve_V2))
@@ -641,12 +641,12 @@ parser_error_t _readMethod_V2(
         case 2329: /* module 9 call 25 */
         CHECK_ERROR(_readMethod_staking_set_min_commission_V2(c, &method->basic.staking_set_min_commission_V2))
             break;
-        case 4619: /* module 18 call 11 */
-        CHECK_ERROR(_readMethod_nominationpools_set_configs_V2(c, &method->basic.nominationpools_set_configs_V2))
-            break;
-        case 4630: /* module 18 call 22 */
-        CHECK_ERROR(_readMethod_nominationpools_set_staking_info_V2(c, &method->nested.nominationpools_set_staking_info_V2))
-            break;
+        // case 4619: /* module 18 call 11 */
+        // CHECK_ERROR(_readMethod_nominationpools_set_configs_V2(c, &method->basic.nominationpools_set_configs_V2))
+            // break;
+        // case 4630: /* module 18 call 22 */
+        // CHECK_ERROR(_readMethod_nominationpools_set_staking_info_V2(c, &method->nested.nominationpools_set_staking_info_V2))
+            // break;
 #endif
         default:
             return parser_unexpected_callIndex;
@@ -1133,13 +1133,13 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        case 4866: /* module 19 call 2 */
-            switch (itemIdx) {
-                case 0:
-                    return STR_IT_config;
-                default:
-                    return NULL;
-            }
+        // case 4866: /* module 19 call 2 */
+        //     switch (itemIdx) {
+        //         case 0:
+        //             return STR_IT_config;
+        //         default:
+        //             return NULL;
+        //     }
         case 4867: /* module 19 call 3 */
             switch (itemIdx) {
                 case 0:
@@ -1329,7 +1329,7 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         case 2323: /* module 9 call 19 */
             switch (itemIdx) {
                 case 0:
-                    return STR_IT_amount;
+                    return STR_IT_value;
                 default:
                     return NULL;
             }
@@ -1517,96 +1517,96 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 4611: /* module 18 call 3 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_unbond_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_unbond_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_unbond_V2 - member_account */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.nominationpools_unbond_V2.member_account,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_unbond_V2 - unbonding_points */;
-                    return _toStringCompactBalance(
-                            &m->nested.nominationpools_unbond_V2.unbonding_points,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4612: /* module 18 call 4 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_pool_withdraw_unbonded_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_pool_withdraw_unbonded_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_pool_withdraw_unbonded_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->nested.nominationpools_pool_withdraw_unbonded_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4613: /* module 18 call 5 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_withdraw_unbonded_V2 - pool_id */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.nominationpools_withdraw_unbonded_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_withdraw_unbonded_V2 - member_account */;
-                    return _toStringCompactBalance(
-                            &m->nested.nominationpools_withdraw_unbonded_V2.member_account,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_withdraw_unbonded_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->nested.nominationpools_withdraw_unbonded_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4614: /* module 18 call 6 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_create_V2 - token_id */;
-                    return _toStringu64(
-                            &m->basic.nominationpools_create_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_create_V2 - deposit */;
-                    return _toStringCompactBalance(
-                            &m->basic.nominationpools_create_V2.deposit,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_create_V2 - capacity */;
-                    return _toStringCompactBalance(
-                            &m->basic.nominationpools_create_V2.capacity,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* nominationpools_create_V2 - duration */;
-                    return _toStringCompactu32(
-                            &m->basic.nominationpools_create_V2.duration,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* nominationpools_create_V2 - admin */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_create_V2.admin,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 5: /* nominationpools_create_V2 - nominator */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_create_V2.nominator,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
+        // case 4611: /* module 18 call 3 */
+        //     switch (itemIdx) {
+        //         case 0: /* nominationpools_unbond_V2 - pool_id */;
+        //             return _toStringPoolId(
+        //                     &m->nested.nominationpools_unbond_V2.pool_id,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 1: /* nominationpools_unbond_V2 - member_account */;
+        //             return _toStringAccountIdLookupOfT(
+        //                     &m->nested.nominationpools_unbond_V2.member_account,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 2: /* nominationpools_unbond_V2 - unbonding_points */;
+        //             return _toStringCompactBalance(
+        //                     &m->nested.nominationpools_unbond_V2.unbonding_points,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
+        // case 4612: /* module 18 call 4 */
+        //     switch (itemIdx) {
+        //         case 0: /* nominationpools_pool_withdraw_unbonded_V2 - pool_id */;
+        //             return _toStringPoolId(
+        //                     &m->nested.nominationpools_pool_withdraw_unbonded_V2.pool_id,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 1: /* nominationpools_pool_withdraw_unbonded_V2 - num_slashing_spans */;
+        //             return _toStringu32(
+        //                     &m->nested.nominationpools_pool_withdraw_unbonded_V2.num_slashing_spans,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
+        // case 4613: /* module 18 call 5 */
+        //     switch (itemIdx) {
+        //         case 0: /* nominationpools_withdraw_unbonded_V2 - pool_id */;
+        //             return _toStringAccountIdLookupOfT(
+        //                     &m->nested.nominationpools_withdraw_unbonded_V2.pool_id,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 1: /* nominationpools_withdraw_unbonded_V2 - member_account */;
+        //             return _toStringCompactBalance(
+        //                     &m->nested.nominationpools_withdraw_unbonded_V2.member_account,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 2: /* nominationpools_withdraw_unbonded_V2 - num_slashing_spans */;
+        //             return _toStringu32(
+        //                     &m->nested.nominationpools_withdraw_unbonded_V2.num_slashing_spans,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
+        // case 4614: /* module 18 call 6 */
+        //     switch (itemIdx) {
+        //         case 0: /* nominationpools_create_V2 - token_id */;
+        //             return _toStringu64(
+        //                     &m->basic.nominationpools_create_V2.token_id,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 1: /* nominationpools_create_V2 - deposit */;
+        //             return _toStringCompactBalance(
+        //                     &m->basic.nominationpools_create_V2.deposit,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 2: /* nominationpools_create_V2 - capacity */;
+        //             return _toStringCompactBalance(
+        //                     &m->basic.nominationpools_create_V2.capacity,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 3: /* nominationpools_create_V2 - duration */;
+        //             return _toStringCompactu32(
+        //                     &m->basic.nominationpools_create_V2.duration,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 4: /* nominationpools_create_V2 - admin */;
+        //             return _toStringAccountIdLookupOfT(
+        //                     &m->basic.nominationpools_create_V2.admin,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 5: /* nominationpools_create_V2 - nominator */;
+        //             return _toStringAccountIdLookupOfT(
+        //                     &m->basic.nominationpools_create_V2.nominator,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
         case 4616: /* module 18 call 8 */
             switch (itemIdx) {
                 case 0: /* nominationpools_nominate_V2 - pool_id */;
@@ -1632,46 +1632,46 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 4622: /* module 18 call 14 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_destroy_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_destroy_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4626: /* module 18 call 18 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_payout_rewards_V2 - validator_stash */;
-                    return _toStringAccountId(
-                            &m->basic.nominationpools_payout_rewards_V2.validator_stash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_payout_rewards_V2 - era */;
-                    return _toStringEraIndex(
-                            &m->basic.nominationpools_payout_rewards_V2.era,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4627: /* module 18 call 19 */ // TODO: Check, probably wrong
-            switch (itemIdx) {
-                case 0: /* nominationpools_mutate_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_mutate_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_mutate_V2 - mutation */;
-                    return _toStringPoolMutation(
-                            &m->nested.nominationpools_mutate_V2.mutation,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
+        // case 4622: /* module 18 call 14 */
+        //     switch (itemIdx) {
+        //         case 0: /* nominationpools_destroy_V2 - pool_id */;
+        //             return _toStringPoolId(
+        //                     &m->nested.nominationpools_destroy_V2.pool_id,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
+        // case 4626: /* module 18 call 18 */
+        //     switch (itemIdx) {
+        //         case 0: /* nominationpools_payout_rewards_V2 - validator_stash */;
+        //             return _toStringAccountId(
+        //                     &m->basic.nominationpools_payout_rewards_V2.validator_stash,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 1: /* nominationpools_payout_rewards_V2 - era */;
+        //             return _toStringEraIndex(
+        //                     &m->basic.nominationpools_payout_rewards_V2.era,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
+        // case 4627: /* module 18 call 19 */ // TODO: Check, probably wrong
+        //     switch (itemIdx) {
+        //         case 0: /* nominationpools_mutate_V2 - pool_id */;
+        //             return _toStringPoolId(
+        //                     &m->nested.nominationpools_mutate_V2.pool_id,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 1: /* nominationpools_mutate_V2 - mutation */;
+        //             return _toStringPoolMutation(
+        //                     &m->nested.nominationpools_mutate_V2.mutation,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
         case 4628: /* module 18 call 20 */
             switch (itemIdx) {
                 case 0: /* nominationpools_unbond_deposit_V2 - pool_id */;
@@ -1697,96 +1697,96 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 4632: /* module 18 call 24 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_distribute_early_bird_bonus_V2 - transfer_count */;
-                    return _toStringu32(
-                            &m->basic.nominationpools_distribute_early_bird_bonus_V2.transfer_count,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4864: /* module 19 call 0 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_create_offer_V2 - offer */;
-                    return _toStringOffer(
-                            &m->basic.stakeexchange_create_offer_V2.offer,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4865: /* module 19 call 1 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_cancel_offer_V2 - offer_id */;
-                    return _toStringCompactu64(
-                            &m->basic.stakeexchange_cancel_offer_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4866: /* module 19 call 2 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_configure_liquidity_account_V2 - config */;
-                    return _toStringOfferConfig(
-                            &m->basic.stakeexchange_configure_liquidity_account_V2.config,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4867: /* module 19 call 3 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_withdraw_liquidity_V2 - offer_id */;
-                    return _toStringCompactu64(
-                            &m->basic.stakeexchange_withdraw_liquidity_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* stakeexchange_withdraw_liquidity_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.stakeexchange_withdraw_liquidity_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4868: /* module 19 call 4 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_add_liquidity_V2 - offer_id */;
-                    return _toStringCompactu64(
-                            &m->basic.stakeexchange_add_liquidity_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* stakeexchange_add_liquidity_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.stakeexchange_add_liquidity_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4869: /* module 19 call 5 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_buy_V2 - offer_id */;
-                    return _toStringCompactu64(
-                            &m->basic.stakeexchange_buy_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* stakeexchange_buy_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.stakeexchange_buy_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* stakeexchange_buy_V2 - token_id */;
-                    return _toStringCompactu64(
-                            &m->basic.stakeexchange_buy_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
+        // case 4632: /* module 18 call 24 */
+        //     switch (itemIdx) {
+        //         case 0: /* nominationpools_distribute_early_bird_bonus_V2 - transfer_count */;
+        //             return _toStringu32(
+        //                     &m->basic.nominationpools_distribute_early_bird_bonus_V2.transfer_count,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
+        // case 4864: /* module 19 call 0 */
+        //     switch (itemIdx) {
+        //         case 0: /* stakeexchange_create_offer_V2 - offer */;
+        //             return _toStringOffer(
+        //                     &m->basic.stakeexchange_create_offer_V2.offer,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
+        // case 4865: /* module 19 call 1 */
+        //     switch (itemIdx) {
+        //         case 0: /* stakeexchange_cancel_offer_V2 - offer_id */;
+        //             return _toStringCompactu64(
+        //                     &m->basic.stakeexchange_cancel_offer_V2.offer_id,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
+        // case 4866: /* module 19 call 2 */
+        //     switch (itemIdx) {
+        //         case 0: /* stakeexchange_configure_liquidity_account_V2 - config */;
+        //             return _toStringOfferConfig(
+        //                     &m->basic.stakeexchange_configure_liquidity_account_V2.config,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
+        // case 4867: /* module 19 call 3 */
+        //     switch (itemIdx) {
+        //         case 0: /* stakeexchange_withdraw_liquidity_V2 - offer_id */;
+        //             return _toStringCompactu64(
+        //                     &m->basic.stakeexchange_withdraw_liquidity_V2.offer_id,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 1: /* stakeexchange_withdraw_liquidity_V2 - amount */;
+        //             return _toStringCompactBalance(
+        //                     &m->basic.stakeexchange_withdraw_liquidity_V2.amount,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
+        // case 4868: /* module 19 call 4 */
+        //     switch (itemIdx) {
+        //         case 0: /* stakeexchange_add_liquidity_V2 - offer_id */;
+        //             return _toStringCompactu64(
+        //                     &m->basic.stakeexchange_add_liquidity_V2.offer_id,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 1: /* stakeexchange_add_liquidity_V2 - amount */;
+        //             return _toStringCompactBalance(
+        //                     &m->basic.stakeexchange_add_liquidity_V2.amount,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
+        // case 4869: /* module 19 call 5 */
+        //     switch (itemIdx) {
+        //         case 0: /* stakeexchange_buy_V2 - offer_id */;
+        //             return _toStringCompactu64(
+        //                     &m->basic.stakeexchange_buy_V2.offer_id,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 1: /* stakeexchange_buy_V2 - amount */;
+        //             return _toStringCompactBalance(
+        //                     &m->basic.stakeexchange_buy_V2.amount,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         case 2: /* stakeexchange_buy_V2 - token_id */;
+        //             return _toStringCompactu64(
+        //                     &m->basic.stakeexchange_buy_V2.token_id,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+                // default:
+                    // return parser_no_data;
+            // }
 #ifdef SUBSTRATE_PARSER_FULL
         case 1541: /* module 6 call 5 */
             switch (itemIdx) {
@@ -2015,9 +2015,9 @@ parser_error_t _getMethod_ItemValue_V2(
             }
         case 2323: /* module 9 call 19 */
             switch (itemIdx) {
-                case 0: /* staking_rebond_V2 - amount */;
+                case 0: /* staking_rebond_V2 - value */;
                     return _toStringCompactBalance(
-                            &m->nested.staking_rebond_V2.amount,
+                            &m->nested.staking_rebond_V2.value,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -2133,16 +2133,16 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 4630: /* module 18 call 22 */ //TODO: Probably wrong
-            switch (itemIdx) {
-                case 0: /* nominationpools_set_staking_info_V2 - info */;
-                    return _toStringStakingInfo(
-                            &m->basic.nominationpools_set_staking_info_V2.info,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
+        // case 4630: /* module 18 call 22 */ //TODO: Probably wrong
+        //     switch (itemIdx) {
+        //         case 0: /* nominationpools_set_staking_info_V2 - info */;
+        //             return _toStringStakingInfo(
+        //                     &m->basic.nominationpools_set_staking_info_V2.info,
+        //                     outValue, outValueLen,
+        //                     pageIdx, pageCount);
+        //         default:
+        //             return parser_no_data;
+        //     }
 #endif
         default:
             return parser_ok;
@@ -2214,8 +2214,6 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
         case 2322: // Staking:Payout stakers
         case 2324: // Staking:Reap stash
         case 2325: // Staking:Kick
-        case 2326: // Staking:Set staking configs
-        case 2327: // Staking:Chill other
         case 2328: // Staking:Force apply min commission
         case 2329: // Staking:Set min commission
         case 4612: // NominationPools:Pool withdraw unbonded

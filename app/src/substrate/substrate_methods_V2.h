@@ -377,7 +377,7 @@ typedef struct {
 
 #define PD_CALL_STAKING_REBOND_V2 19
 typedef struct {
-    pd_CompactBalance_t amount;
+    pd_CompactBalance_t value;
 } pd_staking_rebond_V2_t;
 #endif
 
