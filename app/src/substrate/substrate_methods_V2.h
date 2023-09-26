@@ -33,6 +33,7 @@ extern "C" {
 #define PD_CALL_BALANCES_V2 6
 #define PD_CALL_STAKING_V2 9
 #define PD_CALL_NOMINATIONPOOLS_V2 18
+#define PD_CALL_STAKEEXCHANGE_V2 19
 
 #define PD_CALL_BALANCES_TRANSFER_ALL_V2 4
 typedef struct {
@@ -61,6 +62,40 @@ typedef struct {
 typedef struct {
     pd_u32_t transfer_count;
 } pd_nominationpools_distribute_early_bird_bonus_V2_t;
+
+#define PD_CALL_STAKEEXCHANGE_ADD_LIQUIDITY_V2 4
+typedef struct {
+    pd_OfferId_t offer_id;
+    pd_BalanceOf_t amount;
+} pd_stakeexchange_add_liquidity_V2_t;
+
+#define PD_CALL_STAKEEXCHANGE_BUY_V2 5
+typedef struct {
+    pd_OfferId_t offer_id;
+    pd_BalanceOf_t amount;
+    pd_TokenIdOf_t token_id;
+} pd_stakeexchange_buy_V2_t;
+
+#define PD_CALL_STAKEEXCHANGE_CANCEL_OFFER_V2 1
+typedef struct {
+    pd_OfferId_t offer_id;
+} pd_stakeexchange_cancel_offer_V2_t;
+
+#define PD_CALL_STAKEEXCHANGE_CONFIGURE_LIQUIDITY_ACCOUNT_V2 4
+typedef struct {
+    pd_OfferId_t offer_id;
+} pd_stakeexchange_configure_liquidity_account_V2_t;
+
+#define PD_CALL_STAKEEXCHANGE_CREATE_OFFER_V2 4
+typedef struct {
+    pd_OfferId_t offer_id;
+} pd_stakeexchange_create_offer_V2_t;
+
+#define PD_CALL_STAKEEXCHANGE_WITHDRAW_LIQUIDITY_V2 4
+typedef struct {
+    pd_OfferId_t offer_id;
+    pd_BalanceOf_t amount;
+} pd_stakeexchange_withdraw_liquidity_V2_t;
 
 #ifdef SUBSTRATE_PARSER_FULL
 #define PD_CALL_BALANCES_FORCE_UNRESERVE_V2 5
@@ -190,6 +225,12 @@ typedef union {
     pd_nominationpools_queue_early_bird_bonus_V2_t nominationpools_queue_early_bird_bonus_V2;
     pd_nominationpools_withdraw_unbonded_V2_t nominationpools_withdraw_unbonded_V2;
     pd_nominationpools_distribute_early_bird_bonus_V2_t nominationpools_distribute_early_bird_bonus_V2;
+    pd_stakeexchange_add_liquidity_V2_t stakeexchange_add_liquidity_V2;
+    pd_stakeexchange_buy_V2_t stakeexchange_buy_V2;
+    pd_stakeexchange_cancel_offer_V2_t stakeexchange_cancel_offer_V2;
+    pd_stakeexchange_configure_liquidity_account_V2_t stakeexchange_configure_liquidity_account_V2;
+    pd_stakeexchange_create_offer_V2_t stakeexchange_create_offer_V2;
+    pd_stakeexchange_withdraw_liquidity_V2_t stakeexchange_withdraw_liquidity_V2;
 #ifdef SUBSTRATE_PARSER_FULL
     pd_balances_force_unreserve_V2_t balances_force_unreserve_V2;
     pd_balances_upgrade_accounts_V2_t balances_upgrade_accounts_V2;

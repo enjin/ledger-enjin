@@ -481,6 +481,14 @@ typedef struct {
 } pd_AccountId_t;
 
 typedef struct {
+    uint128_t value;
+} pd_TokenId_t;
+
+typedef struct {
+    pd_TokenId_t value;
+} pd_TokenIdOf_t;
+
+typedef struct {
     pd_Balance_t value;
 } pd_BalanceOf_t;
 
@@ -935,6 +943,10 @@ typedef struct {
 typedef struct {
     uint32_t value;
 } pd_PoolId_t;
+
+typedef struct {
+    uint32_t value;
+} pd_OfferId_t;
 
 typedef struct {
     uint8_t value;
