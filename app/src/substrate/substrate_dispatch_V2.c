@@ -104,13 +104,13 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_distribute_early_bird_bonu
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_nominationpools_mutate_V2(
-        parser_context_t* c, pd_nominationpools_mutate_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account)) // TODO: Check
-    CHECK_ERROR(_readCompactBalance(c, &m->unbonding_points))
-    return parser_ok;
-}
+// __Z_INLINE parser_error_t _readMethod_nominationpools_mutate_V2(
+//         parser_context_t* c, pd_nominationpools_mutate_V2_t* m)
+// {
+//     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account)) // TODO: Check
+//     CHECK_ERROR(_readCompactBalance(c, &m->unbonding_points))
+//     return parser_ok;
+// }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_nominate_V2(
         parser_context_t* c, pd_nominationpools_nominate_V2_t* m)
@@ -123,16 +123,16 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_nominate_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_payout_rewards_V2(
         parser_context_t* c, pd_nominationpools_payout_rewards_V2_t* m)
 {
-    // CHECK_ERROR(_readAccountId(c, &m->validator_stash))
-    // CHECK_ERROR(_readEraIndex(c, &m->era))
+    CHECK_ERROR(_readAccountId(c, &m->validator_stash))
+    CHECK_ERROR(_readEraIndex(c, &m->era))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_pool_withdraw_unbonded_V2(
         parser_context_t* c, pd_nominationpools_pool_withdraw_unbonded_V2_t* m)
 {
-    // CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    // CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
+    CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
     return parser_ok;
 }
 
@@ -147,9 +147,9 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_queue_early_bird_bonus_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_unbond_V2(
         parser_context_t* c, pd_nominationpools_unbond_V2_t* m)
 {
-    // CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    // CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
-    // CHECK_ERROR(_readCompactBalance(c, &m->unbonding_points))
+    CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
+    CHECK_ERROR(_readCompactBalance(c, &m->unbonding_points))
     return parser_ok;
 }
 
@@ -170,9 +170,9 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_withdraw_deposit_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_withdraw_unbonded_V2(
         parser_context_t* c, pd_nominationpools_withdraw_unbonded_V2_t* m)
 {
-    // CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    // CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
-    // CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
+    CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account))
+    CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
     return parser_ok;
 }
 
@@ -448,19 +448,18 @@ __Z_INLINE parser_error_t _readMethod_staking_set_min_commission_V2(
 // __Z_INLINE parser_error_t _readMethod_nominationpools_set_staking_info_V2(
 //         parser_context_t* c, pd_nominationpools_set_staking_info_V2_t* m)
 // {
-//     CHECK_ERROR(_readPoolId(c, &m->pool_id)) // TODO: Come back here
-//     CHECK_ERROR(_readPoolState(c, &m->state))
+//     CHECK_ERROR(_readPoolId(c, &m->info)) // TODO: Come back here
 //     return parser_ok;
 // }
 
-// __Z_INLINE parser_error_t _readMethod_nominationpools_set_configs_V2(
-//         parser_context_t* c, pd_nominationpools_set_configs_V2_t* m)
-// {
-//     CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_join_bond))
-//     CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_create_bond))
-//     CHECK_ERROR(_readConfigOpPerbill(c, &m->global_max_commission))
-//     return parser_ok;
-// }
+__Z_INLINE parser_error_t _readMethod_nominationpools_set_configs_V2(
+        parser_context_t* c, pd_nominationpools_set_configs_V2_t* m)
+{
+    CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_join_bond))
+    CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_create_bond))
+    CHECK_ERROR(_readConfigOpPerbill(c, &m->global_max_commission))
+    return parser_ok;
+}
 #endif
 
 parser_error_t _readMethod_V2(
@@ -496,7 +495,7 @@ parser_error_t _readMethod_V2(
             break;
         case 4612: /* module 18 call 4 */
         CHECK_ERROR(_readMethod_nominationpools_pool_withdraw_unbonded_V2(c,
-                                                                          &method->nested.nominationpools_withdraw_unbonded_V2))
+                                                                          &method->nested.nominationpools_pool_withdraw_unbonded_V2))
             break;
         case 4613: /* module 18 call 5 */
         CHECK_ERROR(
@@ -516,11 +515,11 @@ parser_error_t _readMethod_V2(
             break;
         case 4626: /* module 18 call 18 */
         CHECK_ERROR(_readMethod_nominationpools_payout_rewards_V2(c,
-                                                                  &method->basic.nominationpools_pool_payout_rewards_V2))
+                                                                  &method->basic.nominationpools_payout_rewards_V2))
             break;
-        case 4627: /* module 18 call 19 */
-        CHECK_ERROR(_readMethod_nominationpools_mutate_V2(c, &method->nested.nominationpools_mutate_V2))
-            break;
+        // case 4627: /* module 18 call 19 */
+        // CHECK_ERROR(_readMethod_nominationpools_mutate_V2(c, &method->nested.nominationpools_mutate_V2))
+        //     break;
         case 4628: /* module 18 call 20 */
         CHECK_ERROR(_readMethod_nominationpools_unbond_deposit_V2(c, &method->nested.nominationpools_unbond_deposit_V2))
             break;
@@ -641,12 +640,12 @@ parser_error_t _readMethod_V2(
         case 2329: /* module 9 call 25 */
         CHECK_ERROR(_readMethod_staking_set_min_commission_V2(c, &method->basic.staking_set_min_commission_V2))
             break;
-        // case 4619: /* module 18 call 11 */
-        // CHECK_ERROR(_readMethod_nominationpools_set_configs_V2(c, &method->basic.nominationpools_set_configs_V2))
-            // break;
+        case 4619: /* module 18 call 11 */
+        CHECK_ERROR(_readMethod_nominationpools_set_configs_V2(c, &method->basic.nominationpools_set_configs_V2))
+            break;
         // case 4630: /* module 18 call 22 */
-        // CHECK_ERROR(_readMethod_nominationpools_set_staking_info_V2(c, &method->nested.nominationpools_set_staking_info_V2))
-            // break;
+        // CHECK_ERROR(_readMethod_nominationpools_set_staking_info_V2(c, &method->basic.nominationpools_set_staking_info_V2))
+        //     break;
 #endif
         default:
             return parser_unexpected_callIndex;
@@ -806,8 +805,8 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
             return STR_ME_SET_MIN_COMMISSION;
         case 4619: /* module 18 call 11 */
             return STR_ME_SET_CONFIGS;
-        case 4630: /* module 18 call 22 */
-            return STR_ME_SET_STAKING_INFO;
+        // case 4630: /* module 18 call 22 */
+        //     return STR_ME_SET_STAKING_INFO;
 #endif
         default:
             return NULL;
@@ -933,8 +932,8 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
             return 1;
         case 4619: /* module 18 call 11 */
             return 3;
-        case 4630: /* module 18 call 22 */
-            return 1;
+        // case 4630: /* module 18 call 22 */
+        //     return 1;
 #endif
         default:
             return 0;
@@ -1398,13 +1397,13 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        case 4630: /* module 18 call 22 */
-            switch (itemIdx) {
-                case 0: // TODO: Check if info or annualInflation (setStakingInfo)
-                    return STR_IT_info;
-                default:
-                    return NULL;
-            }
+        // case 4630: /* module 18 call 22 */
+        //     switch (itemIdx) {
+        //         case 0: 
+        //             return STR_IT_info;
+        //         default:
+        //             return NULL;
+        //     }
 #endif
         default:
             return NULL;
@@ -1517,61 +1516,61 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        // case 4611: /* module 18 call 3 */
-        //     switch (itemIdx) {
-        //         case 0: /* nominationpools_unbond_V2 - pool_id */;
-        //             return _toStringPoolId(
-        //                     &m->nested.nominationpools_unbond_V2.pool_id,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 1: /* nominationpools_unbond_V2 - member_account */;
-        //             return _toStringAccountIdLookupOfT(
-        //                     &m->nested.nominationpools_unbond_V2.member_account,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 2: /* nominationpools_unbond_V2 - unbonding_points */;
-        //             return _toStringCompactBalance(
-        //                     &m->nested.nominationpools_unbond_V2.unbonding_points,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         default:
-        //             return parser_no_data;
-        //     }
-        // case 4612: /* module 18 call 4 */
-        //     switch (itemIdx) {
-        //         case 0: /* nominationpools_pool_withdraw_unbonded_V2 - pool_id */;
-        //             return _toStringPoolId(
-        //                     &m->nested.nominationpools_pool_withdraw_unbonded_V2.pool_id,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 1: /* nominationpools_pool_withdraw_unbonded_V2 - num_slashing_spans */;
-        //             return _toStringu32(
-        //                     &m->nested.nominationpools_pool_withdraw_unbonded_V2.num_slashing_spans,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         default:
-        //             return parser_no_data;
-        //     }
-        // case 4613: /* module 18 call 5 */
-        //     switch (itemIdx) {
-        //         case 0: /* nominationpools_withdraw_unbonded_V2 - pool_id */;
-        //             return _toStringAccountIdLookupOfT(
-        //                     &m->nested.nominationpools_withdraw_unbonded_V2.pool_id,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 1: /* nominationpools_withdraw_unbonded_V2 - member_account */;
-        //             return _toStringCompactBalance(
-        //                     &m->nested.nominationpools_withdraw_unbonded_V2.member_account,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 2: /* nominationpools_withdraw_unbonded_V2 - num_slashing_spans */;
-        //             return _toStringu32(
-        //                     &m->nested.nominationpools_withdraw_unbonded_V2.num_slashing_spans,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         default:
-        //             return parser_no_data;
-        //     }
+        case 4611: /* module 18 call 3 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_unbond_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->nested.nominationpools_unbond_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_unbond_V2 - member_account */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.nominationpools_unbond_V2.member_account,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* nominationpools_unbond_V2 - unbonding_points */;
+                    return _toStringCompactBalance(
+                            &m->nested.nominationpools_unbond_V2.unbonding_points,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4612: /* module 18 call 4 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_pool_withdraw_unbonded_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->nested.nominationpools_pool_withdraw_unbonded_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_pool_withdraw_unbonded_V2 - num_slashing_spans */;
+                    return _toStringu32(
+                            &m->nested.nominationpools_pool_withdraw_unbonded_V2.num_slashing_spans,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4613: /* module 18 call 5 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_withdraw_unbonded_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_withdraw_unbonded_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_withdraw_unbonded_V2 - member_account */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.nominationpools_withdraw_unbonded_V2.member_account,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* nominationpools_withdraw_unbonded_V2 - num_slashing_spans */;
+                    return _toStringu32(
+                            &m->basic.nominationpools_withdraw_unbonded_V2.num_slashing_spans,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
         // case 4614: /* module 18 call 6 */
         //     switch (itemIdx) {
         //         case 0: /* nominationpools_create_V2 - token_id */;
@@ -1642,21 +1641,21 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        // case 4626: /* module 18 call 18 */
-        //     switch (itemIdx) {
-        //         case 0: /* nominationpools_payout_rewards_V2 - validator_stash */;
-        //             return _toStringAccountId(
-        //                     &m->basic.nominationpools_payout_rewards_V2.validator_stash,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 1: /* nominationpools_payout_rewards_V2 - era */;
-        //             return _toStringEraIndex(
-        //                     &m->basic.nominationpools_payout_rewards_V2.era,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         default:
-        //             return parser_no_data;
-        //     }
+        case 4626: /* module 18 call 18 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_payout_rewards_V2 - validator_stash */;
+                    return _toStringAccountId(
+                            &m->basic.nominationpools_payout_rewards_V2.validator_stash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_payout_rewards_V2 - era */;
+                    return _toStringEraIndex(
+                            &m->basic.nominationpools_payout_rewards_V2.era,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
         // case 4627: /* module 18 call 19 */ // TODO: Check, probably wrong
         //     switch (itemIdx) {
         //         case 0: /* nominationpools_mutate_V2 - pool_id */;
@@ -2126,7 +2125,7 @@ parser_error_t _getMethod_ItemValue_V2(
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 2: /* nominationpools_set_configs_V2 - global_max_commission */;
-                    return _toStringCompactu32(
+                    return _toStringPerbill(
                             &m->basic.nominationpools_set_configs_V2.global_max_commission,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -2177,20 +2176,6 @@ bool _getMethod_ItemIsExpert_V2(uint8_t moduleIdx, uint8_t callIdx, __Z_UNUSED u
                 default:
                     return false;
             }
-        case 4612: // NominationPools:Pool withdraw unbonded
-            switch (itemIdx) {
-                case 1: // Num slashing spans
-                    return true;
-                default:
-                    return false;
-            }
-        case 4613: // NominationPools:Withdraw Unbonded
-            switch (itemIdx) {
-                case 1: // Num slashing spans
-                    return true;
-                default:
-                    return false;
-            }
         default:
             return false;
     }
@@ -2216,12 +2201,14 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
         case 2325: // Staking:Kick
         case 2328: // Staking:Force apply min commission
         case 2329: // Staking:Set min commission
+        case 4611: // NominationPools:Unbond
         case 4612: // NominationPools:Pool withdraw unbonded
 //        case 4608: // NominationPools:Create with pool id // TODO: Doesn't exists, only create
         // case 4616: // NominationPools:Nominate
-        case 4619: // NominationPools:Set configs
         case 4621: // NominationPools:Chill
         case 4622: // NominationPools:Destroy
+        case 4628: // NominationPools:Unbond deposit
+        case 4629: // NominationPools:Withdraw deposit
 //        case 4608: // NominationPools:Bond extra other // TODO: Doesnt exists, only bond
 
         default:
