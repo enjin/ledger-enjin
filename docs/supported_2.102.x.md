@@ -18,12 +18,12 @@
 
 | Name                        | Nano S | Nano S XL | Nano SP/X - Stax | Nesting | Arguments                                                            |
 |-----------------------------|--------|-----------|------------------|---------|----------------------------------------------------------------------|
-| Add liquidity               |        |           |                  |         | `OfferId`offer_id<br/>`BalanceOf`amount<br/>                         |
+| Add liquidity               |   :heavy_check_mark:      |    :heavy_check_mark:        |       :heavy_check_mark:            |         | `OfferId`offer_id<br/>`BalanceOf`amount<br/>                         |
 | Buy                         |        |           |                  |         | `OfferId`offer_id<br/>`BalanceOf`amount<br/>`TokenIdOf`token_id<br/> |
-| Cancel offer                |        |           |                  |         | `OfferId`offer_id<br/>                                               |
+| Cancel offer                |  :heavy_check_mark:       |   :heavy_check_mark:         |   :heavy_check_mark:                |         | `OfferId`offer_id<br/>                                               |
 | Configure liquidity account |        |           |                  |         | `LiquidityAccountConfigOf`config<br/>                                |
 | Create offer                |        |           |                  |         | `OfferOf`offer<br/>                                                  |
-| Withdraw liquidity          |        |           |                  |         | `OfferId`offer_id<br/>`BalanceOf`amount<br/>                         |
+| Withdraw liquidity          |  :heavy_check_mark:       |   :heavy_check_mark:         |     :heavy_check_mark:              |         | `OfferId`offer_id<br/>`BalanceOf`amount<br/>                         |
 
 ## Staking
 

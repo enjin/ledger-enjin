@@ -123,6 +123,10 @@ typedef struct {
 } pd_u8_array_32_t;
 
 typedef struct {
+    const uint8_t* _ptr;
+} pd_u128_t;
+
+typedef struct {
     uint64_t blockNumber;
     pd_u8_array_32_t blockHash;
 } pd_ByFork_t;
@@ -481,7 +485,7 @@ typedef struct {
 } pd_AccountId_t;
 
 typedef struct {
-    uint128_t value;
+    pd_u128_t value;
 } pd_TokenId_t;
 
 typedef struct {
@@ -945,7 +949,7 @@ typedef struct {
 } pd_PoolId_t;
 
 typedef struct {
-    uint32_t value;
+    pd_u128_t value;
 } pd_OfferId_t;
 
 typedef struct {

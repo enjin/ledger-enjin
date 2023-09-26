@@ -50,6 +50,10 @@ parser_error_t _readu64(parser_context_t* c, pd_u64_t* v)
     return _readUInt64(c, v);
 }
 
+parser_error_t _readu128(parser_context_t* c, pd_u128_t* v) {
+    GEN_DEF_READARRAY(16)
+}
+
 parser_error_t _readBlockNumber(parser_context_t* c, pd_BlockNumber_t* v)
 {
     return _readUInt32(c, v);
@@ -1619,6 +1623,21 @@ parser_error_t _readPoolId(parser_context_t* c, pd_PoolId_t* v)
     return parser_ok;
 }
 
+parser_error_t _readOfferId(parser_context_t* c, pd_OfferId_t* v)
+{
+    return _readu128(c, &v->value);
+}
+
+parser_error_t _readTokenId(parser_context_t* c, pd_TokenId_t* v)
+{
+    return _readu128(c, &v->value);
+}
+
+parser_error_t _readTokenIdOf(parser_context_t* c, pd_TokenIdOf_t* v)
+{
+    return _readTokenId(c, &v->value);
+}
+
 parser_error_t _readPoolState(parser_context_t* c, pd_PoolState_t* v)
 {
     CHECK_INPUT()
@@ -1871,6 +1890,36 @@ parser_error_t _toStringu64(
 
     uint64_to_str(bufferUI, sizeof(bufferUI), *v);
     pageString(outValue, outValueLen, bufferUI, pageIdx, pageCount);
+    return parser_ok;
+}
+
+parser_error_t _toStringu128(
+    const pd_u128_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    char bufferUI[200];
+    MEMZERO(outValue, outValueLen);
+    MEMZERO(bufferUI, sizeof(bufferUI));
+    *pageCount = 1;
+
+    uint8_t bcdOut[100];
+    const uint16_t bcdOutLen = sizeof(bcdOut);
+    bignumLittleEndian_to_bcd(bcdOut, bcdOutLen, v->_ptr, 16);
+    if (!bignumLittleEndian_bcdprint(bufferUI, sizeof(bufferUI), bcdOut, bcdOutLen))
+        return parser_unexpected_buffer_end;
+
+    // Format number
+    if (intstr_to_fpstr_inplace(bufferUI, sizeof(bufferUI), 0) == 0) {
+        return parser_unexpected_value;
+    }
+
+    pageString(outValue, outValueLen, bufferUI, pageIdx, pageCount);
+
     return parser_ok;
 }
 

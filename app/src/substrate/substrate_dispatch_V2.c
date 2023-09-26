@@ -1718,7 +1718,7 @@ parser_error_t _getMethod_ItemValue_V2(
         case 4865: /* module 19 call 1 */
             switch (itemIdx) {
                 case 0: /* stakeexchange_cancel_offer_V2 - offer_id */;
-                    return _toStringCompactu64(
+                    return _toStringu128(
                             &m->basic.stakeexchange_cancel_offer_V2.offer_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -1738,12 +1738,12 @@ parser_error_t _getMethod_ItemValue_V2(
         case 4867: /* module 19 call 3 */
             switch (itemIdx) {
                 case 0: /* stakeexchange_withdraw_liquidity_V2 - offer_id */;
-                    return _toStringCompactu64(
+                    return _toStringu128(
                             &m->basic.stakeexchange_withdraw_liquidity_V2.offer_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* stakeexchange_withdraw_liquidity_V2 - amount */;
-                    return _toStringCompactBalance(
+                    return _toStringBalanceOf(
                             &m->basic.stakeexchange_withdraw_liquidity_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -1753,12 +1753,12 @@ parser_error_t _getMethod_ItemValue_V2(
         case 4868: /* module 19 call 4 */
             switch (itemIdx) {
                 case 0: /* stakeexchange_add_liquidity_V2 - offer_id */;
-                    return _toStringCompactu64(
+                    return _toStringu128(
                             &m->basic.stakeexchange_add_liquidity_V2.offer_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* stakeexchange_add_liquidity_V2 - amount */;
-                    return _toStringCompactBalance(
+                    return _toStringBalanceOf(
                             &m->basic.stakeexchange_add_liquidity_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -1768,17 +1768,17 @@ parser_error_t _getMethod_ItemValue_V2(
         case 4869: /* module 19 call 5 */
             switch (itemIdx) {
                 case 0: /* stakeexchange_buy_V2 - offer_id */;
-                    return _toStringCompactu64(
+                    return _toStringu128(
                             &m->basic.stakeexchange_buy_V2.offer_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* stakeexchange_buy_V2 - amount */;
-                    return _toStringCompactBalance(
+                    return _toStringBalanceOf(
                             &m->basic.stakeexchange_buy_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 2: /* stakeexchange_buy_V2 - token_id */;
-                    return _toStringCompactu64(
+                    return _toStringu128(
                             &m->basic.stakeexchange_buy_V2.token_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
