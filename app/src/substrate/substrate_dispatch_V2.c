@@ -18,6 +18,7 @@
 #include "substrate_strings.h"
 #include "zxmacros.h"
 #include <stdint.h>
+
 #ifdef LEDGER_SPECIFIC
 #include "bolos_target.h"
 #endif
