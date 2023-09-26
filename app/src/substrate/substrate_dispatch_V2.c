@@ -64,6 +64,210 @@ __Z_INLINE parser_error_t _readMethod_balances_transfer_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_multitokens_approve_collection_V2(
+        parser_context_t* c, pd_multitokens_approve_collection_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_approve_token_V2(
+        parser_context_t* c, pd_multitokens_approve_token_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_batch_mint_V2(
+        parser_context_t* c, pd_multitokens_batch_mint_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_batch_set_attribute_V2(
+        parser_context_t* c, pd_multitokens_batch_set_attribute_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_batch_transfer_V2(
+        parser_context_t* c, pd_multitokens_batch_transfer_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_burn_V2(
+        parser_context_t* c, pd_multitokens_burn_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_claim_collections_V2(
+        parser_context_t* c, pd_multitokens_claim_collections_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_claim_tokens_V2(
+        parser_context_t* c, pd_multitokens_claim_tokens_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_create_collection_V2(
+        parser_context_t* c, pd_multitokens_create_collection_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_destroy_collection_V2(
+        parser_context_t* c, pd_multitokens_destroy_collection_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_approve_collection_V2(
+        parser_context_t* c, pd_multitokens_force_approve_collection_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_burn_V2(
+        parser_context_t* c, pd_multitokens_force_burn_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_create_collection_V2(
+        parser_context_t* c, pd_multitokens_force_create_collection_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_freeze_V2(
+        parser_context_t* c, pd_multitokens_force_freeze_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_mint_V2(
+        parser_context_t* c, pd_multitokens_force_mint_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_mutate_collection_V2(
+        parser_context_t* c, pd_multitokens_force_mutate_collection_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_attribute_V2(
+        parser_context_t* c, pd_multitokens_force_set_attribute_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_collection_V2(
+        parser_context_t* c, pd_multitokens_force_set_collection_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_collection_account_V2(
+        parser_context_t* c, pd_multitokens_force_set_collection_account_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_next_collection_id_V2(
+        parser_context_t* c, pd_multitokens_force_set_next_collection_id_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_token_V2(
+        parser_context_t* c, pd_multitokens_force_set_token_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_token_account_V2(
+        parser_context_t* c, pd_multitokens_force_set_token_account_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_transfer_V2(
+        parser_context_t* c, pd_multitokens_force_transfer_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_freeze_V2(
+        parser_context_t* c, pd_multitokens_freeze_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_mint_V2(
+        parser_context_t* c, pd_multitokens_mint_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_mutate_collection_V2(
+        parser_context_t* c, pd_multitokens_mutate_collection_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_mutate_token_V2(
+        parser_context_t* c, pd_multitokens_mutate_token_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_remove_all_attributes_V2(
+        parser_context_t* c, pd_multitokens_remove_all_attributes_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_remove_attribute_V2(
+        parser_context_t* c, pd_multitokens_remove_attribute_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_set_attribute_V2(
+        parser_context_t* c, pd_multitokens_set_attribute_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_thaw_V2(
+        parser_context_t* c, pd_multitokens_thaw_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_transfer_V2(
+        parser_context_t* c, pd_multitokens_transfer_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_unapprove_collection_V2(
+        parser_context_t* c, pd_multitokens_unapprove_collection_V2_t* m)
+{
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_unapprove_token_V2(
+        parser_context_t* c, pd_multitokens_unapprove_token_V2_t* m)
+{
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_nominationpools_bond_V2(
         parser_context_t* c, pd_nominationpools_bond_V2_t* m)
 {
@@ -552,6 +756,108 @@ parser_error_t _readMethod_V2(
         case 4869: /* module 19 call 5 */
         CHECK_ERROR(_readMethod_stakeexchange_buy_V2(c, &method->basic.stakeexchange_buy_V2))
             break;
+        case 64768: /* module 253 call 0 */
+        CHECK_ERROR(_readMethod_multitokens_create_collection_V2(c, &method->basic.multitokens_create_collection_V2))
+            break;
+        case 64769: /* module 253 call 1 */
+        CHECK_ERROR(_readMethod_multitokens_destroy_collection_V2(c, &method->basic.multitokens_destroy_collection_V2))
+            break;
+        case 64770: /* module 253 call 2 */
+        CHECK_ERROR(_readMethod_multitokens_mutate_collection_V2(c, &method->basic.multitokens_mutate_collection_V2))
+            break;
+        case 64771: /* module 253 call 3 */
+        CHECK_ERROR(_readMethod_multitokens_mutate_token_V2(c, &method->basic.multitokens_mutate_token_V2))
+            break;
+        case 64772: /* module 253 call 4 */
+        CHECK_ERROR(_readMethod_multitokens_mint_V2(c, &method->basic.multitokens_mint_V2))
+            break;
+        case 64773: /* module 253 call 5 */
+        CHECK_ERROR(_readMethod_multitokens_burn_V2(c, &method->basic.multitokens_burn_V2))
+            break;
+        case 64774: /* module 253 call 6 */
+        CHECK_ERROR(_readMethod_multitokens_transfer_V2(c, &method->basic.multitokens_transfer_V2))
+            break;
+        case 64775: /* module 253 call 7 */
+        CHECK_ERROR(_readMethod_multitokens_freeze_V2(c, &method->basic.multitokens_freeze_V2))
+            break;
+        case 64776: /* module 253 call 8 */
+        CHECK_ERROR(_readMethod_multitokens_thaw_V2(c, &method->basic.multitokens_thaw_V2))
+            break;
+        case 64777: /* module 253 call 9 */
+        CHECK_ERROR(_readMethod_multitokens_set_attribute_V2(c, &method->basic.multitokens_set_attribute_V2))
+            break;
+        case 64778: /* module 253 call 10 */
+        CHECK_ERROR(_readMethod_multitokens_remove_attribute_V2(c, &method->basic.multitokens_remove_attribute_V2))
+            break;
+        case 64779: /* module 253 call 11 */
+        CHECK_ERROR(_readMethod_multitokens_remove_all_attributes_V2(c, &method->basic.multitokens_remove_all_attributes_V2))
+            break;
+        case 64780: /* module 253 call 12 */
+        CHECK_ERROR(_readMethod_multitokens_batch_transfer_V2(c, &method->basic.multitokens_batch_transfer_V2))
+            break;
+        case 64781: /* module 253 call 13 */
+        CHECK_ERROR(_readMethod_multitokens_batch_mint_V2(c, &method->basic.multitokens_batch_mint_V2))
+            break;
+        case 64782: /* module 253 call 14 */
+        CHECK_ERROR(_readMethod_multitokens_batch_set_attribute_V2(c, &method->basic.multitokens_batch_set_attribute_V2))
+            break;
+        case 64783: /* module 253 call 15 */
+        CHECK_ERROR(_readMethod_multitokens_approve_collection_V2(c, &method->basic.multitokens_approve_collection_V2))
+            break;
+        case 64784: /* module 253 call 16 */
+        CHECK_ERROR(_readMethod_multitokens_unapprove_collection_V2(c, &method->basic.multitokens_unapprove_collection_V2))
+            break;
+        case 64785: /* module 253 call 17 */
+        CHECK_ERROR(_readMethod_multitokens_approve_token_V2(c, &method->basic.multitokens_approve_token_V2))
+            break;
+        case 64786: /* module 253 call 18 */
+        CHECK_ERROR(_readMethod_multitokens_unapprove_token_V2(c, &method->basic.multitokens_unapprove_token_V2))
+            break;
+        case 64787: /* module 253 call 19 */
+        CHECK_ERROR(_readMethod_multitokens_force_mutate_collection_V2(c, &method->basic.multitokens_force_mutate_collection_V2))
+            break;
+        case 64788: /* module 253 call 20 */
+        CHECK_ERROR(_readMethod_multitokens_force_transfer_V2(c, &method->basic.multitokens_force_transfer_V2))
+            break;
+        case 64789: /* module 253 call 21 */
+        CHECK_ERROR(_readMethod_multitokens_force_set_collection_V2(c, &method->basic.multitokens_force_set_collection_V2))
+            break;
+        case 64790: /* module 253 call 22 */
+        CHECK_ERROR(_readMethod_multitokens_force_set_token_V2(c, &method->basic.multitokens_force_set_token_V2))
+            break;
+        case 64791: /* module 253 call 23 */
+        CHECK_ERROR(_readMethod_multitokens_force_set_attribute_V2(c, &method->basic.multitokens_force_set_attribute_V2))
+            break;
+        case 64792: /* module 253 call 24 */
+        CHECK_ERROR(_readMethod_multitokens_force_set_collection_account_V2(c, &method->basic.multitokens_force_set_collection_account_V2))
+            break;
+        case 64793: /* module 253 call 25 */
+        CHECK_ERROR(_readMethod_multitokens_force_set_token_account_V2(c, &method->basic.multitokens_force_set_token_account_V2))
+            break;
+        case 64794: /* module 253 call 26 */
+        CHECK_ERROR(_readMethod_multitokens_force_create_collection_V2(c, &method->basic.multitokens_force_create_collection_V2))
+            break;
+        case 64795: /* module 253 call 27 */
+        CHECK_ERROR(_readMethod_multitokens_force_mint_V2(c, &method->basic.multitokens_force_mint_V2))
+            break;
+        case 64796: /* module 253 call 28 */
+        CHECK_ERROR(_readMethod_multitokens_force_burn_V2(c, &method->basic.multitokens_force_burn_V2))
+            break;
+        case 64797: /* module 253 call 29 */
+        CHECK_ERROR(_readMethod_multitokens_force_approve_collection_V2(c, &method->basic.multitokens_force_approve_collection_V2))
+            break;
+        case 64798: /* module 253 call 30 */
+        CHECK_ERROR(_readMethod_multitokens_force_freeze_V2(c, &method->basic.multitokens_force_freeze_V2))
+            break;
+        case 64799: /* module 253 call 31 */
+        CHECK_ERROR(_readMethod_multitokens_force_set_next_collection_id_V2(c, &method->basic.multitokens_force_set_next_collection_id_V2))
+            break;
+        case 64800: /* module 253 call 32 */
+        CHECK_ERROR(_readMethod_multitokens_claim_collections_V2(c, &method->basic.multitokens_claim_collections_V2))
+            break;
+        case 64801: /* module 253 call 33 */
+        CHECK_ERROR(_readMethod_multitokens_claim_tokens_V2(c, &method->basic.multitokens_claim_tokens_V2))
+            break;
 #ifdef SUBSTRATE_PARSER_FULL
         case 1541: /* module 6 call 5 */
         CHECK_ERROR(_readMethod_balances_force_unreserve_V2(c, &method->basic.balances_force_unreserve_V2))
@@ -668,6 +974,8 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
             return STR_MO_NOMINATIONPOOLS;
         case 19:
             return STR_MO_STAKEEXCHANGE;
+        case 253:
+            return STR_MO_MULTITOKENS;
 #ifdef SUBSTRATE_PARSER_FULL
         case 9:
             return STR_MO_STAKING;
@@ -734,6 +1042,74 @@ const char* _getMethod_Name_V2(uint8_t moduleIdx, uint8_t callIdx)
             return STR_ME_ADD_LIQUIDITY;
         case 4869: /* module 19 call 5 */
             return STR_ME_BUY;
+        case 64768: /* module 253 call 0 */
+            return STR_ME_CREATE_COLLECTION;
+        case 64769: /* module 253 call 1 */
+            return STR_ME_DESTROY_COLLECTION;
+        case 64770: /* module 253 call 2 */
+            return STR_ME_MUTATE_COLLECTION;
+        case 64771: /* module 253 call 3 */
+            return STR_ME_MUTATE_TOKEN;
+        case 64772: /* module 253 call 4 */
+            return STR_ME_MINT;
+        case 64773: /* module 253 call 5 */
+            return STR_ME_BURN;
+        case 64774: /* module 253 call 6 */
+            return STR_ME_TRANSFER;
+        case 64775: /* module 253 call 7 */
+            return STR_ME_FREEZE;
+        case 64776: /* module 253 call 8 */
+            return STR_ME_THAW;
+        case 64777: /* module 253 call 9 */
+            return STR_ME_SET_ATTRIBUTE;
+        case 64778: /* module 253 call 10 */
+            return STR_ME_REMOVE_ATTRIBUTE;
+        case 64779: /* module 253 call 11 */
+            return STR_ME_REMOVE_ALL_ATTRIBUTES;
+        case 64780: /* module 253 call 12 */
+            return STR_ME_BATCH_TRANSFER;
+        case 64781: /* module 253 call 13 */
+            return STR_ME_BATCH_MINT;
+        case 64782: /* module 253 call 14 */
+            return STR_ME_BATCH_SET_ATTRIBUTE;
+        case 64783: /* module 253 call 15 */
+            return STR_ME_APPROVE_COLLECTION;
+        case 64784: /* module 253 call 16 */
+            return STR_ME_UNAPPROVE_COLLECTION;
+        case 64785: /* module 253 call 17 */
+            return STR_ME_APPROVE_TOKEN;
+        case 64786: /* module 253 call 18 */
+            return STR_ME_UNAPPROVE_TOKEN;
+        case 64787: /* module 253 call 19 */
+            return STR_ME_FORCE_MUTATE_COLLECTION;
+        case 64788: /* module 253 call 20 */
+            return STR_ME_FORCE_TRANSFER;
+        case 64789: /* module 253 call 21 */
+            return STR_ME_FORCE_SET_COLLECTION;
+        case 64790: /* module 253 call 22 */
+            return STR_ME_FORCE_SET_TOKEN;
+        case 64791: /* module 253 call 23 */
+            return STR_ME_FORCE_SET_ATTRIBUTE;
+        case 64792: /* module 253 call 24 */
+            return STR_ME_FORCE_SET_COLLECTION_ACCOUNT;
+        case 64793: /* module 253 call 25 */
+            return STR_ME_FORCE_SET_TOKEN_ACCOUNT;
+        case 64794: /* module 253 call 26 */
+            return STR_ME_FORCE_CREATE_COLLECTION;
+        case 64795: /* module 253 call 27 */
+            return STR_ME_FORCE_MINT;
+        case 64796: /* module 253 call 28 */
+            return STR_ME_FORCE_BURN;
+        case 64797: /* module 253 call 29 */
+            return STR_ME_FORCE_APPROVE_COLLECTION;
+        case 64798: /* module 253 call 30 */
+            return STR_ME_FORCE_FREEZE;
+        case 64799: /* module 253 call 31 */
+            return STR_ME_FORCE_SET_NEXT_COLLECTION_ID;
+        case 64800: /* module 253 call 32 */
+            return STR_ME_CLAIM_COLLECTIONS;
+        case 64801: /* module 253 call 33 */
+            return STR_ME_CLAIM_TOKENS;
         default:
             return _getMethod_Name_V2_ParserFull(callPrivIdx);
     }
@@ -871,6 +1247,74 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
             return 2;
         case 4869: /* module 19 call 5 */
             return 3;
+        case 64768: /* module 253 call 0 */
+            return 0;
+        case 64769: /* module 253 call 1 */
+            return 0;
+        case 64770: /* module 253 call 2 */
+            return 0;
+        case 64771: /* module 253 call 3 */
+            return 0;
+        case 64772: /* module 253 call 4 */
+            return 0;
+        case 64773: /* module 253 call 5 */
+            return 0;
+        case 64774: /* module 253 call 6 */
+            return 0;
+        case 64775: /* module 253 call 7 */
+            return 0;
+        case 64776: /* module 253 call 8 */
+            return 0;
+        case 64777: /* module 253 call 9 */
+            return 0;
+        case 64778: /* module 253 call 10 */
+            return 0;
+        case 64779: /* module 253 call 11 */
+            return 0;
+        case 64780: /* module 253 call 12 */
+            return 0;
+        case 64781: /* module 253 call 13 */
+            return 0;
+        case 64782: /* module 253 call 14 */
+            return 0;
+        case 64783: /* module 253 call 15 */
+            return 0;
+        case 64784: /* module 253 call 16 */
+            return 0;
+        case 64785: /* module 253 call 17 */
+            return 0;
+        case 64786: /* module 253 call 18 */
+            return 0;
+        case 64787: /* module 253 call 19 */
+            return 0;
+        case 64788: /* module 253 call 20 */
+            return 0;
+        case 64789: /* module 253 call 21 */
+            return 0;
+        case 64790: /* module 253 call 22 */
+            return 0;
+        case 64791: /* module 253 call 23 */
+            return 0;
+        case 64792: /* module 253 call 24 */
+            return 0;
+        case 64793: /* module 253 call 25 */
+            return 0;
+        case 64794: /* module 253 call 26 */
+            return 0;
+        case 64795: /* module 253 call 27 */
+            return 0;
+        case 64796: /* module 253 call 28 */
+            return 0;
+        case 64797: /* module 253 call 29 */
+            return 0;
+        case 64798: /* module 253 call 30 */
+            return 0;
+        case 64799: /* module 253 call 31 */
+            return 0;
+        case 64800: /* module 253 call 32 */
+            return 0;
+        case 64801: /* module 253 call 33 */
+            return 0;
 #ifdef SUBSTRATE_PARSER_FULL
         case 1541: /* module 6 call 5 */
             return 2;
@@ -1165,6 +1609,176 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                     return STR_IT_amount;
                 case 2:
                     return STR_IT_token_id;
+                default:
+                    return NULL;
+            }
+        case 64768: /* module 253 call 0 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64769: /* module 253 call 1 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64770: /* module 253 call 2 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64771: /* module 253 call 3 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64772: /* module 253 call 4 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64773: /* module 253 call 5 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64774: /* module 253 call 6 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64775: /* module 253 call 7 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64776: /* module 253 call 8 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64777: /* module 253 call 9 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64778: /* module 253 call 10 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64779: /* module 253 call 11 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64780: /* module 253 call 12 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64781: /* module 253 call 13 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64782: /* module 253 call 14 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64783: /* module 253 call 15 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64784: /* module 253 call 16 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64785: /* module 253 call 17 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64786: /* module 253 call 18 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64787: /* module 253 call 19 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64788: /* module 253 call 20 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64789: /* module 253 call 21 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64790: /* module 253 call 22 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64791: /* module 253 call 23 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64792: /* module 253 call 24 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64793: /* module 253 call 25 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64794: /* module 253 call 26 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64795: /* module 253 call 27 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64796: /* module 253 call 28 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64797: /* module 253 call 29 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64798: /* module 253 call 30 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64799: /* module 253 call 31 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64800: /* module 253 call 32 */
+            switch (itemIdx) {
+                default:
+                    return NULL;
+            }
+        case 64801: /* module 253 call 33 */
+            switch (itemIdx) {
                 default:
                     return NULL;
             }
@@ -1719,7 +2333,7 @@ parser_error_t _getMethod_ItemValue_V2(
         case 4865: /* module 19 call 1 */
             switch (itemIdx) {
                 case 0: /* stakeexchange_cancel_offer_V2 - offer_id */;
-                    return _toStringu128(
+                    return _toStringOfferId(
                             &m->basic.stakeexchange_cancel_offer_V2.offer_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -1739,7 +2353,7 @@ parser_error_t _getMethod_ItemValue_V2(
         case 4867: /* module 19 call 3 */
             switch (itemIdx) {
                 case 0: /* stakeexchange_withdraw_liquidity_V2 - offer_id */;
-                    return _toStringu128(
+                    return _toStringOfferId(
                             &m->basic.stakeexchange_withdraw_liquidity_V2.offer_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -1754,7 +2368,7 @@ parser_error_t _getMethod_ItemValue_V2(
         case 4868: /* module 19 call 4 */
             switch (itemIdx) {
                 case 0: /* stakeexchange_add_liquidity_V2 - offer_id */;
-                    return _toStringu128(
+                    return _toStringOfferId(
                             &m->basic.stakeexchange_add_liquidity_V2.offer_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -1769,7 +2383,7 @@ parser_error_t _getMethod_ItemValue_V2(
         case 4869: /* module 19 call 5 */
             switch (itemIdx) {
                 case 0: /* stakeexchange_buy_V2 - offer_id */;
-                    return _toStringu128(
+                    return _toStringOfferId(
                             &m->basic.stakeexchange_buy_V2.offer_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -1779,10 +2393,180 @@ parser_error_t _getMethod_ItemValue_V2(
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 2: /* stakeexchange_buy_V2 - token_id */;
-                    return _toStringu128(
+                    return _toStringTokenIdOf(
                             &m->basic.stakeexchange_buy_V2.token_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64768: /* module 253 call 0 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64769: /* module 253 call 1 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64770: /* module 253 call 2 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64771: /* module 253 call 3 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64772: /* module 253 call 4 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64773: /* module 253 call 5 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64774: /* module 253 call 6 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64775: /* module 253 call 7 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64776: /* module 253 call 8 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64777: /* module 253 call 9 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64778: /* module 253 call 10 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64779: /* module 253 call 11 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64780: /* module 253 call 12 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64781: /* module 253 call 13 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64782: /* module 253 call 14 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64783: /* module 253 call 15 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64784: /* module 253 call 16 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64785: /* module 253 call 17 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64786: /* module 253 call 18 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64787: /* module 253 call 19 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64788: /* module 253 call 20 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64789: /* module 253 call 21 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64790: /* module 253 call 22 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64791: /* module 253 call 23 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64792: /* module 253 call 24 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64793: /* module 253 call 25 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64794: /* module 253 call 26 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64795: /* module 253 call 27 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64796: /* module 253 call 28 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64797: /* module 253 call 29 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64798: /* module 253 call 30 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64799: /* module 253 call 31 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64800: /* module 253 call 32 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 64801: /* module 253 call 33 */
+            switch (itemIdx) {
                 default:
                     return parser_no_data;
             }

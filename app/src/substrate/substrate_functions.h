@@ -215,6 +215,13 @@ parser_error_t _toStringu64(
     uint8_t pageIdx,
     uint8_t* pageCount);
 
+parser_error_t _toStringu128(
+        const pd_u128_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
 parser_error_t _toStringbool(
     const pd_bool_t* v,
     char* outValue,
@@ -1215,6 +1222,27 @@ parser_error_t _toStringPoolId(
     uint16_t outValueLen,
     uint8_t pageIdx,
     uint8_t* pageCount);
+
+parser_error_t _toStringOfferId(
+        const pd_OfferId_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringTokenId(
+        const pd_TokenId_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringTokenIdOf(
+        const pd_TokenIdOf_t * v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
 
 parser_error_t _toStringPoolState(
     const pd_PoolState_t* v,
