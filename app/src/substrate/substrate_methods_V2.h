@@ -61,6 +61,11 @@ typedef struct {
     pd_BondExtraBalanceOfT_t extra;
 } pd_nominationpools_withdraw_unbonded_V2_t;
 
+#define PD_CALL_NOMINATIONPOOLS_DISTRIBUTE_EARLY_BIRD_BONUS_V2 24
+typedef struct {
+    pd_u32_t transfer_count;
+} pd_nominationpools_distribute_early_bird_bonus_V2_t;
+
 #ifdef SUBSTRATE_PARSER_FULL
 #define PD_CALL_BALANCES_FORCE_UNRESERVE_V2 5
 typedef struct {
@@ -186,6 +191,7 @@ typedef union {
     pd_nominationpools_payout_rewards_V2_t nominationpools_pool_payout_rewards_V2;
     pd_nominationpools_queue_early_bird_bonus_V2_t nominationpools_queue_early_bird_bonus_V2;
     pd_nominationpools_withdraw_unbonded_V2_t nominationpools_withdraw_unbonded_V2;
+    pd_nominationpools_distribute_early_bird_bonus_V2_t nominationpools_distribute_early_bird_bonus_V2;
 #ifdef SUBSTRATE_PARSER_FULL
     pd_balances_force_unreserve_V2_t balances_force_unreserve_V2;
     pd_balances_upgrade_accounts_V2_t balances_upgrade_accounts_V2;
@@ -242,15 +248,6 @@ typedef struct {
     pd_PoolId_t pool_id;
 } pd_nominationpools_bond_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_BOND_EXTRA_V2 1
-typedef struct {
-    pd_BondExtraBalanceOfT_t extra;
-} pd_nominationpools_destroy_V2_t;
-
-#define PD_CALL_NOMINATIONPOOLS_CLAIM_PAYOUT_V2 2
-typedef struct {
-} pd_nominationpools_distribute_early_bird_bonus_V2_t;
-
 #define PD_CALL_NOMINATIONPOOLS_UNBOND_V2 3
 typedef struct {
     pd_AccountIdLookupOfT_t member_account;
@@ -301,6 +298,11 @@ typedef struct {
 typedef struct {
     pd_PoolId_t pool_id;
 } pd_nominationpools_chill_V2_t;
+
+#define PD_CALL_NOMINATIONPOOLS_DESTROY_V2 14
+typedef struct {
+    pd_PoolId_t pool_id;
+} pd_nominationpools_destroy_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_SET_CLAIM_PERMISSION_V2 15
 typedef struct {
@@ -388,8 +390,6 @@ typedef union {
     pd_balances_transfer_keep_alive_V2_t balances_transfer_keep_alive_V2;
     pd_balances_transfer_V2_t balances_transfer_V2;
     pd_nominationpools_bond_V2_t nominationpools_bond_V2;
-    pd_nominationpools_destroy_V2_t nominationpools_destroy_V2;
-    pd_nominationpools_distribute_early_bird_bonus_V2_t nominationpools_distribute_early_bird_bonus_V2;
     pd_nominationpools_mutate_V2_t nominationpools_mutate_V2;
     pd_nominationpools_pool_withdraw_unbonded_V2_t nominationpools_withdraw_unbonded_V2;
     pd_nominationpools_create_V2_t nominationpools_create_V2;
@@ -398,6 +398,7 @@ typedef union {
     pd_nominationpools_unbond_deposit_V2_t nominationpools_unbond_deposit_V2;
     pd_nominationpools_withdraw_deposit_V2_t nominationpools_withdraw_deposit_V2;
     pd_nominationpools_chill_V2_t nominationpools_chill_V2;
+    pd_nominationpools_destroy_V2_t nominationpools_destroy_V2;
     pd_nominationpools_set_claim_permission_V2_t nominationpools_set_staking_info_V2;
     pd_nominationpools_claim_payout_other_V2_t nominationpools_claim_payout_other_V2;
     pd_nominationpools_set_commission_V2_t nominationpools_set_commission_V2;

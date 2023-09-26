@@ -93,14 +93,14 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_create_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_destroy_V2(
         parser_context_t* c, pd_nominationpools_destroy_V2_t* m)
 {
-    // CHECK_ERROR(_readPoolId(c, &m->pool_id))
+    CHECK_ERROR(_readPoolId(c, &m->pool_id))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_distribute_early_bird_bonus_V2(
         parser_context_t* c, pd_nominationpools_distribute_early_bird_bonus_V2_t* m)
 {
-    // CHECK_ERROR(_readu32(c, &m->transfer_count))
+    CHECK_ERROR(_readu32(c, &m->transfer_count))
     return parser_ok;
 }
 
@@ -533,7 +533,7 @@ parser_error_t _readMethod_V2(
             break;
         case 4632: /* module 18 call 24 */
         CHECK_ERROR(_readMethod_nominationpools_distribute_early_bird_bonus_V2(c,
-                                                                               &method->nested.nominationpools_distribute_early_bird_bonus_V2))
+                                                                               &method->basic.nominationpools_distribute_early_bird_bonus_V2))
             break;
         // case 4864: /* module 19 call 0 */
         // CHECK_ERROR(_readMethod_stakeexchange_create_offer_V2(c, &method->basic.stakeexchange_create_offer_V2))
@@ -1632,16 +1632,16 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        // case 4622: /* module 18 call 14 */
-        //     switch (itemIdx) {
-        //         case 0: /* nominationpools_destroy_V2 - pool_id */;
-        //             return _toStringPoolId(
-        //                     &m->nested.nominationpools_destroy_V2.pool_id,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         default:
-        //             return parser_no_data;
-        //     }
+        case 4622: /* module 18 call 14 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_destroy_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->nested.nominationpools_destroy_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
         // case 4626: /* module 18 call 18 */
         //     switch (itemIdx) {
         //         case 0: /* nominationpools_payout_rewards_V2 - validator_stash */;
@@ -1697,16 +1697,16 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        // case 4632: /* module 18 call 24 */
-        //     switch (itemIdx) {
-        //         case 0: /* nominationpools_distribute_early_bird_bonus_V2 - transfer_count */;
-        //             return _toStringu32(
-        //                     &m->basic.nominationpools_distribute_early_bird_bonus_V2.transfer_count,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         default:
-        //             return parser_no_data;
-        //     }
+        case 4632: /* module 18 call 24 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_distribute_early_bird_bonus_V2 - transfer_count */;
+                    return _toStringu32(
+                            &m->basic.nominationpools_distribute_early_bird_bonus_V2.transfer_count,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
         // case 4864: /* module 19 call 0 */
         //     switch (itemIdx) {
         //         case 0: /* stakeexchange_create_offer_V2 - offer */;
@@ -2218,7 +2218,10 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
         case 2329: // Staking:Set min commission
         case 4612: // NominationPools:Pool withdraw unbonded
 //        case 4608: // NominationPools:Create with pool id // TODO: Doesn't exists, only create
+        // case 4616: // NominationPools:Nominate
         case 4619: // NominationPools:Set configs
+        case 4621: // NominationPools:Chill
+        case 4622: // NominationPools:Destroy
 //        case 4608: // NominationPools:Bond extra other // TODO: Doesnt exists, only bond
 
         default:
