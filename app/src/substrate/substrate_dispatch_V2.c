@@ -175,7 +175,7 @@ __Z_INLINE parser_error_t _readMethod_multitokens_force_approve_collection_V2(
 //    return parser_ok;
 //}
 
-// TODO: Crashing
+// TODO: Check value that is not OptionBytes but OptionAttributeOf
 __Z_INLINE parser_error_t _readMethod_multitokens_force_set_attribute_V2(
         parser_context_t* c, pd_multitokens_force_set_attribute_V2_t* m)
 {
@@ -198,7 +198,6 @@ __Z_INLINE parser_error_t _readMethod_multitokens_force_set_attribute_V2(
 //    return parser_ok;
 //}
 
-// TODO: Check no more data
 __Z_INLINE parser_error_t _readMethod_multitokens_force_set_next_collection_id_V2(
         parser_context_t* c, pd_multitokens_force_set_next_collection_id_V2_t* m)
 {
@@ -248,7 +247,6 @@ __Z_INLINE parser_error_t _readMethod_multitokens_force_set_next_collection_id_V
 //    return parser_ok;
 //}
 
-// TODO: Crashing
 __Z_INLINE parser_error_t _readMethod_multitokens_remove_all_attributes_V2(
         parser_context_t* c, pd_multitokens_remove_all_attributes_V2_t* m)
 {
@@ -258,7 +256,6 @@ __Z_INLINE parser_error_t _readMethod_multitokens_remove_all_attributes_V2(
     return parser_ok;
 }
 
-// TODO: Crashing
 __Z_INLINE parser_error_t _readMethod_multitokens_remove_attribute_V2(
         parser_context_t* c, pd_multitokens_remove_attribute_V2_t* m)
 {
@@ -268,7 +265,6 @@ __Z_INLINE parser_error_t _readMethod_multitokens_remove_attribute_V2(
     return parser_ok;
 }
 
-// TODO: Crashing
 __Z_INLINE parser_error_t _readMethod_multitokens_set_attribute_V2(
         parser_context_t* c, pd_multitokens_set_attribute_V2_t* m)
 {
@@ -326,12 +322,12 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_chill_V2(
 __Z_INLINE parser_error_t _readMethod_nominationpools_create_V2(
         parser_context_t* c, pd_nominationpools_create_V2_t* m)
 {
-    // CHECK_ERROR(_readMultiAssetIdV3(c, &m->token_id))
-    // CHECK_ERROR(_readCompactBalance(c, &m->deposit))
-    // CHECK_ERROR(_readCompactBalance(c, &m->capacity))
-    // CHECK_ERROR(_readEraIndex(c, &m->duration))
-    // CHECK_ERROR(_readAccountIdLookupOfT(c, &m->admin))
-    // CHECK_ERROR(_readAccountIdLookupOfT(c, &m->nominator))
+     CHECK_ERROR(_readTokenIdOf(c, &m->token_id))
+     CHECK_ERROR(_readBalanceOf(c, &m->deposit))
+     CHECK_ERROR(_readBalanceOf(c, &m->capacity))
+     CHECK_ERROR(_readEraIndex(c, &m->duration))
+     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->admin))
+     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->nominator))
     return parser_ok;
 }
 
@@ -1403,11 +1399,11 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         case 2324: /* module 9 call 19 */
             return 1;
         case 2325: /* module 9 call 20 */
-            return 2;
+            return 1;
         case 2326: /* module 9 call 21 */
             return 1;
         case 2327: /* module 9 call 22 */
-            return 6;
+            return 1;
         case 2328: /* module 9 call 23 */
             return 1;
         case 2329: /* module 9 call 24 */
@@ -1962,10 +1958,12 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         case 64797: /* module 253 call 29 */
             switch (itemIdx) {
                 case 0:
-                    return STR_IT_collection_id;
+                    return STR_IT_caller;
                 case 1:
-                    return STR_IT_operator;
+                    return STR_IT_collection_id;
                 case 2:
+                    return STR_IT_operator;
+                case 3:
                     return STR_IT_expiration;
                 default:
                     return NULL;
@@ -2409,41 +2407,41 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        // case 4614: /* module 18 call 6 */
-        //     switch (itemIdx) {
-        //         case 0: /* nominationpools_create_V2 - token_id */;
-        //             return _toStringu64(
-        //                     &m->basic.nominationpools_create_V2.token_id,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 1: /* nominationpools_create_V2 - deposit */;
-        //             return _toStringCompactBalance(
-        //                     &m->basic.nominationpools_create_V2.deposit,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 2: /* nominationpools_create_V2 - capacity */;
-        //             return _toStringCompactBalance(
-        //                     &m->basic.nominationpools_create_V2.capacity,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 3: /* nominationpools_create_V2 - duration */;
-        //             return _toStringCompactu32(
-        //                     &m->basic.nominationpools_create_V2.duration,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 4: /* nominationpools_create_V2 - admin */;
-        //             return _toStringAccountIdLookupOfT(
-        //                     &m->basic.nominationpools_create_V2.admin,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 5: /* nominationpools_create_V2 - nominator */;
-        //             return _toStringAccountIdLookupOfT(
-        //                     &m->basic.nominationpools_create_V2.nominator,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         default:
-        //             return parser_no_data;
-        //     }
+         case 4614: /* module 18 call 6 */
+             switch (itemIdx) {
+                 case 0: /* nominationpools_create_V2 - token_id */;
+                     return _toStringTokenIdOf(
+                             &m->nested.nominationpools_create_V2.token_id,
+                             outValue, outValueLen,
+                             pageIdx, pageCount);
+                 case 1: /* nominationpools_create_V2 - deposit */;
+                     return _toStringBalanceOf(
+                             &m->nested.nominationpools_create_V2.deposit,
+                             outValue, outValueLen,
+                             pageIdx, pageCount);
+                 case 2: /* nominationpools_create_V2 - capacity */;
+                     return _toStringBalanceOf(
+                             &m->nested.nominationpools_create_V2.capacity,
+                             outValue, outValueLen,
+                             pageIdx, pageCount);
+                 case 3: /* nominationpools_create_V2 - duration */;
+                     return _toStringEraIndex(
+                             &m->nested.nominationpools_create_V2.duration,
+                             outValue, outValueLen,
+                             pageIdx, pageCount);
+                 case 4: /* nominationpools_create_V2 - admin */;
+                     return _toStringAccountIdLookupOfT(
+                             &m->nested.nominationpools_create_V2.admin,
+                             outValue, outValueLen,
+                             pageIdx, pageCount);
+                 case 5: /* nominationpools_create_V2 - nominator */;
+                     return _toStringAccountIdLookupOfT(
+                             &m->nested.nominationpools_create_V2.nominator,
+                             outValue, outValueLen,
+                             pageIdx, pageCount);
+                 default:
+                     return parser_no_data;
+             }
         case 4616: /* module 18 call 8 */
             switch (itemIdx) {
                 case 0: /* nominationpools_nominate_V2 - pool_id */;
@@ -2452,7 +2450,7 @@ parser_error_t _getMethod_ItemValue_V2(
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* nominationpools_nominate_V2 - validators */;
-                    return _toStringVecAccountIdLookupOfT(
+                    return _toStringVecAccountId(
                             &m->nested.nominationpools_nominate_V2.validators,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -3671,19 +3669,17 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
         case 2321: // Staking:Cancel deferred slash
         case 2322: // Staking:Payout stakers
         case 2324: // Staking:Reap stash
-        case 2325: // Staking:Kick
         case 2328: // Staking:Force apply min commission
         case 2329: // Staking:Set min commission
+        case 4608: // NominationPools:Bond
         case 4611: // NominationPools:Unbond
         case 4612: // NominationPools:Pool withdraw unbonded
-//        case 4608: // NominationPools:Create with pool id // TODO: Doesn't exists, only create
-        // case 4616: // NominationPools:Nominate
+        case 4614: // NominationPools:Create
+        case 4616: // NominationPools:Nominate
         case 4621: // NominationPools:Chill
         case 4622: // NominationPools:Destroy
         case 4628: // NominationPools:Unbond deposit
         case 4629: // NominationPools:Withdraw deposit
-//        case 4608: // NominationPools:Bond extra other // TODO: Doesnt exists, only bond
-
         default:
             return true;
     }

@@ -569,10 +569,12 @@ typedef struct {
 
 #define PD_CALL_NOMINATIONPOOLS_CREATE_V2 6
 typedef struct {
-    pd_CompactBalance_t amount;
-    pd_AccountIdLookupOfT_t root;
+    pd_TokenIdOf_t token_id;
+    pd_BalanceOf_t deposit;
+    pd_BalanceOf_t capacity;
+    pd_EraIndex_t duration;
+    pd_AccountIdLookupOfT_t admin;
     pd_AccountIdLookupOfT_t nominator;
-    pd_AccountIdLookupOfT_t bouncer;
 } pd_nominationpools_create_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_NOMINATE_V2 8
