@@ -1248,73 +1248,73 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         case 4869: /* module 19 call 5 */
             return 3;
         case 64768: /* module 253 call 0 */
-            return 0;
+            return 1;
         case 64769: /* module 253 call 1 */
-            return 0;
+            return 1;
         case 64770: /* module 253 call 2 */
-            return 0;
+            return 2;
         case 64771: /* module 253 call 3 */
-            return 0;
+            return 3;
         case 64772: /* module 253 call 4 */
-            return 0;
+            return 3;
         case 64773: /* module 253 call 5 */
-            return 0;
+            return 2;
         case 64774: /* module 253 call 6 */
-            return 0;
+            return 3;
         case 64775: /* module 253 call 7 */
-            return 0;
+            return 1;
         case 64776: /* module 253 call 8 */
-            return 0;
+            return 1;
         case 64777: /* module 253 call 9 */
-            return 0;
+            return 4;
         case 64778: /* module 253 call 10 */
-            return 0;
+            return 3;
         case 64779: /* module 253 call 11 */
-            return 0;
+            return 3;
         case 64780: /* module 253 call 12 */
-            return 0;
+            return 2;
         case 64781: /* module 253 call 13 */
-            return 0;
+            return 2;
         case 64782: /* module 253 call 14 */
-            return 0;
+            return 3;
         case 64783: /* module 253 call 15 */
-            return 0;
+            return 3;
         case 64784: /* module 253 call 16 */
-            return 0;
+            return 2;
         case 64785: /* module 253 call 17 */
-            return 0;
+            return 6;
         case 64786: /* module 253 call 18 */
-            return 0;
+            return 3;
         case 64787: /* module 253 call 19 */
-            return 0;
+            return 2;
         case 64788: /* module 253 call 20 */
-            return 0;
+            return 4;
         case 64789: /* module 253 call 21 */
-            return 0;
+            return 2;
         case 64790: /* module 253 call 22 */
-            return 0;
+            return 3;
         case 64791: /* module 253 call 23 */
-            return 0;
+            return 4;
         case 64792: /* module 253 call 24 */
-            return 0;
+            return 3;
         case 64793: /* module 253 call 25 */
-            return 0;
+            return 4;
         case 64794: /* module 253 call 26 */
-            return 0;
+            return 3;
         case 64795: /* module 253 call 27 */
-            return 0;
+            return 3;
         case 64796: /* module 253 call 28 */
-            return 0;
+            return 3;
         case 64797: /* module 253 call 29 */
-            return 0;
+            return 4;
         case 64798: /* module 253 call 30 */
-            return 0;
+            return 1;
         case 64799: /* module 253 call 31 */
-            return 0;
+            return 1;
         case 64800: /* module 253 call 32 */
-            return 0;
+            return 3;
         case 64801: /* module 253 call 33 */
-            return 0;
+            return 3;
 #ifdef SUBSTRATE_PARSER_FULL
         case 1541: /* module 6 call 5 */
             return 2;
@@ -1614,171 +1614,355 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             }
         case 64768: /* module 253 call 0 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_descriptor;
                 default:
                     return NULL;
             }
         case 64769: /* module 253 call 1 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
                 default:
                     return NULL;
             }
         case 64770: /* module 253 call 2 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_mutation;
                 default:
                     return NULL;
             }
         case 64771: /* module 253 call 3 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_token_id;
+                case 2:
+                    return STR_IT_mutation;
                 default:
                     return NULL;
             }
         case 64772: /* module 253 call 4 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_recipient;
+                case 1:
+                    return STR_IT_collection_id;
+                case 2:
+                    return STR_IT_params;
                 default:
                     return NULL;
             }
         case 64773: /* module 253 call 5 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_params;
                 default:
                     return NULL;
             }
         case 64774: /* module 253 call 6 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_recipient;
+                case 1:
+                    return STR_IT_collection_id;
+                case 2:
+                    return STR_IT_params;
                 default:
                     return NULL;
             }
         case 64775: /* module 253 call 7 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_info;
                 default:
                     return NULL;
             }
         case 64776: /* module 253 call 8 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_info;
                 default:
                     return NULL;
             }
         case 64777: /* module 253 call 9 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_token_id;
+                case 2:
+                    return STR_IT_key;
+                case 3:
+                    return STR_IT_value;
                 default:
                     return NULL;
             }
         case 64778: /* module 253 call 10 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_token_id;
+                case 2:
+                    return STR_IT_key;
                 default:
                     return NULL;
             }
         case 64779: /* module 253 call 11 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_token_id;
+                case 2:
+                    return STR_IT_attribute_count;
                 default:
                     return NULL;
             }
         case 64780: /* module 253 call 12 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_recipients;
                 default:
                     return NULL;
             }
         case 64781: /* module 253 call 13 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_recipients;
                 default:
                     return NULL;
             }
         case 64782: /* module 253 call 14 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_token_id;
+                case 2:
+                    return STR_IT_attributes;
                 default:
                     return NULL;
             }
         case 64783: /* module 253 call 15 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_operator;
+                case 2:
+                    return STR_IT_expiration;
                 default:
                     return NULL;
             }
         case 64784: /* module 253 call 16 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_operator;
                 default:
                     return NULL;
             }
         case 64785: /* module 253 call 17 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_token_id;
+                case 2:
+                    return STR_IT_operator;
+                case 3:
+                    return STR_IT_amount;
+                case 4:
+                    return STR_IT_expiration;
+                case 5:
+                    return STR_IT_current_amount;
                 default:
                     return NULL;
             }
         case 64786: /* module 253 call 18 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_token_id;
+                case 2:
+                    return STR_IT_operator;
                 default:
                     return NULL;
             }
         case 64787: /* module 253 call 19 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_mutation;
                 default:
                     return NULL;
             }
         case 64788: /* module 253 call 20 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_source;
+                case 1:
+                    return STR_IT_destination;
+                case 2:
+                    return STR_IT_collection_id;
+                case 3:
+                    return STR_IT_params;
                 default:
                     return NULL;
             }
         case 64789: /* module 253 call 21 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_value;
                 default:
                     return NULL;
             }
         case 64790: /* module 253 call 22 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_token_id;
+                case 2:
+                    return STR_IT_value;
                 default:
                     return NULL;
             }
         case 64791: /* module 253 call 23 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_token_id;
+                case 2:
+                    return STR_IT_key;
+                case 3:
+                    return STR_IT_value;
                 default:
                     return NULL;
             }
         case 64792: /* module 253 call 24 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_account_id;
+                case 2:
+                    return STR_IT_value;
                 default:
                     return NULL;
             }
         case 64793: /* module 253 call 25 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_token_id;
+                case 2:
+                    return STR_IT_account_id;
+                case 3:
+                    return STR_IT_value;
                 default:
                     return NULL;
             }
         case 64794: /* module 253 call 26 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_owner;
+                case 1:
+                    return STR_IT_collection_id;
+                case 2:
+                    return STR_IT_descriptor;
                 default:
                     return NULL;
             }
         case 64795: /* module 253 call 27 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_caller;
+                case 1:
+                    return STR_IT_recipient;
+                case 2:
+                    return STR_IT_collection_id;
+                case 3:
+                    return STR_IT_params;
+                case 4:
+                    return STR_IT_deposit_backer;
                 default:
                     return NULL;
             }
         case 64796: /* module 253 call 28 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_caller;
+                case 1:
+                    return STR_IT_collection_id;
+                case 2:
+                    return STR_IT_params;
                 default:
                     return NULL;
             }
         case 64797: /* module 253 call 29 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_collection_id;
+                case 1:
+                    return STR_IT_operator;
+                case 2:
+                    return STR_IT_expiration;
                 default:
                     return NULL;
             }
         case 64798: /* module 253 call 30 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_info;
                 default:
                     return NULL;
             }
         case 64799: /* module 253 call 31 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_value;
                 default:
                     return NULL;
             }
         case 64800: /* module 253 call 32 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_destination;
+                case 1:
+                    return STR_IT_ethereum_signature;
+                case 2:
+                    return STR_IT_ethereum_address;
                 default:
                     return NULL;
             }
         case 64801: /* module 253 call 33 */
             switch (itemIdx) {
+                case 0:
+                    return STR_IT_destination;
+                case 1:
+                    return STR_IT_ethereum_signature;
+                case 2:
+                    return STR_IT_ethereum_address;
                 default:
                     return NULL;
             }
