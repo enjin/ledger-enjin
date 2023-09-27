@@ -498,6 +498,11 @@ typedef struct {
 } pd_TokenId_t;
 
 typedef struct {
+    uint8_t some;
+    pd_TokenId_t contained;
+} pd_OptionTokenId_t;
+
+typedef struct {
     pd_TokenId_t value;
 } pd_TokenIdOf_t;
 
@@ -944,6 +949,11 @@ typedef struct {
     uint8_t some;
     pd_u32_t contained;
 } pd_Optionu32_t;
+
+typedef struct {
+    uint8_t some;
+    pd_u128_t contained;
+} pd_Optionu128_t;
 
 typedef struct {
     uint64_t value;

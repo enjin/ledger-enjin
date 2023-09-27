@@ -38,6 +38,7 @@ parser_error_t _readCallImpl(parser_context_t* c, pd_Call_t* v, pd_MethodNested_
 parser_error_t _readu8_array_32(parser_context_t* c, pd_u8_array_32_t* v);
 parser_error_t _readByFork(parser_context_t* c, pd_ByFork_t* v);
 parser_error_t _readBytes(parser_context_t* c, pd_Bytes_t* v);
+parser_error_t _readOptionBytes(parser_context_t* c, pd_OptionBytes_t* v);
 parser_error_t _readFraction(parser_context_t* c, pd_Fraction_t* v);
 parser_error_t _readNetworkIdV3(parser_context_t* c, pd_NetworkIdV3_t* v);
 parser_error_t _readBodyIdV2(parser_context_t* c, pd_BodyIdV2_t* v);
@@ -81,6 +82,7 @@ parser_error_t _readAssetInstanceV3(parser_context_t* c, pd_AssetInstanceV3_t* v
 parser_error_t _readMultiLocationV2(parser_context_t* c, pd_MultiLocationV2_t* v);
 parser_error_t _readOfferId(parser_context_t* c, pd_OfferId_t* v);
 parser_error_t _readTokenId(parser_context_t* c, pd_TokenId_t* v);
+parser_error_t _readOptionTokenId(parser_context_t* c, pd_OptionTokenId_t* v);
 parser_error_t _readCollectionId(parser_context_t* c, pd_CollectionId_t* v);
 parser_error_t _readCompactCollectionId(parser_context_t* c, pd_CompactCollectionId_t* v);
 parser_error_t _readCompactTokenId(parser_context_t* c, pd_CompactTokenId_t* v);
@@ -177,6 +179,7 @@ parser_error_t _readOptionPreimageHash(parser_context_t* c, pd_OptionPreimageHas
 parser_error_t _readOptionProxyType(parser_context_t* c, pd_OptionProxyType_t* v);
 parser_error_t _readOptionReferendumIndex(parser_context_t* c, pd_OptionReferendumIndex_t* v);
 parser_error_t _readOptionu32(parser_context_t* c, pd_Optionu32_t* v);
+parser_error_t _readOptionu128(parser_context_t* c, pd_Optionu128_t* v);
 parser_error_t _readOverweightIndex(parser_context_t* c, pd_OverweightIndex_t* v);
 parser_error_t _readPollIndexOf(parser_context_t* c, pd_PollIndexOf_t* v);
 parser_error_t _readPoolId(parser_context_t* c, pd_PoolId_t* v);
@@ -273,6 +276,13 @@ parser_error_t _toStringBytes(
     uint16_t outValueLen,
     uint8_t pageIdx,
     uint8_t* pageCount);
+
+parser_error_t _toStringOptionBytes(
+        const pd_OptionBytes_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
 
 parser_error_t _toStringFraction(
     const pd_Fraction_t* v,
@@ -1235,6 +1245,20 @@ parser_error_t _toStringOfferId(
 
 parser_error_t _toStringCompactCollectionId(
         const pd_CompactCollectionId_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringCompactTokenId(
+        const pd_CompactTokenId_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringOptionTokenId(
+        const pd_OptionTokenId_t* v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,

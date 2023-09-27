@@ -142,6 +142,16 @@ parser_error_t _readBytes(parser_context_t* c, pd_Bytes_t* v)
     return parser_ok;
 }
 
+parser_error_t _readOptionBytes(parser_context_t* c, pd_OptionBytes_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+        CHECK_ERROR(_readBytes(c, &v->contained))
+    }
+    return parser_ok;
+}
+
 parser_error_t _readFraction(parser_context_t* c, pd_Fraction_t* v)
 {
     CHECK_INPUT()
@@ -1643,6 +1653,16 @@ parser_error_t _readCompactTokenId(parser_context_t* c, pd_CompactTokenId_t* v)
     return _readCompactu128(c, &v->value);
 }
 
+parser_error_t _readOptionTokenId(parser_context_t* c, pd_OptionTokenId_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+        CHECK_ERROR(_readTokenId(c, &v->contained))
+    }
+    return parser_ok;
+}
+
 parser_error_t _readTokenId(parser_context_t* c, pd_TokenId_t* v)
 {
     return _readu128(c, &v->value);
@@ -1821,6 +1841,16 @@ parser_error_t _readOptionu32(parser_context_t* c, pd_Optionu32_t* v)
     return parser_ok;
 }
 
+parser_error_t _readOptionu128(parser_context_t* c, pd_Optionu128_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+        CHECK_ERROR(_readu128(c, &v->contained))
+    }
+    return parser_ok;
+}
+
 ///////////////////////////////////
 ///////////////////////////////////
 ///////////////////////////////////
@@ -1938,6 +1968,28 @@ parser_error_t _toStringu128(
     return parser_ok;
 }
 
+parser_error_t _toStringOptionu128(
+        const pd_Optionu128_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringu128(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount));
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
 parser_error_t _toStringBlockNumber(
     const pd_BlockNumber_t* v,
     char* outValue,
@@ -2036,6 +2088,28 @@ parser_error_t _toStringBytes(
     uint8_t* pageCount)
 {
     GEN_DEF_TOSTRING_ARRAY(v->_len);
+}
+
+parser_error_t _toStringOptionBytes(
+        const pd_OptionBytes_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringBytes(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount));
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
 }
 
 parser_error_t _toStringFraction(
@@ -4010,6 +4084,23 @@ parser_error_t _toStringOfferId(
     return _toStringu128(&v->value, outValue, outValueLen, pageIdx, pageCount);
 }
 
+parser_error_t _toStringOptionTokenId(
+        const pd_OptionTokenId_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+
+    // TODO: Check if wont crash
+    pd_Optionu128_t optionu128 = {
+            .some = v->some,
+            .contained = v->contained.value
+    };
+
+    return _toStringOptionu128(&optionu128, outValue, outValueLen, pageIdx, pageCount);
+}
+
 parser_error_t _toStringTokenId(
     const pd_TokenId_t* v,
     char* outValue,
@@ -4036,6 +4127,16 @@ parser_error_t _toStringCompactCollectionId(
     uint16_t outValueLen,
     uint8_t pageIdx,
     uint8_t* pageCount)
+{
+    return _toStringCompactu128(&v->value, outValue, outValueLen, pageIdx, pageCount);
+}
+
+parser_error_t _toStringCompactTokenId(
+        const pd_CompactTokenId_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
 {
     return _toStringCompactu128(&v->value, outValue, outValueLen, pageIdx, pageCount);
 }
