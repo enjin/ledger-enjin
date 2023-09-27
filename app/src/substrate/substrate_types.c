@@ -5628,7 +5628,7 @@ parser_error_t _toStringBondValueOfT(
 
     *pageCount = 1;
     switch (v->value) {
-        case 2:
+        case 0:
         CHECK_ERROR(_toStringCompactBalance(&v->amount, outValue, outValueLen, pageIdx, pageCount));
             break;
         case 1:

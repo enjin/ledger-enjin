@@ -572,7 +572,7 @@ typedef struct {
     pd_TokenIdOf_t token_id;
     pd_CompactBalance_t deposit;
     pd_CompactBalance_t capacity;
-    pd_EraIndex_t duration;
+    pd_CompactIndex_t duration;
     pd_AccountIdLookupOfT_t admin;
     pd_AccountIdLookupOfT_t nominator;
 } pd_nominationpools_create_V2_t;

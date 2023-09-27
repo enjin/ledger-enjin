@@ -304,7 +304,6 @@ __Z_INLINE parser_error_t _readMethod_multitokens_unapprove_token_V2(
     return parser_ok;
 }
 
-// TODO: Value cannot be printed on amount.amount
 __Z_INLINE parser_error_t _readMethod_nominationpools_bond_V2(
         parser_context_t* c, pd_nominationpools_bond_V2_t* m)
 {
@@ -326,7 +325,7 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_create_V2(
      CHECK_ERROR(_readTokenIdOf(c, &m->token_id))
      CHECK_ERROR(_readCompactBalance(c, &m->deposit))
      CHECK_ERROR(_readCompactBalance(c, &m->capacity))
-     CHECK_ERROR(_readEraIndex(c, &m->duration))
+     CHECK_ERROR(_readCompactIndex(c, &m->duration))
      CHECK_ERROR(_readAccountIdLookupOfT(c, &m->admin))
      CHECK_ERROR(_readAccountIdLookupOfT(c, &m->nominator))
     return parser_ok;
@@ -2426,7 +2425,7 @@ parser_error_t _getMethod_ItemValue_V2(
                              outValue, outValueLen,
                              pageIdx, pageCount);
                  case 3: /* nominationpools_create_V2 - duration */;
-                     return _toStringEraIndex(
+                     return _toStringCompactIndex(
                              &m->nested.nominationpools_create_V2.duration,
                              outValue, outValueLen,
                              pageIdx, pageCount);
