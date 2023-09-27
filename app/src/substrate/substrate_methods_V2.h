@@ -156,7 +156,7 @@ typedef struct {
 #define PD_CALL_MULTITOKENS_SET_ATTRIBUTE_V2 9
 typedef struct {
     pd_CompactCollectionId_t collection_id;
-    pd_TokenId_t token_id;
+    pd_Compactu128_t token_id;
     pd_Bytes_t key;
     pd_Bytes_t value;
 } pd_multitokens_set_attribute_V2_t;
@@ -164,14 +164,14 @@ typedef struct {
 #define PD_CALL_MULTITOKENS_REMOVE_ATTRIBUTE_V2 10
 typedef struct {
     pd_CompactCollectionId_t collection_id;
-    pd_TokenId_t token_id;
+    pd_Compactu128_t token_id;
     pd_Bytes_t key;
 } pd_multitokens_remove_attribute_V2_t;
 
 #define PD_CALL_MULTITOKENS_REMOVE_ALL_ATTRIBUTES_V2 11
 typedef struct {
     pd_CompactCollectionId_t collection_id;
-    pd_TokenId_t token_id;
+    pd_Compactu128_t token_id;
     pd_u32_t attribute_count;
 } pd_multitokens_remove_all_attributes_V2_t;
 
@@ -198,7 +198,7 @@ typedef struct {
 typedef struct {
     pd_CompactCollectionId_t collection_id;
     pd_AccountId_t operator_;
-    pd_u32_t expiration;
+    pd_Optionu32_t expiration;
 } pd_multitokens_approve_collection_V2_t;
 
 #define PD_CALL_MULTITOKENS_UNAPPROVE_COLLECTION_V2 16
@@ -210,17 +210,17 @@ typedef struct {
 #define PD_CALL_MULTITOKENS_APPROVE_TOKEN_V2 17
 typedef struct {
     pd_CompactCollectionId_t collection_id;
-    pd_TokenId_t token_id;
+    pd_Compactu128_t token_id;
     pd_AccountId_t operator_;
-    pd_u32_t amount;
-    pd_u32_t expiration;
-    pd_u32_t current_amount;
+    pd_CompactBalance_t amount;
+    pd_Optionu32_t expiration;
+    pd_CompactBalance_t current_amount;
 } pd_multitokens_approve_token_V2_t;
 
 #define PD_CALL_MULTITOKENS_UNAPPROVE_TOKEN_V2 18
 typedef struct {
     pd_CompactCollectionId_t collection_id;
-    pd_TokenId_t token_id;
+    pd_Compactu128_t token_id;
     pd_AccountId_t operator_;
 } pd_multitokens_unapprove_token_V2_t;
 
@@ -254,7 +254,7 @@ typedef struct {
 #define PD_CALL_MULTITOKENS_FORCE_SET_ATTRIBUTE_V2 23
 typedef struct {
     pd_CompactCollectionId_t collection_id;
-    pd_TokenId_t token_id;
+    pd_Compactu128_t token_id;
     pd_Bytes_t key;
     pd_Bytes_t value;
 } pd_multitokens_force_set_attribute_V2_t;
@@ -299,9 +299,10 @@ typedef struct {
 
 #define PD_CALL_MULTITOKENS_FORCE_APPROVE_COLLECTION_V2 29
 typedef struct {
+    pd_AccountIdLookupOfT_t caller;
     pd_CompactCollectionId_t collection_id;
     pd_AccountId_t operator_;
-    pd_u32_t expiration;
+    pd_Optionu32_t expiration;
 } pd_multitokens_force_approve_collection_V2_t;
 
 //#define PD_CALL_MULTITOKENS_FORCE_FREEZE_V2 30
@@ -311,7 +312,7 @@ typedef struct {
 
 #define PD_CALL_MULTITOKENS_FORCE_SET_NEXT_COLLECTION_ID_V2 31
 typedef struct {
-    pd_u32_t value;
+    pd_Compactu128_t value;
 } pd_multitokens_force_set_next_collection_id_V2_t;
 
 #define PD_CALL_MULTITOKENS_CLAIM_COLLECTIONS_V2 32
