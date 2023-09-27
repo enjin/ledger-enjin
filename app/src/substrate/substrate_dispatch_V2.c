@@ -2586,171 +2586,631 @@ parser_error_t _getMethod_ItemValue_V2(
             }
         case 64768: /* module 253 call 0 */
             switch (itemIdx) {
+                case 0: /* multitokens_create_collection_V2 - descriptor */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_create_collection_V2.descriptor,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64769: /* module 253 call 1 */
             switch (itemIdx) {
+                case 0: /* multitokens_destroy_collection_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_destroy_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64770: /* module 253 call 2 */
             switch (itemIdx) {
+                case 0: /* multitokens_mutate_collection_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_mutate_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_mutate_collection_V2 - mutation */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_mutate_collection_V2.mutation,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64771: /* module 253 call 3 */
             switch (itemIdx) {
+                case 0: /* multitokens_mutate_token_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_mutate_token_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_mutate_token_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_mutate_token_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_mutate_token_V2 - mutation */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_mutate_token_V2.mutation,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64772: /* module 253 call 4 */
             switch (itemIdx) {
+                case 0: /* multitokens_mint_V2 - recipient */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_mint_V2.recipient,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_mint_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_mint_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_mint_V2 - params */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_mint_V2.params,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64773: /* module 253 call 5 */
             switch (itemIdx) {
+                case 0: /* multitokens_burn_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_burn_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_burn_V2 - params */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_burn_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64774: /* module 253 call 6 */
             switch (itemIdx) {
+                case 0: /* multitokens_transfer_V2 - recipient */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_transfer_V2.recipient,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_transfer_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_transfer_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_transfer_V2 - params */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_transfer_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64775: /* module 253 call 7 */
             switch (itemIdx) {
+                case 0: /* multitokens_freeze_V2 - info */;
+                    return _toStringFreezeInfo(
+                            &m->basic.multitokens_freeze_V2.info,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64776: /* module 253 call 8 */
             switch (itemIdx) {
+                case 0: /* multitokens_thaw_V2 - info */;
+                    return _toStringFreezeInfo(
+                            &m->basic.multitokens_thaw_V2.info,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64777: /* module 253 call 9 */
             switch (itemIdx) {
+                case 0: /* multitokens_set_attribute_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_set_attribute_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_set_attribute_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_set_attribute_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_set_attribute_V2 - key */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_set_attribute_V2.key,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* multitokens_set_attribute_V2 - value */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_set_attribute_V2.value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64778: /* module 253 call 10 */
             switch (itemIdx) {
+                case 0: /* multitokens_remove_attribute_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_remove_attribute_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_remove_attribute_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_remove_attribute_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_remove_attribute_V2 - key */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_remove_attribute_V2.key,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64779: /* module 253 call 11 */
             switch (itemIdx) {
+                case 0: /* multitokens_remove_all_attributes_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_remove_all_attributes_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_remove_all_attributes_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_remove_all_attributes_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_remove_all_attributes_V2 - attribute_count */;
+                    return _toStringu32(
+                            &m->basic.multitokens_remove_all_attributes_V2.attribute_count,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64780: /* module 253 call 12 */
             switch (itemIdx) {
+                case 0: /* multitokens_batch_transfer_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_batch_transfer_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_batch_transfer_V2 - recipients */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_batch_transfer_V2.recipients,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64781: /* module 253 call 13 */
             switch (itemIdx) {
+                case 0: /* multitokens_batch_mint_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_batch_mint_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_batch_mint_V2 - recipients */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_batch_mint_V2.recipients,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64782: /* module 253 call 14 */
             switch (itemIdx) {
+                case 0: /* multitokens_batch_set_attribute_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_batch_set_attribute_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_batch_set_attribute_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_batch_set_attribute_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_batch_set_attribute_V2 - attributes */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_batch_set_attribute_V2.attributes,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64783: /* module 253 call 15 */
             switch (itemIdx) {
+                case 0: /* multitokens_approve_collection_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_approve_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_approve_collection_V2 - operator */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_approve_collection_V2.operator,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_approve_collection_V2 - expiration */;
+                    return _toStringOptionu32(
+                            &m->basic.multitokens_approve_collection_V2.expiration,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64784: /* module 253 call 16 */
             switch (itemIdx) {
+                case 0: /* multitokens_unapprove_collection_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_unapprove_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_unapprove_collection_V2 - operator */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_unapprove_collection_V2.operator,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64785: /* module 253 call 17 */
             switch (itemIdx) {
+                case 0: /* multitokens_approve_token_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_approve_token_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_approve_token_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_approve_token_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_approve_token_V2 - operator */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_approve_token_V2.operator,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* multitokens_approve_token_V2 - amount */;
+                    return _toStringOptionu128(
+                            &m->basic.multitokens_approve_token_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 4: /* multitokens_approve_token_V2 - expiration */;
+                    return _toStringOptionu32(
+                            &m->basic.multitokens_approve_token_V2.expiration,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 5: /* multitokens_approve_token_V2 - current_amount */;
+                    return _toStringOptionu128(
+                            &m->basic.multitokens_approve_token_V2.current_amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64786: /* module 253 call 18 */
             switch (itemIdx) {
+                case 0: /* multitokens_unapprove_token_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_unapprove_token_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_unapprove_token_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_unapprove_token_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_unapprove_token_V2 - operator */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_unapprove_token_V2.operator,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64787: /* module 253 call 19 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_mutate_collection_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_force_mutate_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_mutate_collection_V2 - mutation */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_force_mutate_collection_V2.mutation,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64788: /* module 253 call 20 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_transfer_V2 - source */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_force_transfer_V2.source,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_transfer_V2 - destination */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_force_transfer_V2.destination,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_force_transfer_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_force_transfer_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* multitokens_force_transfer_V2 - params */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_force_transfer_V2.params,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64789: /* module 253 call 21 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_set_collection_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_force_set_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_set_collection_V2 - value */;
+                    return _toStringCollectionProperties(
+                            &m->basic.multitokens_force_set_collection_V2.value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64790: /* module 253 call 22 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_set_token_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_force_set_token_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_set_token_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_force_set_token_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_force_set_token_V2 - value */;
+                    return _toStringTokenProperties(
+                            &m->basic.multitokens_force_set_token_V2.value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64791: /* module 253 call 23 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_set_attribute_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_force_set_attribute_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_set_attribute_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_force_set_attribute_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_force_set_attribute_V2 - key */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_force_set_attribute_V2.key,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* multitokens_force_set_attribute_V2 - value */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_force_set_attribute_V2.value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64792: /* module 253 call 24 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_set_collection_account_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_force_set_collection_account_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_set_collection_account_V2 - account_id */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_force_set_collection_account_V2.account_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_force_set_collection_account_V2 - value */;
+                    return _toStringCollectionAccountData(
+                            &m->basic.multitokens_force_set_collection_account_V2.value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64793: /* module 253 call 25 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_set_token_account_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_force_set_token_account_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_set_token_account_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_force_set_token_account_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_force_set_token_account_V2 - account_id */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_force_set_token_account_V2.account_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* multitokens_force_set_token_account_V2 - value */;
+                    return _toStringTokenAccountData(
+                            &m->basic.multitokens_force_set_token_account_V2.value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64794: /* module 253 call 26 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_create_collection_V2 - owner */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_force_create_collection_V2.owner,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_create_collection_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_force_create_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_force_create_collection_V2 - descriptor */;
+                    return _toStringVecu8(
+                            &m->basic.multitokens_force_create_collection_V2.descriptor,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64795: /* module 253 call 27 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_mint_V2 - caller */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_force_mint_V2.caller,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_mint_V2 - recipient */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_force_mint_V2.recipient,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_force_mint_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_force_mint_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* multitokens_force_mint_V2 - params */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_force_mint_V2.params,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 4: /* multitokens_force_mint_V2 - deposit_backer */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_force_mint_V2.deposit_backer,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64796: /* module 253 call 28 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_burn_V2 - caller */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_force_burn_V2.caller,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_burn_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_force_burn_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_force_burn_V2 - params */;
+                    return _toStringTokenIdOf(
+                            &m->basic.multitokens_force_burn_V2.params,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64797: /* module 253 call 29 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_approve_collection_V2 - collection_id */;
+                    return _toStringCollectionId(
+                            &m->basic.multitokens_force_approve_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_approve_collection_V2 - operator */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_force_approve_collection_V2.operator,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_force_approve_collection_V2 - expiration */;
+                    return _toStringOptionu32(
+                            &m->basic.multitokens_force_approve_collection_V2.expiration,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64798: /* module 253 call 30 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_freeze_V2 - info */;
+                    return _toStringFreezeInfo(
+                            &m->basic.multitokens_force_freeze_V2.info,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64799: /* module 253 call 31 */
             switch (itemIdx) {
+                case 0: /* multitokens_force_set_next_collection_id_V2 - value */;
+                    return _toStringNextCollectionId(
+                            &m->basic.multitokens_force_set_next_collection_id_V2.value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64800: /* module 253 call 32 */
             switch (itemIdx) {
+                case 0: /* multitokens_claim_collections_V2 - destination */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_claim_collections_V2.destination,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_claim_collections_V2 - ethereum_signature */;
+                    return _toStringEthereumSignature(
+                            &m->basic.multitokens_claim_collections_V2.ethereum_signature,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_claim_collections_V2 - ethereum_address */;
+                    return _toStringEthereumAddress(
+                            &m->basic.multitokens_claim_collections_V2.ethereum_address,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64801: /* module 253 call 33 */
             switch (itemIdx) {
+                case 0: /* multitokens_claim_tokens_V2 - destination */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_claim_tokens_V2.destination,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_claim_tokens_V2 - ethereum_signature */;
+                    return _toStringEthereumSignature(
+                            &m->basic.multitokens_claim_tokens_V2.ethereum_signature,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_claim_tokens_V2 - ethereum_address */;
+                    return _toStringEthereumAddress(
+                            &m->basic.multitokens_claim_tokens_V2.ethereum_address,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
