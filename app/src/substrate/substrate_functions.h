@@ -1230,6 +1230,13 @@ parser_error_t _toStringOfferId(
         uint8_t pageIdx,
         uint8_t* pageCount);
 
+parser_error_t _toStringCompactCollectionId(
+        const pd_CompactCollectionId_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
 parser_error_t _toStringTokenId(
         const pd_TokenId_t* v,
         char* outValue,

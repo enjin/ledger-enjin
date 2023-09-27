@@ -953,6 +953,10 @@ typedef struct {
 } pd_OfferId_t;
 
 typedef struct {
+    pd_Compactu128_t value;
+} pd_CompactCollectionId_t;
+
+typedef struct {
     uint8_t value;
 } pd_PoolState_t;
 

@@ -3985,6 +3985,46 @@ parser_error_t _toStringBalanceOf(
     return _toStringBalance(&v->value, outValue, outValueLen, pageIdx, pageCount);
 }
 
+parser_error_t _toStringOfferId(
+    const pd_OfferId_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    return _toStringu128(&v->value, outValue, outValueLen, pageIdx, pageCount);
+}
+
+parser_error_t _toStringTokenId(
+    const pd_TokenId_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    return _toStringu128(&v->value, outValue, outValueLen, pageIdx, pageCount);
+}
+
+parser_error_t _toStringTokenIdOf(
+    const pd_TokenIdOf_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    return _toStringTokenId(&v->value, outValue, outValueLen, pageIdx, pageCount);
+}
+
+parser_error_t _toStringCompactCollectionId(
+    const pd_CompactCollectionId_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    return _toStringCompactu128(&v->value, outValue, outValueLen, pageIdx, pageCount);
+}
+
 parser_error_t _toStringCompactAccountIndex(
     const pd_CompactAccountIndex_t* v,
     char* outValue,
