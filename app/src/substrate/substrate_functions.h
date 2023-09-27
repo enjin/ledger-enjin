@@ -81,6 +81,9 @@ parser_error_t _readAssetInstanceV3(parser_context_t* c, pd_AssetInstanceV3_t* v
 parser_error_t _readMultiLocationV2(parser_context_t* c, pd_MultiLocationV2_t* v);
 parser_error_t _readOfferId(parser_context_t* c, pd_OfferId_t* v);
 parser_error_t _readTokenId(parser_context_t* c, pd_TokenId_t* v);
+parser_error_t _readCollectionId(parser_context_t* c, pd_CollectionId_t* v);
+parser_error_t _readCompactCollectionId(parser_context_t* c, pd_CompactCollectionId_t* v);
+parser_error_t _readCompactTokenId(parser_context_t* c, pd_CompactTokenId_t* v);
 parser_error_t _readTokenIdOf(parser_context_t* c, pd_TokenIdOf_t* v);
 parser_error_t _readMultiLocationV3(parser_context_t* c, pd_MultiLocationV3_t* v);
 parser_error_t _readBalance(parser_context_t* c, pd_Balance_t* v);

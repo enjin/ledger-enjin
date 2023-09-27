@@ -210,7 +210,7 @@ typedef struct {
 #define PD_CALL_MULTITOKENS_APPROVE_TOKEN_V2 17
 typedef struct {
     pd_CompactCollectionId_t collection_id;
-    pd_Compactu128_t token_id;
+    pd_CompactTokenId_t token_id;
     pd_AccountId_t operator_;
     pd_CompactBalance_t amount;
     pd_Optionu32_t expiration;
@@ -220,7 +220,7 @@ typedef struct {
 #define PD_CALL_MULTITOKENS_UNAPPROVE_TOKEN_V2 18
 typedef struct {
     pd_CompactCollectionId_t collection_id;
-    pd_Compactu128_t token_id;
+    pd_CompactTokenId_t token_id;
     pd_AccountId_t operator_;
 } pd_multitokens_unapprove_token_V2_t;
 

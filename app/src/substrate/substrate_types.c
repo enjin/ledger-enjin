@@ -1628,6 +1628,21 @@ parser_error_t _readOfferId(parser_context_t* c, pd_OfferId_t* v)
     return _readu128(c, &v->value);
 }
 
+parser_error_t _readCollectionId(parser_context_t* c, pd_CollectionId_t* v)
+{
+    return _readu128(c, &v->value);
+}
+
+parser_error_t _readCompactCollectionId(parser_context_t* c, pd_CompactCollectionId_t* v)
+{
+    return _readCompactu128(c, &v->value);
+}
+
+parser_error_t _readCompactTokenId(parser_context_t* c, pd_CompactTokenId_t* v)
+{
+    return _readCompactu128(c, &v->value);
+}
+
 parser_error_t _readTokenId(parser_context_t* c, pd_TokenId_t* v)
 {
     return _readu128(c, &v->value);

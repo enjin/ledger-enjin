@@ -67,7 +67,7 @@ __Z_INLINE parser_error_t _readMethod_balances_transfer_V2(
 __Z_INLINE parser_error_t _readMethod_multitokens_approve_collection_V2(
         parser_context_t* c, pd_multitokens_approve_collection_V2_t* m)
 {
-    CHECK_ERROR(_readCompactu128(c, &m->collection_id))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
     CHECK_ERROR(_readAccountId(c, &m->operator_))
     CHECK_ERROR(_readOptionu32(c, &m->expiration))
     return parser_ok;
@@ -76,12 +76,12 @@ __Z_INLINE parser_error_t _readMethod_multitokens_approve_collection_V2(
 __Z_INLINE parser_error_t _readMethod_multitokens_approve_token_V2(
         parser_context_t* c, pd_multitokens_approve_token_V2_t* m)
 {
-    CHECK_ERROR(_readCompactu128(c, &m->collection_id))
-    CHECK_ERROR(_readCompactu128(c, &m->token_id))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readCompactTokenId(c, &m->token_id))
     CHECK_ERROR(_readAccountId(c, &m->operator_))
-    // CHECK_ERROR(_readBalance(c, &m->amount))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
     CHECK_ERROR(_readOptionu32(c, &m->expiration))
-    // CHECK_ERROR(_readBalance(c, &m->current_amount))
+    CHECK_ERROR(_readCompactBalance(c, &m->current_amount))
     return parser_ok;
 }
 
@@ -130,15 +130,16 @@ __Z_INLINE parser_error_t _readMethod_multitokens_claim_tokens_V2(
 __Z_INLINE parser_error_t _readMethod_multitokens_destroy_collection_V2(
         parser_context_t* c, pd_multitokens_destroy_collection_V2_t* m)
 {
-    CHECK_ERROR(_readCompactu128(c, &m->collection_id))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
     return parser_ok;
 }
 
+// TODO: Check because is crashing
 __Z_INLINE parser_error_t _readMethod_multitokens_force_approve_collection_V2(
         parser_context_t* c, pd_multitokens_force_approve_collection_V2_t* m)
 {
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->caller))
-    CHECK_ERROR(_readCompactu128(c, &m->collection_id))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
     CHECK_ERROR(_readAccountId(c, &m->operator_))
     CHECK_ERROR(_readOptionu32(c, &m->expiration))
     return parser_ok;
@@ -177,10 +178,10 @@ __Z_INLINE parser_error_t _readMethod_multitokens_force_approve_collection_V2(
 __Z_INLINE parser_error_t _readMethod_multitokens_force_set_attribute_V2(
         parser_context_t* c, pd_multitokens_force_set_attribute_V2_t* m)
 {
-    // CHECK_ERROR(_readCompactu128(c, &m->collection_id))
-    // CHECK_ERROR(_readOptionu128(c, &m->token_id))
-    // CHECK_ERROR(_readBytes(c, &m->key))
-    // CHECK_ERROR(_readOptionBytes(c, &m->value))
+//     CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+//     CHECK_ERROR(_readOptionTokenId(c, &m->token_id))
+//     CHECK_ERROR(_readBytes(c, &m->key))
+//     CHECK_ERROR(_readOptionBytes(c, &m->value))
     return parser_ok;
 }
 
@@ -248,28 +249,28 @@ __Z_INLINE parser_error_t _readMethod_multitokens_force_set_next_collection_id_V
 __Z_INLINE parser_error_t _readMethod_multitokens_remove_all_attributes_V2(
         parser_context_t* c, pd_multitokens_remove_all_attributes_V2_t* m)
 {
-    // CHECK_ERROR(_readCompactu128(c, &m->collection_id))
-    // CHECK_ERROR(_readOptionu128(c, &m->token_id))
-    // CHECK_ERROR(_readu32(c, &m->attribute_count))
+//     CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+//     CHECK_ERROR(_readOptionTokenId(c, &m->token_id))
+//     CHECK_ERROR(_readu32(c, &m->attribute_count))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_multitokens_remove_attribute_V2(
         parser_context_t* c, pd_multitokens_remove_attribute_V2_t* m)
 {
-    // CHECK_ERROR(_readCompactu128(c, &m->collection_id))
-    // CHECK_ERROR(_readOptionu128(c, &m->token_id))
-    // CHECK_ERROR(_readBytes(c, &m->key))
+//     CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+//     CHECK_ERROR(_readOptionTokenId(c, &m->token_id))
+//     CHECK_ERROR(_readBytes(c, &m->key))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_multitokens_set_attribute_V2(
         parser_context_t* c, pd_multitokens_set_attribute_V2_t* m)
 {
-    // CHECK_ERROR(_readCompactu128(c, &m->collection_id))
-    // CHECK_ERROR(_readOptionu128(c, &m->token_id))
-    // CHECK_ERROR(_readBytes(c, &m->key))
-    // CHECK_ERROR(_readBytes(c, &m->value))
+//     CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+//     CHECK_ERROR(_readOptionTokenId(c, &m->token_id))
+//     CHECK_ERROR(_readBytes(c, &m->key))
+//     CHECK_ERROR(_readBytes(c, &m->value))
     return parser_ok;
 }
 
@@ -288,7 +289,7 @@ __Z_INLINE parser_error_t _readMethod_multitokens_set_attribute_V2(
 __Z_INLINE parser_error_t _readMethod_multitokens_unapprove_collection_V2(
         parser_context_t* c, pd_multitokens_unapprove_collection_V2_t* m)
 {
-    CHECK_ERROR(_readCompactu128(c, &m->collection_id))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
     CHECK_ERROR(_readAccountId(c, &m->operator_))
     return parser_ok;
 }
@@ -296,8 +297,8 @@ __Z_INLINE parser_error_t _readMethod_multitokens_unapprove_collection_V2(
 __Z_INLINE parser_error_t _readMethod_multitokens_unapprove_token_V2(
         parser_context_t* c, pd_multitokens_unapprove_token_V2_t* m)
 {
-    CHECK_ERROR(_readCompactu128(c, &m->collection_id))
-    CHECK_ERROR(_readCompactu128(c, &m->token_id))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readCompactTokenId(c, &m->token_id))
     CHECK_ERROR(_readAccountId(c, &m->operator_))
     return parser_ok;
 }
@@ -2876,7 +2877,7 @@ parser_error_t _getMethod_ItemValue_V2(
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 2: /* multitokens_approve_collection_V2 - expiration */;
-                    return _toStringu32(
+                    return _toStringOptionu32(
                             &m->basic.multitokens_approve_collection_V2.expiration,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -2916,7 +2917,7 @@ parser_error_t _getMethod_ItemValue_V2(
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 3: /* multitokens_approve_token_V2 - amount */;
-                    return _toStringBalance(
+                    return _toStringCompactBalance(
                             &m->basic.multitokens_approve_token_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -2926,7 +2927,7 @@ parser_error_t _getMethod_ItemValue_V2(
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 5: /* multitokens_approve_token_V2 - current_amount */;
-                    return _toStringBalance(
+                    return _toStringCompactBalance(
                             &m->basic.multitokens_approve_token_V2.current_amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);

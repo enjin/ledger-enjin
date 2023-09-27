@@ -137,6 +137,11 @@ typedef struct {
 } pd_Bytes_t;
 
 typedef struct {
+    uint8_t some;
+    pd_Bytes_t contained;
+} pd_OptionBytes_t;
+
+typedef struct {
     pd_Compactu32_t nom;
     pd_Compactu32_t denom;
 } pd_Fraction_t;
@@ -483,6 +488,10 @@ typedef struct {
 typedef struct {
     const uint8_t* _ptr;
 } pd_AccountId_t;
+
+typedef struct {
+    pd_Compactu128_t value;
+} pd_CompactTokenId_t;
 
 typedef struct {
     pd_u128_t value;
@@ -951,6 +960,10 @@ typedef struct {
 typedef struct {
     pd_u128_t value;
 } pd_OfferId_t;
+
+typedef struct {
+    pd_u128_t value;
+} pd_CollectionId_t;
 
 typedef struct {
     pd_Compactu128_t value;
