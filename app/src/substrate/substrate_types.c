@@ -1468,6 +1468,19 @@ parser_error_t _readRewardDestination(parser_context_t* c, pd_RewardDestination_
     return parser_ok;
 }
 
+parser_error_t _readBondValueOfT(parser_context_t* c, pd_BondValueOfT_t * v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+
+    if (v->value == 0) {
+        CHECK_ERROR(_readCompactBalance(c, &v->amount))
+    } else if (v->value > 1) {
+        return parser_value_out_of_range;
+    }
+    return parser_ok;
+}
+
 parser_error_t _readValidatorPrefs(parser_context_t* c, pd_ValidatorPrefs_t* v)
 {
     CHECK_INPUT()
@@ -1508,6 +1521,13 @@ parser_error_t _readVestingInfo(parser_context_t* c, pd_VestingInfo_t* v)
     CHECK_ERROR(_readBalanceOf(c, &v->locked))
     CHECK_ERROR(_readBalanceOf(c, &v->per_block))
     CHECK_ERROR(_readBlockNumber(c, &v->starting_block))
+    return parser_ok;
+}
+
+parser_error_t _readStakingInfo(parser_context_t* c, pd_StakingInfo_t* v)
+{
+    CHECK_ERROR(_readPerbill(c, &v->annual_inflation_rate))
+    CHECK_ERROR(_readPerbill(c, &v->collator_payout_cut))
     return parser_ok;
 }
 
@@ -5597,6 +5617,30 @@ parser_error_t _toStringRewardDestination(
     return parser_ok;
 }
 
+parser_error_t _toStringBondValueOfT(
+        const pd_BondValueOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    switch (v->value) {
+        case 2:
+        CHECK_ERROR(_toStringCompactBalance(&v->amount, outValue, outValueLen, pageIdx, pageCount));
+            break;
+        case 1:
+            snprintf(outValue, outValueLen, "Fill");
+            break;
+        default:
+            return parser_print_not_supported;
+    }
+
+    return parser_ok;
+}
+
 parser_error_t _toStringValidatorPrefs(
     const pd_ValidatorPrefs_t* v,
     char* outValue,
@@ -5732,6 +5776,43 @@ parser_error_t _toStringVestingInfo(
 
     if (pageIdx < pages[2]) {
         CHECK_ERROR(_toStringBlockNumber(&v->starting_block, outValue, outValueLen, pageIdx, &pages[2]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringStakingInfo(
+        const pd_StakingInfo_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringPerbill(&v->annual_inflation_rate, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringPerbill(&v->collator_payout_cut, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringPerbill(&v->annual_inflation_rate, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringPerbill(&v->collator_payout_cut, outValue, outValueLen, pageIdx, &pages[1]))
         return parser_ok;
     }
 

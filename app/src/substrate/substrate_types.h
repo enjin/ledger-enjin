@@ -844,6 +844,11 @@ typedef struct {
 } pd_RewardDestination_t;
 
 typedef struct {
+    uint8_t value;
+    pd_CompactBalance_t amount;
+} pd_BondValueOfT_t;
+
+typedef struct {
     pd_CompactPerBill_t commission;
     pd_bool_t blocked;
 } pd_ValidatorPrefs_t;
@@ -872,6 +877,11 @@ typedef struct {
     pd_BalanceOf_t per_block;
     pd_BlockNumber_t starting_block;
 } pd_VestingInfo_t;
+
+typedef struct {
+    pd_Perbill_t annual_inflation_rate;
+    pd_Perbill_t collator_payout_cut;
+} pd_StakingInfo_t;
 
 typedef struct {
     uint8_t value;

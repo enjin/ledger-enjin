@@ -157,11 +157,13 @@ parser_error_t _readOptionTimepoint(parser_context_t* c, pd_OptionTimepoint_t* v
 parser_error_t _readOptionTuplePerbillAccountId(parser_context_t* c, pd_OptionTuplePerbillAccountId_t* v);
 parser_error_t _readProposal(parser_context_t* c, pd_Proposal_t* v);
 parser_error_t _readRewardDestination(parser_context_t* c, pd_RewardDestination_t* v);
+parser_error_t _readBondValueOfT(parser_context_t* c, pd_BondValueOfT_t* v);
 parser_error_t _readValidatorPrefs(parser_context_t* c, pd_ValidatorPrefs_t* v);
 parser_error_t _readVecAccountIdLookupOfT(parser_context_t* c, pd_VecAccountIdLookupOfT_t* v);
 parser_error_t _readVecCall(parser_context_t* c, pd_VecCall_t* v);
 parser_error_t _readVecTupleAccountIdData(parser_context_t* c, pd_VecTupleAccountIdData_t* v);
 parser_error_t _readVestingInfo(parser_context_t* c, pd_VestingInfo_t* v);
+parser_error_t _readStakingInfo(parser_context_t* c, pd_StakingInfo_t* v);
 parser_error_t _readWeightLimit(parser_context_t* c, pd_WeightLimit_t* v);
 parser_error_t _readAccountIndex(parser_context_t* c, pd_AccountIndex_t* v);
 parser_error_t _readClaimPermission(parser_context_t* c, pd_ClaimPermission_t* v);
@@ -1061,6 +1063,13 @@ parser_error_t _toStringRewardDestination(
     uint8_t pageIdx,
     uint8_t* pageCount);
 
+parser_error_t _toStringBondValueOfT(
+        const pd_BondValueOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
 parser_error_t _toStringValidatorPrefs(
     const pd_ValidatorPrefs_t* v,
     char* outValue,
@@ -1095,6 +1104,13 @@ parser_error_t _toStringVestingInfo(
     uint16_t outValueLen,
     uint8_t pageIdx,
     uint8_t* pageCount);
+
+parser_error_t _toStringStakingInfo(
+        const pd_StakingInfo_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
 
 parser_error_t _toStringWeightLimit(
     const pd_WeightLimit_t* v,

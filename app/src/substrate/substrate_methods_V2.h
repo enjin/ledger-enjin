@@ -446,10 +446,10 @@ typedef struct {
 } pd_nominationpools_set_configs_V2_t;
 #endif
 
-// #define PD_CALL_NOMINATIONPOOLS_SET_STAKING_INFO_V2 22
-// typedef struct {
-//     pd_ClaimPermission_t info;
-// } pd_nominationpools_set_staking_info_V2_t;
+ #define PD_CALL_NOMINATIONPOOLS_SET_STAKING_INFO_V2 22
+ typedef struct {
+     pd_StakingInfo_t info;
+ } pd_nominationpools_set_staking_info_V2_t;
 
 typedef union {
     pd_balances_transfer_all_V2_t balances_transfer_all_V2;
@@ -519,7 +519,7 @@ typedef union {
     pd_staking_force_apply_min_commission_V2_t staking_force_apply_min_commission_V2;
     pd_staking_set_min_commission_V2_t staking_set_min_commission_V2;
     pd_nominationpools_set_configs_V2_t nominationpools_set_configs_V2;
-    // pd_nominationpools_set_staking_info_V2_t nominationpools_set_staking_info_V2;
+    pd_nominationpools_set_staking_info_V2_t nominationpools_set_staking_info_V2;
 #endif
 } pd_MethodBasic_V2_t;
 
@@ -548,10 +548,10 @@ typedef struct {
     pd_CompactBalance_t amount;
 } pd_balances_transfer_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_JOIN_V2 0
+#define PD_CALL_NOMINATIONPOOLS_BOND_V2 0
 typedef struct {
-    pd_CompactBalance_t amount;
     pd_PoolId_t pool_id;
+    pd_BondValueOfT_t amount;
 } pd_nominationpools_bond_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_UNBOND_V2 3
@@ -570,8 +570,8 @@ typedef struct {
 #define PD_CALL_NOMINATIONPOOLS_CREATE_V2 6
 typedef struct {
     pd_TokenIdOf_t token_id;
-    pd_BalanceOf_t deposit;
-    pd_BalanceOf_t capacity;
+    pd_CompactBalance_t deposit;
+    pd_CompactBalance_t capacity;
     pd_EraIndex_t duration;
     pd_AccountIdLookupOfT_t admin;
     pd_AccountIdLookupOfT_t nominator;

@@ -304,11 +304,12 @@ __Z_INLINE parser_error_t _readMethod_multitokens_unapprove_token_V2(
     return parser_ok;
 }
 
+// TODO: Value cannot be printed on amount.amount
 __Z_INLINE parser_error_t _readMethod_nominationpools_bond_V2(
         parser_context_t* c, pd_nominationpools_bond_V2_t* m)
 {
     CHECK_ERROR(_readPoolId(c, &m->pool_id))
-    CHECK_ERROR(_readCompactBalance(c, &m->amount)) // TODO: Probably wrong
+    CHECK_ERROR(_readBondValueOfT(c, &m->amount))
     return parser_ok;
 }
 
@@ -323,8 +324,8 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_create_V2(
         parser_context_t* c, pd_nominationpools_create_V2_t* m)
 {
      CHECK_ERROR(_readTokenIdOf(c, &m->token_id))
-     CHECK_ERROR(_readBalanceOf(c, &m->deposit))
-     CHECK_ERROR(_readBalanceOf(c, &m->capacity))
+     CHECK_ERROR(_readCompactBalance(c, &m->deposit))
+     CHECK_ERROR(_readCompactBalance(c, &m->capacity))
      CHECK_ERROR(_readEraIndex(c, &m->duration))
      CHECK_ERROR(_readAccountIdLookupOfT(c, &m->admin))
      CHECK_ERROR(_readAccountIdLookupOfT(c, &m->nominator))
@@ -685,12 +686,12 @@ __Z_INLINE parser_error_t _readMethod_staking_set_min_commission_V2(
     return parser_ok;
 }
 
-// __Z_INLINE parser_error_t _readMethod_nominationpools_set_staking_info_V2(
-//         parser_context_t* c, pd_nominationpools_set_staking_info_V2_t* m)
-// {
-//     CHECK_ERROR(_readPoolId(c, &m->info)) // TODO: Come back here
-//     return parser_ok;
-// }
+ __Z_INLINE parser_error_t _readMethod_nominationpools_set_staking_info_V2(
+         parser_context_t* c, pd_nominationpools_set_staking_info_V2_t* m)
+ {
+     CHECK_ERROR(_readStakingInfo(c, &m->info))
+     return parser_ok;
+ }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_set_configs_V2(
         parser_context_t* c, pd_nominationpools_set_configs_V2_t* m)
@@ -985,9 +986,9 @@ parser_error_t _readMethod_V2(
         case 4619: /* module 18 call 11 */
         CHECK_ERROR(_readMethod_nominationpools_set_configs_V2(c, &method->basic.nominationpools_set_configs_V2))
             break;
-        // case 4630: /* module 18 call 22 */
-        // CHECK_ERROR(_readMethod_nominationpools_set_staking_info_V2(c, &method->basic.nominationpools_set_staking_info_V2))
-        //     break;
+         case 4630: /* module 18 call 22 */
+         CHECK_ERROR(_readMethod_nominationpools_set_staking_info_V2(c, &method->basic.nominationpools_set_staking_info_V2))
+             break;
 #endif
         default:
             return parser_unexpected_callIndex;
@@ -1217,8 +1218,8 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
             return STR_ME_SET_MIN_COMMISSION;
         case 4619: /* module 18 call 11 */
             return STR_ME_SET_CONFIGS;
-        // case 4630: /* module 18 call 22 */
-        //     return STR_ME_SET_STAKING_INFO;
+         case 4630: /* module 18 call 22 */
+             return STR_ME_SET_STAKING_INFO;
 #endif
         default:
             return NULL;
@@ -1412,8 +1413,8 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
             return 1;
         case 4619: /* module 18 call 11 */
             return 3;
-        // case 4630: /* module 18 call 22 */
-        //     return 1;
+         case 4630: /* module 18 call 22 */
+             return 1;
 #endif
         default:
             return 0;
@@ -1478,7 +1479,7 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             switch (itemIdx) {
                 case 0:
                     return STR_IT_pool_id;
-                case 1: // TODO: Check as this is now an enum
+                case 1:
                     return STR_IT_amount;
                 default:
                     return NULL;
@@ -2233,13 +2234,13 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        // case 4630: /* module 18 call 22 */
-        //     switch (itemIdx) {
-        //         case 0: 
-        //             return STR_IT_info;
-        //         default:
-        //             return NULL;
-        //     }
+         case 4630: /* module 18 call 22 */
+             switch (itemIdx) {
+                 case 0:
+                     return STR_IT_info;
+                 default:
+                     return NULL;
+             }
 #endif
         default:
             return NULL;
@@ -2344,8 +2345,8 @@ parser_error_t _getMethod_ItemValue_V2(
                             &m->nested.nominationpools_bond_V2.pool_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
-                case 1: /* nominationpools_bond_V2 - amount */; // TODO; Check as this is an enum now
-                    return _toStringCompactBalance(
+                case 1: /* nominationpools_bond_V2 - amount */;
+                    return _toStringBondValueOfT(
                             &m->nested.nominationpools_bond_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -2415,12 +2416,12 @@ parser_error_t _getMethod_ItemValue_V2(
                              outValue, outValueLen,
                              pageIdx, pageCount);
                  case 1: /* nominationpools_create_V2 - deposit */;
-                     return _toStringBalanceOf(
+                     return _toStringCompactBalance(
                              &m->nested.nominationpools_create_V2.deposit,
                              outValue, outValueLen,
                              pageIdx, pageCount);
                  case 2: /* nominationpools_create_V2 - capacity */;
-                     return _toStringBalanceOf(
+                     return _toStringCompactBalance(
                              &m->nested.nominationpools_create_V2.capacity,
                              outValue, outValueLen,
                              pageIdx, pageCount);
@@ -3586,33 +3587,33 @@ parser_error_t _getMethod_ItemValue_V2(
         case 4619: /* module 18 call 11 */
             switch (itemIdx) {
                 case 0: /* nominationpools_set_configs_V2 - min_join_bond */;
-                    return _toStringCompactBalance(
+                    return _toStringConfigOpBalanceOfT(
                             &m->basic.nominationpools_set_configs_V2.min_join_bond,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* nominationpools_set_configs_V2 - min_create_bond */;
-                    return _toStringCompactBalance(
+                    return _toStringConfigOpBalanceOfT(
                             &m->basic.nominationpools_set_configs_V2.min_create_bond,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 2: /* nominationpools_set_configs_V2 - global_max_commission */;
-                    return _toStringPerbill(
+                    return _toStringConfigOpPerbill(
                             &m->basic.nominationpools_set_configs_V2.global_max_commission,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
-        // case 4630: /* module 18 call 22 */ //TODO: Probably wrong
-        //     switch (itemIdx) {
-        //         case 0: /* nominationpools_set_staking_info_V2 - info */;
-        //             return _toStringStakingInfo(
-        //                     &m->basic.nominationpools_set_staking_info_V2.info,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         default:
-        //             return parser_no_data;
-        //     }
+         case 4630: /* module 18 call 22 */
+             switch (itemIdx) {
+                 case 0: /* nominationpools_set_staking_info_V2 - info */;
+                     return _toStringStakingInfo(
+                             &m->basic.nominationpools_set_staking_info_V2.info,
+                             outValue, outValueLen,
+                             pageIdx, pageCount);
+                 default:
+                     return parser_no_data;
+             }
 #endif
         default:
             return parser_ok;
