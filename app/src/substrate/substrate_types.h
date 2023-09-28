@@ -525,10 +525,8 @@ typedef struct {
     };
 } pd_TransferParamsOfT_t;
 
-typedef enum {
-    ePermanent = 0,
-    eTemporary = 1,
-    eNever = 2
+typedef struct {
+    uint8_t value;
 } pd_FreezeState_t;
 
 typedef struct {
