@@ -81,6 +81,7 @@ parser_error_t _readAssetInstanceV2(parser_context_t* c, pd_AssetInstanceV2_t* v
 parser_error_t _readAssetInstanceV3(parser_context_t* c, pd_AssetInstanceV3_t* v);
 parser_error_t _readMultiLocationV2(parser_context_t* c, pd_MultiLocationV2_t* v);
 parser_error_t _readOfferId(parser_context_t* c, pd_OfferId_t* v);
+parser_error_t _readOfferOfT(parser_context_t* c, pd_OfferOfT_t* v);
 parser_error_t _readTokenId(parser_context_t* c, pd_TokenId_t* v);
 parser_error_t _readOptionTokenId(parser_context_t* c, pd_OptionTokenId_t* v);
 parser_error_t _readCollectionId(parser_context_t* c, pd_CollectionId_t* v);
@@ -164,6 +165,7 @@ parser_error_t _readVecCall(parser_context_t* c, pd_VecCall_t* v);
 parser_error_t _readVecTupleAccountIdData(parser_context_t* c, pd_VecTupleAccountIdData_t* v);
 parser_error_t _readVestingInfo(parser_context_t* c, pd_VestingInfo_t* v);
 parser_error_t _readStakingInfo(parser_context_t* c, pd_StakingInfo_t* v);
+parser_error_t _readLiquidityAccountConfigOfT(parser_context_t* c, pd_LiquidityAccountConfigOfT_t * v);
 parser_error_t _readWeightLimit(parser_context_t* c, pd_WeightLimit_t* v);
 parser_error_t _readAccountIndex(parser_context_t* c, pd_AccountIndex_t* v);
 parser_error_t _readClaimPermission(parser_context_t* c, pd_ClaimPermission_t* v);
@@ -185,6 +187,7 @@ parser_error_t _readOptionu128(parser_context_t* c, pd_Optionu128_t* v);
 parser_error_t _readOverweightIndex(parser_context_t* c, pd_OverweightIndex_t* v);
 parser_error_t _readPollIndexOf(parser_context_t* c, pd_PollIndexOf_t* v);
 parser_error_t _readPoolId(parser_context_t* c, pd_PoolId_t* v);
+parser_error_t _readPoolMutationOfT(parser_context_t* c, pd_PoolMutationOfT_t* v);
 parser_error_t _readPoolState(parser_context_t* c, pd_PoolState_t* v);
 parser_error_t _readRegistrarIndex(parser_context_t* c, pd_RegistrarIndex_t* v);
 parser_error_t _readSessionIndex(parser_context_t* c, pd_SessionIndex_t* v);
@@ -1112,6 +1115,13 @@ parser_error_t _toStringStakingInfo(
         uint8_t pageIdx,
         uint8_t* pageCount);
 
+parser_error_t _toStringLiquidityAccountConfigOfT(
+        const pd_LiquidityAccountConfigOfT_t * v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
 parser_error_t _toStringWeightLimit(
     const pd_WeightLimit_t* v,
     char* outValue,
@@ -1252,8 +1262,22 @@ parser_error_t _toStringPoolId(
     uint8_t pageIdx,
     uint8_t* pageCount);
 
+parser_error_t _toStringPoolMutationOfT(
+        const pd_PoolMutationOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
 parser_error_t _toStringOfferId(
         const pd_OfferId_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringOfferOfT(
+        const pd_OfferOfT_t* v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,

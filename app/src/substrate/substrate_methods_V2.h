@@ -64,6 +64,12 @@ typedef struct {
     pd_u32_t transfer_count;
 } pd_nominationpools_distribute_early_bird_bonus_V2_t;
 
+#define PD_CALL_NOMINATIONPOOLS_MUTATE_V2 19
+typedef struct {
+    pd_PoolId_t pool_id;
+    pd_PoolMutationOfT_t mutation;
+} pd_nominationpools_mutate_V2_t;
+
 #define PD_CALL_STAKEEXCHANGE_ADD_LIQUIDITY_V2 4
 typedef struct {
     pd_OfferId_t offer_id;
@@ -82,17 +88,17 @@ typedef struct {
     pd_OfferId_t offer_id;
 } pd_stakeexchange_cancel_offer_V2_t;
 
-#define PD_CALL_STAKEEXCHANGE_CONFIGURE_LIQUIDITY_ACCOUNT_V2 4
+#define PD_CALL_STAKEEXCHANGE_CONFIGURE_LIQUIDITY_ACCOUNT_V2 2
 typedef struct {
-    pd_OfferId_t offer_id;
+    pd_LiquidityAccountConfigOfT_t config;
 } pd_stakeexchange_configure_liquidity_account_V2_t;
 
-#define PD_CALL_STAKEEXCHANGE_CREATE_OFFER_V2 4
+#define PD_CALL_STAKEEXCHANGE_CREATE_OFFER_V2 0
 typedef struct {
-    pd_OfferId_t offer_id;
+    pd_OfferOfT_t offer;
 } pd_stakeexchange_create_offer_V2_t;
 
-#define PD_CALL_STAKEEXCHANGE_WITHDRAW_LIQUIDITY_V2 4
+#define PD_CALL_STAKEEXCHANGE_WITHDRAW_LIQUIDITY_V2 3
 typedef struct {
     pd_OfferId_t offer_id;
     pd_BalanceOf_t amount;
@@ -457,6 +463,7 @@ typedef union {
     pd_nominationpools_queue_early_bird_bonus_V2_t nominationpools_queue_early_bird_bonus_V2;
     pd_nominationpools_withdraw_unbonded_V2_t nominationpools_withdraw_unbonded_V2;
     pd_nominationpools_distribute_early_bird_bonus_V2_t nominationpools_distribute_early_bird_bonus_V2;
+    pd_nominationpools_mutate_V2_t nominationpools_mutate_V2;
     pd_stakeexchange_add_liquidity_V2_t stakeexchange_add_liquidity_V2;
     pd_stakeexchange_buy_V2_t stakeexchange_buy_V2;
     pd_stakeexchange_cancel_offer_V2_t stakeexchange_cancel_offer_V2;
@@ -685,7 +692,6 @@ typedef union {
     pd_balances_transfer_keep_alive_V2_t balances_transfer_keep_alive_V2;
     pd_balances_transfer_V2_t balances_transfer_V2;
     pd_nominationpools_bond_V2_t nominationpools_bond_V2;
-    // pd_nominationpools_mutate_V2_t nominationpools_mutate_V2;
     pd_nominationpools_pool_withdraw_unbonded_V2_t nominationpools_pool_withdraw_unbonded_V2;
     pd_nominationpools_create_V2_t nominationpools_create_V2;
     pd_nominationpools_nominate_V2_t nominationpools_nominate_V2;

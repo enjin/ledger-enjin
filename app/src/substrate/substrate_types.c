@@ -1518,6 +1518,7 @@ parser_error_t _readVecCall(parser_context_t* c, pd_VecCall_t* v)
 
 parser_error_t _readVestingInfo(parser_context_t* c, pd_VestingInfo_t* v)
 {
+    CHECK_INPUT()
     CHECK_ERROR(_readBalanceOf(c, &v->locked))
     CHECK_ERROR(_readBalanceOf(c, &v->per_block))
     CHECK_ERROR(_readBlockNumber(c, &v->starting_block))
@@ -1526,6 +1527,7 @@ parser_error_t _readVestingInfo(parser_context_t* c, pd_VestingInfo_t* v)
 
 parser_error_t _readStakingInfo(parser_context_t* c, pd_StakingInfo_t* v)
 {
+    CHECK_INPUT()
     CHECK_ERROR(_readPerbill(c, &v->annual_inflation_rate))
     CHECK_ERROR(_readPerbill(c, &v->collator_payout_cut))
     return parser_ok;
@@ -1653,9 +1655,33 @@ parser_error_t _readPoolId(parser_context_t* c, pd_PoolId_t* v)
     return parser_ok;
 }
 
+parser_error_t _readLiquidityAccountConfigOfT(parser_context_t* c, pd_LiquidityAccountConfigOfT_t* v)
+{
+    CHECK_INPUT()
+//    CHECK_ERROR(_readUInt32(c, &v->value))
+    return parser_ok;
+}
+
+parser_error_t _readPoolMutationOfT(parser_context_t* c, pd_PoolMutationOfT_t* v)
+{
+    CHECK_INPUT()
+//    CHECK_ERROR(_readUInt32(c, &v->value))
+    return parser_ok;
+}
+
 parser_error_t _readOfferId(parser_context_t* c, pd_OfferId_t* v)
 {
     return _readu128(c, &v->value);
+}
+
+parser_error_t _readOfferOfT(parser_context_t* c, pd_OfferOfT_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readAccountId(c, &v->account))
+    CHECK_ERROR(_readu128(c, &v->total))
+    CHECK_ERROR(_readu128(c, &v->rate))
+    CHECK_ERROR(_readPerbill(c, &v->min_average_commission))
+    return parser_ok;
 }
 
 parser_error_t _readCollectionId(parser_context_t* c, pd_CollectionId_t* v)
@@ -4104,6 +4130,57 @@ parser_error_t _toStringOfferId(
     return _toStringu128(&v->value, outValue, outValueLen, pageIdx, pageCount);
 }
 
+parser_error_t _toStringOfferOfT(
+        const pd_OfferOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[4] = { 0 };
+    CHECK_ERROR(_toStringAccountId(&v->account, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringu128(&v->total, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringu128(&v->rate, outValue, outValueLen, 0, &pages[2]))
+    CHECK_ERROR(_toStringPerbill(&v->min_average_commission, outValue, outValueLen, 0, &pages[3]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringAccountId(&v->account, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringu128(&v->total, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    pageIdx -= pages[1];
+
+    if (pageIdx < pages[2]) {
+        CHECK_ERROR(_toStringu128(&v->rate, outValue, outValueLen, pageIdx, &pages[2]))
+        return parser_ok;
+    }
+    pageIdx -= pages[2];
+
+    if (pageIdx < pages[3]) {
+        CHECK_ERROR(_toStringPerbill(&v->min_average_commission, outValue, outValueLen, pageIdx, &pages[3]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
 parser_error_t _toStringOptionTokenId(
         const pd_OptionTokenId_t* v,
         char* outValue,
@@ -6035,6 +6112,26 @@ parser_error_t _toStringPoolId(
     uint8_t* pageCount)
 {
     return _toStringu32(&v->value, outValue, outValueLen, pageIdx, pageCount);
+}
+
+parser_error_t _toStringLiquidityAccountConfigOfT(
+        const pd_LiquidityAccountConfigOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+//    return _toStringu32(&v->value, outValue, outValueLen, pageIdx, pageCount);
+}
+
+parser_error_t _toStringPoolMutationOfT(
+        const pd_PoolMutationOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+//    return _toStringu32(&v->new_commission, outValue, outValueLen, pageIdx, pageCount);
 }
 
 parser_error_t _toStringPoolState(

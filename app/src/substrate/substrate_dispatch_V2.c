@@ -345,13 +345,13 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_distribute_early_bird_bonu
     return parser_ok;
 }
 
-// __Z_INLINE parser_error_t _readMethod_nominationpools_mutate_V2(
-//         parser_context_t* c, pd_nominationpools_mutate_V2_t* m)
-// {
-//     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member_account)) // TODO: Check
-//     CHECK_ERROR(_readCompactBalance(c, &m->unbonding_points))
-//     return parser_ok;
-// }
+ __Z_INLINE parser_error_t _readMethod_nominationpools_mutate_V2(
+         parser_context_t* c, pd_nominationpools_mutate_V2_t* m)
+ {
+     CHECK_ERROR(_readPoolId(c, &m->pool_id))
+     CHECK_ERROR(_readPoolMutationOfT(c, &m->mutation))
+     return parser_ok;
+ }
 
 __Z_INLINE parser_error_t _readMethod_nominationpools_nominate_V2(
         parser_context_t* c, pd_nominationpools_nominate_V2_t* m)
@@ -441,20 +441,19 @@ __Z_INLINE parser_error_t _readMethod_stakeexchange_cancel_offer_V2(
     return parser_ok;
 }
 
-// __Z_INLINE parser_error_t _readMethod_stakeexchange_configure_liquidity_account_V2(
-//         parser_context_t* c, pd_stakeexchange_configure_liquidity_account_V2_t* m)
-// {
-//     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->member))
-//     CHECK_ERROR(_readBondExtraBalanceOfT(c, &m->extra))
-//     return parser_ok;
-// }
+ __Z_INLINE parser_error_t _readMethod_stakeexchange_configure_liquidity_account_V2(
+         parser_context_t* c, pd_stakeexchange_configure_liquidity_account_V2_t* m)
+ {
+     CHECK_ERROR(_readLiquidityAccountConfigOfT(c, &m->config))
+     return parser_ok;
+ }
 
-// __Z_INLINE parser_error_t _readMethod_stakeexchange_create_offer_V2(
-//         parser_context_t* c, pd_stakeexchange_create_offer_V2_t* m)
-// {
-//     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->offer))
-//     return parser_ok;
-// }
+ __Z_INLINE parser_error_t _readMethod_stakeexchange_create_offer_V2(
+         parser_context_t* c, pd_stakeexchange_create_offer_V2_t* m)
+ {
+     CHECK_ERROR(_readOfferOfT(c, &m->offer))
+     return parser_ok;
+ }
 
 __Z_INLINE parser_error_t _readMethod_stakeexchange_withdraw_liquidity_V2(
         parser_context_t* c, pd_stakeexchange_withdraw_liquidity_V2_t* m)
@@ -757,9 +756,9 @@ parser_error_t _readMethod_V2(
         CHECK_ERROR(_readMethod_nominationpools_payout_rewards_V2(c,
                                                                   &method->basic.nominationpools_payout_rewards_V2))
             break;
-        // case 4627: /* module 18 call 19 */
-        // CHECK_ERROR(_readMethod_nominationpools_mutate_V2(c, &method->nested.nominationpools_mutate_V2))
-        //     break;
+         case 4627: /* module 18 call 19 */
+         CHECK_ERROR(_readMethod_nominationpools_mutate_V2(c, &method->basic.nominationpools_mutate_V2))
+             break;
         case 4628: /* module 18 call 20 */
         CHECK_ERROR(_readMethod_nominationpools_unbond_deposit_V2(c, &method->nested.nominationpools_unbond_deposit_V2))
             break;
@@ -774,15 +773,15 @@ parser_error_t _readMethod_V2(
         CHECK_ERROR(_readMethod_nominationpools_distribute_early_bird_bonus_V2(c,
                                                                                &method->basic.nominationpools_distribute_early_bird_bonus_V2))
             break;
-        // case 4864: /* module 19 call 0 */
-        // CHECK_ERROR(_readMethod_stakeexchange_create_offer_V2(c, &method->basic.stakeexchange_create_offer_V2))
-        //     break;
+         case 4864: /* module 19 call 0 */
+         CHECK_ERROR(_readMethod_stakeexchange_create_offer_V2(c, &method->basic.stakeexchange_create_offer_V2))
+             break;
         case 4865: /* module 19 call 1 */
         CHECK_ERROR(_readMethod_stakeexchange_cancel_offer_V2(c, &method->basic.stakeexchange_cancel_offer_V2))
             break;
-        // case 4866: /* module 19 call 2 */
-        // CHECK_ERROR(_readMethod_stakeexchange_configure_liquidity_account_V2(c, &method->basic.stakeexchange_configure_liquidity_account_V2))
-        //     break;
+         case 4866: /* module 19 call 2 */
+         CHECK_ERROR(_readMethod_stakeexchange_configure_liquidity_account_V2(c, &method->basic.stakeexchange_configure_liquidity_account_V2))
+             break;
         case 4867: /* module 19 call 3 */
         CHECK_ERROR(_readMethod_stakeexchange_withdraw_liquidity_V2(c, &method->basic.stakeexchange_withdraw_liquidity_V2))
             break;
@@ -1260,9 +1259,8 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
             return 1;
         case 4626: /* module 18 call 18 */
             return 2;
-            // TODO: Check not sure
         case 4627: /* module 18 call 19 */
-            return 1;
+            return 2;
         case 4628: /* module 18 call 20 */
             return 1;
         case 4629: /* module 18 call 21 */
@@ -1567,7 +1565,7 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             switch (itemIdx) {
                 case 0:
                     return STR_IT_pool_id;
-                case 1: // TODO: Mutate // Check
+                case 1:
                     return STR_IT_mutation;
                 default:
                     return NULL;
@@ -1612,13 +1610,13 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
                 default:
                     return NULL;
             }
-        // case 4866: /* module 19 call 2 */
-        //     switch (itemIdx) {
-        //         case 0:
-        //             return STR_IT_config;
-        //         default:
-        //             return NULL;
-        //     }
+         case 4866: /* module 19 call 2 */
+             switch (itemIdx) {
+                 case 0:
+                     return STR_IT_config;
+                 default:
+                     return NULL;
+             }
         case 4867: /* module 19 call 3 */
             switch (itemIdx) {
                 case 0:
@@ -2492,21 +2490,21 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        // case 4627: /* module 18 call 19 */ // TODO: Check, probably wrong
-        //     switch (itemIdx) {
-        //         case 0: /* nominationpools_mutate_V2 - pool_id */;
-        //             return _toStringPoolId(
-        //                     &m->nested.nominationpools_mutate_V2.pool_id,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         case 1: /* nominationpools_mutate_V2 - mutation */;
-        //             return _toStringPoolMutation(
-        //                     &m->nested.nominationpools_mutate_V2.mutation,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         default:
-        //             return parser_no_data;
-        //     }
+         case 4627: /* module 18 call 19 */
+             switch (itemIdx) {
+                 case 0: /* nominationpools_mutate_V2 - pool_id */;
+                     return _toStringPoolId(
+                             &m->basic.nominationpools_mutate_V2.pool_id,
+                             outValue, outValueLen,
+                             pageIdx, pageCount);
+                 case 1: /* nominationpools_mutate_V2 - mutation */;
+                     return _toStringPoolMutationOfT(
+                             &m->basic.nominationpools_mutate_V2.mutation,
+                             outValue, outValueLen,
+                             pageIdx, pageCount);
+                 default:
+                     return parser_no_data;
+             }
         case 4628: /* module 18 call 20 */
             switch (itemIdx) {
                 case 0: /* nominationpools_unbond_deposit_V2 - pool_id */;
@@ -2542,16 +2540,16 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        // case 4864: /* module 19 call 0 */
-        //     switch (itemIdx) {
-        //         case 0: /* stakeexchange_create_offer_V2 - offer */;
-        //             return _toStringOffer(
-        //                     &m->basic.stakeexchange_create_offer_V2.offer,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         default:
-        //             return parser_no_data;
-        //     }
+         case 4864: /* module 19 call 0 */
+             switch (itemIdx) {
+                 case 0: /* stakeexchange_create_offer_V2 - offer */;
+                     return _toStringOfferOfT(
+                             &m->basic.stakeexchange_create_offer_V2.offer,
+                             outValue, outValueLen,
+                             pageIdx, pageCount);
+                 default:
+                     return parser_no_data;
+             }
         case 4865: /* module 19 call 1 */
             switch (itemIdx) {
                 case 0: /* stakeexchange_cancel_offer_V2 - offer_id */;
@@ -2562,16 +2560,16 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        // case 4866: /* module 19 call 2 */
-        //     switch (itemIdx) {
-        //         case 0: /* stakeexchange_configure_liquidity_account_V2 - config */;
-        //             return _toStringOfferConfig(
-        //                     &m->basic.stakeexchange_configure_liquidity_account_V2.config,
-        //                     outValue, outValueLen,
-        //                     pageIdx, pageCount);
-        //         default:
-        //             return parser_no_data;
-        //     }
+         case 4866: /* module 19 call 2 */
+             switch (itemIdx) {
+                 case 0: /* stakeexchange_configure_liquidity_account_V2 - config */;
+                     return _toStringLiquidityAccountConfigOfT(
+                             &m->basic.stakeexchange_configure_liquidity_account_V2.config,
+                             outValue, outValueLen,
+                             pageIdx, pageCount);
+                 default:
+                     return parser_no_data;
+             }
         case 4867: /* module 19 call 3 */
             switch (itemIdx) {
                 case 0: /* stakeexchange_withdraw_liquidity_V2 - offer_id */;

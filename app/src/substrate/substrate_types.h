@@ -781,6 +781,11 @@ typedef struct {
 
 typedef struct {
     uint8_t value;
+   // BTreeSet set; // TODO: Check
+} pd_LiquidityAccountConfigOfT_t;
+
+typedef struct {
+    uint8_t value;
     pd_Perbill_t set;
 } pd_ConfigOpPerbill_t;
 
@@ -978,8 +983,64 @@ typedef struct {
 } pd_PoolId_t;
 
 typedef struct {
+    uint8_t some;
+    pd_Perbill_t contained;
+} pd_OptionPerbill_t;
+
+typedef struct {
+    uint8_t value;
+    pd_OptionPerbill_t set;
+} pd_CommissionNewCommission_t;
+
+typedef struct {
+    pd_Perbill_t max_delta;
+    pd_u32_t min_delay;
+} pd_ChangeRate_t;
+
+typedef struct {
+    uint8_t some;
+    pd_ChangeRate_t contained;
+} pd_CommissionChangeRate_t;
+
+typedef struct {
+    uint8_t some;
+    pd_OptionAccountId_t contained;
+} pd_NewAdminMutation_t;
+
+typedef struct {
+    uint8_t some;
+    pd_OptionAccountId_t contained;
+} pd_NewNominatorMutation_t;
+
+typedef struct {
+    pd_NewAdminMutation_t new_admin;
+    pd_NewNominatorMutation_t new_nominator;
+} pd_RolesMutation_t;
+
+typedef struct {
+    uint8_t some;
+    pd_RolesMutation_t contained;
+} pd_PoolRolesMutation_t;
+
+typedef struct {
+    pd_Optionu32_t duration;
+    pd_CommissionNewCommission_t new_commission;
+    pd_OptionPerbill_t max_commission;
+    pd_CommissionChangeRate_t change_rate;
+    pd_PoolRolesMutation_t roles;
+    pd_Optionu128_t capacity;
+} pd_PoolMutationOfT_t;
+
+typedef struct {
     pd_u128_t value;
 } pd_OfferId_t;
+
+typedef struct {
+    pd_AccountId_t account;
+    pd_u128_t total;
+    pd_u128_t rate;
+    pd_Perbill_t min_average_commission;
+} pd_OfferOfT_t;
 
 typedef struct {
     pd_u128_t value;

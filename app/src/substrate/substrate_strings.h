@@ -500,7 +500,8 @@ static const char* STR_IT_account_id = "Account id";
 static const char* STR_IT_caller = "Caller";
 static const char* STR_IT_deposit_backer = "Deposit backer";
 static const char* STR_IT_ethereum_address = "Ethereum address";
-static const char* STR_IT_recipients = "STR_IT_recipients";
+static const char* STR_IT_recipients = "Recipients";
+static const char* STR_IT_config = "Config";
 
 #ifdef __cplusplus
 }
