@@ -111,6 +111,20 @@ typedef struct {
 } pd_Address_t;
 
 typedef struct {
+    const uint8_t* _ptr;
+} pd_u128_t;
+
+typedef struct {
+    uint8_t some;
+    pd_u32_t contained;
+} pd_Optionu32_t;
+
+typedef struct {
+    uint8_t some;
+    pd_u128_t contained;
+} pd_Optionu128_t;
+
+typedef struct {
     compactInt_t index;
 } pd_CompactIndex_t;
 
@@ -121,10 +135,6 @@ typedef struct {
 typedef struct {
     const uint8_t* _ptr;
 } pd_u8_array_32_t;
-
-typedef struct {
-    const uint8_t* _ptr;
-} pd_u128_t;
 
 typedef struct {
     uint64_t blockNumber;
@@ -470,6 +480,10 @@ typedef struct {
 } pd_FungibilityV3_t;
 
 typedef struct {
+    compactInt_t value;
+} pd_CompactPerbill_t;
+
+typedef struct {
     uint8_t value;
     union {
         pd_MultiLocationV2_t concrete;
@@ -557,6 +571,92 @@ typedef struct {
     pd_Compactu128_t collectionId;
     pd_FreezeType_t freezeType;
 } pd_FreezeOf_t;
+
+typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_Compactu128_t amount;
+    pd_Optionu128_t unitPrice;
+} pd_MintTokenMintParam_t;
+
+typedef struct {
+    pd_Optionu128_t unitPrice;
+} pd_InsufficientPolicyMintSufficiencyParam_t;
+
+typedef struct {
+    pd_u128_t minimumBalance;
+} pd_SufficientPolicyMintSufficiencyParam_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_InsufficientPolicyMintSufficiencyParam_t insufficient;
+        pd_SufficientPolicyMintSufficiencyParam_t sufficient;
+    };
+} pd_PolicyMintSufficiencyParam_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_Compactu128_t supply;
+        pd_Compactu128_t collapsingSupply;
+    };
+} pd_OptionTokenTokenCap_t;
+
+typedef struct {
+    pd_AccountId_t beneficiary;
+    pd_CompactPerbill_t percentage;
+} pd_HasRoyaltyTokenTokenMarketBehavior;
+
+typedef struct {
+    uint8_t value;
+    pd_HasRoyaltyTokenTokenMarketBehavior hasRoyalty;
+} pd_TokenTokenMarketBehavior_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecAttributeKeyValuePair_t;
+
+typedef struct {
+    uint8_t some;
+    pd_MultiLocationV3_t contained;
+} pd_OptionXcmV3MultiLocation;
+
+typedef struct {
+    pd_Compactu32_t decimalCount;
+    pd_Bytes_t name;
+    pd_Bytes_t symbol;
+    pd_OptionXcmV3MultiLocation location;
+    pd_Optionu128_t unitsPerSecond;
+
+} pd_PolicyMintForeignTokenCreationParams_t;
+
+typedef struct {
+    uint8_t some;
+    pd_PolicyMintForeignTokenCreationParams_t contained;
+} pd_OptionPolicyMintForeignTokenCreationParams_t;
+
+typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_Compactu128_t initialSupply;
+    pd_PolicyMintSufficiencyParam_t sufficiency;
+    pd_OptionTokenTokenCap_t cap;
+    pd_TokenTokenMarketBehavior_t behavior;
+    pd_bool_t listingForbidden;
+    pd_OptionFreezeState_t freezeState;
+    pd_VecAttributeKeyValuePair_t attributes;
+    pd_OptionPolicyMintForeignTokenCreationParams_t foreignParams;
+
+} pd_CreateTokenMintParam_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_CreateTokenMintParam_t createToken;
+        pd_MintTokenMintParam_t mintToken;
+    };
+} pd_MintParamsOf_t;
 
 typedef struct {
     uint8_t some;
@@ -664,10 +764,6 @@ typedef struct {
 typedef struct {
     uint16_t value;
 } pd_ClassOf_t;
-
-typedef struct {
-    compactInt_t value;
-} pd_CompactPerBill_t;
 
 typedef struct {
     uint8_t value;
@@ -915,7 +1011,7 @@ typedef struct {
 } pd_BondValueOfT_t;
 
 typedef struct {
-    pd_CompactPerBill_t commission;
+    pd_CompactPerbill_t commission;
     pd_bool_t blocked;
 } pd_ValidatorPrefs_t;
 
@@ -1020,16 +1116,6 @@ typedef struct {
     uint8_t some;
     pd_ReferendumIndex_t contained;
 } pd_OptionReferendumIndex_t;
-
-typedef struct {
-    uint8_t some;
-    pd_u32_t contained;
-} pd_Optionu32_t;
-
-typedef struct {
-    uint8_t some;
-    pd_u128_t contained;
-} pd_Optionu128_t;
 
 typedef struct {
     uint64_t value;

@@ -85,6 +85,7 @@ parser_error_t _readOfferOfT(parser_context_t* c, pd_OfferOfT_t* v);
 parser_error_t _readTokenId(parser_context_t* c, pd_TokenId_t* v);
 parser_error_t _readTransferParamsOfT(parser_context_t* c, pd_TransferParamsOfT_t* v);
 parser_error_t _readFreezeOf(parser_context_t* c, pd_FreezeOf_t* v);
+parser_error_t _readMintParamsOf(parser_context_t* c, pd_MintParamsOf_t* v);
 parser_error_t _readOptionTokenId(parser_context_t* c, pd_OptionTokenId_t* v);
 parser_error_t _readCollectionId(parser_context_t* c, pd_CollectionId_t* v);
 parser_error_t _readCompactCollectionId(parser_context_t* c, pd_CompactCollectionId_t* v);
@@ -1330,6 +1331,13 @@ parser_error_t _toStringTransferParamsOfT(
 
 parser_error_t _toStringFreezeOf(
         const pd_FreezeOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringMintParamsOf(
+        const pd_MintParamsOf_t* v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,
