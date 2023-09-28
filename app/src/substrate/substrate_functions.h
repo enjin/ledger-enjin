@@ -83,6 +83,8 @@ parser_error_t _readMultiLocationV2(parser_context_t* c, pd_MultiLocationV2_t* v
 parser_error_t _readOfferId(parser_context_t* c, pd_OfferId_t* v);
 parser_error_t _readOfferOfT(parser_context_t* c, pd_OfferOfT_t* v);
 parser_error_t _readTokenId(parser_context_t* c, pd_TokenId_t* v);
+parser_error_t _readTransferParamsOfT(parser_context_t* c, pd_TransferParamsOfT_t* v);
+parser_error_t _readFreezeOf(parser_context_t* c, pd_FreezeOf_t* v);
 parser_error_t _readOptionTokenId(parser_context_t* c, pd_OptionTokenId_t* v);
 parser_error_t _readCollectionId(parser_context_t* c, pd_CollectionId_t* v);
 parser_error_t _readCompactCollectionId(parser_context_t* c, pd_CompactCollectionId_t* v);
@@ -166,6 +168,7 @@ parser_error_t _readVecTupleAccountIdData(parser_context_t* c, pd_VecTupleAccoun
 parser_error_t _readVestingInfo(parser_context_t* c, pd_VestingInfo_t* v);
 parser_error_t _readStakingInfo(parser_context_t* c, pd_StakingInfo_t* v);
 parser_error_t _readLiquidityAccountConfigOfT(parser_context_t* c, pd_LiquidityAccountConfigOfT_t * v);
+parser_error_t _readBurnParamsOfT(parser_context_t* c, pd_BurnParamsOfT_t * v);
 parser_error_t _readWeightLimit(parser_context_t* c, pd_WeightLimit_t* v);
 parser_error_t _readAccountIndex(parser_context_t* c, pd_AccountIndex_t* v);
 parser_error_t _readClaimPermission(parser_context_t* c, pd_ClaimPermission_t* v);
@@ -1115,6 +1118,13 @@ parser_error_t _toStringStakingInfo(
         uint8_t pageIdx,
         uint8_t* pageCount);
 
+parser_error_t _toStringBurnParamsOfT(
+        const pd_BurnParamsOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
 parser_error_t _toStringLiquidityAccountConfigOfT(
         const pd_LiquidityAccountConfigOfT_t * v,
         char* outValue,
@@ -1306,6 +1316,20 @@ parser_error_t _toStringOptionTokenId(
 
 parser_error_t _toStringTokenId(
         const pd_TokenId_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringTransferParamsOfT(
+        const pd_TransferParamsOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringFreezeOf(
+        const pd_FreezeOf_t* v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,

@@ -134,30 +134,28 @@ typedef struct {
 //    pd_MintParams_t params;
 //} pd_multitokens_mint_V2_t;
 
-//#define PD_CALL_MULTITOKENS_BURN_V2 5
-//typedef struct {
-//    pd_CompactCollectionId_t collection_id;
-//    pd_TokenId_t token_id;
-//    pd_BurnParams_t params;
-//} pd_multitokens_burn_V2_t;
+#define PD_CALL_MULTITOKENS_BURN_V2 5
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_BurnParamsOfT_t params;
+} pd_multitokens_burn_V2_t;
 
-//#define PD_CALL_MULTITOKENS_TRANSFER_V2 6
-//typedef struct {
-//    pd_AccountId_t recipient;
-//    pd_CompactCollectionId_t collection_id;
-//    pd_TokenId_t token_id;
-//    pd_TransferParams_t params;
-//} pd_multitokens_transfer_V2_t;
-//
-//#define PD_CALL_MULTITOKENS_FREEZE_V2 7
-//typedef struct {
-//    pd_FreezeInfo_t info;
-//} pd_multitokens_freeze_V2_t;
-//
-//#define PD_CALL_MULTITOKENS_THAW_V2 8
-//typedef struct {
-//    pd_FreezeInfo_t info;
-//} pd_multitokens_thaw_V2_t;
+#define PD_CALL_MULTITOKENS_TRANSFER_V2 6
+typedef struct {
+    pd_AccountIdLookupOfT_t recipient;
+    pd_CompactCollectionId_t collectionId;
+    pd_TransferParamsOfT_t params;
+} pd_multitokens_transfer_V2_t;
+
+#define PD_CALL_MULTITOKENS_FREEZE_V2 7
+typedef struct {
+    pd_FreezeOf_t info;
+} pd_multitokens_freeze_V2_t;
+
+#define PD_CALL_MULTITOKENS_THAW_V2 8
+typedef struct {
+    pd_FreezeOf_t info;
+} pd_multitokens_thaw_V2_t;
 
 #define PD_CALL_MULTITOKENS_SET_ATTRIBUTE_V2 9
 typedef struct {
@@ -475,10 +473,10 @@ typedef union {
 //    pd_multitokens_mutate_collection_V2_t multitokens_mutate_collection_V2;
 //    pd_multitokens_mutate_token_V2_t multitokens_mutate_token_V2;
 //    pd_multitokens_mint_V2_t multitokens_mint_V2;
-//    pd_multitokens_burn_V2_t multitokens_burn_V2;
-//    pd_multitokens_transfer_V2_t multitokens_transfer_V2;
-//    pd_multitokens_freeze_V2_t multitokens_freeze_V2;
-//    pd_multitokens_thaw_V2_t multitokens_thaw_V2;
+    pd_multitokens_burn_V2_t multitokens_burn_V2;
+    pd_multitokens_transfer_V2_t multitokens_transfer_V2;
+    pd_multitokens_freeze_V2_t multitokens_freeze_V2;
+    pd_multitokens_thaw_V2_t multitokens_thaw_V2;
     pd_multitokens_set_attribute_V2_t multitokens_set_attribute_V2;
     pd_multitokens_remove_attribute_V2_t multitokens_remove_attribute_V2;
     pd_multitokens_remove_all_attributes_V2_t multitokens_remove_all_attributes_V2;

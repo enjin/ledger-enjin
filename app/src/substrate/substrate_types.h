@@ -498,6 +498,69 @@ typedef struct {
 } pd_TokenId_t;
 
 typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_Compactu128_t amount;
+    pd_bool_t keepAlive;
+    pd_bool_t removeTokenStorage;
+} pd_BurnParamsOfT_t;
+
+typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_Compactu128_t amount;
+    pd_bool_t keepAlive;
+} pd_SimpleTransferParams_t;
+
+typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_AccountId_t source;
+    pd_Compactu128_t amount;
+    pd_bool_t keepAlive;
+} pd_OperatorTransferParams_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_SimpleTransferParams_t simple;
+        pd_OperatorTransferParams_t operator_;
+    };
+} pd_TransferParamsOfT_t;
+
+typedef enum {
+    ePermanent = 0,
+    eTemporary = 1,
+    eNever = 2
+} pd_FreezeState_t;
+
+typedef struct {
+    uint8_t some;
+    pd_FreezeState_t contained;
+} pd_OptionFreezeState_t;
+
+typedef struct {
+    pd_TokenId_t tokenId;
+    pd_OptionFreezeState_t freezeState;
+} pd_TokenFreezeType_t;
+
+typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_AccountId_t accountId;
+} pd_TokenAccountFreezeType_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_TokenFreezeType_t token;
+        pd_AccountId_t collectionAccount;
+        pd_TokenAccountFreezeType_t tokenAccount;
+    };
+} pd_FreezeType_t;
+
+typedef struct {
+    pd_Compactu128_t collectionId;
+    pd_FreezeType_t freezeType;
+} pd_FreezeOf_t;
+
+typedef struct {
     uint8_t some;
     pd_TokenId_t contained;
 } pd_OptionTokenId_t;
