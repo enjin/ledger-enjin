@@ -236,7 +236,7 @@ __Z_INLINE parser_error_t _readMethod_multitokens_mint_V2(
         parser_context_t* c, pd_multitokens_mint_V2_t* m)
 {
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->recipient))
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collectionId))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
     CHECK_ERROR(_readMintParamsOf(c, &m->params))
     return parser_ok;
 }
@@ -292,7 +292,7 @@ __Z_INLINE parser_error_t _readMethod_multitokens_transfer_V2(
         parser_context_t* c, pd_multitokens_transfer_V2_t* m)
 {
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->recipient))
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collectionId))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
     CHECK_ERROR(_readTransferParamsOfT(c, &m->params))
     return parser_ok;
 }
@@ -2729,7 +2729,7 @@ parser_error_t _getMethod_ItemValue_V2(
                             pageIdx, pageCount);
                 case 1: /* multitokens_transfer_V2 - collection_id */;
                     return _toStringCompactCollectionId(
-                            &m->basic.multitokens_transfer_V2.collectionId,
+                            &m->basic.multitokens_transfer_V2.collection_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 2: /* multitokens_transfer_V2 - params */;

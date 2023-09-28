@@ -143,7 +143,7 @@ typedef struct {
 #define PD_CALL_MULTITOKENS_TRANSFER_V2 6
 typedef struct {
     pd_AccountIdLookupOfT_t recipient;
-    pd_CompactCollectionId_t collectionId;
+    pd_CompactCollectionId_t collection_id;
     pd_TransferParamsOfT_t params;
 } pd_multitokens_transfer_V2_t;
 

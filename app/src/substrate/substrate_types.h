@@ -600,6 +600,11 @@ typedef struct {
         pd_Compactu128_t supply;
         pd_Compactu128_t collapsingSupply;
     };
+} pd_TokenTokenCap_t;
+
+typedef struct {
+    uint8_t some;
+    pd_TokenTokenCap_t contained;
 } pd_OptionTokenTokenCap_t;
 
 typedef struct {
@@ -611,6 +616,16 @@ typedef struct {
     uint8_t value;
     pd_HasRoyaltyTokenTokenMarketBehavior hasRoyalty;
 } pd_TokenTokenMarketBehavior_t;
+
+typedef struct {
+    uint8_t some;
+    pd_TokenTokenMarketBehavior_t contained;
+} pd_OptionTokenTokenMarketBehavior_t;
+
+typedef struct {
+    pd_Bytes_t key;
+    pd_Bytes_t value;
+} pd_AttributeKeyValuePair_t;
 
 typedef struct {
     uint64_t _len;
@@ -642,7 +657,7 @@ typedef struct {
     pd_Compactu128_t initialSupply;
     pd_PolicyMintSufficiencyParam_t sufficiency;
     pd_OptionTokenTokenCap_t cap;
-    pd_TokenTokenMarketBehavior_t behavior;
+    pd_OptionTokenTokenMarketBehavior_t behavior;
     pd_bool_t listingForbidden;
     pd_OptionFreezeState_t freezeState;
     pd_VecAttributeKeyValuePair_t attributes;
@@ -654,7 +669,7 @@ typedef struct {
     uint8_t value;
     union {
         pd_CreateTokenMintParam_t createToken;
-        pd_MintTokenMintParam_t mintToken;
+        pd_MintTokenMintParam_t mint;
     };
 } pd_MintParamsOf_t;
 

@@ -120,7 +120,7 @@ parser_error_t _readAccountVoteSplit(parser_context_t* c, pd_AccountVoteSplit_t*
 parser_error_t _readAccountVoteStandard(parser_context_t* c, pd_AccountVoteStandard_t* v);
 parser_error_t _readCall(parser_context_t* c, pd_Call_t* v);
 parser_error_t _readClassOf(parser_context_t* c, pd_ClassOf_t* v);
-parser_error_t _readCompactPerBill(parser_context_t* c, pd_CompactPerBill_t* v);
+parser_error_t _readCompactPerbill(parser_context_t* c, pd_CompactPerbill_t* v);
 parser_error_t _readMultiSignature(parser_context_t* c, pd_MultiSignature_t* v);
 parser_error_t _readMultiSigner(parser_context_t* c, pd_MultiSigner_t* v);
 parser_error_t _readOptionu8_array_20(parser_context_t* c, pd_Optionu8_array_20_t* v);
@@ -783,8 +783,8 @@ parser_error_t _toStringClassOf(
     uint8_t pageIdx,
     uint8_t* pageCount);
 
-parser_error_t _toStringCompactPerBill(
-    const pd_CompactPerBill_t* v,
+parser_error_t _toStringCompactPerbill(
+    const pd_CompactPerbill_t* v,
     char* outValue,
     uint16_t outValueLen,
     uint8_t pageIdx,
