@@ -215,17 +215,22 @@ __Z_INLINE parser_error_t _readMethod_multitokens_force_set_attribute_V2(
     return parser_ok;
 }
 
-//__Z_INLINE parser_error_t _readMethod_multitokens_force_set_collection_V2(
-//        parser_context_t* c, pd_multitokens_force_set_collection_V2_t* m)
-//{
-//    return parser_ok;
-//}
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_collection_V2(
+        parser_context_t* c, pd_multitokens_force_set_collection_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+//    CHECK_ERROR(_readOptionCollectionOf(c, &m->value))
+    return parser_ok;
+}
 
-//__Z_INLINE parser_error_t _readMethod_multitokens_force_set_collection_account_V2(
-//        parser_context_t* c, pd_multitokens_force_set_collection_account_V2_t* m)
-//{
-//    return parser_ok;
-//}
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_collection_account_V2(
+        parser_context_t* c, pd_multitokens_force_set_collection_account_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->account_id))
+//    CHECK_ERROR(_readOptionCollectionAccountOf(c, &m->value))
+    return parser_ok;
+}
 
 __Z_INLINE parser_error_t _readMethod_multitokens_force_set_next_collection_id_V2(
         parser_context_t* c, pd_multitokens_force_set_next_collection_id_V2_t* m)
@@ -234,12 +239,15 @@ __Z_INLINE parser_error_t _readMethod_multitokens_force_set_next_collection_id_V
     return parser_ok;
 }
 
-//__Z_INLINE parser_error_t _readMethod_multitokens_force_set_token_V2(
-//        parser_context_t* c, pd_multitokens_force_set_token_V2_t* m)
-//{
-//    return parser_ok;
-//}
-//
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_token_V2(
+        parser_context_t* c, pd_multitokens_force_set_token_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readCompactTokenId(c, &m->token_id))
+    CHECK_ERROR(_readOptionTokenOf(c, &m->value))
+    return parser_ok;
+}
+
 //__Z_INLINE parser_error_t _readMethod_multitokens_force_set_token_account_V2(
 //        parser_context_t* c, pd_multitokens_force_set_token_account_V2_t* m)
 //{
@@ -900,18 +908,18 @@ parser_error_t _readMethod_V2(
         case 64788: /* module 253 call 20 */
         CHECK_ERROR(_readMethod_multitokens_force_transfer_V2(c, &method->basic.multitokens_force_transfer_V2))
             break;
-//        case 64789: /* module 253 call 21 */
-//        CHECK_ERROR(_readMethod_multitokens_force_set_collection_V2(c, &method->basic.multitokens_force_set_collection_V2))
-//            break;
-//        case 64790: /* module 253 call 22 */
-//        CHECK_ERROR(_readMethod_multitokens_force_set_token_V2(c, &method->basic.multitokens_force_set_token_V2))
-//            break;
+        case 64789: /* module 253 call 21 */
+        CHECK_ERROR(_readMethod_multitokens_force_set_collection_V2(c, &method->basic.multitokens_force_set_collection_V2))
+            break;
+        case 64790: /* module 253 call 22 */
+        CHECK_ERROR(_readMethod_multitokens_force_set_token_V2(c, &method->basic.multitokens_force_set_token_V2))
+            break;
         case 64791: /* module 253 call 23 */
         CHECK_ERROR(_readMethod_multitokens_force_set_attribute_V2(c, &method->basic.multitokens_force_set_attribute_V2))
             break;
-//        case 64792: /* module 253 call 24 */
-//        CHECK_ERROR(_readMethod_multitokens_force_set_collection_account_V2(c, &method->basic.multitokens_force_set_collection_account_V2))
-//            break;
+        case 64792: /* module 253 call 24 */
+        CHECK_ERROR(_readMethod_multitokens_force_set_collection_account_V2(c, &method->basic.multitokens_force_set_collection_account_V2))
+            break;
 //        case 64793: /* module 253 call 25 */
 //        CHECK_ERROR(_readMethod_multitokens_force_set_token_account_V2(c, &method->basic.multitokens_force_set_token_account_V2))
 //            break;
@@ -3049,7 +3057,7 @@ parser_error_t _getMethod_ItemValue_V2(
 //                            outValue, outValueLen,
 //                            pageIdx, pageCount);
 //                case 1: /* multitokens_force_set_collection_V2 - value */;
-//                    return _toStringCollectionProperties(
+//                    return _toStringOptionCollectionOf(
 //                            &m->basic.multitokens_force_set_collection_V2.value,
 //                            outValue, outValueLen,
 //                            pageIdx, pageCount);
@@ -3058,21 +3066,21 @@ parser_error_t _getMethod_ItemValue_V2(
             }
         case 64790: /* module 253 call 22 */
             switch (itemIdx) {
-//                case 0: /* multitokens_force_set_token_V2 - collection_id */;
-//                    return _toStringCompactCollectionId(
-//                            &m->basic.multitokens_force_set_token_V2.collection_id,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
-//                case 1: /* multitokens_force_set_token_V2 - token_id */;
-//                    return _toStringTokenIdOf(
-//                            &m->basic.multitokens_force_set_token_V2.token_id,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
-//                case 2: /* multitokens_force_set_token_V2 - value */;
-//                    return _toStringTokenProperties(
-//                            &m->basic.multitokens_force_set_token_V2.value,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
+                case 0: /* multitokens_force_set_token_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_force_set_token_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_force_set_token_V2 - token_id */;
+                    return _toStringCompactTokenId(
+                            &m->basic.multitokens_force_set_token_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_force_set_token_V2 - value */;
+                    return _toStringOptionTokenOf(
+                            &m->basic.multitokens_force_set_token_V2.value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
@@ -3109,12 +3117,12 @@ parser_error_t _getMethod_ItemValue_V2(
 //                            outValue, outValueLen,
 //                            pageIdx, pageCount);
 //                case 1: /* multitokens_force_set_collection_account_V2 - account_id */;
-//                    return _toStringAccountId(
+//                    return _toStringAccountIdLookupOfT(
 //                            &m->basic.multitokens_force_set_collection_account_V2.account_id,
 //                            outValue, outValueLen,
 //                            pageIdx, pageCount);
 //                case 2: /* multitokens_force_set_collection_account_V2 - value */;
-//                    return _toStringCollectionAccountData(
+//                    return _toStringOptionCollectionAccountOf(
 //                            &m->basic.multitokens_force_set_collection_account_V2.value,
 //                            outValue, outValueLen,
 //                            pageIdx, pageCount);

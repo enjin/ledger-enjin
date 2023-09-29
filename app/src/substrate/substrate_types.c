@@ -927,6 +927,16 @@ parser_error_t _readPerbill(parser_context_t* c, pd_Perbill_t* v)
     return parser_ok;
 }
 
+parser_error_t _readOptionPerbill(parser_context_t* c, pd_OptionPerbill_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+        CHECK_ERROR(_readPerbill(c, &v->contained))
+    }
+    return parser_ok;
+}
+
 parser_error_t _readSr25519Public(parser_context_t* c, pd_Sr25519Public_t* v) {
     GEN_DEF_READARRAY(32)
 }
@@ -1878,10 +1888,102 @@ parser_error_t _readLiquidityAccountConfigOfT(parser_context_t* c, pd_LiquidityA
     return parser_ok;
 }
 
+parser_error_t _readCommissionNewCommission(parser_context_t* c, pd_CommissionNewCommission_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+
+    switch (v->value) {
+        case 0: // NoMutation
+            break;
+        case 1: // SomeMutation
+            CHECK_ERROR(_readOptionPerbill(c, &v->set))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _readChangeRate(parser_context_t* c, pd_ChangeRate_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readPerbill(c, &v->maxDelta))
+    CHECK_ERROR(_readu32(c, &v->minDelay))
+    return parser_ok;
+}
+
+parser_error_t _readOptionChangeRate(parser_context_t* c, pd_OptionCommissionChangeRate_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+        CHECK_ERROR(_readChangeRate(c, &v->contained))
+    }
+    return parser_ok;
+}
+
+parser_error_t _readNewNominatorMutation(parser_context_t* c, pd_NewNominatorMutation_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+
+    switch (v->value) {
+        case 0: // NoMutation
+            break;
+        case 1: // SomeMutation
+        CHECK_ERROR(_readOptionAccountId(c, &v->set))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _readNewAdminMutation(parser_context_t* c, pd_NewAdminMutation_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+
+    switch (v->value) {
+        case 0: // NoMutation
+            break;
+        case 1: // SomeMutation
+        CHECK_ERROR(_readOptionAccountId(c, &v->set))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _readRolesMutation(parser_context_t* c, pd_RolesMutation_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readNewAdminMutation(c, &v->newAdmin))
+    CHECK_ERROR(_readNewNominatorMutation(c, &v->newNominator))
+    return parser_ok;
+}
+
+parser_error_t _readOptionRolesMutation(parser_context_t* c, pd_OptionPoolRolesMutation_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+        CHECK_ERROR(_readRolesMutation(c, &v->contained))
+    }
+    return parser_ok;
+}
+
 parser_error_t _readPoolMutationOfT(parser_context_t* c, pd_PoolMutationOfT_t* v)
 {
     CHECK_INPUT()
-//    CHECK_ERROR(_readUInt32(c, &v->value))
+    CHECK_ERROR(_readOptionu32(c, &v->duration))
+    CHECK_ERROR(_readCommissionNewCommission(c, &v->newCommission))
+    CHECK_ERROR(_readOptionPerbill(c, &v->maxCommission))
+    CHECK_ERROR(_readOptionChangeRate(c, &v->changeRate))
+    CHECK_ERROR(_readOptionRolesMutation(c, &v->roles))
+    CHECK_ERROR(_readOptionu128(c, &v->capacity))
     return parser_ok;
 }
 
@@ -2310,6 +2412,15 @@ parser_error_t _readCollectionMutation(parser_context_t* c, pd_CollectionMutatio
     return parser_ok;
 }
 
+parser_error_t _readOptionCollectionOf(parser_context_t* c, pd_OptionCollectionOf_t* v)
+{
+    CHECK_INPUT()
+//    CHECK_ERROR(_readOptionAccountId(c, &v->owner))
+//    CHECK_ERROR(_readRoyaltyMutation(c, &v->royalty))
+//    CHECK_ERROR(_readOptionVecTokenAssetId(c, &v->explicitRoyaltyCurrencies))
+    return parser_ok;
+}
+
 parser_error_t _readShouldMutateBool(parser_context_t* c, pd_ShouldMutateBool_t* v)
 {
     CHECK_INPUT()
@@ -2369,6 +2480,55 @@ parser_error_t _readShouldMutateTokenMetadata(parser_context_t* c, pd_ShouldMuta
             return parser_unexpected_value;
     }
     return parser_ok;
+}
+
+parser_error_t _readInsufficientTokenSufficiency(parser_context_t* c, pd_InsufficientTokenSufficiency_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readCompactu128(c, &v->unitPrice))
+    return parser_ok;
+}
+
+parser_error_t _readTokenSufficiency(parser_context_t* c, pd_TokenSufficiency_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+    switch (v->value) {
+        case 0: // Sufficient
+            break;
+        case 1: // Insufficient
+        CHECK_ERROR(_readInsufficientTokenSufficiency(c, &v->set))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _readTokenOf(parser_context_t* c, pd_TokenOf_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readCompactu128(c, &v->supply))
+    CHECK_ERROR(_readOptionTokenTokenCap(c, &v->cap))
+    CHECK_ERROR(_readOptionFreezeState(c, &v->freezeState))
+    CHECK_ERROR(_readCompactu128(c, &v->minimumBalance))
+    CHECK_ERROR(_readTokenSufficiency(c, &v->sufficiency))
+    CHECK_ERROR(_readCompactu128(c, &v->mintDeposit))
+    CHECK_ERROR(_readCompactu32(c, &v->attributeCount))
+    CHECK_ERROR(_readOptionTokenTokenMarketBehavior(c, &v->marketBehavior))
+    CHECK_ERROR(_readbool(c, &v->listingForbidden))
+    CHECK_ERROR(_readTokenMetadata(c, &v->metadata))
+    return parser_ok;
+}
+
+parser_error_t _readOptionTokenOf(parser_context_t* c, pd_OptionTokenOf_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+
+    if (v->some > 0) {
+        CHECK_ERROR(_readTokenOf(c, &v->contained))
+    }
 }
 
 parser_error_t _readShouldMutateTokenMarketBehavior(parser_context_t* c, pd_ShouldMutateTokenMarketBehavior_t* v)
@@ -5971,6 +6131,278 @@ parser_error_t _toStringMarketPolicyDescriptor(
     return parser_display_idx_out_of_range;
 }
 
+parser_error_t _toStringOptionPerbill(
+        const pd_OptionPerbill_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringPerbill(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount));
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringComissionNewComission(
+        const pd_CommissionNewCommission_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    *pageCount = 1;
+
+    switch (v->value) {
+        case 0: // NoMutation
+            snprintf(outValue, outValueLen, "NoMutation");
+            break;
+        case 1: // SomeMutation
+        CHECK_ERROR(_toStringOptionPerbill(&v->set, outValue, outValueLen, pageIdx, pageCount))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _toStringComissionChangeRate(
+        const pd_ChangeRate_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringPerbill(&v->maxDelta, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringu32(&v->minDelay, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringPerbill(&v->maxDelta, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringu32(&v->minDelay, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringOptionCommissionChangeRate(
+        const pd_OptionCommissionChangeRate_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringComissionChangeRate(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount));
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringNewAdminMutation(
+        const pd_NewAdminMutation_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    *pageCount = 1;
+
+    switch (v->value) {
+        case 0: // NoMutation
+            snprintf(outValue, outValueLen, "NoMutation");
+            break;
+        case 1: // SomeMutation
+        CHECK_ERROR(_toStringOptionAccountId(&v->set, outValue, outValueLen, pageIdx, pageCount))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _toStringNewNominatorMutation(
+        const pd_NewNominatorMutation_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    *pageCount = 1;
+
+    switch (v->value) {
+        case 0: // NoMutation
+            snprintf(outValue, outValueLen, "NoMutation");
+            break;
+        case 1: // SomeMutation
+        CHECK_ERROR(_toStringOptionAccountId(&v->set, outValue, outValueLen, pageIdx, pageCount))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _toStringPoolRolesMutation(
+        const pd_RolesMutation_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringNewAdminMutation(&v->newAdmin, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringNewNominatorMutation(&v->newNominator, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringNewAdminMutation(&v->newAdmin, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringNewNominatorMutation(&v->newNominator, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringOptionPoolRolesMutation(
+        const pd_OptionPoolRolesMutation_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringPoolRolesMutation(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount));
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringPoolMutationOfT(
+        const pd_PoolMutationOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[6] = { 0 };
+    CHECK_ERROR(_toStringOptionu32(&v->duration, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringComissionNewComission(&v->newCommission, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringOptionPerbill(&v->maxCommission, outValue, outValueLen, 0, &pages[2]))
+    CHECK_ERROR(_toStringOptionCommissionChangeRate(&v->changeRate, outValue, outValueLen, 0, &pages[3]))
+    CHECK_ERROR(_toStringOptionPoolRolesMutation(&v->roles, outValue, outValueLen, 0, &pages[4]))
+    CHECK_ERROR(_toStringOptionu128(&v->capacity, outValue, outValueLen, 0, &pages[5]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringOptionu32(&v->duration, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringComissionNewComission(&v->newCommission, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    pageIdx -= pages[1];
+
+    if (pageIdx < pages[2]) {
+        CHECK_ERROR(_toStringOptionPerbill(&v->maxCommission, outValue, outValueLen, pageIdx, &pages[2]))
+        return parser_ok;
+    }
+    pageIdx -= pages[2];
+
+    if (pageIdx < pages[3]) {
+        CHECK_ERROR(_toStringOptionCommissionChangeRate(&v->changeRate, outValue, outValueLen, pageIdx, &pages[3]))
+        return parser_ok;
+    }
+    pageIdx -= pages[3];
+
+    if (pageIdx < pages[4]) {
+        CHECK_ERROR(_toStringOptionPoolRolesMutation(&v->roles, outValue, outValueLen, pageIdx, &pages[4]))
+        return parser_ok;
+    }
+    pageIdx -= pages[4];
+
+    if (pageIdx < pages[5]) {
+        CHECK_ERROR(_toStringOptionu128(&v->capacity, outValue, outValueLen, pageIdx, &pages[5]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
 parser_error_t _toStringCollectionPolicyDescriptor(
         const pd_CollectionPolicyDescriptor_t* v,
         char* outValue,
@@ -6350,6 +6782,174 @@ parser_error_t _toStringTokenMutation(
     }
 
     return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringInsufficientTokenSufficiency(
+        const pd_InsufficientTokenSufficiency_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[1] = { 0 };
+    CHECK_ERROR(_toStringCompactu128(&v->unitPrice, outValue, outValueLen, 0, &pages[0]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringCompactu128(&v->unitPrice, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringTokenSufficiency(
+        const pd_TokenSufficiency_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    *pageCount = 1;
+    switch (v->value) {
+        case 0: // Sufficient
+            snprintf(outValue, outValueLen, "Sufficient");
+            break;
+        case 1: // Insufficient
+        CHECK_ERROR(_toStringInsufficientTokenSufficiency(&v->set, outValue, outValueLen, pageIdx, pageCount))
+            break;
+        default:
+            return parser_not_supported;
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringTokenOf(
+        const pd_TokenOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[10] = { 0 };
+    CHECK_ERROR(_toStringCompactu128(&v->supply, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringOptionTokenTokenCap(&v->cap, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringOptionFreezeState(&v->freezeState, outValue, outValueLen, 0, &pages[2]))
+    CHECK_ERROR(_toStringCompactu128(&v->minimumBalance, outValue, outValueLen, 0, &pages[3]))
+    CHECK_ERROR(_toStringTokenSufficiency(&v->sufficiency, outValue, outValueLen, 0, &pages[4]))
+    CHECK_ERROR(_toStringCompactu128(&v->mintDeposit, outValue, outValueLen, 0, &pages[5]))
+    CHECK_ERROR(_toStringCompactu32(&v->attributeCount, outValue, outValueLen, 0, &pages[6]))
+    CHECK_ERROR(_toStringOptionTokenTokenMarketBehavior(&v->marketBehavior, outValue, outValueLen, 0, &pages[7]))
+    CHECK_ERROR(_toStringbool(&v->listingForbidden, outValue, outValueLen, 0, &pages[8]))
+    CHECK_ERROR(_toStringTokenMetadata(&v->metadata, outValue, outValueLen, 0, &pages[9]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringCompactu128(&v->supply, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringOptionTokenTokenCap(&v->cap, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    pageIdx -= pages[1];
+
+    if (pageIdx < pages[2]) {
+        CHECK_ERROR(_toStringOptionFreezeState(&v->freezeState, outValue, outValueLen, pageIdx, &pages[2]))
+        return parser_ok;
+    }
+    pageIdx -= pages[2];
+
+    if (pageIdx < pages[3]) {
+        CHECK_ERROR(_toStringCompactu128(&v->minimumBalance, outValue, outValueLen, pageIdx, &pages[3]))
+        return parser_ok;
+    }
+    pageIdx -= pages[3];
+
+    if (pageIdx < pages[4]) {
+        CHECK_ERROR(_toStringTokenSufficiency(&v->sufficiency, outValue, outValueLen, pageIdx, &pages[4]))
+        return parser_ok;
+    }
+    pageIdx -= pages[4];
+
+    if (pageIdx < pages[5]) {
+        CHECK_ERROR(_toStringCompactu128(&v->mintDeposit, outValue, outValueLen, pageIdx, &pages[5]))
+        return parser_ok;
+    }
+    pageIdx -= pages[5];
+
+    if (pageIdx < pages[6]) {
+        CHECK_ERROR(_toStringCompactu32(&v->attributeCount, outValue, outValueLen, pageIdx, &pages[6]))
+        return parser_ok;
+    }
+    pageIdx -= pages[6];
+
+    if (pageIdx < pages[7]) {
+        CHECK_ERROR(_toStringOptionTokenTokenMarketBehavior(&v->marketBehavior, outValue, outValueLen, pageIdx, &pages[7]))
+        return parser_ok;
+    }
+    pageIdx -= pages[7];
+
+    if (pageIdx < pages[8]) {
+        CHECK_ERROR(_toStringbool(&v->listingForbidden, outValue, outValueLen, pageIdx, &pages[8]))
+        return parser_ok;
+    }
+    pageIdx -= pages[8];
+
+    if (pageIdx < pages[9]) {
+        CHECK_ERROR(_toStringTokenMetadata(&v->metadata, outValue, outValueLen, pageIdx, &pages[9]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringOptionTokenOf(
+        const pd_OptionTokenOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringTokenOf(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount));
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
 }
 
 parser_error_t _toStringEcdsaPublic(
@@ -8242,16 +8842,6 @@ parser_error_t _toStringLiquidityAccountConfigOfT(
         uint8_t* pageCount)
 {
 //    return _toStringu32(&v->value, outValue, outValueLen, pageIdx, pageCount);
-}
-
-parser_error_t _toStringPoolMutationOfT(
-        const pd_PoolMutationOfT_t* v,
-        char* outValue,
-        uint16_t outValueLen,
-        uint8_t pageIdx,
-        uint8_t* pageCount)
-{
-//    return _toStringu32(&v->new_commission, outValue, outValueLen, pageIdx, pageCount);
 }
 
 parser_error_t _toStringPoolState(

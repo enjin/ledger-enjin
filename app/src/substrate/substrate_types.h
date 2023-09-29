@@ -1294,41 +1294,41 @@ typedef struct {
 } pd_CommissionNewCommission_t;
 
 typedef struct {
-    pd_Perbill_t max_delta;
-    pd_u32_t min_delay;
+    pd_Perbill_t maxDelta;
+    pd_u32_t minDelay;
 } pd_ChangeRate_t;
 
 typedef struct {
     uint8_t some;
     pd_ChangeRate_t contained;
-} pd_CommissionChangeRate_t;
+} pd_OptionCommissionChangeRate_t;
 
 typedef struct {
-    uint8_t some;
-    pd_OptionAccountId_t contained;
+    uint8_t value;
+    pd_OptionAccountId_t set;
 } pd_NewAdminMutation_t;
 
 typedef struct {
-    uint8_t some;
-    pd_OptionAccountId_t contained;
+    uint8_t value;
+    pd_OptionAccountId_t set;
 } pd_NewNominatorMutation_t;
 
 typedef struct {
-    pd_NewAdminMutation_t new_admin;
-    pd_NewNominatorMutation_t new_nominator;
+    pd_NewAdminMutation_t newAdmin;
+    pd_NewNominatorMutation_t newNominator;
 } pd_RolesMutation_t;
 
 typedef struct {
     uint8_t some;
     pd_RolesMutation_t contained;
-} pd_PoolRolesMutation_t;
+} pd_OptionPoolRolesMutation_t;
 
 typedef struct {
     pd_Optionu32_t duration;
-    pd_CommissionNewCommission_t new_commission;
-    pd_OptionPerbill_t max_commission;
-    pd_CommissionChangeRate_t change_rate;
-    pd_PoolRolesMutation_t roles;
+    pd_CommissionNewCommission_t newCommission;
+    pd_OptionPerbill_t maxCommission;
+    pd_OptionCommissionChangeRate_t changeRate;
+    pd_OptionPoolRolesMutation_t roles;
     pd_Optionu128_t capacity;
 } pd_PoolMutationOfT_t;
 
@@ -1350,6 +1350,68 @@ typedef struct {
 typedef struct {
     pd_Compactu128_t value;
 } pd_CompactCollectionId_t;
+
+typedef struct {
+    pd_bool_t isFrozen;
+} pd_TransferPolicy_t;
+
+typedef struct {
+    pd_MintPolicyDescriptor_t mint;
+    pd_TransferPolicy_t transfer;
+    pd_MarketPolicyDescriptor_t market;
+} pd_CollectionPolicy_t;
+
+typedef struct {
+    pd_AccountId_t owner;
+    pd_CollectionPolicy_t policy;
+    pd_Compactu64_t tokenCount;
+    pd_Compactu32_t attributeCount;
+    pd_Compactu128_t totalDeposit;
+//    pd_BTreeMap_t explicitRoyaltyCurrencies
+} pd_CollectionOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_CollectionOf_t contained;
+} pd_OptionCollectionOf_t;
+
+typedef struct {
+    pd_bool_t isFrozen;
+//    BTreeMap approvals;
+    pd_Compactu32_t accountCount;
+} pd_CollectionAccountOf_t;
+
+typedef struct {
+    pd_Compactu128_t unitPrice;
+} pd_InsufficientTokenSufficiency_t;
+
+typedef struct {
+    uint8_t value;
+    pd_InsufficientTokenSufficiency_t set;
+} pd_TokenSufficiency_t;
+
+typedef struct {
+    pd_Compactu128_t supply;
+    pd_OptionTokenTokenCap_t cap;
+    pd_OptionFreezeState_t freezeState;
+    pd_Compactu128_t minimumBalance;
+    pd_TokenSufficiency_t sufficiency;
+    pd_Compactu128_t mintDeposit;
+    pd_Compactu32_t attributeCount;
+    pd_OptionTokenTokenMarketBehavior_t marketBehavior;
+    pd_bool_t listingForbidden;
+    pd_TokenMetadata_t metadata;
+} pd_TokenOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_TokenOf_t contained;
+} pd_OptionTokenOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_CollectionAccountOf_t contained;
+} pd_OptionCollectionAccountOf_t;
 
 typedef struct {
     uint8_t value;
