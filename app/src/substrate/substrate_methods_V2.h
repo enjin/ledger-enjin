@@ -233,15 +233,15 @@ typedef struct {
 //    pd_CompactCollectionId_t collection_id;
 //    pd_CollectionMutation_t mutation;
 //} pd_multitokens_force_mutate_collection_V2_t;
-//
-//#define PD_CALL_MULTITOKENS_FORCE_TRANSFER_V2 20
-//typedef struct {
-//    pd_AccountId_t source;
-//    pd_AccountId_t destination;
-//    pd_CompactCollectionId_t collection_id;
-//    pd_TransferParams_t params;
-//} pd_multitokens_force_transfer_V2_t;
-//
+
+#define PD_CALL_MULTITOKENS_FORCE_TRANSFER_V2 20
+typedef struct {
+    pd_AccountIdLookupOfT_t source;
+    pd_AccountIdLookupOfT_t destination;
+    pd_CompactCollectionId_t collection_id;
+    pd_TransferParamsOfT_t params;
+} pd_multitokens_force_transfer_V2_t;
+
 //#define PD_CALL_MULTITOKENS_FORCE_SET_COLLECTION_V2 21
 //typedef struct {
 //    pd_CompactCollectionId_t collection_id;
@@ -278,28 +278,28 @@ typedef struct {
 //    pd_TokenAccount_t value;
 //} pd_multitokens_force_set_token_account_V2_t;
 //
-//#define PD_CALL_MULTITOKENS_FORCE_CREATE_COLLECTION_V2 26
-//typedef struct {
-//    pd_AccountId_t owner;
-//    pd_CompactCollectionId_t collection_id;
-//    pd_CollectionDescriptor_t descriptor;
-//} pd_multitokens_force_create_collection_V2_t;
+#define PD_CALL_MULTITOKENS_FORCE_CREATE_COLLECTION_V2 26
+typedef struct {
+    pd_AccountId_t owner;
+    pd_CompactCollectionId_t collection_id;
+    pd_CollectionDescriptor_t descriptor;
+} pd_multitokens_force_create_collection_V2_t;
 
-//#define PD_CALL_MULTITOKENS_FORCE_MINT_V2 27
-//typedef struct {
-//    pd_AccountId_t caller;
-//    pd_AccountId_t recipient;
-//    pd_CompactCollectionId_t collection_id;
-//    pd_MintParams_t params;
-//    pd_u32_t deposit_backer;
-//} pd_multitokens_force_mint_V2_t;
-//
-//#define PD_CALL_MULTITOKENS_FORCE_BURN_V2 28
-//typedef struct {
-//    pd_AccountId_t caller;
-//    pd_CompactCollectionId_t collection_id;
-//    pd_BurnParams_t params;
-//} pd_multitokens_force_burn_V2_t;
+#define PD_CALL_MULTITOKENS_FORCE_MINT_V2 27
+typedef struct {
+    pd_AccountIdLookupOfT_t caller;
+    pd_AccountIdLookupOfT_t recipient;
+    pd_CompactCollectionId_t collection_id;
+    pd_MintParamsOf_t params;
+    pd_OptionAccountIdLookupOfT_t deposit_backer;
+} pd_multitokens_force_mint_V2_t;
+
+#define PD_CALL_MULTITOKENS_FORCE_BURN_V2 28
+typedef struct {
+    pd_AccountIdLookupOfT_t caller;
+    pd_CompactCollectionId_t collection_id;
+    pd_BurnParamsOfT_t params;
+} pd_multitokens_force_burn_V2_t;
 
 #define PD_CALL_MULTITOKENS_FORCE_APPROVE_COLLECTION_V2 29
 typedef struct {
@@ -309,10 +309,10 @@ typedef struct {
     pd_Optionu32_t expiration;
 } pd_multitokens_force_approve_collection_V2_t;
 
-//#define PD_CALL_MULTITOKENS_FORCE_FREEZE_V2 30
-//typedef struct {
-//    pd_FreezeInfo_t info;
-//} pd_multitokens_force_freeze_V2_t;
+#define PD_CALL_MULTITOKENS_FORCE_FREEZE_V2 30
+typedef struct {
+    pd_FreezeOf_t info;
+} pd_multitokens_force_freeze_V2_t;
 
 #define PD_CALL_MULTITOKENS_FORCE_SET_NEXT_COLLECTION_ID_V2 31
 typedef struct {
@@ -488,17 +488,17 @@ typedef union {
     pd_multitokens_approve_token_V2_t multitokens_approve_token_V2;
     pd_multitokens_unapprove_token_V2_t multitokens_unapprove_token_V2;
 //    pd_multitokens_force_mutate_collection_V2_t multitokens_force_mutate_collection_V2;
-//    pd_multitokens_force_transfer_V2_t multitokens_force_transfer_V2;
+    pd_multitokens_force_transfer_V2_t multitokens_force_transfer_V2;
 //    pd_multitokens_force_set_collection_V2_t multitokens_force_set_collection_V2;
 //    pd_multitokens_force_set_token_V2_t multitokens_force_set_token_V2;
     pd_multitokens_force_set_attribute_V2_t multitokens_force_set_attribute_V2;
 //    pd_multitokens_force_set_collection_account_V2_t multitokens_force_set_collection_account_V2;
 //    pd_multitokens_force_set_token_account_V2_t multitokens_force_set_token_account_V2;
-//    pd_multitokens_force_create_collection_V2_t multitokens_force_create_collection_V2;
-//    pd_multitokens_force_mint_V2_t multitokens_force_mint_V2;
-//    pd_multitokens_force_burn_V2_t multitokens_force_burn_V2;
+    pd_multitokens_force_create_collection_V2_t multitokens_force_create_collection_V2;
+    pd_multitokens_force_mint_V2_t multitokens_force_mint_V2;
+    pd_multitokens_force_burn_V2_t multitokens_force_burn_V2;
     pd_multitokens_force_approve_collection_V2_t multitokens_force_approve_collection_V2;
-//    pd_multitokens_force_freeze_V2_t multitokens_force_freeze_V2;
+    pd_multitokens_force_freeze_V2_t multitokens_force_freeze_V2;
     pd_multitokens_force_set_next_collection_id_V2_t multitokens_force_set_next_collection_id_V2;
     pd_multitokens_claim_collections_V2_t multitokens_claim_collections_V2;
     pd_multitokens_claim_tokens_V2_t multitokens_claim_tokens_V2;

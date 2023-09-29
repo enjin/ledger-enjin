@@ -117,6 +117,7 @@ parser_error_t _readTupleDataData(parser_context_t* c, pd_TupleDataData_t* v);
 parser_error_t _readTupleu32u32(parser_context_t* c, pd_Tupleu32u32_t* v);
 parser_error_t _readVote(parser_context_t* c, pd_Vote_t* v);
 parser_error_t _readAccountIdLookupOfT(parser_context_t* c, pd_AccountIdLookupOfT_t* v);
+parser_error_t _readOptionAccountIdLookupOfT(parser_context_t* c, pd_OptionAccountIdLookupOfT_t* v);
 parser_error_t _readAccountVoteSplit(parser_context_t* c, pd_AccountVoteSplit_t* v);
 parser_error_t _readAccountVoteStandard(parser_context_t* c, pd_AccountVoteStandard_t* v);
 parser_error_t _readCall(parser_context_t* c, pd_Call_t* v);
@@ -755,6 +756,13 @@ parser_error_t _toStringAccountIdLookupOfT(
     uint16_t outValueLen,
     uint8_t pageIdx,
     uint8_t* pageCount);
+
+parser_error_t _toStringOptionAccountIdLookupOfT(
+        const pd_OptionAccountIdLookupOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
 
 parser_error_t _toStringAccountVoteSplit(
     const pd_AccountVoteSplit_t* v,

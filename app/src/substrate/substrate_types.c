@@ -972,6 +972,16 @@ parser_error_t _readAccountIdLookupOfT(parser_context_t* c, pd_AccountIdLookupOf
     return parser_ok;
 }
 
+parser_error_t _readOptionAccountIdLookupOfT(parser_context_t* c, pd_OptionAccountIdLookupOfT_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &v->contained))
+    }
+    return parser_ok;
+}
+
 parser_error_t _readAccountVoteSplit(parser_context_t* c, pd_AccountVoteSplit_t* v)
 {
     CHECK_ERROR(_readBalanceOf(c, &v->aye));
@@ -6017,36 +6027,52 @@ parser_error_t _toStringVote(
 }
 
 parser_error_t _toStringAccountIdLookupOfT(
-    const pd_AccountIdLookupOfT_t* v,
-    char* outValue,
-    uint16_t outValueLen,
-    uint8_t pageIdx,
-    uint8_t* pageCount)
+        const pd_AccountIdLookupOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
 {
     CLEAN_AND_CHECK()
     switch (v->value) {
-    case 0: // Id
+        case 0: // Id
         CHECK_ERROR(_toStringAccountId(&v->id, outValue, outValueLen, pageIdx, pageCount))
-        break;
-    case 1: // Index
+            break;
+        case 1: // Index
         CHECK_ERROR(_toStringCompactAccountIndex(&v->index, outValue, outValueLen, pageIdx, pageCount))
-        break;
-    case 2: // Raw
+            break;
+        case 2: // Raw
         CHECK_ERROR(_toStringBytes(&v->raw, outValue, outValueLen, pageIdx, pageCount))
-        break;
-    case 3: // Address32
-    {
-        GEN_DEF_TOSTRING_ARRAY(32)
-    }
-    case 4: // Address20
-    {
-        GEN_DEF_TOSTRING_ARRAY(20)
-    }
-    default:
-        return parser_not_supported;
+            break;
+        case 3: // Address32
+        {
+            GEN_DEF_TOSTRING_ARRAY(32)
+        }
+        case 4: // Address20
+        {
+            GEN_DEF_TOSTRING_ARRAY(20)
+        }
+        default:
+            return parser_not_supported;
     }
 
     return parser_ok;
+}
+
+parser_error_t _toStringOptionAccountIdLookupOfT(
+        const pd_OptionAccountIdLookupOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    if (v->some == 0) {
+        snprintf(outValue, outValueLen, "None");
+        return parser_ok;
+    }
+    return _toStringAccountIdLookupOfT(&v->contained, outValue, outValueLen, pageIdx, pageCount);
 }
 
 parser_error_t _toStringAccountVoteSplit(

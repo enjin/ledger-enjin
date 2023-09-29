@@ -807,6 +807,11 @@ typedef struct {
 } pd_AccountIdLookupOfT_t;
 
 typedef struct {
+    uint8_t some;
+    pd_AccountIdLookupOfT_t contained;
+} pd_OptionAccountIdLookupOfT_t;
+
+typedef struct {
     pd_BalanceOf_t aye;
     pd_BalanceOf_t nay;
 } pd_AccountVoteSplit_t;
