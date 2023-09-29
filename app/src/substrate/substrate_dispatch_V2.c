@@ -121,12 +121,18 @@ __Z_INLINE parser_error_t _readMethod_multitokens_burn_V2(
 __Z_INLINE parser_error_t _readMethod_multitokens_claim_collections_V2(
         parser_context_t* c, pd_multitokens_claim_collections_V2_t* m)
 {
+    CHECK_ERROR(_readAccountId(c, &m->destination))
+    CHECK_ERROR(_readEcdsaSignature(c, &m->ethereum_signature))
+    CHECK_ERROR(_readEthereumAddress(c, &m->ethereum_address))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_multitokens_claim_tokens_V2(
         parser_context_t* c, pd_multitokens_claim_tokens_V2_t* m)
 {
+    CHECK_ERROR(_readAccountId(c, &m->destination))
+    CHECK_ERROR(_readEcdsaSignature(c, &m->ethereum_signature))
+    CHECK_ERROR(_readEthereumAddress(c, &m->ethereum_address))
     return parser_ok;
 }
 
@@ -3254,41 +3260,41 @@ parser_error_t _getMethod_ItemValue_V2(
             }
         case 64800: /* module 253 call 32 */
             switch (itemIdx) {
-//                case 0: /* multitokens_claim_collections_V2 - destination */;
-//                    return _toStringAccountId(
-//                            &m->basic.multitokens_claim_collections_V2.destination,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
-//                case 1: /* multitokens_claim_collections_V2 - ethereum_signature */;
-//                    return _toStringEthereumSignature(
-//                            &m->basic.multitokens_claim_collections_V2.ethereum_signature,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
-//                case 2: /* multitokens_claim_collections_V2 - ethereum_address */;
-//                    return _toStringEthereumAddress(
-//                            &m->basic.multitokens_claim_collections_V2.ethereum_address,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
+                case 0: /* multitokens_claim_collections_V2 - destination */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_claim_collections_V2.destination,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_claim_collections_V2 - ethereum_signature */;
+                    return _toStringEcdsaSignature(
+                            &m->basic.multitokens_claim_collections_V2.ethereum_signature,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_claim_collections_V2 - ethereum_address */;
+                    return _toStringEthereumAddress(
+                            &m->basic.multitokens_claim_collections_V2.ethereum_address,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
         case 64801: /* module 253 call 33 */
             switch (itemIdx) {
-//                case 0: /* multitokens_claim_tokens_V2 - destination */;
-//                    return _toStringAccountId(
-//                            &m->basic.multitokens_claim_tokens_V2.destination,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
-//                case 1: /* multitokens_claim_tokens_V2 - ethereum_signature */;
-//                    return _toStringEthereumSignature(
-//                            &m->basic.multitokens_claim_tokens_V2.ethereum_signature,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
-//                case 2: /* multitokens_claim_tokens_V2 - ethereum_address */;
-//                    return _toStringEthereumAddress(
-//                            &m->basic.multitokens_claim_tokens_V2.ethereum_address,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
+                case 0: /* multitokens_claim_tokens_V2 - destination */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_claim_tokens_V2.destination,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_claim_tokens_V2 - ethereum_signature */;
+                    return _toStringEcdsaSignature(
+                            &m->basic.multitokens_claim_tokens_V2.ethereum_signature,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_claim_tokens_V2 - ethereum_address */;
+                    return _toStringEthereumAddress(
+                            &m->basic.multitokens_claim_tokens_V2.ethereum_address,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
