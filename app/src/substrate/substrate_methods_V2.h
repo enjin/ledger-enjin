@@ -104,10 +104,10 @@ typedef struct {
     pd_BalanceOf_t amount;
 } pd_stakeexchange_withdraw_liquidity_V2_t;
 
-//#define PD_CALL_MULTITOKENS_CREATE_COLLECTION_V2 0
-//typedef struct {
-//    pd_CollectionDescriptor_t descriptor;
-//} pd_multitokens_create_collection_V2_t;
+#define PD_CALL_MULTITOKENS_CREATE_COLLECTION_V2 0
+typedef struct {
+    pd_CollectionDescriptor_t descriptor;
+} pd_multitokens_create_collection_V2_t;
 
 #define PD_CALL_MULTITOKENS_DESTROY_COLLECTION_V2 1
 typedef struct {
@@ -468,7 +468,7 @@ typedef union {
     pd_stakeexchange_configure_liquidity_account_V2_t stakeexchange_configure_liquidity_account_V2;
     pd_stakeexchange_create_offer_V2_t stakeexchange_create_offer_V2;
     pd_stakeexchange_withdraw_liquidity_V2_t stakeexchange_withdraw_liquidity_V2;
-//    pd_multitokens_create_collection_V2_t multitokens_create_collection_V2;
+    pd_multitokens_create_collection_V2_t multitokens_create_collection_V2;
     pd_multitokens_destroy_collection_V2_t multitokens_destroy_collection_V2;
 //    pd_multitokens_mutate_collection_V2_t multitokens_mutate_collection_V2;
 //    pd_multitokens_mutate_token_V2_t multitokens_mutate_token_V2;

@@ -123,11 +123,12 @@ __Z_INLINE parser_error_t _readMethod_multitokens_claim_tokens_V2(
     return parser_ok;
 }
 
-//__Z_INLINE parser_error_t _readMethod_multitokens_create_collection_V2(
-//        parser_context_t* c, pd_multitokens_create_collection_V2_t* m)
-//{
-//    return parser_ok;
-//}
+__Z_INLINE parser_error_t _readMethod_multitokens_create_collection_V2(
+        parser_context_t* c, pd_multitokens_create_collection_V2_t* m)
+{
+    CHECK_ERROR(_readCollectionDescriptor(c, &m->descriptor))
+    return parser_ok;
+}
 
 __Z_INLINE parser_error_t _readMethod_multitokens_destroy_collection_V2(
         parser_context_t* c, pd_multitokens_destroy_collection_V2_t* m)
@@ -801,9 +802,9 @@ parser_error_t _readMethod_V2(
         case 4869: /* module 19 call 5 */
         CHECK_ERROR(_readMethod_stakeexchange_buy_V2(c, &method->basic.stakeexchange_buy_V2))
             break;
-//        case 64768: /* module 253 call 0 */
-//        CHECK_ERROR(_readMethod_multitokens_create_collection_V2(c, &method->basic.multitokens_create_collection_V2))
-//            break;
+        case 64768: /* module 253 call 0 */
+        CHECK_ERROR(_readMethod_multitokens_create_collection_V2(c, &method->basic.multitokens_create_collection_V2))
+            break;
         case 64769: /* module 253 call 1 */
         CHECK_ERROR(_readMethod_multitokens_destroy_collection_V2(c, &method->basic.multitokens_destroy_collection_V2))
             break;
@@ -2632,11 +2633,11 @@ parser_error_t _getMethod_ItemValue_V2(
             }
         case 64768: /* module 253 call 0 */
             switch (itemIdx) {
-//                case 0: /* multitokens_create_collection_V2 - descriptor */;
-//                    return _toStringVecu8(
-//                            &m->basic.multitokens_create_collection_V2.descriptor,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
+                case 0: /* multitokens_create_collection_V2 - descriptor */;
+                    return _toStringCollectionDescriptor(
+                            &m->basic.multitokens_create_collection_V2.descriptor,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }

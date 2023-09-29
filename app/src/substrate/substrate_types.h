@@ -121,6 +121,11 @@ typedef struct {
 
 typedef struct {
     uint8_t some;
+    pd_u64_t contained;
+} pd_Optionu64_t;
+
+typedef struct {
+    uint8_t some;
     pd_u128_t contained;
 } pd_Optionu128_t;
 
@@ -653,6 +658,48 @@ typedef struct {
 } pd_OptionPolicyMintForeignTokenCreationParams_t;
 
 typedef struct {
+    pd_Optionu64_t maxTokenCount;
+    pd_Optionu128_t maxTokenSupply;
+    pd_bool_t forceSingleMint;
+} pd_MintPolicyDescriptor_t;
+
+typedef struct {
+    pd_AccountId_t beneficiary;
+    pd_CompactPerbill_t percentage;
+} pd_MarketPolicyRoyalty_t;
+
+typedef struct {
+    uint8_t some;
+    pd_MarketPolicyRoyalty_t contained;
+} pd_OptionMarketPolicyRoyalty_t;
+
+typedef struct {
+  pd_OptionMarketPolicyRoyalty_t royalty;
+} pd_MarketPolicyDescriptor_t;
+
+typedef struct {
+    pd_MintPolicyDescriptor_t mint;
+    pd_MarketPolicyDescriptor_t market;
+} pd_CollectionPolicyDescriptor_t;
+
+typedef struct {
+    pd_Compactu128_t collectionId;
+    pd_CompactTokenId_t tokenId;
+} pd_TokenAssetId_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecTokenAssetId_t;
+
+typedef struct {
+    pd_CollectionPolicyDescriptor_t policy;
+    pd_VecTokenAssetId_t explicitRoyaltyCurrencies;
+    pd_VecAttributeKeyValuePair_t attributes;
+} pd_CollectionDescriptor_t;
+
+typedef struct {
     pd_CompactTokenId_t tokenId;
     pd_Compactu128_t initialSupply;
     pd_PolicyMintSufficiencyParam_t sufficiency;
@@ -662,7 +709,6 @@ typedef struct {
     pd_OptionFreezeState_t freezeState;
     pd_VecAttributeKeyValuePair_t attributes;
     pd_OptionPolicyMintForeignTokenCreationParams_t foreignParams;
-
 } pd_CreateTokenMintParam_t;
 
 typedef struct {
