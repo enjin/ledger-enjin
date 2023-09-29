@@ -94,6 +94,7 @@ parser_error_t _readCollectionId(parser_context_t* c, pd_CollectionId_t* v);
 parser_error_t _readCollectionDescriptor(parser_context_t* c, pd_CollectionDescriptor_t* v);
 parser_error_t _readCompactCollectionId(parser_context_t* c, pd_CompactCollectionId_t* v);
 parser_error_t _readCollectionMutation(parser_context_t* c, pd_CollectionMutation_t* v);
+parser_error_t _readTokenMutation(parser_context_t* c, pd_TokenMutation_t* v);
 parser_error_t _readCompactTokenId(parser_context_t* c, pd_CompactTokenId_t* v);
 parser_error_t _readTokenIdOf(parser_context_t* c, pd_TokenIdOf_t* v);
 parser_error_t _readMultiLocationV3(parser_context_t* c, pd_MultiLocationV3_t* v);
@@ -1401,6 +1402,13 @@ parser_error_t _toStringVecTransferRecipientsOf(
 
 parser_error_t _toStringTokenIdOf(
         const pd_TokenIdOf_t * v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringTokenMutation(
+        const pd_TokenMutation_t * v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,

@@ -120,12 +120,12 @@ typedef struct {
     pd_CollectionMutation_t mutation;
 } pd_multitokens_mutate_collection_V2_t;
 
-//#define PD_CALL_MULTITOKENS_MUTATE_TOKEN_V2 3
-//typedef struct {
-//    pd_CompactCollectionId_t collection_id;
-//    pd_TokenId_t token_id;
-//    pd_TokenMutatetion_t mutation;
-//} pd_multitokens_mutate_token_V2_t;
+#define PD_CALL_MULTITOKENS_MUTATE_TOKEN_V2 3
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_CompactTokenId_t token_id;
+    pd_TokenMutation_t mutation;
+} pd_multitokens_mutate_token_V2_t;
 
 #define PD_CALL_MULTITOKENS_MINT_V2 4
 typedef struct {
@@ -471,7 +471,7 @@ typedef union {
     pd_multitokens_create_collection_V2_t multitokens_create_collection_V2;
     pd_multitokens_destroy_collection_V2_t multitokens_destroy_collection_V2;
     pd_multitokens_mutate_collection_V2_t multitokens_mutate_collection_V2;
-//    pd_multitokens_mutate_token_V2_t multitokens_mutate_token_V2;
+    pd_multitokens_mutate_token_V2_t multitokens_mutate_token_V2;
     pd_multitokens_mint_V2_t multitokens_mint_V2;
     pd_multitokens_burn_V2_t multitokens_burn_V2;
     pd_multitokens_transfer_V2_t multitokens_transfer_V2;

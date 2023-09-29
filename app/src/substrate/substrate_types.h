@@ -1212,6 +1212,46 @@ typedef struct {
 } pd_CollectionMutation_t;
 
 typedef struct {
+    uint8_t value;
+    pd_OptionTokenTokenMarketBehavior_t set;
+} pd_TokenTokenMarketBehaviorMutation_t;
+
+typedef struct {
+    uint8_t value;
+    pd_bool_t set;
+} pd_ShouldMutateBool_t;
+
+typedef struct {
+    pd_Compactu32_t decimalCount;
+    pd_Bytes_t name;
+    pd_Bytes_t symbol;
+    pd_OptionXcmV3MultiLocation location;
+    pd_Optionu128_t unitsPerSecond;
+    pd_Compactu128_t premintedSupply;
+} pd_MutateForeignTokenMetadata_t;
+
+typedef struct {
+    uint8_t value;
+    pd_MutateForeignTokenMetadata_t set;
+} pd_TokenMetadata_t;
+
+typedef struct {
+    uint8_t value;
+    pd_TokenMetadata_t set;
+} pd_ShouldMutateTokenMetadata_t;
+
+typedef struct {
+    uint8_t value;
+    pd_OptionTokenTokenMarketBehavior_t set;
+} pd_ShouldMutateTokenMarketBehavior_t;
+
+typedef struct {
+    pd_ShouldMutateTokenMarketBehavior_t behavior;
+    pd_ShouldMutateBool_t listingForbidden;
+    pd_ShouldMutateTokenMetadata_t metadata;
+} pd_TokenMutation_t;
+
+typedef struct {
     uint8_t some;
     pd_ClassOf_t contained;
 } pd_OptionClassOf_t;

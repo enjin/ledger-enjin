@@ -279,12 +279,15 @@ __Z_INLINE parser_error_t _readMethod_multitokens_mutate_collection_V2(
     CHECK_ERROR(_readCollectionMutation(c, &m->mutation))
     return parser_ok;
 }
-//
-//__Z_INLINE parser_error_t _readMethod_multitokens_mutate_token_V2(
-//        parser_context_t* c, pd_multitokens_mutate_token_V2_t* m)
-//{
-//    return parser_ok;
-//}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_mutate_token_V2(
+        parser_context_t* c, pd_multitokens_mutate_token_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readCompactTokenId(c, &m->token_id))
+    CHECK_ERROR(_readTokenMutation(c, &m->mutation))
+    return parser_ok;
+}
 
 __Z_INLINE parser_error_t _readMethod_multitokens_remove_all_attributes_V2(
         parser_context_t* c, pd_multitokens_remove_all_attributes_V2_t* m)
@@ -843,9 +846,9 @@ parser_error_t _readMethod_V2(
         case 64770: /* module 253 call 2 */
         CHECK_ERROR(_readMethod_multitokens_mutate_collection_V2(c, &method->basic.multitokens_mutate_collection_V2))
             break;
-//        case 64771: /* module 253 call 3 */
-//        CHECK_ERROR(_readMethod_multitokens_mutate_token_V2(c, &method->basic.multitokens_mutate_token_V2))
-//            break;
+        case 64771: /* module 253 call 3 */
+        CHECK_ERROR(_readMethod_multitokens_mutate_token_V2(c, &method->basic.multitokens_mutate_token_V2))
+            break;
         case 64772: /* module 253 call 4 */
         CHECK_ERROR(_readMethod_multitokens_mint_V2(c, &method->basic.multitokens_mint_V2))
             break;
@@ -2700,21 +2703,21 @@ parser_error_t _getMethod_ItemValue_V2(
             }
         case 64771: /* module 253 call 3 */
             switch (itemIdx) {
-//                case 0: /* multitokens_mutate_token_V2 - collection_id */;
-//                    return _toStringCompactCollectionId(
-//                            &m->basic.multitokens_mutate_token_V2.collection_id,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
-//                case 1: /* multitokens_mutate_token_V2 - token_id */;
-//                    return _toStringTokenIdOf(
-//                            &m->basic.multitokens_mutate_token_V2.token_id,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
-//                case 2: /* multitokens_mutate_token_V2 - mutation */;
-//                    return _toStringVecu8(
-//                            &m->basic.multitokens_mutate_token_V2.mutation,
-//                            outValue, outValueLen,
-//                            pageIdx, pageCount);
+                case 0: /* multitokens_mutate_token_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_mutate_token_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_mutate_token_V2 - token_id */;
+                    return _toStringCompactTokenId(
+                            &m->basic.multitokens_mutate_token_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_mutate_token_V2 - mutation */;
+                    return _toStringTokenMutation(
+                            &m->basic.multitokens_mutate_token_V2.mutation,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
