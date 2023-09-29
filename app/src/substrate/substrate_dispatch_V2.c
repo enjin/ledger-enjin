@@ -190,14 +190,13 @@ __Z_INLINE parser_error_t _readMethod_multitokens_force_mint_V2(
 //    return parser_ok;
 //}
 
-// TODO: Check value that is not OptionBytes but OptionAttributeOf
 __Z_INLINE parser_error_t _readMethod_multitokens_force_set_attribute_V2(
         parser_context_t* c, pd_multitokens_force_set_attribute_V2_t* m)
 {
      CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
      CHECK_ERROR(_readOptionTokenId(c, &m->token_id))
      CHECK_ERROR(_readBytes(c, &m->key))
-     CHECK_ERROR(_readOptionBytes(c, &m->value))
+     CHECK_ERROR(_readOptionAttributeOf(c, &m->value))
     return parser_ok;
 }
 
@@ -3075,7 +3074,7 @@ parser_error_t _getMethod_ItemValue_V2(
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 3: /* multitokens_force_set_attribute_V2 - value */;
-                    return _toStringOptionBytes(
+                    return _toStringOptionAttributeOf(
                             &m->basic.multitokens_force_set_attribute_V2.value,
                             outValue, outValueLen,
                             pageIdx, pageCount);

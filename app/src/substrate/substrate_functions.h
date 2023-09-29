@@ -39,6 +39,7 @@ parser_error_t _readu8_array_32(parser_context_t* c, pd_u8_array_32_t* v);
 parser_error_t _readByFork(parser_context_t* c, pd_ByFork_t* v);
 parser_error_t _readBytes(parser_context_t* c, pd_Bytes_t* v);
 parser_error_t _readOptionBytes(parser_context_t* c, pd_OptionBytes_t* v);
+parser_error_t _readOptionAttributeOf(parser_context_t* c, pd_OptionAttributeOf_t* v);
 parser_error_t _readFraction(parser_context_t* c, pd_Fraction_t* v);
 parser_error_t _readNetworkIdV3(parser_context_t* c, pd_NetworkIdV3_t* v);
 parser_error_t _readBodyIdV2(parser_context_t* c, pd_BodyIdV2_t* v);
@@ -288,8 +289,16 @@ parser_error_t _toStringBytes(
     uint8_t pageIdx,
     uint8_t* pageCount);
 
+
 parser_error_t _toStringOptionBytes(
         const pd_OptionBytes_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringOptionAttributeOf(
+        const pd_OptionAttributeOf_t* v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,

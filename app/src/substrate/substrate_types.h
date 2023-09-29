@@ -633,6 +633,16 @@ typedef struct {
 } pd_AttributeKeyValuePair_t;
 
 typedef struct {
+    pd_Bytes_t value;
+    pd_Compactu128_t deposit;
+} pd_AttributeOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_AttributeOf_t contained;
+} pd_OptionAttributeOf_t;
+
+typedef struct {
     uint64_t _len;
     const uint8_t* _ptr;
     uint64_t _lenBuffer;

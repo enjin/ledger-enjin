@@ -260,7 +260,7 @@ typedef struct {
     pd_CompactCollectionId_t collection_id;
     pd_OptionTokenId_t token_id;
     pd_Bytes_t key;
-    pd_OptionBytes_t value;
+    pd_OptionAttributeOf_t value;
 } pd_multitokens_force_set_attribute_V2_t;
 
 //#define PD_CALL_MULTITOKENS_FORCE_SET_COLLECTION_ACCOUNT_V2 24
