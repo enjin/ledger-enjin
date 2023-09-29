@@ -545,6 +545,17 @@ typedef struct {
 } pd_TransferParamsOfT_t;
 
 typedef struct {
+    pd_AccountId_t accountId;
+    pd_TransferParamsOfT_t params;
+} pd_TransferRecipientsOf_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecTransferRecipientsOf_t;
+
+typedef struct {
     uint8_t value;
 } pd_FreezeState_t;
 
@@ -728,6 +739,17 @@ typedef struct {
         pd_MintTokenMintParam_t mint;
     };
 } pd_MintParamsOf_t;
+
+typedef struct {
+    pd_AccountId_t accountId;
+    pd_MintParamsOf_t params;
+} pd_MintRecipientsOf_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecMintRecipientsOf_t;
 
 typedef struct {
     uint8_t some;
@@ -1172,6 +1194,22 @@ typedef struct {
     uint8_t some;
     pd_AccountId_t contained;
 } pd_OptionAccountId_t;
+
+typedef struct {
+    uint8_t value;
+    pd_OptionMarketPolicyRoyalty_t set;
+} pd_RoyaltyMutation_t;
+
+typedef struct {
+    uint8_t some;
+    pd_VecTokenAssetId_t contained;
+} pd_OptionVecTokenAssetId_t;
+
+typedef struct {
+    pd_OptionAccountId_t owner;
+    pd_RoyaltyMutation_t royalty;
+    pd_OptionVecTokenAssetId_t explicitRoyaltyCurrencies;
+} pd_CollectionMutation_t;
 
 typedef struct {
     uint8_t some;

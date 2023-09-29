@@ -34,12 +34,14 @@ parser_error_t _readBlockNumber(parser_context_t* c, pd_BlockNumber_t* v);
 parser_error_t _readCompactu32(parser_context_t* c, pd_Compactu32_t* v);
 parser_error_t _readCompactu64(parser_context_t* c, pd_Compactu64_t* v);
 parser_error_t _readCallImpl(parser_context_t* c, pd_Call_t* v, pd_MethodNested_t* m);
-
 parser_error_t _readu8_array_32(parser_context_t* c, pd_u8_array_32_t* v);
 parser_error_t _readByFork(parser_context_t* c, pd_ByFork_t* v);
 parser_error_t _readBytes(parser_context_t* c, pd_Bytes_t* v);
 parser_error_t _readOptionBytes(parser_context_t* c, pd_OptionBytes_t* v);
 parser_error_t _readOptionAttributeOf(parser_context_t* c, pd_OptionAttributeOf_t* v);
+parser_error_t _readVecAttributeKeyValuePair(parser_context_t* c, pd_VecAttributeKeyValuePair_t* v);
+parser_error_t _readVecMintRecipientsOf(parser_context_t* c, pd_VecMintRecipientsOf_t* v);
+parser_error_t _readVecTransferRecipientsOf(parser_context_t* c, pd_VecTransferRecipientsOf_t* v);
 parser_error_t _readFraction(parser_context_t* c, pd_Fraction_t* v);
 parser_error_t _readNetworkIdV3(parser_context_t* c, pd_NetworkIdV3_t* v);
 parser_error_t _readBodyIdV2(parser_context_t* c, pd_BodyIdV2_t* v);
@@ -91,6 +93,7 @@ parser_error_t _readOptionTokenId(parser_context_t* c, pd_OptionTokenId_t* v);
 parser_error_t _readCollectionId(parser_context_t* c, pd_CollectionId_t* v);
 parser_error_t _readCollectionDescriptor(parser_context_t* c, pd_CollectionDescriptor_t* v);
 parser_error_t _readCompactCollectionId(parser_context_t* c, pd_CompactCollectionId_t* v);
+parser_error_t _readCollectionMutation(parser_context_t* c, pd_CollectionMutation_t* v);
 parser_error_t _readCompactTokenId(parser_context_t* c, pd_CompactTokenId_t* v);
 parser_error_t _readTokenIdOf(parser_context_t* c, pd_TokenIdOf_t* v);
 parser_error_t _readMultiLocationV3(parser_context_t* c, pd_MultiLocationV3_t* v);
@@ -299,6 +302,13 @@ parser_error_t _toStringOptionBytes(
 
 parser_error_t _toStringOptionAttributeOf(
         const pd_OptionAttributeOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringVecAttributeKeyValuePair(
+        const pd_VecAttributeKeyValuePair_t* v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,
@@ -1319,6 +1329,13 @@ parser_error_t _toStringCompactCollectionId(
         uint8_t pageIdx,
         uint8_t* pageCount);
 
+parser_error_t _toStringCollectionMutation(
+        const pd_CollectionMutation_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
 parser_error_t _toStringCompactTokenId(
         const pd_CompactTokenId_t* v,
         char* outValue,
@@ -1363,6 +1380,20 @@ parser_error_t _toStringCollectionDescriptor(
 
 parser_error_t _toStringMintParamsOf(
         const pd_MintParamsOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringVecMintRecipientsOf(
+        const pd_VecMintRecipientsOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringVecTransferRecipientsOf(
+        const pd_VecTransferRecipientsOf_t* v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,

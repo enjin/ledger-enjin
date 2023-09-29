@@ -2183,6 +2183,32 @@ parser_error_t _readMintParamsOf(parser_context_t* c, pd_MintParamsOf_t* v)
     return parser_ok;
 }
 
+parser_error_t _readMintRecipientsOf(parser_context_t* c, pd_MintRecipientsOf_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readAccountId(c, &v->accountId))
+    CHECK_ERROR(_readMintParamsOf(c, &v->params))
+    return parser_ok;
+}
+
+parser_error_t _readVecMintRecipientsOf(parser_context_t* c, pd_VecMintRecipientsOf_t* v)
+{
+    GEN_DEF_READVECTOR(MintRecipientsOf)
+}
+
+parser_error_t _readTransferRecipientsOf(parser_context_t* c, pd_TransferRecipientsOf_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readAccountId(c, &v->accountId))
+    CHECK_ERROR(_readTransferParamsOfT(c, &v->params))
+    return parser_ok;
+}
+
+parser_error_t _readVecTransferRecipientsOf(parser_context_t* c, pd_VecTransferRecipientsOf_t* v)
+{
+    GEN_DEF_READVECTOR(TransferRecipientsOf)
+}
+
 parser_error_t _readMarketPolicyRoyalty(parser_context_t* c, pd_MarketPolicyRoyalty_t* v)
 {
     CHECK_INPUT()
@@ -2245,6 +2271,42 @@ parser_error_t _readCollectionDescriptor(parser_context_t* c, pd_CollectionDescr
     CHECK_ERROR(_readCollectionPolicyDescriptor(c, &v->policy))
     CHECK_ERROR(_readVecTokenAssetId(c, &v->explicitRoyaltyCurrencies))
     CHECK_ERROR(_readVecAttributeKeyValuePair(c, &v->attributes))
+    return parser_ok;
+}
+
+parser_error_t _readRoyaltyMutation(parser_context_t* c, pd_RoyaltyMutation_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+    switch (v->value) {
+        case 0: // NoMutation
+            break;
+        case 1: // SomeMutation
+        CHECK_ERROR(_readOptionMarketPolicyRoyalty(c, &v->set))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _readOptionVecTokenAssetId(parser_context_t* c, pd_OptionVecTokenAssetId_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+
+    if (v->some > 0) {
+        CHECK_ERROR(_readVecTokenAssetId(c, &v->contained))
+    }
+    return parser_ok;
+}
+
+parser_error_t _readCollectionMutation(parser_context_t* c, pd_CollectionMutation_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readOptionAccountId(c, &v->owner))
+    CHECK_ERROR(_readRoyaltyMutation(c, &v->royalty))
+    CHECK_ERROR(_readOptionVecTokenAssetId(c, &v->explicitRoyaltyCurrencies))
     return parser_ok;
 }
 
@@ -5412,6 +5474,100 @@ parser_error_t _toStringMintParamsOf(
     return parser_ok;
 }
 
+parser_error_t _toStringMintRecipientsOf(
+        const pd_MintRecipientsOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringAccountId(&v->accountId, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringMintParamsOf(&v->params, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringAccountId(&v->accountId, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringMintParamsOf(&v->params, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringVecMintRecipientsOf(
+        const pd_VecMintRecipientsOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    GEN_DEF_TOSTRING_VECTOR(MintRecipientsOf);
+}
+
+parser_error_t _toStringTransferRecipientsOf(
+        const pd_TransferRecipientsOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringAccountId(&v->accountId, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringTransferParamsOfT(&v->params, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringAccountId(&v->accountId, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringTransferParamsOfT(&v->params, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringVecTransferRecipientsOf(
+        const pd_VecTransferRecipientsOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    GEN_DEF_TOSTRING_VECTOR(TransferRecipientsOf);
+}
+
 parser_error_t _toStringSimpleTransferParams(
         const pd_SimpleTransferParams_t* v,
         char* outValue,
@@ -5804,6 +5960,95 @@ parser_error_t _toStringCollectionDescriptor(
 
     if (pageIdx < pages[2]) {
         CHECK_ERROR(_toStringVecAttributeKeyValuePair(&v->attributes, outValue, outValueLen, pageIdx, &pages[2]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringRoyaltyMutation(
+        const pd_RoyaltyMutation_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    *pageCount = 1;
+    switch (v->value) {
+        case 0: // NoMutation
+            snprintf(outValue, outValueLen, "NoMutation");
+            break;
+        case 1: // SomeMutation
+        CHECK_ERROR(_toStringOptionMarketPolicyRoyalty(&v->set, outValue, outValueLen, pageIdx, pageCount))
+            break;
+        default:
+            return parser_not_supported;
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringOptionVecTokenAssetId(
+        const pd_OptionVecTokenAssetId_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringVecTokenAssetId(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount));
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringCollectionMutation(
+        const pd_CollectionMutation_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[3] = { 0 };
+    CHECK_ERROR(_toStringOptionAccountId(&v->owner, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringRoyaltyMutation(&v->royalty, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringOptionVecTokenAssetId(&v->explicitRoyaltyCurrencies, outValue, outValueLen, 0, &pages[2]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringOptionAccountId(&v->owner, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringRoyaltyMutation(&v->royalty, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    pageIdx -= pages[1];
+
+    if (pageIdx < pages[2]) {
+        CHECK_ERROR(_toStringOptionVecTokenAssetId(&v->explicitRoyaltyCurrencies, outValue, outValueLen, pageIdx, &pages[2]))
         return parser_ok;
     }
 

@@ -114,11 +114,11 @@ typedef struct {
     pd_CompactCollectionId_t collection_id;
 } pd_multitokens_destroy_collection_V2_t;
 
-//#define PD_CALL_MULTITOKENS_MUTATE_COLLECTION_V2 2
-//typedef struct {
-//    pd_CompactCollectionId_t collection_id;
-//    pd_CollectionMutation_t mutation;
-//} pd_multitokens_mutate_collection_V2_t;
+#define PD_CALL_MULTITOKENS_MUTATE_COLLECTION_V2 2
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_CollectionMutation_t mutation;
+} pd_multitokens_mutate_collection_V2_t;
 
 //#define PD_CALL_MULTITOKENS_MUTATE_TOKEN_V2 3
 //typedef struct {
@@ -179,24 +179,24 @@ typedef struct {
     pd_u32_t attribute_count;
 } pd_multitokens_remove_all_attributes_V2_t;
 
-//#define PD_CALL_MULTITOKENS_BATCH_TRANSFER_V2 12
-//typedef struct {
-//    pd_CompactCollectionId_t collection_id;
-//    pd_VecTransferRecipients_t recipients;
-//} pd_multitokens_batch_transfer_V2_t;
-//
-//#define PD_CALL_MULTITOKENS_BATCH_MINT_V2 13
-//typedef struct {
-//    pd_CompactCollectionId_t collection_id;
-//    pd_VecMintRecipients_t recipients;
-//} pd_multitokens_batch_mint_V2_t;
-//
-//#define PD_CALL_MULTITOKENS_BATCH_SET_ATTRIBUTE_V2 14
-//typedef struct {
-//    pd_CompactCollectionId_t collection_id;
-//    pd_TokenId_t  token_id;
-//    pd_VecSetAttribute_t attributes;
-//} pd_multitokens_batch_set_attribute_V2_t;
+#define PD_CALL_MULTITOKENS_BATCH_TRANSFER_V2 12
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_VecTransferRecipientsOf_t recipients;
+} pd_multitokens_batch_transfer_V2_t;
+
+#define PD_CALL_MULTITOKENS_BATCH_MINT_V2 13
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_VecMintRecipientsOf_t recipients;
+} pd_multitokens_batch_mint_V2_t;
+
+#define PD_CALL_MULTITOKENS_BATCH_SET_ATTRIBUTE_V2 14
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_OptionTokenId_t  token_id;
+    pd_VecAttributeKeyValuePair_t attributes;
+} pd_multitokens_batch_set_attribute_V2_t;
 
 #define PD_CALL_MULTITOKENS_APPROVE_COLLECTION_V2 15
 typedef struct {
@@ -228,11 +228,11 @@ typedef struct {
     pd_AccountId_t operator_;
 } pd_multitokens_unapprove_token_V2_t;
 
-//#define PD_CALL_MULTITOKENS_FORCE_MUTATE_COLLECTION_V2 19
-//typedef struct {
-//    pd_CompactCollectionId_t collection_id;
-//    pd_CollectionMutation_t mutation;
-//} pd_multitokens_force_mutate_collection_V2_t;
+#define PD_CALL_MULTITOKENS_FORCE_MUTATE_COLLECTION_V2 19
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_CollectionMutation_t mutation;
+} pd_multitokens_force_mutate_collection_V2_t;
 
 #define PD_CALL_MULTITOKENS_FORCE_TRANSFER_V2 20
 typedef struct {
@@ -470,7 +470,7 @@ typedef union {
     pd_stakeexchange_withdraw_liquidity_V2_t stakeexchange_withdraw_liquidity_V2;
     pd_multitokens_create_collection_V2_t multitokens_create_collection_V2;
     pd_multitokens_destroy_collection_V2_t multitokens_destroy_collection_V2;
-//    pd_multitokens_mutate_collection_V2_t multitokens_mutate_collection_V2;
+    pd_multitokens_mutate_collection_V2_t multitokens_mutate_collection_V2;
 //    pd_multitokens_mutate_token_V2_t multitokens_mutate_token_V2;
     pd_multitokens_mint_V2_t multitokens_mint_V2;
     pd_multitokens_burn_V2_t multitokens_burn_V2;
@@ -480,14 +480,14 @@ typedef union {
     pd_multitokens_set_attribute_V2_t multitokens_set_attribute_V2;
     pd_multitokens_remove_attribute_V2_t multitokens_remove_attribute_V2;
     pd_multitokens_remove_all_attributes_V2_t multitokens_remove_all_attributes_V2;
-//    pd_multitokens_batch_transfer_V2_t multitokens_batch_transfer_V2;
-//    pd_multitokens_batch_mint_V2_t multitokens_batch_mint_V2;
-//    pd_multitokens_batch_set_attribute_V2_t multitokens_batch_set_attribute_V2;
+    pd_multitokens_batch_transfer_V2_t multitokens_batch_transfer_V2;
+    pd_multitokens_batch_mint_V2_t multitokens_batch_mint_V2;
+    pd_multitokens_batch_set_attribute_V2_t multitokens_batch_set_attribute_V2;
     pd_multitokens_approve_collection_V2_t multitokens_approve_collection_V2;
     pd_multitokens_unapprove_collection_V2_t multitokens_unapprove_collection_V2;
     pd_multitokens_approve_token_V2_t multitokens_approve_token_V2;
     pd_multitokens_unapprove_token_V2_t multitokens_unapprove_token_V2;
-//    pd_multitokens_force_mutate_collection_V2_t multitokens_force_mutate_collection_V2;
+    pd_multitokens_force_mutate_collection_V2_t multitokens_force_mutate_collection_V2;
     pd_multitokens_force_transfer_V2_t multitokens_force_transfer_V2;
 //    pd_multitokens_force_set_collection_V2_t multitokens_force_set_collection_V2;
 //    pd_multitokens_force_set_token_V2_t multitokens_force_set_token_V2;
