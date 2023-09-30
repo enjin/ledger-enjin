@@ -270,14 +270,14 @@ typedef struct {
     pd_OptionCollectionAccountOf_t value;
 } pd_multitokens_force_set_collection_account_V2_t;
 
-//#define PD_CALL_MULTITOKENS_FORCE_SET_TOKEN_ACCOUNT_V2 25
-//typedef struct {
-//    pd_CompactCollectionId_t collection_id;
-//    pd_TokenId_t token_id;
-//    pd_AccountId_t account_id;
-//    pd_TokenAccount_t value;
-//} pd_multitokens_force_set_token_account_V2_t;
-//
+#define PD_CALL_MULTITOKENS_FORCE_SET_TOKEN_ACCOUNT_V2 25
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_CompactTokenId_t token_id;
+    pd_AccountIdLookupOfT_t account_id;
+    pd_OptionTokenAccountOf_t value;
+} pd_multitokens_force_set_token_account_V2_t;
+
 #define PD_CALL_MULTITOKENS_FORCE_CREATE_COLLECTION_V2 26
 typedef struct {
     pd_AccountId_t owner;
@@ -493,7 +493,7 @@ typedef union {
     pd_multitokens_force_set_token_V2_t multitokens_force_set_token_V2;
     pd_multitokens_force_set_attribute_V2_t multitokens_force_set_attribute_V2;
     pd_multitokens_force_set_collection_account_V2_t multitokens_force_set_collection_account_V2;
-//    pd_multitokens_force_set_token_account_V2_t multitokens_force_set_token_account_V2;
+    pd_multitokens_force_set_token_account_V2_t multitokens_force_set_token_account_V2;
     pd_multitokens_force_create_collection_V2_t multitokens_force_create_collection_V2;
     pd_multitokens_force_mint_V2_t multitokens_force_mint_V2;
     pd_multitokens_force_burn_V2_t multitokens_force_burn_V2;

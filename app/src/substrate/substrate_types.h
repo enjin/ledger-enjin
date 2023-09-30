@@ -1035,8 +1035,14 @@ typedef struct {
 } pd_ConfigOpBalanceOfT_t;
 
 typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_Vecu128_t;
+
+typedef struct {
     uint8_t value;
-   // BTreeSet set; // TODO: Check
+    pd_Vecu128_t set;
 } pd_LiquidityAccountConfigOfT_t;
 
 typedef struct {
@@ -1358,7 +1364,7 @@ typedef struct {
 typedef struct {
     pd_MintPolicyDescriptor_t mint;
     pd_TransferPolicy_t transfer;
-    pd_MarketPolicyDescriptor_t market;
+    pd_OptionMarketPolicyRoyalty_t market;
 } pd_CollectionPolicy_t;
 
 typedef struct {
@@ -1367,7 +1373,7 @@ typedef struct {
     pd_Compactu64_t tokenCount;
     pd_Compactu32_t attributeCount;
     pd_Compactu128_t totalDeposit;
-    pd_Bytes_t explicitRoyaltyCurrencies;
+    pd_OptionBytes_t explicitRoyaltyCurrencies;
 } pd_CollectionOf_t;
 
 typedef struct {
@@ -1377,7 +1383,7 @@ typedef struct {
 
 typedef struct {
     pd_bool_t isFrozen;
-//    BTreeMap approvals;
+    pd_OptionBytes_t approvals;
     pd_Compactu32_t accountCount;
 } pd_CollectionAccountOf_t;
 
@@ -1407,6 +1413,21 @@ typedef struct {
     uint8_t some;
     pd_TokenOf_t contained;
 } pd_OptionTokenOf_t;
+
+typedef struct {
+    pd_Compactu128_t balance;
+    pd_Compactu128_t reservedBalance;
+    pd_Compactu128_t lockedBalance;
+    pd_OptionBytes_t namedReserves;
+    pd_OptionBytes_t locks;
+    pd_OptionBytes_t approvals;
+    pd_bool_t isFrozen;
+} pd_TokenAccountOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_TokenAccountOf_t contained;
+} pd_OptionTokenAccountOf_t;
 
 typedef struct {
     uint8_t some;
