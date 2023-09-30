@@ -25,8 +25,6 @@ extern "C" {
 // Common read functions
 
 parser_error_t _readbool(parser_context_t* c, pd_bool_t* v);
-parser_error_t _readu8(parser_context_t* c, pd_u8_t* v);
-parser_error_t _readu16(parser_context_t* c, pd_u16_t* v);
 parser_error_t _readu32(parser_context_t* c, pd_u32_t* v);
 parser_error_t _readu64(parser_context_t* c, pd_u64_t* v);
 parser_error_t _readu128(parser_context_t* c, pd_u128_t* v);

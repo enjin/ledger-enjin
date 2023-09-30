@@ -150,7 +150,6 @@ __Z_INLINE parser_error_t _readMethod_multitokens_destroy_collection_V2(
     return parser_ok;
 }
 
-// TODO: Check because is crashing
 __Z_INLINE parser_error_t _readMethod_multitokens_force_approve_collection_V2(
         parser_context_t* c, pd_multitokens_force_approve_collection_V2_t* m)
 {
@@ -1474,8 +1473,6 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         default:
             return 0;
     }
-
-    return 0;
 }
 
 const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx)
@@ -3673,8 +3670,6 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_ok;
     }
-
-    return parser_ok;
 }
 
 bool _getMethod_ItemIsExpert_V2(uint8_t moduleIdx, uint8_t callIdx, __Z_UNUSED uint8_t itemIdx)
@@ -3736,7 +3731,8 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
         case 4622: // NominationPools:Destroy
         case 4628: // NominationPools:Unbond deposit
         case 4629: // NominationPools:Withdraw deposit
-        default:
             return true;
+        default:
+            return false;
     }
 }
