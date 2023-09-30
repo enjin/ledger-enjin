@@ -219,7 +219,7 @@ __Z_INLINE parser_error_t _readMethod_multitokens_force_set_collection_V2(
         parser_context_t* c, pd_multitokens_force_set_collection_V2_t* m)
 {
     CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-//    CHECK_ERROR(_readOptionCollectionOf(c, &m->value))
+    CHECK_ERROR(_readOptionCollectionOf(c, &m->value))
     return parser_ok;
 }
 

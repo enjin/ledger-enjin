@@ -2412,12 +2412,42 @@ parser_error_t _readCollectionMutation(parser_context_t* c, pd_CollectionMutatio
     return parser_ok;
 }
 
+parser_error_t _readTransferPolicy(parser_context_t* c, pd_TransferPolicy_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readbool(c, &v->isFrozen))
+    return parser_ok;
+}
+
+parser_error_t _readCollectionPolicy(parser_context_t* c, pd_CollectionPolicy_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readMintPolicyDescriptor(c, &v->mint))
+    CHECK_ERROR(_readTransferPolicy(c, &v->transfer))
+    CHECK_ERROR(_readOptionMarketPolicyRoyalty(c, &v->market))
+    return parser_ok;
+}
+
+parser_error_t _readCollectionOf(parser_context_t* c, pd_CollectionOf_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readAccountId(c, &v->owner))
+    CHECK_ERROR(_readCollectionPolicy(c, &v->policy))
+    CHECK_ERROR(_readCompactu64(c, &v->tokenCount))
+    CHECK_ERROR(_readCompactu32(c, &v->attributeCount))
+    CHECK_ERROR(_readCompactu128(c, &v->totalDeposit))
+    CHECK_ERROR(_readBytes(c, &v->explicitRoyaltyCurrencies))
+    return parser_ok;
+}
+
 parser_error_t _readOptionCollectionOf(parser_context_t* c, pd_OptionCollectionOf_t* v)
 {
     CHECK_INPUT()
-//    CHECK_ERROR(_readOptionAccountId(c, &v->owner))
-//    CHECK_ERROR(_readRoyaltyMutation(c, &v->royalty))
-//    CHECK_ERROR(_readOptionVecTokenAssetId(c, &v->explicitRoyaltyCurrencies))
+    CHECK_ERROR(_readUInt8(c, &v->some))
+
+    if (v->some > 0) {
+        CHECK_ERROR(_readVecTokenAssetId(c, &v->contained))
+    }
     return parser_ok;
 }
 
@@ -6571,6 +6601,148 @@ parser_error_t _toStringCollectionMutation(
     }
 
     return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringCollectionPolicy(
+        const pd_TransferPolicy_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+   return _toStringbool(&v->isFrozen, outValue, outValueLen, pageIdx, pageCount);
+}
+
+parser_error_t _toStringCollectionPolicy(
+        const pd_CollectionPolicy_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[3] = { 0 };
+    CHECK_ERROR(_toStringMintPolicyDescriptor(&v->mint, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringTransferPolicy(&v->transfer, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringMarketPolicyDescriptor(&v->market, outValue, outValueLen, 0, &pages[2]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringMintPolicyDescriptor(&v->mint, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringTransferPolicy(&v->transfer, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    pageIdx -= pages[1];
+
+    if (pageIdx < pages[2]) {
+        CHECK_ERROR(_toStringMarketPolicyDescriptor(&v->market, outValue, outValueLen, pageIdx, &pages[2]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringCollectionOf(
+        const pd_CollectionOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[6] = { 0 };
+    CHECK_ERROR(_toStringOptionAccountId(&v->owner, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringCollectionPolicy(&v->policy, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringCompactu64(&v->tokenCount, outValue, outValueLen, 0, &pages[2]))
+    CHECK_ERROR(_toStringCompactu32(&v->attributeCount, outValue, outValueLen, 0, &pages[3]))
+    CHECK_ERROR(_toStringCompactu128(&v->totalDeposit, outValue, outValueLen, 0, &pages[4]))
+    CHECK_ERROR(_toStringBytes(&v->explicitRoyaltyCurrencies, outValue, outValueLen, 0, &pages[5]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringOptionAccountId(&v->owner, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringCollectionPolicy(&v->policy, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    pageIdx -= pages[1];
+
+    if (pageIdx < pages[2]) {
+        CHECK_ERROR(_toStringCompactu64(&v->tokenCount, outValue, outValueLen, pageIdx, &pages[2]))
+        return parser_ok;
+    }
+    pageIdx -= pages[2];
+
+    if (pageIdx < pages[3]) {
+        CHECK_ERROR(_toStringCompactu32(&v->attributeCount, outValue, outValueLen, pageIdx, &pages[3]))
+        return parser_ok;
+    }
+    pageIdx -= pages[3];
+
+    if (pageIdx < pages[4]) {
+        CHECK_ERROR(_toStringCompactu128(&v->totalDeposit, outValue, outValueLen, pageIdx, &pages[4]))
+        return parser_ok;
+    }
+    pageIdx -= pages[4];
+
+    if (pageIdx < pages[5]) {
+        CHECK_ERROR(_toStringBytes(&v->explicitRoyaltyCurrencies, outValue, outValueLen, pageIdx, &pages[5]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringOptionCollectioOf(
+        const pd_OptionCollectionOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringCollectionOf(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount));
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+
 }
 
 parser_error_t _toStringCompactAccountIndex(

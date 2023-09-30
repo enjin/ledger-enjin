@@ -1367,7 +1367,7 @@ typedef struct {
     pd_Compactu64_t tokenCount;
     pd_Compactu32_t attributeCount;
     pd_Compactu128_t totalDeposit;
-//    pd_BTreeMap_t explicitRoyaltyCurrencies
+    pd_Bytes_t explicitRoyaltyCurrencies;
 } pd_CollectionOf_t;
 
 typedef struct {
