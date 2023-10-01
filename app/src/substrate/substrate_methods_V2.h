@@ -120,20 +120,6 @@ typedef struct {
     pd_CollectionMutation_t mutation;
 } pd_multitokens_mutate_collection_V2_t;
 
-#define PD_CALL_MULTITOKENS_MUTATE_TOKEN_V2 3
-typedef struct {
-    pd_CompactCollectionId_t collection_id;
-    pd_CompactTokenId_t token_id;
-    pd_TokenMutation_t mutation;
-} pd_multitokens_mutate_token_V2_t;
-
-#define PD_CALL_MULTITOKENS_MINT_V2 4
-typedef struct {
-    pd_AccountIdLookupOfT_t recipient;
-    pd_CompactCollectionId_t collection_id;
-    pd_MintParamsOf_t params;
-} pd_multitokens_mint_V2_t;
-
 #define PD_CALL_MULTITOKENS_BURN_V2 5
 typedef struct {
     pd_CompactCollectionId_t collection_id;
@@ -185,12 +171,6 @@ typedef struct {
     pd_VecTransferRecipientsOf_t recipients;
 } pd_multitokens_batch_transfer_V2_t;
 
-#define PD_CALL_MULTITOKENS_BATCH_MINT_V2 13
-typedef struct {
-    pd_CompactCollectionId_t collection_id;
-    pd_VecMintRecipientsOf_t recipients;
-} pd_multitokens_batch_mint_V2_t;
-
 #define PD_CALL_MULTITOKENS_BATCH_SET_ATTRIBUTE_V2 14
 typedef struct {
     pd_CompactCollectionId_t collection_id;
@@ -227,6 +207,43 @@ typedef struct {
     pd_CompactTokenId_t token_id;
     pd_AccountId_t operator_;
 } pd_multitokens_unapprove_token_V2_t;
+
+#define PD_CALL_MULTITOKENS_CLAIM_COLLECTIONS_V2 32
+typedef struct {
+    pd_AccountId_t destination;
+    pd_EcdsaSignature_t ethereum_signature;
+    pd_EthereumAddress_t ethereum_address;
+} pd_multitokens_claim_collections_V2_t;
+
+#define PD_CALL_MULTITOKENS_CLAIM_TOKENS_V2 33
+typedef struct {
+    pd_AccountId_t destination;
+    pd_EcdsaSignature_t ethereum_signature;
+    pd_EthereumAddress_t ethereum_address;
+} pd_multitokens_claim_tokens_V2_t;
+
+#ifdef SUBSTRATE_PARSER_FULL
+#ifndef TARGET_NANOS
+
+#define PD_CALL_MULTITOKENS_MUTATE_TOKEN_V2 3
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_CompactTokenId_t token_id;
+    pd_TokenMutation_t mutation;
+} pd_multitokens_mutate_token_V2_t;
+
+#define PD_CALL_MULTITOKENS_MINT_V2 4
+typedef struct {
+    pd_AccountIdLookupOfT_t recipient;
+    pd_CompactCollectionId_t collection_id;
+    pd_MintParamsOf_t params;
+} pd_multitokens_mint_V2_t;
+
+#define PD_CALL_MULTITOKENS_BATCH_MINT_V2 13
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_VecMintRecipientsOf_t recipients;
+} pd_multitokens_batch_mint_V2_t;
 
 #define PD_CALL_MULTITOKENS_FORCE_MUTATE_COLLECTION_V2 19
 typedef struct {
@@ -319,21 +336,6 @@ typedef struct {
     pd_CompactCollectionId_t value;
 } pd_multitokens_force_set_next_collection_id_V2_t;
 
-#define PD_CALL_MULTITOKENS_CLAIM_COLLECTIONS_V2 32
-typedef struct {
-    pd_AccountId_t destination;
-    pd_EcdsaSignature_t ethereum_signature;
-    pd_EthereumAddress_t ethereum_address;
-} pd_multitokens_claim_collections_V2_t;
-
-#define PD_CALL_MULTITOKENS_CLAIM_TOKENS_V2 33
-typedef struct {
-    pd_AccountId_t destination;
-    pd_EcdsaSignature_t ethereum_signature;
-    pd_EthereumAddress_t ethereum_address;
-} pd_multitokens_claim_tokens_V2_t;
-
-#ifdef SUBSTRATE_PARSER_FULL
 #define PD_CALL_BALANCES_FORCE_UNRESERVE_V2 5
 typedef struct {
     pd_AccountIdLookupOfT_t who;
@@ -351,6 +353,7 @@ typedef struct {
     pd_CompactBalance_t new_free;
 } pd_balances_force_set_balance_V2_t;
 
+#endif
 #define PD_CALL_STAKING_VALIDATE_V2 4
 typedef struct {
     pd_ValidatorPrefs_t prefs;
@@ -471,8 +474,6 @@ typedef union {
     pd_multitokens_create_collection_V2_t multitokens_create_collection_V2;
     pd_multitokens_destroy_collection_V2_t multitokens_destroy_collection_V2;
     pd_multitokens_mutate_collection_V2_t multitokens_mutate_collection_V2;
-    pd_multitokens_mutate_token_V2_t multitokens_mutate_token_V2;
-    pd_multitokens_mint_V2_t multitokens_mint_V2;
     pd_multitokens_burn_V2_t multitokens_burn_V2;
     pd_multitokens_transfer_V2_t multitokens_transfer_V2;
     pd_multitokens_freeze_V2_t multitokens_freeze_V2;
@@ -481,12 +482,21 @@ typedef union {
     pd_multitokens_remove_attribute_V2_t multitokens_remove_attribute_V2;
     pd_multitokens_remove_all_attributes_V2_t multitokens_remove_all_attributes_V2;
     pd_multitokens_batch_transfer_V2_t multitokens_batch_transfer_V2;
-    pd_multitokens_batch_mint_V2_t multitokens_batch_mint_V2;
     pd_multitokens_batch_set_attribute_V2_t multitokens_batch_set_attribute_V2;
     pd_multitokens_approve_collection_V2_t multitokens_approve_collection_V2;
     pd_multitokens_unapprove_collection_V2_t multitokens_unapprove_collection_V2;
     pd_multitokens_approve_token_V2_t multitokens_approve_token_V2;
     pd_multitokens_unapprove_token_V2_t multitokens_unapprove_token_V2;
+    pd_multitokens_claim_collections_V2_t multitokens_claim_collections_V2;
+    pd_multitokens_claim_tokens_V2_t multitokens_claim_tokens_V2;
+#ifdef SUBSTRATE_PARSER_FULL
+#ifndef TARGET_NANOS
+    pd_multitokens_mutate_token_V2_t multitokens_mutate_token_V2;
+    pd_multitokens_mint_V2_t multitokens_mint_V2;
+    pd_multitokens_batch_mint_V2_t multitokens_batch_mint_V2;
+    pd_balances_force_unreserve_V2_t balances_force_unreserve_V2;
+    pd_balances_upgrade_accounts_V2_t balances_upgrade_accounts_V2;
+    pd_balances_force_set_balance_V2_t balances_force_set_balance_V2;
     pd_multitokens_force_mutate_collection_V2_t multitokens_force_mutate_collection_V2;
     pd_multitokens_force_transfer_V2_t multitokens_force_transfer_V2;
     pd_multitokens_force_set_collection_V2_t multitokens_force_set_collection_V2;
@@ -500,12 +510,7 @@ typedef union {
     pd_multitokens_force_approve_collection_V2_t multitokens_force_approve_collection_V2;
     pd_multitokens_force_freeze_V2_t multitokens_force_freeze_V2;
     pd_multitokens_force_set_next_collection_id_V2_t multitokens_force_set_next_collection_id_V2;
-    pd_multitokens_claim_collections_V2_t multitokens_claim_collections_V2;
-    pd_multitokens_claim_tokens_V2_t multitokens_claim_tokens_V2;
-#ifdef SUBSTRATE_PARSER_FULL
-    pd_balances_force_unreserve_V2_t balances_force_unreserve_V2;
-    pd_balances_upgrade_accounts_V2_t balances_upgrade_accounts_V2;
-    pd_balances_force_set_balance_V2_t balances_force_set_balance_V2;
+#endif
     pd_staking_validate_V2_t staking_validate_V2;
     pd_staking_payout_stakers_V2_t staking_payout_stakers_V2;
     pd_staking_set_validator_count_V2_t staking_set_validator_count_V2;

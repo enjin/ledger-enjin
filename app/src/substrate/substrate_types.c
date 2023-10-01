@@ -2584,6 +2584,8 @@ parser_error_t _readOptionTokenOf(parser_context_t* c, pd_OptionTokenOf_t* v)
     if (v->some > 0) {
         CHECK_ERROR(_readTokenOf(c, &v->contained))
     }
+
+    return parser_ok;
 }
 
 parser_error_t _readTokenAccountOf(parser_context_t* c, pd_TokenAccountOf_t* v)
@@ -2607,6 +2609,8 @@ parser_error_t _readOptionTokenAccountOf(parser_context_t* c, pd_OptionTokenAcco
     if (v->some > 0) {
         CHECK_ERROR(_readTokenAccountOf(c, &v->contained))
     }
+
+    return parser_ok;
 }
 
 parser_error_t _readShouldMutateTokenMarketBehavior(parser_context_t* c, pd_ShouldMutateTokenMarketBehavior_t* v)
@@ -5152,6 +5156,7 @@ parser_error_t _toStringFreezeState(
         uint8_t* pageCount)
 {
     CLEAN_AND_CHECK()
+    UNUSED(pageIdx);
     *pageCount = 1;
 
     switch (v->value) {

@@ -31,15 +31,6 @@ __Z_INLINE parser_error_t _readMethod_balances_transfer_allow_death_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_balances_force_transfer_V2(
-        parser_context_t* c, pd_balances_force_transfer_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->source))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_balances_transfer_keep_alive_V2(
         parser_context_t* c, pd_balances_transfer_keep_alive_V2_t* m)
 {
@@ -82,14 +73,6 @@ __Z_INLINE parser_error_t _readMethod_multitokens_approve_token_V2(
     CHECK_ERROR(_readCompactBalance(c, &m->amount))
     CHECK_ERROR(_readOptionu32(c, &m->expiration))
     CHECK_ERROR(_readCompactBalance(c, &m->current_amount))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_batch_mint_V2(
-        parser_context_t* c, pd_multitokens_batch_mint_V2_t* m)
-{
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readVecMintRecipientsOf(c, &m->recipients))
     return parser_ok;
 }
 
@@ -157,29 +140,11 @@ __Z_INLINE parser_error_t _readMethod_multitokens_freeze_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_multitokens_mint_V2(
-        parser_context_t* c, pd_multitokens_mint_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->recipient))
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readMintParamsOf(c, &m->params))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_multitokens_mutate_collection_V2(
         parser_context_t* c, pd_multitokens_mutate_collection_V2_t* m)
 {
     CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
     CHECK_ERROR(_readCollectionMutation(c, &m->mutation))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_mutate_token_V2(
-        parser_context_t* c, pd_multitokens_mutate_token_V2_t* m)
-{
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readCompactTokenId(c, &m->token_id))
-    CHECK_ERROR(_readTokenMutation(c, &m->mutation))
     return parser_ok;
 }
 
@@ -405,6 +370,42 @@ __Z_INLINE parser_error_t _readMethod_stakeexchange_withdraw_liquidity_V2(
 
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS
+__Z_INLINE parser_error_t _readMethod_multitokens_batch_mint_V2(
+        parser_context_t* c, pd_multitokens_batch_mint_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readVecMintRecipientsOf(c, &m->recipients))
+    return parser_ok;
+}
+
+
+__Z_INLINE parser_error_t _readMethod_multitokens_mint_V2(
+        parser_context_t* c, pd_multitokens_mint_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->recipient))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readMintParamsOf(c, &m->params))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_mutate_token_V2(
+        parser_context_t* c, pd_multitokens_mutate_token_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readCompactTokenId(c, &m->token_id))
+    CHECK_ERROR(_readTokenMutation(c, &m->mutation))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_balances_force_transfer_V2(
+        parser_context_t* c, pd_balances_force_transfer_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->source))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_balances_force_unreserve_V2(
         parser_context_t* c, pd_balances_force_unreserve_V2_t* m)
 {
@@ -774,9 +775,6 @@ parser_error_t _readMethod_V2(
         case 1536: /* module 6 call 0 */
         CHECK_ERROR(_readMethod_balances_transfer_allow_death_V2(c, &method->nested.balances_transfer_allow_death_V2))
             break;
-        case 1538: /* module 6 call 2 */
-        CHECK_ERROR(_readMethod_balances_force_transfer_V2(c, &method->nested.balances_force_transfer_V2))
-            break;
         case 1539: /* module 6 call 3 */
         CHECK_ERROR(_readMethod_balances_transfer_keep_alive_V2(c, &method->nested.balances_transfer_keep_alive_V2))
             break;
@@ -860,12 +858,6 @@ parser_error_t _readMethod_V2(
         case 64770: /* module 253 call 2 */
         CHECK_ERROR(_readMethod_multitokens_mutate_collection_V2(c, &method->basic.multitokens_mutate_collection_V2))
             break;
-        case 64771: /* module 253 call 3 */
-        CHECK_ERROR(_readMethod_multitokens_mutate_token_V2(c, &method->basic.multitokens_mutate_token_V2))
-            break;
-        case 64772: /* module 253 call 4 */
-        CHECK_ERROR(_readMethod_multitokens_mint_V2(c, &method->basic.multitokens_mint_V2))
-            break;
         case 64773: /* module 253 call 5 */
         CHECK_ERROR(_readMethod_multitokens_burn_V2(c, &method->basic.multitokens_burn_V2))
             break;
@@ -890,9 +882,6 @@ parser_error_t _readMethod_V2(
         case 64780: /* module 253 call 12 */
         CHECK_ERROR(_readMethod_multitokens_batch_transfer_V2(c, &method->basic.multitokens_batch_transfer_V2))
             break;
-        case 64781: /* module 253 call 13 */
-        CHECK_ERROR(_readMethod_multitokens_batch_mint_V2(c, &method->basic.multitokens_batch_mint_V2))
-            break;
         case 64782: /* module 253 call 14 */
         CHECK_ERROR(_readMethod_multitokens_batch_set_attribute_V2(c, &method->basic.multitokens_batch_set_attribute_V2))
             break;
@@ -907,6 +896,35 @@ parser_error_t _readMethod_V2(
             break;
         case 64786: /* module 253 call 18 */
         CHECK_ERROR(_readMethod_multitokens_unapprove_token_V2(c, &method->basic.multitokens_unapprove_token_V2))
+            break;
+        case 64800: /* module 253 call 32 */
+        CHECK_ERROR(_readMethod_multitokens_claim_collections_V2(c, &method->basic.multitokens_claim_collections_V2))
+            break;
+        case 64801: /* module 253 call 33 */
+        CHECK_ERROR(_readMethod_multitokens_claim_tokens_V2(c, &method->basic.multitokens_claim_tokens_V2))
+            break;
+#ifdef SUBSTRATE_PARSER_FULL
+#ifndef TARGET_NANOS
+        case 64771: /* module 253 call 3 */
+        CHECK_ERROR(_readMethod_multitokens_mutate_token_V2(c, &method->basic.multitokens_mutate_token_V2))
+            break;
+        case 64772: /* module 253 call 4 */
+        CHECK_ERROR(_readMethod_multitokens_mint_V2(c, &method->basic.multitokens_mint_V2))
+            break;
+        case 64781: /* module 253 call 13 */
+        CHECK_ERROR(_readMethod_multitokens_batch_mint_V2(c, &method->basic.multitokens_batch_mint_V2))
+            break;
+        case 1538: /* module 6 call 2 */
+        CHECK_ERROR(_readMethod_balances_force_transfer_V2(c, &method->nested.balances_force_transfer_V2))
+            break;
+        case 1541: /* module 6 call 5 */
+        CHECK_ERROR(_readMethod_balances_force_unreserve_V2(c, &method->basic.balances_force_unreserve_V2))
+            break;
+        case 1542: /* module 6 call 6 */
+        CHECK_ERROR(_readMethod_balances_upgrade_accounts_V2(c, &method->basic.balances_upgrade_accounts_V2))
+            break;
+        case 1544: /* module 6 call 8 */
+        CHECK_ERROR(_readMethod_balances_force_set_balance_V2(c, &method->basic.balances_force_set_balance_V2))
             break;
         case 64787: /* module 253 call 19 */
         CHECK_ERROR(_readMethod_multitokens_force_mutate_collection_V2(c, &method->basic.multitokens_force_mutate_collection_V2))
@@ -947,22 +965,7 @@ parser_error_t _readMethod_V2(
         case 64799: /* module 253 call 31 */
         CHECK_ERROR(_readMethod_multitokens_force_set_next_collection_id_V2(c, &method->basic.multitokens_force_set_next_collection_id_V2))
             break;
-        case 64800: /* module 253 call 32 */
-        CHECK_ERROR(_readMethod_multitokens_claim_collections_V2(c, &method->basic.multitokens_claim_collections_V2))
-            break;
-        case 64801: /* module 253 call 33 */
-        CHECK_ERROR(_readMethod_multitokens_claim_tokens_V2(c, &method->basic.multitokens_claim_tokens_V2))
-            break;
-#ifdef SUBSTRATE_PARSER_FULL
-        case 1541: /* module 6 call 5 */
-        CHECK_ERROR(_readMethod_balances_force_unreserve_V2(c, &method->basic.balances_force_unreserve_V2))
-            break;
-        case 1542: /* module 6 call 6 */
-        CHECK_ERROR(_readMethod_balances_upgrade_accounts_V2(c, &method->basic.balances_upgrade_accounts_V2))
-            break;
-        case 1544: /* module 6 call 8 */
-        CHECK_ERROR(_readMethod_balances_force_set_balance_V2(c, &method->basic.balances_force_set_balance_V2))
-            break;
+#endif
         case 2304: /* module 9 call 0 */
         CHECK_ERROR(_readMethod_staking_bond_V2(c, &method->nested.staking_bond_V2))
             break;
@@ -2328,26 +2331,6 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1538: /* module 6 call 2 */
-            switch (itemIdx) {
-                case 0: /* balances_force_transfer_V2 - source */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_force_transfer_V2.source,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_force_transfer_V2 - dest */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_force_transfer_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* balances_force_transfer_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.balances_force_transfer_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
         case 1539: /* module 6 call 3 */
             switch (itemIdx) {
                 case 0: /* balances_transfer_keep_alive_V2 - dest */;
@@ -2713,46 +2696,6 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 64771: /* module 253 call 3 */
-            switch (itemIdx) {
-                case 0: /* multitokens_mutate_token_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_mutate_token_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_mutate_token_V2 - token_id */;
-                    return _toStringCompactTokenId(
-                            &m->basic.multitokens_mutate_token_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_mutate_token_V2 - mutation */;
-                    return _toStringTokenMutation(
-                            &m->basic.multitokens_mutate_token_V2.mutation,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64772: /* module 253 call 4 */
-            switch (itemIdx) {
-                case 0: /* multitokens_mint_V2 - recipient */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.multitokens_mint_V2.recipient,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_mint_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_mint_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_mint_V2 - params */;
-                    return _toStringMintParamsOf(
-                            &m->basic.multitokens_mint_V2.params,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
         case 64773: /* module 253 call 5 */
             switch (itemIdx) {
                 case 0: /* multitokens_burn_V2 - collection_id */;
@@ -2888,21 +2831,6 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 64781: /* module 253 call 13 */
-            switch (itemIdx) {
-                case 0: /* multitokens_batch_mint_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_batch_mint_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_batch_mint_V2 - recipients */;
-                    return _toStringVecMintRecipientsOf(
-                            &m->basic.multitokens_batch_mint_V2.recipients,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
         case 64782: /* module 253 call 14 */
             switch (itemIdx) {
                 case 0: /* multitokens_batch_set_attribute_V2 - collection_id */;
@@ -3008,6 +2936,163 @@ parser_error_t _getMethod_ItemValue_V2(
                 case 2: /* multitokens_unapprove_token_V2 - operator */;
                     return _toStringAccountId(
                             &m->basic.multitokens_unapprove_token_V2.operator_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64800: /* module 253 call 32 */
+            switch (itemIdx) {
+                case 0: /* multitokens_claim_collections_V2 - destination */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_claim_collections_V2.destination,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_claim_collections_V2 - ethereum_signature */;
+                    return _toStringEcdsaSignature(
+                            &m->basic.multitokens_claim_collections_V2.ethereum_signature,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_claim_collections_V2 - ethereum_address */;
+                    return _toStringEthereumAddress(
+                            &m->basic.multitokens_claim_collections_V2.ethereum_address,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64801: /* module 253 call 33 */
+            switch (itemIdx) {
+                case 0: /* multitokens_claim_tokens_V2 - destination */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_claim_tokens_V2.destination,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_claim_tokens_V2 - ethereum_signature */;
+                    return _toStringEcdsaSignature(
+                            &m->basic.multitokens_claim_tokens_V2.ethereum_signature,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_claim_tokens_V2 - ethereum_address */;
+                    return _toStringEthereumAddress(
+                            &m->basic.multitokens_claim_tokens_V2.ethereum_address,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+#ifdef SUBSTRATE_PARSER_FULL
+#ifndef TARGET_NANOS
+        case 64771: /* module 253 call 3 */
+            switch (itemIdx) {
+                case 0: /* multitokens_mutate_token_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_mutate_token_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_mutate_token_V2 - token_id */;
+                    return _toStringCompactTokenId(
+                            &m->basic.multitokens_mutate_token_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_mutate_token_V2 - mutation */;
+                    return _toStringTokenMutation(
+                            &m->basic.multitokens_mutate_token_V2.mutation,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64772: /* module 253 call 4 */
+            switch (itemIdx) {
+                case 0: /* multitokens_mint_V2 - recipient */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.multitokens_mint_V2.recipient,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_mint_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_mint_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_mint_V2 - params */;
+                    return _toStringMintParamsOf(
+                            &m->basic.multitokens_mint_V2.params,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64781: /* module 253 call 13 */
+            switch (itemIdx) {
+                case 0: /* multitokens_batch_mint_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_batch_mint_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_batch_mint_V2 - recipients */;
+                    return _toStringVecMintRecipientsOf(
+                            &m->basic.multitokens_batch_mint_V2.recipients,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1538: /* module 6 call 2 */
+            switch (itemIdx) {
+                case 0: /* balances_force_transfer_V2 - source */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.balances_force_transfer_V2.source,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* balances_force_transfer_V2 - dest */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.balances_force_transfer_V2.dest,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* balances_force_transfer_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->nested.balances_force_transfer_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1541: /* module 6 call 5 */
+            switch (itemIdx) {
+                case 0: /* balances_force_unreserve_V24 - who */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.balances_force_unreserve_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* balances_force_unreserve_V24 - amount */;
+                    return _toStringBalance(
+                            &m->basic.balances_force_unreserve_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1542: /* module 6 call 6 */
+            switch (itemIdx) {
+                case 0: /* balances_upgrade_accounts_V24 - who */;
+                    return _toStringVecAccountId(
+                            &m->basic.balances_upgrade_accounts_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1544: /* module 6 call 8 */
+            switch (itemIdx) {
+                case 0: /* balances_force_set_balance_V24 - who */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.balances_force_set_balance_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* balances_force_set_balance_V24 - new_free */;
+                    return _toStringCompactBalance(
+                            &m->basic.balances_force_set_balance_V2.new_free,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -3273,87 +3358,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 64800: /* module 253 call 32 */
-            switch (itemIdx) {
-                case 0: /* multitokens_claim_collections_V2 - destination */;
-                    return _toStringAccountId(
-                            &m->basic.multitokens_claim_collections_V2.destination,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_claim_collections_V2 - ethereum_signature */;
-                    return _toStringEcdsaSignature(
-                            &m->basic.multitokens_claim_collections_V2.ethereum_signature,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_claim_collections_V2 - ethereum_address */;
-                    return _toStringEthereumAddress(
-                            &m->basic.multitokens_claim_collections_V2.ethereum_address,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64801: /* module 253 call 33 */
-            switch (itemIdx) {
-                case 0: /* multitokens_claim_tokens_V2 - destination */;
-                    return _toStringAccountId(
-                            &m->basic.multitokens_claim_tokens_V2.destination,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_claim_tokens_V2 - ethereum_signature */;
-                    return _toStringEcdsaSignature(
-                            &m->basic.multitokens_claim_tokens_V2.ethereum_signature,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_claim_tokens_V2 - ethereum_address */;
-                    return _toStringEthereumAddress(
-                            &m->basic.multitokens_claim_tokens_V2.ethereum_address,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-#ifdef SUBSTRATE_PARSER_FULL
-        case 1541: /* module 6 call 5 */
-            switch (itemIdx) {
-                case 0: /* balances_force_unreserve_V24 - who */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.balances_force_unreserve_V2.who,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_force_unreserve_V24 - amount */;
-                    return _toStringBalance(
-                            &m->basic.balances_force_unreserve_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1542: /* module 6 call 6 */
-            switch (itemIdx) {
-                case 0: /* balances_upgrade_accounts_V24 - who */;
-                    return _toStringVecAccountId(
-                            &m->basic.balances_upgrade_accounts_V2.who,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1544: /* module 6 call 8 */
-            switch (itemIdx) {
-                case 0: /* balances_force_set_balance_V24 - who */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.balances_force_set_balance_V2.who,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_force_set_balance_V24 - new_free */;
-                    return _toStringCompactBalance(
-                            &m->basic.balances_force_set_balance_V2.new_free,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
+#endif
         case 2304: /* module 9 call 0 */
             switch (itemIdx) {
                 case 0: /* staking_bond_V2 - amount */;
