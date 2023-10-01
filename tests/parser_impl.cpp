@@ -186,9 +186,7 @@ TEST(SCALE, TransferTXBadTxVersion) {
     parser_context_t ctx;
     parser_error_t err;
 
-    const auto testTx = "0a0004b22980761c00f236b46bcd5903e769c5bca6b52503d2029649d503ae11030003d20296495b0200000100"
-                        "0000123cb2660ec45d5fc0326ff93447a704f651fa35f00ccb4694429047aca6400a123cb2660ec45d5fc0326f"
-                        "f93447a704f651fa35f00ccb4694429047aca6400a";
+    const auto testTx = "060004b22980761c00f236b46bcd5903e769c5bca6b52503d2029649d503ae11030003d20296496500000008000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9";
 
     uint8_t buffer[500];
     auto bufferLen = parseHexString(buffer, sizeof(buffer), testTx);
