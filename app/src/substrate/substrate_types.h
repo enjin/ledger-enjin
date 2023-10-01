@@ -789,16 +789,6 @@ typedef struct {
 } pd_H256_t;
 
 typedef struct {
-    pd_MultiAssetIdV2_t assetId;
-    pd_FungibilityV2_t fungibility;
-} pd_MultiAssetV2_t;
-
-typedef struct {
-    pd_MultiAssetIdV3_t assetId;
-    pd_FungibilityV3_t fungibility;
-} pd_MultiAssetV3_t;
-
-typedef struct {
     uint32_t value;
 } pd_ParaId_t;
 
@@ -813,11 +803,6 @@ typedef struct {
 typedef struct {
     const uint8_t* _ptr;
 } pd_Sr25519Signature_t;
-
-typedef struct {
-    pd_Data_t data1;
-    pd_Data_t data2;
-} pd_TupleDataData_t;
 
 typedef struct {
     uint32_t first;
@@ -934,11 +919,6 @@ typedef struct {
 } pd_Timepoint_t;
 
 typedef struct {
-    pd_AccountId_t id;
-    pd_Data_t data;
-} pd_TupleAccountIdData_t;
-
-typedef struct {
     pd_H256_t h256;
     uint32_t u32;
 } pd_TupleH256u32_t;
@@ -980,46 +960,6 @@ typedef struct {
 } pd_AccountVote_t;
 
 typedef struct {
-    uint8_t value;
-    pd_Balance_t freeBalance;
-} pd_BondExtraBalanceOfT_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_H256_t legacy;
-        pd_Bytes_t bytes_inline;
-        pd_TupleH256u32_t lookup;
-    };
-} pd_BoundedCallOfT_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_SystemOrigin_t system;
-        pd_RawOrigin_t raw;
-        pd_PolkadotOrigins_t origins;
-        pd_ParachainsOrigin_t parachainsOrigin;
-    };
-} pd_BoxPalletsOriginOfT_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_VecMultiAssetV2_t vecMultiassetV2;
-        pd_VecMultiAssetV3_t vecMultiassetV3;
-    };
-} pd_BoxVersionedMultiAssets_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_MultiLocationV2_t multilocationV2;
-        pd_MultiLocationV3_t multilocationV3;
-    };
-} pd_BoxVersionedMultiLocation_t;
-
-typedef struct {
     pd_Perbill_t maxIncrease;
     uint32_t minDelay;
 } pd_CommissionChangeRateBlockNumber_t;
@@ -1056,53 +996,9 @@ typedef struct {
 } pd_ConfigOpPercent_t;
 
 typedef struct {
-    pd_VecTupleDataData_t additional;
-    pd_Data_t display;
-    pd_Data_t legal;
-    pd_Data_t web;
-    pd_Data_t riot;
-    pd_Data_t email;
-    pd_Optionu8_array_20_t pgp_fingerprint;
-    pd_Data_t image;
-    pd_Data_t twitter;
-} pd_IdentityInfo_t;
-
-typedef struct {
-    uint8_t value;
-    pd_Balance_t feePaid;
-} pd_JudgementBalanceOfT_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_PropIndex_t proposal;
-        pd_ReferendumIndex_t referendum;
-    };
-} pd_MetadataOwner_t;
-
-typedef struct {
-    uint8_t some;
-    pd_MultiSignature_t contained;
-} pd_OptionMultiSignature_t;
-
-typedef struct {
-    uint8_t some;
-    pd_MultiSigner_t verifier;
-} pd_OptionMultiSigner_t;
-
-typedef struct {
-    uint8_t some;
-    pd_Timepoint_t contained;
-} pd_OptionTimepoint_t;
-
-typedef struct {
     uint8_t some;
     pd_TuplePerbillAccountId_t contained;
 } pd_OptionTuplePerbillAccountId_t;
-
-typedef struct {
-    pd_Call_t call;
-} pd_Proposal_t;
 
 typedef struct {
     uint8_t value;
@@ -1133,18 +1029,6 @@ typedef struct {
 } pd_VecCall_t;
 
 typedef struct {
-    uint64_t _len;
-    const uint8_t* _ptr;
-    uint64_t _lenBuffer;
-} pd_VecTupleAccountIdData_t;
-
-typedef struct {
-    pd_BalanceOf_t locked;
-    pd_BalanceOf_t per_block;
-    pd_BlockNumber_t starting_block;
-} pd_VestingInfo_t;
-
-typedef struct {
     pd_Perbill_t annual_inflation_rate;
     pd_Perbill_t collator_payout_cut;
 } pd_StakingInfo_t;
@@ -1155,26 +1039,9 @@ typedef struct {
 } pd_WeightLimit_t;
 
 typedef struct {
-    uint32_t value;
-} pd_AccountIndex_t;
-
-typedef struct {
-    uint8_t value;
-} pd_ClaimPermission_t;
-
-typedef struct {
     uint8_t value;
     uint32_t set;
 } pd_ConfigOpu32_t;
-
-typedef struct {
-    uint8_t value;
-} pd_Conviction_t;
-
-typedef struct {
-    uint8_t value;
-    uint32_t block;
-} pd_DispatchTimeBlockNumber_t;
 
 typedef struct {
     uint32_t value;
@@ -1187,14 +1054,6 @@ typedef struct {
 typedef struct {
     const uint8_t* _ptr;
 } pd_Hash_t;
-
-typedef struct {
-    const uint8_t* _ptr;
-} pd_Keys_t;
-
-typedef struct {
-    uint32_t value;
-} pd_MemberCount_t;
 
 typedef struct {
     uint8_t some;
@@ -1256,34 +1115,6 @@ typedef struct {
     pd_ShouldMutateBool_t listingForbidden;
     pd_ShouldMutateTokenMetadata_t metadata;
 } pd_TokenMutation_t;
-
-typedef struct {
-    uint8_t some;
-    pd_ClassOf_t contained;
-} pd_OptionClassOf_t;
-
-typedef struct {
-    uint8_t some;
-    pd_PreimageHash_t contained;
-} pd_OptionPreimageHash_t;
-
-typedef struct {
-    uint8_t some;
-    pd_ProxyType_t contained;
-} pd_OptionProxyType_t;
-
-typedef struct {
-    uint8_t some;
-    pd_ReferendumIndex_t contained;
-} pd_OptionReferendumIndex_t;
-
-typedef struct {
-    uint64_t value;
-} pd_OverweightIndex_t;
-
-typedef struct {
-    uint32_t value;
-} pd_PollIndexOf_t;
 
 typedef struct {
     uint32_t value;
@@ -1433,22 +1264,6 @@ typedef struct {
     uint8_t some;
     pd_CollectionAccountOf_t contained;
 } pd_OptionCollectionAccountOf_t;
-
-typedef struct {
-    uint8_t value;
-} pd_PoolState_t;
-
-typedef struct {
-    uint32_t value;
-} pd_RegistrarIndex_t;
-
-typedef struct {
-    uint32_t value;
-} pd_SessionIndex_t;
-
-typedef struct {
-    uint16_t value;
-} pd_TrackIdOf_t;
 
 typedef struct {
     uint64_t _len;
