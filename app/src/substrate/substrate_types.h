@@ -442,12 +442,23 @@ typedef struct {
 } pd_AssetInstanceV2_t;
 
 typedef struct {
+    pd_CallIndex_t callIndex;
+    const uint32_t *_txVerPtr;
+    pd_NestCallIdx_t nestCallIdx;
+} pd_Call_t;
+
+typedef struct {
     uint8_t value;
     union {
         const uint8_t* _ptr;
         pd_Compactu128_t index;
     };
 } pd_AssetInstanceV3_t;
+
+typedef struct {
+    uint8_t some;
+    pd_u8_array_20_t contained;
+} pd_Optionu8_array_20_t;
 
 typedef struct {
     uint8_t parents;
@@ -464,45 +475,8 @@ typedef struct {
 } pd_Balance_t;
 
 typedef struct {
-    uint8_t value;
-    const uint8_t* _ptr;
-} pd_Data_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_Compactu128_t fungible;
-        pd_AssetInstanceV2_t nonFungible;
-    };
-} pd_FungibilityV2_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_Compactu128_t fungible;
-        pd_AssetInstanceV3_t nonFungible;
-    };
-} pd_FungibilityV3_t;
-
-typedef struct {
     compactInt_t value;
 } pd_CompactPerbill_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_MultiLocationV2_t concrete;
-        pd_Bytes_t abstract;
-    };
-} pd_MultiAssetIdV2_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_MultiLocationV3_t concrete;
-        pd_u8_array_32_t abstract;
-    };
-} pd_MultiAssetIdV3_t;
 
 typedef struct {
     const uint8_t* _ptr;
@@ -829,99 +803,8 @@ typedef struct {
 } pd_OptionAccountIdLookupOfT_t;
 
 typedef struct {
-    pd_BalanceOf_t aye;
-    pd_BalanceOf_t nay;
-} pd_AccountVoteSplit_t;
-
-typedef struct {
-    pd_Vote_t vote;
-    pd_BalanceOf_t balance;
-} pd_AccountVoteStandard_t;
-
-typedef struct {
-    pd_CallIndex_t callIndex;
-    const uint32_t* _txVerPtr;
-    pd_NestCallIdx_t nestCallIdx;
-} pd_Call_t;
-
-typedef struct {
-    uint16_t value;
-} pd_ClassOf_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_Ed25519Signature_t ed25519;
-        pd_Sr25519Signature_t sr25519;
-        pd_EcdsaSignature_t ecdsa;
-    };
-} pd_MultiSignature_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_Ed25519Public_t ed25519;
-        pd_Sr25519Public_t sr25519;
-        pd_EcdsaPublic_t ecdsa;
-    };
-} pd_MultiSigner_t;
-
-typedef struct {
-    uint8_t some;
-    pd_u8_array_20_t contained;
-} pd_Optionu8_array_20_t;
-
-typedef struct {
-    uint8_t value;
-    pd_ParaId_t parachain;
-} pd_ParachainsOrigin_t;
-
-typedef struct {
     uint8_t value;
 } pd_Percent_t;
-
-typedef struct {
-    uint8_t value;
-} pd_PolkadotOrigins_t;
-
-typedef struct {
-    const uint8_t* _ptr;
-} pd_PreimageHash_t;
-
-typedef struct {
-    uint32_t value;
-} pd_PropIndex_t;
-
-typedef struct {
-    uint8_t value;
-} pd_ProxyType_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_Tupleu32u32_t members;
-        pd_AccountId_t member;
-    };
-} pd_RawOrigin_t;
-
-typedef struct {
-    uint32_t value;
-} pd_ReferendumIndex_t;
-
-typedef struct {
-    uint8_t value;
-    pd_AccountId_t _signed;
-} pd_SystemOrigin_t;
-
-typedef struct {
-    pd_BlockNumber_t height;
-    uint32_t index;
-} pd_Timepoint_t;
-
-typedef struct {
-    pd_H256_t h256;
-    uint32_t u32;
-} pd_TupleH256u32_t;
 
 typedef struct {
     pd_Perbill_t perbill;
@@ -929,35 +812,9 @@ typedef struct {
 } pd_TuplePerbillAccountId_t;
 
 typedef struct {
-    uint64_t _len;
-    const uint8_t* _ptr;
-    uint64_t _lenBuffer;
-} pd_VecMultiAssetV2_t;
-
-typedef struct {
-    uint64_t _len;
-    const uint8_t* _ptr;
-    uint64_t _lenBuffer;
-} pd_VecMultiAssetV3_t;
-
-typedef struct {
-    uint64_t _len;
-    const uint8_t* _ptr;
-    uint64_t _lenBuffer;
-} pd_VecTupleDataData_t;
-
-typedef struct {
     pd_Compactu64_t refTime;
     pd_Compactu64_t proofSize;
 } pd_Weight_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_AccountVoteStandard_t voteStandard;
-        pd_AccountVoteSplit_t voteSplit;
-    };
-} pd_AccountVote_t;
 
 typedef struct {
     pd_Perbill_t maxIncrease;
