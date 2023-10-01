@@ -150,123 +150,6 @@ __Z_INLINE parser_error_t _readMethod_multitokens_destroy_collection_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_multitokens_force_approve_collection_V2(
-        parser_context_t* c, pd_multitokens_force_approve_collection_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->caller))
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readAccountId(c, &m->operator_))
-    CHECK_ERROR(_readOptionu32(c, &m->expiration))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_burn_V2(
-        parser_context_t* c, pd_multitokens_force_burn_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->caller))
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readBurnParamsOfT(c, &m->params))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_create_collection_V2(
-        parser_context_t* c, pd_multitokens_force_create_collection_V2_t* m)
-{
-    CHECK_ERROR(_readAccountId(c, &m->owner))
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readCollectionDescriptor(c, &m->descriptor))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_freeze_V2(
-        parser_context_t* c, pd_multitokens_force_freeze_V2_t* m)
-{
-    CHECK_ERROR(_readFreezeOf(c, &m->info))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_mint_V2(
-        parser_context_t* c, pd_multitokens_force_mint_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->caller))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->recipient))
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readMintParamsOf(c, &m->params))
-    CHECK_ERROR(_readOptionAccountIdLookupOfT(c, &m->deposit_backer))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_mutate_collection_V2(
-        parser_context_t* c, pd_multitokens_force_mutate_collection_V2_t* m)
-{
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readCollectionMutation(c, &m->mutation))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_set_attribute_V2(
-        parser_context_t* c, pd_multitokens_force_set_attribute_V2_t* m)
-{
-     CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-     CHECK_ERROR(_readOptionTokenId(c, &m->token_id))
-     CHECK_ERROR(_readBytes(c, &m->key))
-     CHECK_ERROR(_readOptionAttributeOf(c, &m->value))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_set_collection_V2(
-        parser_context_t* c, pd_multitokens_force_set_collection_V2_t* m)
-{
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readOptionCollectionOf(c, &m->value))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_set_collection_account_V2(
-        parser_context_t* c, pd_multitokens_force_set_collection_account_V2_t* m)
-{
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->account_id))
-    CHECK_ERROR(_readOptionCollectionAccountOf(c, &m->value))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_set_next_collection_id_V2(
-        parser_context_t* c, pd_multitokens_force_set_next_collection_id_V2_t* m)
-{
-    CHECK_ERROR(_readCompactCollectionId(c, &m->value))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_set_token_V2(
-        parser_context_t* c, pd_multitokens_force_set_token_V2_t* m)
-{
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readCompactTokenId(c, &m->token_id))
-    CHECK_ERROR(_readOptionTokenOf(c, &m->value))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_set_token_account_V2(
-        parser_context_t* c, pd_multitokens_force_set_token_account_V2_t* m)
-{
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readCompactTokenId(c, &m->token_id))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->account_id))
-    CHECK_ERROR(_readOptionTokenAccountOf(c, &m->value))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multitokens_force_transfer_V2(
-        parser_context_t* c, pd_multitokens_force_transfer_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->source))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->destination))
-    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
-    CHECK_ERROR(_readTransferParamsOfT(c, &m->params))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_multitokens_freeze_V2(
         parser_context_t* c, pd_multitokens_freeze_V2_t* m)
 {
@@ -521,6 +404,7 @@ __Z_INLINE parser_error_t _readMethod_stakeexchange_withdraw_liquidity_V2(
 }
 
 #ifdef SUBSTRATE_PARSER_FULL
+#ifndef TARGET_NANOS
 __Z_INLINE parser_error_t _readMethod_balances_force_unreserve_V2(
         parser_context_t* c, pd_balances_force_unreserve_V2_t* m)
 {
@@ -543,6 +427,125 @@ __Z_INLINE parser_error_t _readMethod_balances_force_set_balance_V2(
     CHECK_ERROR(_readCompactBalance(c, &m->new_free))
     return parser_ok;
 }
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_approve_collection_V2(
+        parser_context_t* c, pd_multitokens_force_approve_collection_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->caller))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readAccountId(c, &m->operator_))
+    CHECK_ERROR(_readOptionu32(c, &m->expiration))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_burn_V2(
+        parser_context_t* c, pd_multitokens_force_burn_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->caller))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readBurnParamsOfT(c, &m->params))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_create_collection_V2(
+        parser_context_t* c, pd_multitokens_force_create_collection_V2_t* m)
+{
+    CHECK_ERROR(_readAccountId(c, &m->owner))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readCollectionDescriptor(c, &m->descriptor))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_freeze_V2(
+        parser_context_t* c, pd_multitokens_force_freeze_V2_t* m)
+{
+    CHECK_ERROR(_readFreezeOf(c, &m->info))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_mint_V2(
+        parser_context_t* c, pd_multitokens_force_mint_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->caller))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->recipient))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readMintParamsOf(c, &m->params))
+    CHECK_ERROR(_readOptionAccountIdLookupOfT(c, &m->deposit_backer))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_mutate_collection_V2(
+        parser_context_t* c, pd_multitokens_force_mutate_collection_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readCollectionMutation(c, &m->mutation))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_attribute_V2(
+        parser_context_t* c, pd_multitokens_force_set_attribute_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readOptionTokenId(c, &m->token_id))
+    CHECK_ERROR(_readBytes(c, &m->key))
+    CHECK_ERROR(_readOptionAttributeOf(c, &m->value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_collection_V2(
+        parser_context_t* c, pd_multitokens_force_set_collection_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readOptionCollectionOf(c, &m->value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_collection_account_V2(
+        parser_context_t* c, pd_multitokens_force_set_collection_account_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->account_id))
+    CHECK_ERROR(_readOptionCollectionAccountOf(c, &m->value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_next_collection_id_V2(
+        parser_context_t* c, pd_multitokens_force_set_next_collection_id_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_token_V2(
+        parser_context_t* c, pd_multitokens_force_set_token_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readCompactTokenId(c, &m->token_id))
+    CHECK_ERROR(_readOptionTokenOf(c, &m->value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_set_token_account_V2(
+        parser_context_t* c, pd_multitokens_force_set_token_account_V2_t* m)
+{
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readCompactTokenId(c, &m->token_id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->account_id))
+    CHECK_ERROR(_readOptionTokenAccountOf(c, &m->value))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_multitokens_force_transfer_V2(
+        parser_context_t* c, pd_multitokens_force_transfer_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->source))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->destination))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readTransferParamsOfT(c, &m->params))
+    return parser_ok;
+}
+#endif
+
 
 __Z_INLINE parser_error_t _readMethod_staking_bond_V2(
         parser_context_t* c, pd_staking_bond_V2_t* m)
