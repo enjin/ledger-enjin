@@ -30,6 +30,16 @@ parser_error_t _readbool(parser_context_t* c, pd_bool_t* v)
     return _readUInt8(c, v);
 }
 
+parser_error_t _readu8(parser_context_t* c, pd_u8_t* v)
+{
+    return _readUInt8(c, v);
+}
+
+parser_error_t _readu16(parser_context_t* c, pd_u16_t* v)
+{
+    return _readUInt16(c, v);
+}
+
 parser_error_t _readu32(parser_context_t* c, pd_u32_t* v)
 {
     return _readUInt32(c, v);
