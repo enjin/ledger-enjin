@@ -4,7 +4,17 @@
     "name": "NominationPools_Bond",
     "blob": "120001000000001f0000004a48011416954508d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | NominationPools : Bond"
+      "0 | Nominationpools : Bond",
+      "1 | Pool id : 1",
+      "2 | Amount : ENJ 10000000.0",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -22,7 +32,16 @@
     "name": "NominationPools_Bond",
     "blob": "12000bac140001d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Bond",
+      "1 | Pool id : 1354763",
+      "2 | Amount : Fill",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ],
     "output_expert": [
       "0 |  : ",
@@ -40,7 +59,16 @@
     "name": "NominationPools_Chill",
     "blob": "120db2613d03d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Chill",
+      "1 | Pool id : 54354354",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -58,7 +86,23 @@
     "name": "NominationPools_create",
     "blob": "1206010000000000000000000000000000000700e87648170f0080c6a47e8d0350003718749eb620f681839e2db939d3b4104a1f23c512e70fce88354fb1a00e6ea7003a158a287b46acd830ee9a83d304a63569f8669968a20ea80720e338a565dd09d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Create",
+      "1 | Token id : 1",
+      "2 | Deposit : ENJ 0.0000001",
+      "3 | Capacity : ENJ 0.001",
+      "4 | Duration : 20",
+      "5 | Admin [1/2] : enBvhDVMmdd5pA2QLwmZ5VDjDgpujt4pHdBCcm",
+      "5 | Admin [2/2] : cYy6B6XkyhN",
+      "6 | Nominator [1/2] : enBzcVajhueEPuhxCzBTM3se4k8XK4QVizW7bU",
+      "6 | Nominator [2/2] : KTS4fkCDWqH",
+      "7 | Chain : Enjin Chain",
+      "8 | Nonce : 2339",
+      "9 | Tip : ENJ 0.00000000123456789",
+      "10 | Era Phase : 61",
+      "11 | Era Period : 64",
+      "12 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "12 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -79,14 +123,16 @@
       "0 | StakeExchange : Buy "
     ],
     "output_expert": [
-      "0 |  : ",
-      "3 | Chain : Enjin Chain",
-      "4 | Nonce : 2339",
-      "6 | Tip : ENJ 0.00000000123456789",
+      "0 | Nominationpools : Destroy",
+      "1 | Pool id : 1345345",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
       "5 | Era Phase : 61",
       "6 | Era Period : 64",
       "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
       "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ]
   },
   {
@@ -94,7 +140,16 @@
     "name": "NominationPools_DistributeEarlyBirdBonus",
     "blob": "12180a000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Distribute early bird bonus",
+      "1 | Transfer count : 10",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -112,7 +167,22 @@
     "name": "NominationPools_Mutate",
     "blob": "121301000000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/6] : None",
+      "2 | Mutation [2/6] : NoMutation",
+      "2 | Mutation [3/6] : None",
+      "2 | Mutation [4/6] : None",
+      "2 | Mutation [5/6] : None",
+      "2 | Mutation [6/6] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -130,7 +200,21 @@
     "name": "NominationPools_Mutate",
     "blob": "12130100000001000000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/6] : 0",
+      "2 | Mutation [2/6] : NoMutation",
+      "2 | Mutation [3/6] : None",
+      "2 | Mutation [4/6] : None",
+      "2 | Mutation [5/6] : None",
+      "2 | Mutation [6/6] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ],
     "output_expert": [
       "0 |  : ",
@@ -148,7 +232,21 @@
     "name": "NominationPools_Mutate",
     "blob": "121301000000014de101000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/6] : 123213",
+      "2 | Mutation [2/6] : NoMutation",
+      "2 | Mutation [3/6] : None",
+      "2 | Mutation [4/6] : None",
+      "2 | Mutation [5/6] : None",
+      "2 | Mutation [6/6] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ],
     "output_expert": [
       "0 |  : ",
@@ -166,7 +264,22 @@
     "name": "NominationPools_Mutate",
     "blob": "121301000000014de10100010000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/6] : 123213",
+      "2 | Mutation [2/6] : None",
+      "2 | Mutation [3/6] : None",
+      "2 | Mutation [4/6] : None",
+      "2 | Mutation [5/6] : None",
+      "2 | Mutation [6/6] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -184,7 +297,22 @@
     "name": "NominationPools_Mutate",
     "blob": "1213010000000001010000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/6] : None",
+      "2 | Mutation [2/6] : 0.0000000%",
+      "2 | Mutation [3/6] : None",
+      "2 | Mutation [4/6] : None",
+      "2 | Mutation [5/6] : None",
+      "2 | Mutation [6/6] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -202,7 +330,21 @@
     "name": "NominationPools_Mutate",
     "blob": "12130100000000010100ca9a3b00000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/6] : None",
+      "2 | Mutation [2/6] : 100.0000000%",
+      "2 | Mutation [3/6] : None",
+      "2 | Mutation [4/6] : None",
+      "2 | Mutation [5/6] : None",
+      "2 | Mutation [6/6] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ],
     "output_expert": [
       "0 |  : ",
@@ -220,7 +362,22 @@
     "name": "NominationPools_Mutate",
     "blob": "12130100000000000100e1f505000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/6] : None",
+      "2 | Mutation [2/6] : NoMutation",
+      "2 | Mutation [3/6] : 10.0000000%",
+      "2 | Mutation [4/6] : None",
+      "2 | Mutation [5/6] : None",
+      "2 | Mutation [6/6] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -238,7 +395,22 @@
     "name": "NominationPools_Mutate",
     "blob": "12130100000000000100e1f505000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/6] : None",
+      "2 | Mutation [2/6] : NoMutation",
+      "2 | Mutation [3/6] : 10.0000000%",
+      "2 | Mutation [4/6] : None",
+      "2 | Mutation [5/6] : None",
+      "2 | Mutation [6/6] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -256,7 +428,23 @@
     "name": "NominationPools_Mutate",
     "blob": "1213010000000000000100e1f5050a0000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/7] : None",
+      "2 | Mutation [2/7] : NoMutation",
+      "2 | Mutation [3/7] : None",
+      "2 | Mutation [4/7] : 10.0000000%",
+      "2 | Mutation [5/7] : 10",
+      "2 | Mutation [6/7] : None",
+      "2 | Mutation [7/7] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -274,7 +462,22 @@
     "name": "NominationPools_Mutate",
     "blob": "1213010000000000000001000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/7] : None",
+      "2 | Mutation [2/7] : NoMutation",
+      "2 | Mutation [3/7] : None",
+      "2 | Mutation [4/7] : None",
+      "2 | Mutation [5/7] : NoMutation",
+      "2 | Mutation [6/7] : NoMutation",
+      "2 | Mutation [7/7] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ],
     "output_expert": [
       "0 |  : ",
@@ -292,7 +495,22 @@
     "name": "NominationPools_Mutate",
     "blob": "121301000000000000000101000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/7] : None",
+      "2 | Mutation [2/7] : NoMutation",
+      "2 | Mutation [3/7] : None",
+      "2 | Mutation [4/7] : None",
+      "2 | Mutation [5/7] : None",
+      "2 | Mutation [6/7] : NoMutation",
+      "2 | Mutation [7/7] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ],
     "output_expert": [
       "0 |  : ",
@@ -310,7 +528,24 @@
     "name": "NominationPools_Mutate",
     "blob": "121301000000000000000101013a158a287b46acd830ee9a83d304a63569f8669968a20ea80720e338a565dd090000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/8] : None",
+      "2 | Mutation [2/8] : NoMutation",
+      "2 | Mutation [3/8] : None",
+      "2 | Mutation [4/8] : None",
+      "2 | Mutation [5/8] : enBzcVajhueEPuhxCzBTM3se4k8XK4QVizW7bU",
+      "2 | Mutation [6/8] : KTS4fkCDWqH",
+      "2 | Mutation [7/8] : NoMutation",
+      "2 | Mutation [8/8] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -328,7 +563,23 @@
     "name": "NominationPools_Mutate",
     "blob": "121301000000000000000100010000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/7] : None",
+      "2 | Mutation [2/7] : NoMutation",
+      "2 | Mutation [3/7] : None",
+      "2 | Mutation [4/7] : None",
+      "2 | Mutation [5/7] : NoMutation",
+      "2 | Mutation [6/7] : None",
+      "2 | Mutation [7/7] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -346,7 +597,23 @@
     "name": "NominationPools_Mutate",
     "blob": "12130100000000000000010001013718749eb620f681839e2db939d3b4104a1f23c512e70fce88354fb1a00e6ea700d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/8] : None",
+      "2 | Mutation [2/8] : NoMutation",
+      "2 | Mutation [3/8] : None",
+      "2 | Mutation [4/8] : None",
+      "2 | Mutation [5/8] : NoMutation",
+      "2 | Mutation [6/8] : enBvhDVMmdd5pA2QLwmZ5VDjDgpujt4pHdBCcm",
+      "2 | Mutation [7/8] : cYy6B6XkyhN",
+      "2 | Mutation [8/8] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ],
     "output_expert": [
       "0 |  : ",
@@ -364,7 +631,25 @@
     "name": "NominationPools_Mutate",
     "blob": "121301000000000000000101013a158a287b46acd830ee9a83d304a63569f8669968a20ea80720e338a565dd0901013718749eb620f681839e2db939d3b4104a1f23c512e70fce88354fb1a00e6ea700d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/9] : None",
+      "2 | Mutation [2/9] : NoMutation",
+      "2 | Mutation [3/9] : None",
+      "2 | Mutation [4/9] : None",
+      "2 | Mutation [5/9] : enBzcVajhueEPuhxCzBTM3se4k8XK4QVizW7bU",
+      "2 | Mutation [6/9] : KTS4fkCDWqH",
+      "2 | Mutation [7/9] : enBvhDVMmdd5pA2QLwmZ5VDjDgpujt4pHdBCcm",
+      "2 | Mutation [8/9] : cYy6B6XkyhN",
+      "2 | Mutation [9/9] : None",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -382,7 +667,21 @@
     "name": "NominationPools_Mutate",
     "blob": "12130100000000000000000180969800000000000000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/6] : None",
+      "2 | Mutation [2/6] : NoMutation",
+      "2 | Mutation [3/6] : None",
+      "2 | Mutation [4/6] : None",
+      "2 | Mutation [5/6] : None",
+      "2 | Mutation [6/6] : 10000000",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ],
     "output_expert": [
       "0 |  : ",
@@ -400,7 +699,26 @@
     "name": "NominationPools_Mutate",
     "blob": "12130100000001da3a530001013f420f0001242de007015a010000370000000101013a158a287b46acd830ee9a83d304a63569f8669968a20ea80720e338a565dd0901013a158a287b46acd830ee9a83d304a63569f8669968a20ea80720e338a565dd090180969800000000000000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Mutate",
+      "1 | Pool id : 1",
+      "2 | Mutation [1/10] : 5454554",
+      "2 | Mutation [2/10] : 0.0999999%",
+      "2 | Mutation [3/10] : 13.2132132%",
+      "2 | Mutation [4/10] : 0.0000346%",
+      "2 | Mutation [5/10] : 55",
+      "2 | Mutation [6/10] : enBzcVajhueEPuhxCzBTM3se4k8XK4QVizW7bU",
+      "2 | Mutation [7/10] : KTS4fkCDWqH",
+      "2 | Mutation [8/10] : enBzcVajhueEPuhxCzBTM3se4k8XK4QVizW7bU",
+      "2 | Mutation [9/10] : KTS4fkCDWqH",
+      "2 | Mutation [10/10] : 10000000",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -418,7 +736,17 @@
     "name": "NominationPools_Nominate",
     "blob": "1208f3e0010000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Nominate",
+      "1 | Pool id : 123123",
+      "2 | Validators : <Empty>",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -436,7 +764,18 @@
     "name": "NominationPools_Nominate",
     "blob": "1208f3e00100043a158a287b46acd830ee9a83d304a63569f8669968a20ea80720e338a565dd09d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Nominate",
+      "1 | Pool id : 123123",
+      "2 | Validators [1/2] : enBzcVajhueEPuhxCzBTM3se4k8XK4QVizW7bU",
+      "2 | Validators [2/2] : KTS4fkCDWqH",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -454,7 +793,21 @@
     "name": "NominationPools_Nominate",
     "blob": "1208f3e00100083a158a287b46acd830ee9a83d304a63569f8669968a20ea80720e338a565dd093718749eb620f681839e2db939d3b4104a1f23c512e70fce88354fb1a00e6ea7d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Nominate",
+      "1 | Pool id : 123123",
+      "2 | Validators [1/4] : enBzcVajhueEPuhxCzBTM3se4k8XK4QVizW7bU",
+      "2 | Validators [2/4] : KTS4fkCDWqH",
+      "2 | Validators [3/4] : enBvhDVMmdd5pA2QLwmZ5VDjDgpujt4pHdBCcm",
+      "2 | Validators [4/4] : cYy6B6XkyhN",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -472,7 +825,18 @@
     "name": "NominationPools_PayoutRewards",
     "blob": "12123718749eb620f681839e2db939d3b4104a1f23c512e70fce88354fb1a00e6ea799090000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Payout rewards",
+      "1 | Validator stash [1/2] : enBvhDVMmdd5pA2QLwmZ5VDjDgpujt4pHdBCcm",
+      "1 | Validator stash [2/2] : cYy6B6XkyhN",
+      "2 | Era : 2457",
+      "3 | Chain : Enjin Chain",
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -508,7 +872,15 @@
     "name": "NominationPools_QueueEarlyBirdBonus",
     "blob": "1217d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Queue early bird bonus",
+      "1 | Chain : Enjin Chain",
+      "2 | Nonce : 2339",
+      "3 | Tip : ENJ 0.00000000123456789",
+      "4 | Era Phase : 61",
+      "5 | Era Period : 64",
+      "6 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "6 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -526,7 +898,18 @@
     "name": "NominationPools_SetConfigs",
     "blob": "120b000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Set configs",
+      "1 | Min join bond : Noop",
+      "2 | Min create bond : Noop",
+      "3 | Global max commission : Noop",
+      "4 | Chain : Enjin Chain",
+      "5 | Nonce : 2339",
+      "6 | Tip : ENJ 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "9 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -544,7 +927,18 @@
     "name": "NominationPools_SetConfigs",
     "blob": "120b020000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Set configs",
+      "1 | Min join bond : Remove",
+      "2 | Min create bond : Noop",
+      "3 | Global max commission : Noop",
+      "4 | Chain : Enjin Chain",
+      "5 | Nonce : 2339",
+      "6 | Tip : ENJ 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "9 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -562,7 +956,18 @@
     "name": "NominationPools_SetConfigs",
     "blob": "120b0001fde9e3f493000000000000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Set configs",
+      "1 | Min join bond : Noop",
+      "2 | Min create bond : ENJ 0.000000635468769789",
+      "3 | Global max commission : Noop",
+      "4 | Chain : Enjin Chain",
+      "5 | Nonce : 2339",
+      "6 | Tip : ENJ 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "9 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -598,7 +1003,18 @@
     "name": "NominationPools_SetConfigs",
     "blob": "120b00000100e1f505d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Set configs",
+      "1 | Min join bond : Noop",
+      "2 | Min create bond : Noop",
+      "3 | Global max commission : 10.0000000%",
+      "4 | Chain : Enjin Chain",
+      "5 | Nonce : 2339",
+      "6 | Tip : ENJ 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "9 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -616,7 +1032,18 @@
     "name": "NominationPools_SetConfigs",
     "blob": "120b000002d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Set configs",
+      "1 | Min join bond : Noop",
+      "2 | Min create bond : Noop",
+      "3 | Global max commission : Remove",
+      "4 | Chain : Enjin Chain",
+      "5 | Nonce : 2339",
+      "6 | Tip : ENJ 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "9 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -634,7 +1061,18 @@
     "name": "NominationPools_SetConfigs",
     "blob": "120b0189161000000000000000000000000000011e8564000000000000000000000000000100286beed5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Set configs",
+      "1 | Min join bond : ENJ 0.000000000001054345",
+      "2 | Min create bond : ENJ 0.000000000006587678",
+      "3 | Global max commission : 400.0000000%",
+      "4 | Chain : Enjin Chain",
+      "5 | Nonce : 2339",
+      "6 | Tip : ENJ 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "9 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -652,7 +1090,18 @@
     "name": "NominationPools_SetConfigs",
     "blob": "120b020202d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Set configs",
+      "1 | Min join bond : Remove",
+      "2 | Min create bond : Remove",
+      "3 | Global max commission : Remove",
+      "4 | Chain : Enjin Chain",
+      "5 | Nonce : 2339",
+      "6 | Tip : ENJ 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "9 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -670,7 +1119,17 @@
     "name": "NominationPools_SetStakingInfo",
     "blob": "12160000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Set staking info",
+      "1 | Info [1/2] : 0.0000000%",
+      "1 | Info [2/2] : 0.0000000%",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -688,7 +1147,17 @@
     "name": "NominationPools_SetStakingInfo",
     "blob": "121600ca9a3b0065cd1dd5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Set staking info",
+      "1 | Info [1/2] : 100.0000000%",
+      "1 | Info [2/2] : 50.0000000%",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -706,7 +1175,19 @@
     "name": "NominationPools_Unbond",
     "blob": "1203d5000000003718749eb620f681839e2db939d3b4104a1f23c512e70fce88354fb1a00e6ea723000000883081121f2fe72710d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Unbond",
+      "1 | Pool id : 213",
+      "2 | Member account [1/2] : enBvhDVMmdd5pA2QLwmZ5VDjDgpujt4pHdBCcm",
+      "2 | Member account [2/2] : cYy6B6XkyhN",
+      "3 | Unbonding points : ENJ 5000000000.0",
+      "4 | Chain : Enjin Chain",
+      "5 | Nonce : 2339",
+      "6 | Tip : ENJ 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "9 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -724,7 +1205,16 @@
     "name": "NominationPools_UnbondDeposit",
     "blob": "121415110200d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Unbond deposit",
+      "1 | Pool id : 135445",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -742,7 +1232,16 @@
     "name": "NominationPools_WithdrawDeposit",
     "blob": "1215d2040000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Withdraw deposit",
+      "1 | Pool id : 1234",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      
     ],
     "output_expert": [
       "0 |  : ",
@@ -760,7 +1259,18 @@
     "name": "NominationPools_WithdrawUnbonded",
     "blob": "120588130000003718749eb620f681839e2db939d3b4104a1f23c512e70fce88354fb1a00e6ea70a000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Withdraw Unbonded",
+      "1 | Pool id : 5000",
+      "2 | Member account [1/2] : enBvhDVMmdd5pA2QLwmZ5VDjDgpujt4pHdBCcm",
+      "2 | Member account [2/2] : cYy6B6XkyhN",
+      "3 | Num slashing spans : 10",
+      "4 | Chain : Enjin Chain",
+      "5 | Nonce : 2339",
+      "6 | Tip : ENJ 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "9 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ],
     "output_expert": [
       "0 |  : ",
@@ -778,7 +1288,17 @@
     "name": "NominationPools_SetConfigs",
     "blob": "120b000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Nominationpools : Set configs",
+      "1 | Min join bond : Noop",
+      "2 | Min create bond : Noop",
+      "3 | Global max commission : Noop",
+      "4 | Chain : Enjin Chain",
+      "5 | Nonce : 2339",
+      "6 | Tip : ENJ 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "9 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ],
     "output_expert": [
       "0 |  : ",
