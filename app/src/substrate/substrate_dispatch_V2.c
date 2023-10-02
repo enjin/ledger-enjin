@@ -1457,19 +1457,21 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
             return 2;
         case 2322: /* module 9 call 18 */
             return 2;
-        case 2324: /* module 9 call 19 */
+        case 2323: /* module 9 call 19 */
             return 1;
-        case 2325: /* module 9 call 20 */
+        case 2324: /* module 9 call 20 */
+            return 2;
+        case 2325: /* module 9 call 21 */
             return 1;
-        case 2326: /* module 9 call 21 */
+        case 2326: /* module 9 call 22 */
+            return 6;
+        case 2327: /* module 9 call 23 */
             return 1;
-        case 2327: /* module 9 call 22 */
+        case 2328: /* module 9 call 24 */
             return 1;
-        case 2328: /* module 9 call 23 */
+        case 2329: /* module 9 call 25 */
             return 1;
-        case 2329: /* module 9 call 24 */
-            return 1;
-        case 2330: /* module 9 call 25 */
+        case 2330: /* module 9 call 26 */
             return 1;
         case 4619: /* module 18 call 11 */
             return 3;
