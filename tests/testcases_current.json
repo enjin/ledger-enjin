@@ -4,16 +4,23 @@
     "name": "StakeExchange_AddLiquidity",
     "blob": "13049f28561d8b3b00000000000000000000000080f64ae1c7022d15000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : addLiquidity "
+      "0 | Stakeexchange : Add liquidity",
+      "1 | Offer id : 65468678678687",
+      "2 | Amount : ENJ 100000.0",
+      "3 | Tip : ENJ 0.00000000123456789"
+      
     ],
     "output_expert": [
-      "0 |  : ",
+      "0 | Stakeexchange : Add liquidity",
+      "1 | Offer id : 65468678678687",
+      "2 | Amount : ENJ 100000.0",
       "3 | Chain : Enjin Chain",
-      "4 | Nonce : 50283",
-      "5 | Era Phase : 61",
-      "6 | Era Period : 64",
-      "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
-      "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ]
   },
   {
@@ -21,16 +28,25 @@
     "name": "StakeExchange_Buy",
     "blob": "1305d9d82fffbe9c65404af6d00f000000000000002114ee2b90241a00000000000001000000000000000000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Stakeexchange : Buy",
+      "1 | Offer id : 4894894789654153621654198489",
+      "2 | Amount : ENJ 123456.0",
+      "3 | Token id : 1",
+      "4 | Tip : ENJ 0.00000000123456789"
+      
     ],
     "output_expert": [
-      "0 |  : ",
-      "3 | Chain : Enjin Chain",
-      "4 | Nonce : 50283",
-      "5 | Era Phase : 61",
-      "6 | Era Period : 64",
-      "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
-      "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      "0 | Stakeexchange : Buy",
+      "1 | Offer id : 4894894789654153621654198489",
+      "2 | Amount : ENJ 123456.0",
+      "3 | Token id : 1",
+      "4 | Chain : Enjin Chain",
+      "5 | Nonce : 2339",
+      "6 | Tip : ENJ 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "9 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ]
   },
   {
@@ -38,12 +54,17 @@
     "name": "StakeExchange_CancelOffer",
     "blob": "13015f86dbe1e7bde8d69d821d0200000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Cancel offer "
+      "0 | Stakeexchange : Cancel offer",
+      "1 | Offer id : 654645687678943132131231327",
+      "2 | Tip : ENJ 0.00000000123456789"
+      
     ],
     "output_expert": [
-      "0 |  : ",
-      "3 | Chain : Enjin Chain",
-      "4 | Nonce : 50283",
+      "0 | Stakeexchange : Cancel offer",
+      "1 | Offer id : 654645687678943132131231327",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
       "5 | Era Phase : 61",
       "6 | Era Period : 64",
       "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
@@ -53,14 +74,18 @@
   {
     "index": 44,
     "name": "StakeExchange_ConfigureLiquidityAccount",
-    "blob": "13020100130200d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
+    "blob": "130200d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config : All",
+      "2 | Tip : ENJ 0.00000000123456789"
     ],
     "output_expert": [
-      "0 |  : ",
-      "3 | Chain : Enjin Chain",
-      "4 | Nonce : 50283",
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config : All",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
       "5 | Era Phase : 61",
       "6 | Era Period : 64",
       "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
@@ -72,12 +97,17 @@
     "name": "StakeExchange_ConfigureLiquidityAccount",
     "blob": "13020104093753e95598b6010000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config : 123453534553454345",
+      "2 | Tip : ENJ 0.00000000123456789"
+      
     ],
     "output_expert": [
-      "0 |  : ",
-      "3 | Chain : Enjin Chain",
-      "4 | Nonce : 50283",
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config : 123453534553454345",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
       "5 | Era Phase : 61",
       "6 | Era Period : 64",
       "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
@@ -86,15 +116,22 @@
   },
   {
     "index": 46,
-    "name": "",
+    "name": "StakeExchange_ConfigureLiquidityAccount",
     "blob": "1302010801000000000000000000000000000000093753e95598b6010000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config [1/2] : 1",
+      "1 | Config [2/2] : 123453534553454345",
+      "2 | Tip : ENJ 0.00000000123456789"
+      
     ],
     "output_expert": [
-      "0 |  : ",
-      "3 | Chain : Enjin Chain",
-      "4 | Nonce : 50283",
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config [1/2] : 1",
+      "1 | Config [2/2] : 123453534553454345",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
       "5 | Era Phase : 61",
       "6 | Era Period : 64",
       "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
@@ -106,12 +143,17 @@
     "name": "StakeExchange_ConfigureLiquidityAccount",
     "blob": "13020200d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config : <Empty>",
+      "2 | Tip : ENJ 0.00000000123456789"
+      
     ],
     "output_expert": [
-      "0 |  : ",
-      "3 | Chain : Enjin Chain",
-      "4 | Nonce : 50283",
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config : <Empty>",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
       "5 | Era Phase : 61",
       "6 | Era Period : 64",
       "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
@@ -123,12 +165,16 @@
     "name": "StakeExchange_ConfigureLiquidityAccount",
     "blob": "1302020401000000000000000000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config : 1",
+      "2 | Tip : ENJ 0.00000000123456789"
     ],
     "output_expert": [
-      "0 |  : ",
-      "3 | Chain : Enjin Chain",
-      "4 | Nonce : 50283",
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config : 1",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
       "5 | Era Phase : 61",
       "6 | Era Period : 64",
       "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
@@ -139,12 +185,19 @@
     "index": 49,
     "name": "StakeExchange_ConfigureLiquidityAccount",
     "blob": "13020208010000000000000000000000000000008d0a0d33c5d2940d0000000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",    "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config [1/2] : 1",
+      "1 | Config [2/2] : 978638763453123213",
+      "2 | Tip : ENJ 0.00000000123456789"
+      
     ],
     "output_expert": [
-      "0 |  : ",
-      "3 | Chain : Enjin Chain",
-      "4 | Nonce : 50283",
+      "0 | Stakeexchange : Configure liquidity account",
+      "1 | Config [1/2] : 1",
+      "1 | Config [2/2] : 978638763453123213",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
       "5 | Era Phase : 61",
       "6 | Era Period : 64",
       "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
@@ -156,12 +209,24 @@
     "name": "StakeExchange_CreateOffer",
     "blob": "13003718749eb620f681839e2db939d3b4104a1f23c512e70fce88354fb1a00e6ea7640000000000000000000000000000000100000000000000000000000000000000e1f505d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Stakeexchange : Create offer",
+      "1 | Offer [1/5] : enBvhDVMmdd5pA2QLwmZ5VDjDgpujt4pHdBCcm",
+      "1 | Offer [2/5] : cYy6B6XkyhN",
+      "1 | Offer [3/5] : 100",
+      "1 | Offer [4/5] : 1",
+      "1 | Offer [5/5] : 10.0000000%",
+      "2 | Tip : ENJ 0.00000000123456789"
     ],
     "output_expert": [
-      "0 |  : ",
-      "3 | Chain : Enjin Chain",
-      "4 | Nonce : 50283",
+      "0 | Stakeexchange : Create offer",
+      "1 | Offer [1/5] : enBvhDVMmdd5pA2QLwmZ5VDjDgpujt4pHdBCcm",
+      "1 | Offer [2/5] : cYy6B6XkyhN",
+      "1 | Offer [3/5] : 100",
+      "1 | Offer [4/5] : 1",
+      "1 | Offer [5/5] : 10.0000000%",
+      "2 | Chain : Enjin Chain",
+      "3 | Nonce : 2339",
+      "4 | Tip : ENJ 0.00000000123456789",
       "5 | Era Phase : 61",
       "6 | Era Period : 64",
       "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
@@ -173,16 +238,22 @@
     "name": "StakeExchange_WithdrawLiquidity",
     "blob": "130389e17ef8fd1adbad0300000000000000000010632d5ec76b0500000000000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
     "output": [
-      "0 | StakeExchange : Buy "
+      "0 | Stakeexchange : Withdraw liquidity",
+      "1 | Offer id : 67867868687687934345",
+      "2 | Amount : ENJ 100.0",
+      "3 | Tip : ENJ 0.00000000123456789"
     ],
     "output_expert": [
-      "0 |  : ",
+      "0 | Stakeexchange : Withdraw liquidity",
+      "1 | Offer id : 67867868687687934345",
+      "2 | Amount : ENJ 100.0",
       "3 | Chain : Enjin Chain",
-      "4 | Nonce : 50283",
-      "5 | Era Phase : 61",
-      "6 | Era Period : 64",
-      "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
-      "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
+      "4 | Nonce : 2339",
+      "5 | Tip : ENJ 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
+      "8 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ]
   }
 ]
