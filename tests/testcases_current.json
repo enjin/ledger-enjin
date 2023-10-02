@@ -8223,23 +8223,5 @@
       "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
       "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
     ]
-  },
-  {
-    "index": 363,
-    "name": "NominationPools_SetConfigs",
-    "blob": "120b000000d5038d2403d20296496600000002000000d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9d8761d3c88f26dc12875c00d3165f7d67243d56fc85b4cf19937601a7916e5a9",
-    "output": [
-      "0 | StakeExchange : Buy "
-    ],
-    "output_expert": [
-      "0 |  : ",
-      "3 | Chain : Enjin Chain",
-      "4 | Nonce : 2339",
-      "6 | Tip : ENJ 0.00000000123456789",
-      "5 | Era Phase : 61",
-      "6 | Era Period : 64",
-      "7 | Block [1/2] : d8761d3c88f26dc12875c00d3165f7d67243d5",
-      "7 | Block [2/2] : 6fc85b4cf19937601a7916e5a9"
-    ]
   }
 ]
