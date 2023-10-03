@@ -950,33 +950,6 @@ parser_error_t _readValidatorPrefs(parser_context_t* c, pd_ValidatorPrefs_t* v)
     return parser_ok;
 }
 
-parser_error_t _readVecCall(parser_context_t* c, pd_VecCall_t* v)
-{
-    compactInt_t clen;
-    pd_Call_t dummy;
-    CHECK_PARSER_ERR(_readCompactInt(c, &clen));
-    CHECK_PARSER_ERR(_getValue(&clen, &v->_len));
-
-    if (v->_len > MAX_CALL_VEC_SIZE) {
-        return parser_tx_call_vec_too_large;
-    }
-
-    v->_ptr = c->buffer + c->offset;
-    v->_lenBuffer = c->offset;
-    if (v->_len == 0) {
-        return parser_unexpected_buffer_end;
-    }
-
-    for (uint64_t i = 0; i < v->_len; i++) {
-        c->tx_obj->nestCallIdx.slotIdx = 0;
-        CHECK_ERROR(_readCall(c, &dummy))
-    }
-    v->_lenBuffer = c->offset - v->_lenBuffer;
-    v->callTxVersion = c->tx_obj->transactionVersion;
-
-    return parser_ok;
-}
-
 parser_error_t _readStakingInfo(parser_context_t* c, pd_StakingInfo_t* v)
 {
     CHECK_INPUT()
