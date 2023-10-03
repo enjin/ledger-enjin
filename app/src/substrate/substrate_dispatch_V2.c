@@ -773,42 +773,42 @@ parser_error_t _readMethod_V2(
     switch (callPrivIdx) {
 
         case 1536: /* module 6 call 0 */
-        CHECK_ERROR(_readMethod_balances_transfer_allow_death_V2(c, &method->nested.balances_transfer_allow_death_V2))
+        CHECK_ERROR(_readMethod_balances_transfer_allow_death_V2(c, &method->basic.balances_transfer_allow_death_V2))
             break;
         case 1539: /* module 6 call 3 */
-        CHECK_ERROR(_readMethod_balances_transfer_keep_alive_V2(c, &method->nested.balances_transfer_keep_alive_V2))
+        CHECK_ERROR(_readMethod_balances_transfer_keep_alive_V2(c, &method->basic.balances_transfer_keep_alive_V2))
             break;
         case 1540: /* module 6 call 4 */
         CHECK_ERROR(_readMethod_balances_transfer_all_V2(c, &method->basic.balances_transfer_all_V2))
             break;
         case 1543: /* module 6 call 7 */
-        CHECK_ERROR(_readMethod_balances_transfer_V2(c, &method->nested.balances_transfer_V2))
+        CHECK_ERROR(_readMethod_balances_transfer_V2(c, &method->basic.balances_transfer_V2))
             break;
         case 4608: /* module 18 call 0 */
-        CHECK_ERROR(_readMethod_nominationpools_bond_V2(c, &method->nested.nominationpools_bond_V2))
+        CHECK_ERROR(_readMethod_nominationpools_bond_V2(c, &method->basic.nominationpools_bond_V2))
             break;
         case 4611: /* module 18 call 3 */
-        CHECK_ERROR(_readMethod_nominationpools_unbond_V2(c, &method->nested.nominationpools_unbond_V2))
+        CHECK_ERROR(_readMethod_nominationpools_unbond_V2(c, &method->basic.nominationpools_unbond_V2))
             break;
         case 4612: /* module 18 call 4 */
         CHECK_ERROR(_readMethod_nominationpools_pool_withdraw_unbonded_V2(c,
-                                                                          &method->nested.nominationpools_pool_withdraw_unbonded_V2))
+                                                                          &method->basic.nominationpools_pool_withdraw_unbonded_V2))
             break;
         case 4613: /* module 18 call 5 */
         CHECK_ERROR(
                 _readMethod_nominationpools_withdraw_unbonded_V2(c, &method->basic.nominationpools_withdraw_unbonded_V2))
             break;
         case 4614: /* module 18 call 6 */
-        CHECK_ERROR(_readMethod_nominationpools_create_V2(c, &method->nested.nominationpools_create_V2))
+        CHECK_ERROR(_readMethod_nominationpools_create_V2(c, &method->basic.nominationpools_create_V2))
             break;
         case 4616: /* module 18 call 8 */
-        CHECK_ERROR(_readMethod_nominationpools_nominate_V2(c, &method->nested.nominationpools_nominate_V2))
+        CHECK_ERROR(_readMethod_nominationpools_nominate_V2(c, &method->basic.nominationpools_nominate_V2))
             break;
         case 4621: /* module 18 call 13 */
-        CHECK_ERROR(_readMethod_nominationpools_chill_V2(c, &method->nested.nominationpools_chill_V2))
+        CHECK_ERROR(_readMethod_nominationpools_chill_V2(c, &method->basic.nominationpools_chill_V2))
             break;
         case 4622: /* module 18 call 14 */
-        CHECK_ERROR(_readMethod_nominationpools_destroy_V2(c, &method->nested.nominationpools_destroy_V2))
+        CHECK_ERROR(_readMethod_nominationpools_destroy_V2(c, &method->basic.nominationpools_destroy_V2))
             break;
         case 4626: /* module 18 call 18 */
         CHECK_ERROR(_readMethod_nominationpools_payout_rewards_V2(c,
@@ -818,10 +818,10 @@ parser_error_t _readMethod_V2(
          CHECK_ERROR(_readMethod_nominationpools_mutate_V2(c, &method->basic.nominationpools_mutate_V2))
              break;
         case 4628: /* module 18 call 20 */
-        CHECK_ERROR(_readMethod_nominationpools_unbond_deposit_V2(c, &method->nested.nominationpools_unbond_deposit_V2))
+        CHECK_ERROR(_readMethod_nominationpools_unbond_deposit_V2(c, &method->basic.nominationpools_unbond_deposit_V2))
             break;
         case 4629: /* module 18 call 21 */
-        CHECK_ERROR(_readMethod_nominationpools_withdraw_deposit_V2(c, &method->nested.nominationpools_withdraw_deposit_V2))
+        CHECK_ERROR(_readMethod_nominationpools_withdraw_deposit_V2(c, &method->basic.nominationpools_withdraw_deposit_V2))
             break;
         case 4631: /* module 18 call 23 */
         CHECK_ERROR(_readMethod_nominationpools_queue_early_bird_bonus_V2(c,
@@ -915,7 +915,7 @@ parser_error_t _readMethod_V2(
         CHECK_ERROR(_readMethod_multitokens_batch_mint_V2(c, &method->basic.multitokens_batch_mint_V2))
             break;
         case 1538: /* module 6 call 2 */
-        CHECK_ERROR(_readMethod_balances_force_transfer_V2(c, &method->nested.balances_force_transfer_V2))
+        CHECK_ERROR(_readMethod_balances_force_transfer_V2(c, &method->basic.balances_force_transfer_V2))
             break;
         case 1541: /* module 6 call 5 */
         CHECK_ERROR(_readMethod_balances_force_unreserve_V2(c, &method->basic.balances_force_unreserve_V2))
@@ -967,31 +967,31 @@ parser_error_t _readMethod_V2(
             break;
 #endif
         case 2304: /* module 9 call 0 */
-        CHECK_ERROR(_readMethod_staking_bond_V2(c, &method->nested.staking_bond_V2))
+        CHECK_ERROR(_readMethod_staking_bond_V2(c, &method->basic.staking_bond_V2))
             break;
         case 2305: /* module 9 call 1 */
-        CHECK_ERROR(_readMethod_staking_bond_extra_V2(c, &method->nested.staking_bond_extra_V2))
+        CHECK_ERROR(_readMethod_staking_bond_extra_V2(c, &method->basic.staking_bond_extra_V2))
             break;
         case 2306: /* module 9 call 2 */
-        CHECK_ERROR(_readMethod_staking_unbond_V2(c, &method->nested.staking_unbond_V2))
+        CHECK_ERROR(_readMethod_staking_unbond_V2(c, &method->basic.staking_unbond_V2))
             break;
         case 2307: /* module 9 call 3 */
-        CHECK_ERROR(_readMethod_staking_withdraw_unbonded_V2(c, &method->nested.staking_withdraw_unbonded_V2))
+        CHECK_ERROR(_readMethod_staking_withdraw_unbonded_V2(c, &method->basic.staking_withdraw_unbonded_V2))
             break;
         case 2308: /* module 9 call 4 */
         CHECK_ERROR(_readMethod_staking_validate_V2(c, &method->basic.staking_validate_V2))
             break;
         case 2309: /* module 9 call 5 */
-        CHECK_ERROR(_readMethod_staking_nominate_V2(c, &method->nested.staking_nominate_V2))
+        CHECK_ERROR(_readMethod_staking_nominate_V2(c, &method->basic.staking_nominate_V2))
             break;
         case 2310: /* module 9 call 6 */
-        CHECK_ERROR(_readMethod_staking_chill_V2(c, &method->nested.staking_chill_V2))
+        CHECK_ERROR(_readMethod_staking_chill_V2(c, &method->basic.staking_chill_V2))
             break;
         case 2311: /* module 9 call 7 */
-        CHECK_ERROR(_readMethod_staking_set_payee_V2(c, &method->nested.staking_set_payee_V2))
+        CHECK_ERROR(_readMethod_staking_set_payee_V2(c, &method->basic.staking_set_payee_V2))
             break;
         case 2312: /* module 9 call 8 */
-        CHECK_ERROR(_readMethod_staking_set_controller_V2(c, &method->nested.staking_set_controller_V2))
+        CHECK_ERROR(_readMethod_staking_set_controller_V2(c, &method->basic.staking_set_controller_V2))
             break;
         case 2313: /* module 9 call 9 */
         CHECK_ERROR(_readMethod_staking_set_validator_count_V2(c, &method->basic.staking_set_validator_count_V2))
@@ -1024,7 +1024,7 @@ parser_error_t _readMethod_V2(
         CHECK_ERROR(_readMethod_staking_payout_stakers_V2(c, &method->basic.staking_payout_stakers_V2))
             break;
         case 2323: /* module 9 call 19 */
-        CHECK_ERROR(_readMethod_staking_rebond_V2(c, &method->nested.staking_rebond_V2))
+        CHECK_ERROR(_readMethod_staking_rebond_V2(c, &method->basic.staking_rebond_V2))
             break;
         case 2324: /* module 9 call 20 */
         CHECK_ERROR(_readMethod_staking_reap_stash_V2(c, &method->basic.staking_reap_stash_V2))
@@ -2322,12 +2322,12 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* balances_transfer_allow_death_V2 - dest */;
                     return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_transfer_allow_death_V2.dest,
+                            &m->basic.balances_transfer_allow_death_V2.dest,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* balances_transfer_allow_death_V2 - amount */;
                     return _toStringCompactBalance(
-                            &m->nested.balances_transfer_allow_death_V2.amount,
+                            &m->basic.balances_transfer_allow_death_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -2337,12 +2337,12 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* balances_transfer_keep_alive_V2 - dest */;
                     return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_transfer_keep_alive_V2.dest,
+                            &m->basic.balances_transfer_keep_alive_V2.dest,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* balances_transfer_keep_alive_V2 - amount */;
                     return _toStringCompactBalance(
-                            &m->nested.balances_transfer_keep_alive_V2.amount,
+                            &m->basic.balances_transfer_keep_alive_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -2367,12 +2367,12 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* balances_transfer_V2 - dest */;
                     return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_transfer_V2.dest,
+                            &m->basic.balances_transfer_V2.dest,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* balances_transfer_V2 - amount */;
                     return _toStringCompactBalance(
-                            &m->nested.balances_transfer_V2.amount,
+                            &m->basic.balances_transfer_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -2382,12 +2382,12 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* nominationpools_bond_V2 - pool_id */;
                     return _toStringPoolId(
-                            &m->nested.nominationpools_bond_V2.pool_id,
+                            &m->basic.nominationpools_bond_V2.pool_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* nominationpools_bond_V2 - amount */;
                     return _toStringBondValueOfT(
-                            &m->nested.nominationpools_bond_V2.amount,
+                            &m->basic.nominationpools_bond_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -2397,17 +2397,17 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* nominationpools_unbond_V2 - pool_id */;
                     return _toStringPoolId(
-                            &m->nested.nominationpools_unbond_V2.pool_id,
+                            &m->basic.nominationpools_unbond_V2.pool_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* nominationpools_unbond_V2 - member_account */;
                     return _toStringAccountIdLookupOfT(
-                            &m->nested.nominationpools_unbond_V2.member_account,
+                            &m->basic.nominationpools_unbond_V2.member_account,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 2: /* nominationpools_unbond_V2 - unbonding_points */;
                     return _toStringCompactBalance(
-                            &m->nested.nominationpools_unbond_V2.unbonding_points,
+                            &m->basic.nominationpools_unbond_V2.unbonding_points,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -2417,12 +2417,12 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* nominationpools_pool_withdraw_unbonded_V2 - pool_id */;
                     return _toStringPoolId(
-                            &m->nested.nominationpools_pool_withdraw_unbonded_V2.pool_id,
+                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.pool_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* nominationpools_pool_withdraw_unbonded_V2 - num_slashing_spans */;
                     return _toStringu32(
-                            &m->nested.nominationpools_pool_withdraw_unbonded_V2.num_slashing_spans,
+                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.num_slashing_spans,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -2452,32 +2452,32 @@ parser_error_t _getMethod_ItemValue_V2(
              switch (itemIdx) {
                  case 0: /* nominationpools_create_V2 - token_id */;
                      return _toStringTokenIdOf(
-                             &m->nested.nominationpools_create_V2.token_id,
+                             &m->basic.nominationpools_create_V2.token_id,
                              outValue, outValueLen,
                              pageIdx, pageCount);
                  case 1: /* nominationpools_create_V2 - deposit */;
                      return _toStringCompactBalance(
-                             &m->nested.nominationpools_create_V2.deposit,
+                             &m->basic.nominationpools_create_V2.deposit,
                              outValue, outValueLen,
                              pageIdx, pageCount);
                  case 2: /* nominationpools_create_V2 - capacity */;
                      return _toStringCompactBalance(
-                             &m->nested.nominationpools_create_V2.capacity,
+                             &m->basic.nominationpools_create_V2.capacity,
                              outValue, outValueLen,
                              pageIdx, pageCount);
                  case 3: /* nominationpools_create_V2 - duration */;
                      return _toStringCompactIndex(
-                             &m->nested.nominationpools_create_V2.duration,
+                             &m->basic.nominationpools_create_V2.duration,
                              outValue, outValueLen,
                              pageIdx, pageCount);
                  case 4: /* nominationpools_create_V2 - admin */;
                      return _toStringAccountIdLookupOfT(
-                             &m->nested.nominationpools_create_V2.admin,
+                             &m->basic.nominationpools_create_V2.admin,
                              outValue, outValueLen,
                              pageIdx, pageCount);
                  case 5: /* nominationpools_create_V2 - nominator */;
                      return _toStringAccountIdLookupOfT(
-                             &m->nested.nominationpools_create_V2.nominator,
+                             &m->basic.nominationpools_create_V2.nominator,
                              outValue, outValueLen,
                              pageIdx, pageCount);
                  default:
@@ -2487,12 +2487,12 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* nominationpools_nominate_V2 - pool_id */;
                     return _toStringPoolId(
-                            &m->nested.nominationpools_nominate_V2.pool_id,
+                            &m->basic.nominationpools_nominate_V2.pool_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* nominationpools_nominate_V2 - validators */;
                     return _toStringVecAccountId(
-                            &m->nested.nominationpools_nominate_V2.validators,
+                            &m->basic.nominationpools_nominate_V2.validators,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -2502,7 +2502,7 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* nominationpools_chill_V2 - pool_id */;
                     return _toStringPoolId(
-                            &m->nested.nominationpools_chill_V2.pool_id,
+                            &m->basic.nominationpools_chill_V2.pool_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -2512,7 +2512,7 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* nominationpools_destroy_V2 - pool_id */;
                     return _toStringPoolId(
-                            &m->nested.nominationpools_destroy_V2.pool_id,
+                            &m->basic.nominationpools_destroy_V2.pool_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -2552,7 +2552,7 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* nominationpools_unbond_deposit_V2 - pool_id */;
                     return _toStringPoolId(
-                            &m->nested.nominationpools_unbond_deposit_V2.pool_id,
+                            &m->basic.nominationpools_unbond_deposit_V2.pool_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -2562,7 +2562,7 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* nominationpools_withdraw_deposit_V2 - pool_id */;
                     return _toStringPoolId(
-                            &m->nested.nominationpools_withdraw_deposit_V2.pool_id,
+                            &m->basic.nominationpools_withdraw_deposit_V2.pool_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -3044,17 +3044,17 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* balances_force_transfer_V2 - source */;
                     return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_force_transfer_V2.source,
+                            &m->basic.balances_force_transfer_V2.source,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* balances_force_transfer_V2 - dest */;
                     return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_force_transfer_V2.dest,
+                            &m->basic.balances_force_transfer_V2.dest,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 2: /* balances_force_transfer_V2 - amount */;
                     return _toStringCompactBalance(
-                            &m->nested.balances_force_transfer_V2.amount,
+                            &m->basic.balances_force_transfer_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -3365,12 +3365,12 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* staking_bond_V2 - amount */;
                     return _toStringCompactBalance(
-                            &m->nested.staking_bond_V2.amount,
+                            &m->basic.staking_bond_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 case 1: /* staking_bond_V2 - payee */;
                     return _toStringRewardDestination(
-                            &m->nested.staking_bond_V2.payee,
+                            &m->basic.staking_bond_V2.payee,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -3380,7 +3380,7 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* staking_bond_extra_V2 - amount */;
                     return _toStringCompactBalance(
-                            &m->nested.staking_bond_extra_V2.amount,
+                            &m->basic.staking_bond_extra_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -3390,7 +3390,7 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* staking_unbond_V2 - amount */;
                     return _toStringCompactBalance(
-                            &m->nested.staking_unbond_V2.amount,
+                            &m->basic.staking_unbond_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -3400,7 +3400,7 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* staking_withdraw_unbonded_V2 - num_slashing_spans */;
                     return _toStringu32(
-                            &m->nested.staking_withdraw_unbonded_V2.num_slashing_spans,
+                            &m->basic.staking_withdraw_unbonded_V2.num_slashing_spans,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -3420,7 +3420,7 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* staking_nominate_V2 - targets */;
                     return _toStringVecAccountIdLookupOfT(
-                            &m->nested.staking_nominate_V2.targets,
+                            &m->basic.staking_nominate_V2.targets,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -3435,7 +3435,7 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* staking_set_payee_V2 - payee */;
                     return _toStringRewardDestination(
-                            &m->nested.staking_set_payee_V2.payee,
+                            &m->basic.staking_set_payee_V2.payee,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -3550,7 +3550,7 @@ parser_error_t _getMethod_ItemValue_V2(
             switch (itemIdx) {
                 case 0: /* staking_rebond_V2 - value */;
                     return _toStringCompactBalance(
-                            &m->nested.staking_rebond_V2.value,
+                            &m->basic.staking_rebond_V2.value,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
@@ -3708,40 +3708,6 @@ bool _getMethod_ItemIsExpert_V2(uint8_t moduleIdx, uint8_t callIdx, __Z_UNUSED u
                 default:
                     return false;
             }
-        default:
-            return false;
-    }
-}
-
-bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
-{
-    uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
-
-    switch (callPrivIdx) {
-        case 2308: // Staking:Validate
-        case 2313: // Staking:Set validator count
-        case 2314: // Staking:Increase validator count
-        case 2315: // Staking:Scale validator count
-        case 2316: // Staking:Force no eras
-        case 2317: // Staking:Force new era
-        case 2318: // Staking:Set invulnerables
-        case 2319: // Staking:Force unstake
-        case 2320: // Staking:Force new era always
-        case 2321: // Staking:Cancel deferred slash
-        case 2322: // Staking:Payout stakers
-        case 2324: // Staking:Reap stash
-        case 2328: // Staking:Force apply min commission
-        case 2329: // Staking:Set min commission
-        case 4608: // NominationPools:Bond
-        case 4611: // NominationPools:Unbond
-        case 4612: // NominationPools:Pool withdraw unbonded
-        case 4614: // NominationPools:Create
-        case 4616: // NominationPools:Nominate
-        case 4621: // NominationPools:Chill
-        case 4622: // NominationPools:Destroy
-        case 4628: // NominationPools:Unbond deposit
-        case 4629: // NominationPools:Withdraw deposit
-            return true;
         default:
             return false;
     }

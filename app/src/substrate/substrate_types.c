@@ -69,46 +69,6 @@ parser_error_t _readCompactu64(parser_context_t* c, pd_Compactu64_t* v)
     return _readCompactInt(c, v);
 }
 
-parser_error_t _readCallImpl(parser_context_t* c, pd_Call_t* v, pd_MethodNested_t* m)
-{
-    // If it's the first Call, store a pointer to it
-    if (c->tx_obj->nestCallIdx._ptr == NULL) {
-        c->tx_obj->nestCallIdx._ptr = c->buffer + c->offset;
-        c->tx_obj->nestCallIdx._lenBuffer = c->bufferLen - c->offset;
-    } else {
-        // If _ptr is not null, and landed here, means we're inside a nested call.
-        // We stored the pointer to the first Call and now we store
-        // the pointer to the 'next' Call.
-        if (c->tx_obj->nestCallIdx._nextPtr == NULL) {
-            c->tx_obj->nestCallIdx._nextPtr = c->buffer + c->offset;
-        }
-    }
-
-    // To keep track on how many nested Calls we have
-    c->tx_obj->nestCallIdx.slotIdx++;
-    if (c->tx_obj->nestCallIdx.slotIdx > MAX_CALL_NESTING_SIZE) {
-        return parser_tx_nesting_limit_reached;
-    }
-
-    CHECK_ERROR(_readCallIndex(c, &v->callIndex));
-
-    if (!_getMethod_IsNestingSupported(c->tx_obj->transactionVersion, v->callIndex.moduleIdx, v->callIndex.idx)) {
-        return parser_tx_nesting_not_supported;
-    }
-
-    // Read and check the contained method on this Call
-    CHECK_ERROR(_readMethod(c, v->callIndex.moduleIdx, v->callIndex.idx, (pd_Method_t*)m))
-
-    // The instance of 'v' corresponding to the upper call on the stack (persisted variable)
-    // will end up having the pointer to the first Call and to the 'next' one if exists.
-    v->_txVerPtr = &c->tx_obj->transactionVersion;
-    v->nestCallIdx._lenBuffer = c->tx_obj->nestCallIdx._lenBuffer;
-    v->nestCallIdx._ptr = c->tx_obj->nestCallIdx._ptr;
-    v->nestCallIdx._nextPtr = c->tx_obj->nestCallIdx._nextPtr;
-
-    return parser_ok;
-}
-
 ///////////////////////////////////
 ///////////////////////////////////
 ///////////////////////////////////
@@ -890,25 +850,6 @@ parser_error_t _readOptionAccountIdLookupOfT(parser_context_t* c, pd_OptionAccou
     if (v->some > 0) {
     CHECK_ERROR(_readAccountIdLookupOfT(c, &v->contained))
     }
-    return parser_ok;
-}
-
-parser_error_t _readCall(parser_context_t* c, pd_Call_t* v)
-{
-    pd_MethodNested_t _method;
-    if (c->tx_obj->nestCallIdx.isTail) {
-        c->tx_obj->nestCallIdx.isTail = false;
-        v->nestCallIdx.isTail = true;
-    } else {
-        v->nestCallIdx.isTail = false;
-    }
-
-    CHECK_ERROR(_readCallImpl(c, v, &_method))
-    if (c->tx_obj->nestCallIdx._ptr != NULL && c->tx_obj->nestCallIdx._nextPtr != NULL) {
-        v->nestCallIdx._ptr = c->tx_obj->nestCallIdx._ptr;
-        v->nestCallIdx._nextPtr = c->tx_obj->nestCallIdx._nextPtr;
-    }
-    v->nestCallIdx.slotIdx = c->tx_obj->nestCallIdx.slotIdx;
     return parser_ok;
 }
 
