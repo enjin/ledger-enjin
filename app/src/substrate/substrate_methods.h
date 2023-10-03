@@ -34,10 +34,6 @@ typedef union {
     pd_Method_V2_t V2;
 } pd_Method_t;
 
-typedef union {
-    pd_MethodNested_V2_t V2;
-} pd_MethodNested_t;
-
 #ifdef __cplusplus
 }
 #endif
