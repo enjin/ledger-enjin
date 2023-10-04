@@ -21,7 +21,8 @@ extern "C" {
 
 #include "parser_common.h"
 #include "stdbool.h"
-#include "substrate_dispatch_V2.h"
+#include "substrate_dispatch_V23.h"
+#include "substrate_dispatch_V24.h"
 #include <stddef.h>
 #include <stdint.h>
 
@@ -32,8 +33,11 @@ extern "C" {
     {                                              \
         switch (txVersion) {                       \
                                                    \
-        case 2:                                    \
-            return PD_CALL_##CALL##_V2;            \
+        case 24:                                   \
+            return PD_CALL_##CALL##_V24;           \
+                                                   \
+        case 23:                                   \
+            return PD_CALL_##CALL##_V23;           \
                                                    \
         default:                                   \
             return 0;                              \
@@ -53,6 +57,7 @@ parser_error_t _getMethod_ItemValue(
     uint8_t pageIdx, uint8_t* pageCount);
 
 bool _getMethod_ItemIsExpert(uint32_t transactionVersion, uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx);
+bool _getMethod_IsNestingSupported(uint32_t transactionVersion, uint8_t moduleIdx, uint8_t callIdx);
 
 #ifdef __cplusplus
 }
