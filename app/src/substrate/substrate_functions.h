@@ -211,6 +211,7 @@ parser_error_t _readPoolMutationOfT(parser_context_t* c, pd_PoolMutationOfT_t* v
 parser_error_t _readLiquidityAccountConfigOfT(parser_context_t* c, pd_LiquidityAccountConfigOfT_t * v);
 parser_error_t _readOptionAccountIdLookupOfT(parser_context_t* c, pd_OptionAccountIdLookupOfT_t* v);
 parser_error_t _readStakingInfo(parser_context_t* c, pd_StakingInfo_t* v);
+parser_error_t _readBondValueOfT(parser_context_t* c, pd_BondValueOfT_t* v);
 
 // Common toString functions
 
@@ -755,6 +756,13 @@ parser_error_t _toStringSr25519Signature(
     uint16_t outValueLen,
     uint8_t pageIdx,
     uint8_t* pageCount);
+
+parser_error_t _toStringStakingInfo(
+        const pd_StakingInfo_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
 
 parser_error_t _toStringTupleDataData(
     const pd_TupleDataData_t* v,
