@@ -22,6 +22,124 @@
 #include "bolos_target.h"
 #endif
 
+__Z_INLINE parser_error_t _readMethod_balances_transfer_allow_death_V2(
+    parser_context_t* c, pd_balances_transfer_allow_death_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_balances_force_transfer_V2(
+    parser_context_t* c, pd_balances_force_transfer_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->source))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_balances_transfer_keep_alive_V2(
+    parser_context_t* c, pd_balances_transfer_keep_alive_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_balances_transfer_all_V2(
+    parser_context_t* c, pd_balances_transfer_all_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
+    CHECK_ERROR(_readbool(c, &m->keep_alive))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_balances_transfer_V2(
+    parser_context_t* c, pd_balances_transfer_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_crowdloan_create_V2(
+    parser_context_t* c, pd_crowdloan_create_V2_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->index))
+    CHECK_ERROR(_readCompactu128(c, &m->cap))
+    CHECK_ERROR(_readCompactu32(c, &m->first_period))
+    CHECK_ERROR(_readCompactu32(c, &m->last_period))
+    CHECK_ERROR(_readCompactu32(c, &m->end))
+    CHECK_ERROR(_readOptionMultiSigner(c, &m->verifier))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_crowdloan_contribute_V2(
+    parser_context_t* c, pd_crowdloan_contribute_V2_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->index))
+    CHECK_ERROR(_readCompactu128(c, &m->amount))
+    CHECK_ERROR(_readOptionMultiSignature(c, &m->signature))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_crowdloan_withdraw_V2(
+    parser_context_t* c, pd_crowdloan_withdraw_V2_t* m)
+{
+    CHECK_ERROR(_readAccountId(c, &m->who))
+    CHECK_ERROR(_readCompactu32(c, &m->index))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_crowdloan_refund_V2(
+    parser_context_t* c, pd_crowdloan_refund_V2_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->index))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_crowdloan_dissolve_V2(
+    parser_context_t* c, pd_crowdloan_dissolve_V2_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->index))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_crowdloan_edit_V2(
+    parser_context_t* c, pd_crowdloan_edit_V2_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->index))
+    CHECK_ERROR(_readCompactu128(c, &m->cap))
+    CHECK_ERROR(_readCompactu32(c, &m->first_period))
+    CHECK_ERROR(_readCompactu32(c, &m->last_period))
+    CHECK_ERROR(_readCompactu32(c, &m->end))
+    CHECK_ERROR(_readOptionMultiSigner(c, &m->verifier))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_crowdloan_add_memo_V2(
+    parser_context_t* c, pd_crowdloan_add_memo_V2_t* m)
+{
+    CHECK_ERROR(_readParaId(c, &m->index))
+    CHECK_ERROR(_readVecu8(c, &m->memo))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_crowdloan_poke_V2(
+    parser_context_t* c, pd_crowdloan_poke_V2_t* m)
+{
+    CHECK_ERROR(_readParaId(c, &m->index))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_crowdloan_contribute_all_V2(
+    parser_context_t* c, pd_crowdloan_contribute_all_V2_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->index))
+    CHECK_ERROR(_readOptionMultiSignature(c, &m->signature))
+    return parser_ok;
+}
 
 __Z_INLINE parser_error_t _readMethod_multitokens_approve_collection_V2(
         parser_context_t* c, pd_multitokens_approve_collection_V2_t* m)
@@ -336,49 +454,8 @@ __Z_INLINE parser_error_t _readMethod_stakeexchange_withdraw_liquidity_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_balances_transfer_allow_death_V2(
-    parser_context_t* c, pd_balances_transfer_allow_death_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_balances_force_transfer_V2(
-    parser_context_t* c, pd_balances_force_transfer_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->source))
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_balances_transfer_keep_alive_V2(
-    parser_context_t* c, pd_balances_transfer_keep_alive_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_balances_transfer_all_V2(
-    parser_context_t* c, pd_balances_transfer_all_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
-    CHECK_ERROR(_readbool(c, &m->keep_alive))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_balances_transfer_V2(
-    parser_context_t* c, pd_balances_transfer_V2_t* m)
-{
-    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_staking_bond_V2(
-    parser_context_t* c, pd_staking_bond_V2_t* m)
+        parser_context_t* c, pd_staking_bond_V2_t* m)
 {
     CHECK_ERROR(_readCompactBalance(c, &m->amount))
     CHECK_ERROR(_readRewardDestination(c, &m->payee))
@@ -386,42 +463,42 @@ __Z_INLINE parser_error_t _readMethod_staking_bond_V2(
 }
 
 __Z_INLINE parser_error_t _readMethod_staking_bond_extra_V2(
-    parser_context_t* c, pd_staking_bond_extra_V2_t* m)
+        parser_context_t* c, pd_staking_bond_extra_V2_t* m)
 {
     CHECK_ERROR(_readCompactBalance(c, &m->amount))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_staking_unbond_V2(
-    parser_context_t* c, pd_staking_unbond_V2_t* m)
+        parser_context_t* c, pd_staking_unbond_V2_t* m)
 {
     CHECK_ERROR(_readCompactBalance(c, &m->amount))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_staking_withdraw_unbonded_V2(
-    parser_context_t* c, pd_staking_withdraw_unbonded_V2_t* m)
+        parser_context_t* c, pd_staking_withdraw_unbonded_V2_t* m)
 {
     CHECK_ERROR(_readu32(c, &m->num_slashing_spans))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_staking_validate_V2(
-    parser_context_t* c, pd_staking_validate_V2_t* m)
+        parser_context_t* c, pd_staking_validate_V2_t* m)
 {
     CHECK_ERROR(_readValidatorPrefs(c, &m->prefs))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_staking_nominate_V2(
-    parser_context_t* c, pd_staking_nominate_V2_t* m)
+        parser_context_t* c, pd_staking_nominate_V2_t* m)
 {
     CHECK_ERROR(_readVecAccountIdLookupOfT(c, &m->targets))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_staking_chill_V2(
-    parser_context_t* c, pd_staking_chill_V2_t* m)
+        parser_context_t* c, pd_staking_chill_V2_t* m)
 {
     UNUSED(c);
     UNUSED(m);
@@ -429,14 +506,14 @@ __Z_INLINE parser_error_t _readMethod_staking_chill_V2(
 }
 
 __Z_INLINE parser_error_t _readMethod_staking_set_payee_V2(
-    parser_context_t* c, pd_staking_set_payee_V2_t* m)
+        parser_context_t* c, pd_staking_set_payee_V2_t* m)
 {
     CHECK_ERROR(_readRewardDestination(c, &m->payee))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_staking_set_controller_V2(
-    parser_context_t* c, pd_staking_set_controller_V2_t* m)
+        parser_context_t* c, pd_staking_set_controller_V2_t* m)
 {
     UNUSED(c);
     UNUSED(m);
@@ -444,7 +521,7 @@ __Z_INLINE parser_error_t _readMethod_staking_set_controller_V2(
 }
 
 __Z_INLINE parser_error_t _readMethod_staking_payout_stakers_V2(
-    parser_context_t* c, pd_staking_payout_stakers_V2_t* m)
+        parser_context_t* c, pd_staking_payout_stakers_V2_t* m)
 {
     CHECK_ERROR(_readAccountId(c, &m->validator_stash))
     CHECK_ERROR(_readEraIndex(c, &m->era))
@@ -452,14 +529,14 @@ __Z_INLINE parser_error_t _readMethod_staking_payout_stakers_V2(
 }
 
 __Z_INLINE parser_error_t _readMethod_staking_rebond_V2(
-    parser_context_t* c, pd_staking_rebond_V2_t* m)
+        parser_context_t* c, pd_staking_rebond_V2_t* m)
 {
     CHECK_ERROR(_readCompactBalance(c, &m->amount))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_session_set_keys_V2(
-    parser_context_t* c, pd_session_set_keys_V2_t* m)
+        parser_context_t* c, pd_session_set_keys_V2_t* m)
 {
     CHECK_ERROR(_readKeys(c, &m->keys))
     CHECK_ERROR(_readBytes(c, &m->proof))
@@ -467,7 +544,7 @@ __Z_INLINE parser_error_t _readMethod_session_set_keys_V2(
 }
 
 __Z_INLINE parser_error_t _readMethod_session_purge_keys_V2(
-    parser_context_t* c, pd_session_purge_keys_V2_t* m)
+        parser_context_t* c, pd_session_purge_keys_V2_t* m)
 {
     UNUSED(c);
     UNUSED(m);
@@ -475,103 +552,29 @@ __Z_INLINE parser_error_t _readMethod_session_purge_keys_V2(
 }
 
 __Z_INLINE parser_error_t _readMethod_utility_batch_V2(
-    parser_context_t* c, pd_utility_batch_V2_t* m)
+        parser_context_t* c, pd_utility_batch_V2_t* m)
 {
     CHECK_ERROR(_readVecCall(c, &m->calls))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_utility_batch_all_V2(
-    parser_context_t* c, pd_utility_batch_all_V2_t* m)
+        parser_context_t* c, pd_utility_batch_all_V2_t* m)
 {
     CHECK_ERROR(_readVecCall(c, &m->calls))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_utility_force_batch_V2(
-    parser_context_t* c, pd_utility_force_batch_V2_t* m)
+        parser_context_t* c, pd_utility_force_batch_V2_t* m)
 {
     CHECK_ERROR(_readVecCall(c, &m->calls))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_crowdloan_create_V2(
-    parser_context_t* c, pd_crowdloan_create_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->index))
-    CHECK_ERROR(_readCompactu128(c, &m->cap))
-    CHECK_ERROR(_readCompactu32(c, &m->first_period))
-    CHECK_ERROR(_readCompactu32(c, &m->last_period))
-    CHECK_ERROR(_readCompactu32(c, &m->end))
-    CHECK_ERROR(_readOptionMultiSigner(c, &m->verifier))
-    return parser_ok;
-}
 
-__Z_INLINE parser_error_t _readMethod_crowdloan_contribute_V2(
-    parser_context_t* c, pd_crowdloan_contribute_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->index))
-    CHECK_ERROR(_readCompactu128(c, &m->amount))
-    CHECK_ERROR(_readOptionMultiSignature(c, &m->signature))
-    return parser_ok;
-}
+////////////////////////
 
-__Z_INLINE parser_error_t _readMethod_crowdloan_withdraw_V2(
-    parser_context_t* c, pd_crowdloan_withdraw_V2_t* m)
-{
-    CHECK_ERROR(_readAccountId(c, &m->who))
-    CHECK_ERROR(_readCompactu32(c, &m->index))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_crowdloan_refund_V2(
-    parser_context_t* c, pd_crowdloan_refund_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->index))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_crowdloan_dissolve_V2(
-    parser_context_t* c, pd_crowdloan_dissolve_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->index))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_crowdloan_edit_V2(
-    parser_context_t* c, pd_crowdloan_edit_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->index))
-    CHECK_ERROR(_readCompactu128(c, &m->cap))
-    CHECK_ERROR(_readCompactu32(c, &m->first_period))
-    CHECK_ERROR(_readCompactu32(c, &m->last_period))
-    CHECK_ERROR(_readCompactu32(c, &m->end))
-    CHECK_ERROR(_readOptionMultiSigner(c, &m->verifier))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_crowdloan_add_memo_V2(
-    parser_context_t* c, pd_crowdloan_add_memo_V2_t* m)
-{
-    CHECK_ERROR(_readParaId(c, &m->index))
-    CHECK_ERROR(_readVecu8(c, &m->memo))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_crowdloan_poke_V2(
-    parser_context_t* c, pd_crowdloan_poke_V2_t* m)
-{
-    CHECK_ERROR(_readParaId(c, &m->index))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_crowdloan_contribute_all_V2(
-    parser_context_t* c, pd_crowdloan_contribute_all_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->index))
-    CHECK_ERROR(_readOptionMultiSignature(c, &m->signature))
-    return parser_ok;
-}
 
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS

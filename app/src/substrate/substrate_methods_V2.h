@@ -652,23 +652,6 @@ typedef struct {
 
 /////////////
 
-#define PD_CALL_BALANCES_TRANSFER_ALL_V2 4
-typedef struct {
-    pd_AccountIdLookupOfT_t dest;
-    pd_bool_t keep_alive;
-} pd_balances_transfer_all_V2_t;
-
-#define PD_CALL_STAKING_VALIDATE_V2 4
-typedef struct {
-    pd_ValidatorPrefs_t prefs;
-} pd_staking_validate_V2_t;
-
-#define PD_CALL_STAKING_PAYOUT_STAKERS_V2 18
-typedef struct {
-    pd_AccountId_t validator_stash;
-    pd_EraIndex_t era;
-} pd_staking_payout_stakers_V2_t;
-
 #define PD_CALL_SESSION_SET_KEYS_V2 0
 typedef struct {
     pd_Keys_t keys;
@@ -840,103 +823,6 @@ typedef struct {
 typedef struct {
     pd_AccountIndex_t index;
 } pd_indices_freeze_V2_t;
-
-#define PD_CALL_BALANCES_FORCE_UNRESERVE_V2 5
-typedef struct {
-    pd_AccountIdLookupOfT_t who;
-    pd_Balance_t amount;
-} pd_balances_force_unreserve_V2_t;
-
-#define PD_CALL_BALANCES_UPGRADE_ACCOUNTS_V2 6
-typedef struct {
-    pd_VecAccountId_t who;
-} pd_balances_upgrade_accounts_V2_t;
-
-#define PD_CALL_BALANCES_FORCE_SET_BALANCE_V2 8
-typedef struct {
-    pd_AccountIdLookupOfT_t who;
-    pd_CompactBalance_t new_free;
-} pd_balances_force_set_balance_V2_t;
-
-#define PD_CALL_STAKING_SET_VALIDATOR_COUNT_V2 9
-typedef struct {
-    pd_Compactu32_t new_;
-} pd_staking_set_validator_count_V2_t;
-
-#define PD_CALL_STAKING_INCREASE_VALIDATOR_COUNT_V2 10
-typedef struct {
-    pd_Compactu32_t additional;
-} pd_staking_increase_validator_count_V2_t;
-
-#define PD_CALL_STAKING_SCALE_VALIDATOR_COUNT_V2 11
-typedef struct {
-    pd_Percent_t factor;
-} pd_staking_scale_validator_count_V2_t;
-
-#define PD_CALL_STAKING_FORCE_NO_ERAS_V2 12
-typedef struct {
-} pd_staking_force_no_eras_V2_t;
-
-#define PD_CALL_STAKING_FORCE_NEW_ERA_V2 13
-typedef struct {
-} pd_staking_force_new_era_V2_t;
-
-#define PD_CALL_STAKING_SET_INVULNERABLES_V2 14
-typedef struct {
-    pd_VecAccountId_t invulnerables;
-} pd_staking_set_invulnerables_V2_t;
-
-#define PD_CALL_STAKING_FORCE_UNSTAKE_V2 15
-typedef struct {
-    pd_AccountId_t stash;
-    pd_u32_t num_slashing_spans;
-} pd_staking_force_unstake_V2_t;
-
-#define PD_CALL_STAKING_FORCE_NEW_ERA_ALWAYS_V2 16
-typedef struct {
-} pd_staking_force_new_era_always_V2_t;
-
-#define PD_CALL_STAKING_CANCEL_DEFERRED_SLASH_V2 17
-typedef struct {
-    pd_EraIndex_t era;
-    pd_Vecu32_t slash_indices;
-} pd_staking_cancel_deferred_slash_V2_t;
-
-#define PD_CALL_STAKING_REAP_STASH_V2 20
-typedef struct {
-    pd_AccountId_t stash;
-    pd_u32_t num_slashing_spans;
-} pd_staking_reap_stash_V2_t;
-
-#define PD_CALL_STAKING_KICK_V2 21
-typedef struct {
-    pd_VecAccountIdLookupOfT_t who;
-} pd_staking_kick_V2_t;
-
-#define PD_CALL_STAKING_SET_STAKING_CONFIGS_V2 22
-typedef struct {
-    pd_ConfigOpBalanceOfT_t min_nominator_bond;
-    pd_ConfigOpBalanceOfT_t min_validator_bond;
-    pd_ConfigOpu32_t max_nominator_count;
-    pd_ConfigOpu32_t max_validator_count;
-    pd_ConfigOpPercent_t chill_threshold;
-    pd_ConfigOpPerbill_t min_commission;
-} pd_staking_set_staking_configs_V2_t;
-
-#define PD_CALL_STAKING_CHILL_OTHER_V2 23
-typedef struct {
-    pd_AccountId_t controller;
-} pd_staking_chill_other_V2_t;
-
-#define PD_CALL_STAKING_FORCE_APPLY_MIN_COMMISSION_V2 24
-typedef struct {
-    pd_AccountId_t validator_stash;
-} pd_staking_force_apply_min_commission_V2_t;
-
-#define PD_CALL_STAKING_SET_MIN_COMMISSION_V2 25
-typedef struct {
-    pd_Perbill_t new_;
-} pd_staking_set_min_commission_V2_t;
 
 #define PD_CALL_DEMOCRACY_BLACKLIST_V2 16
 typedef struct {
@@ -1477,12 +1363,6 @@ typedef struct {
     pd_AccountIdLookupOfT_t lighter;
 } pd_voterlist_put_in_front_of_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_POOL_WITHDRAW_UNBONDED_V2 4
-typedef struct {
-    pd_PoolId_t pool_id;
-    pd_u32_t num_slashing_spans;
-} pd_nominationpools_pool_withdraw_unbonded_V2_t;
-
 #define PD_CALL_NOMINATIONPOOLS_CREATE_WITH_POOL_ID_V2 7
 typedef struct {
     pd_CompactBalance_t amount;
@@ -1491,16 +1371,6 @@ typedef struct {
     pd_AccountIdLookupOfT_t bouncer;
     pd_PoolId_t pool_id;
 } pd_nominationpools_create_with_pool_id_V2_t;
-
-#define PD_CALL_NOMINATIONPOOLS_SET_CONFIGS_V2 11
-typedef struct {
-    pd_ConfigOpBalanceOfT_t min_join_bond;
-    pd_ConfigOpBalanceOfT_t min_create_bond;
-    pd_ConfigOpu32_t max_pools;
-    pd_ConfigOpu32_t max_members;
-    pd_ConfigOpu32_t max_members_per_pool;
-    pd_ConfigOpPerbill_t global_max_commission;
-} pd_nominationpools_set_configs_V2_t;
 
 #define PD_CALL_NOMINATIONPOOLS_BOND_EXTRA_OTHER_V2 14
 typedef struct {
@@ -1749,17 +1619,15 @@ typedef union {
     pd_balances_force_transfer_V2_t balances_force_transfer_V2;
     pd_balances_transfer_keep_alive_V2_t balances_transfer_keep_alive_V2;
     pd_balances_transfer_V2_t balances_transfer_V2;
-    pd_nominationpools_payout_rewards_V2_t nominationpools_payout_rewards_V2;
-    pd_nominationpools_queue_early_bird_bonus_V2_t nominationpools_queue_early_bird_bonus_V2;
-    pd_nominationpools_withdraw_unbonded_V2_t nominationpools_withdraw_unbonded_V2;
-    pd_nominationpools_distribute_early_bird_bonus_V2_t nominationpools_distribute_early_bird_bonus_V2;
-    pd_nominationpools_mutate_V2_t nominationpools_mutate_V2;
-    pd_stakeexchange_add_liquidity_V2_t stakeexchange_add_liquidity_V2;
-    pd_stakeexchange_buy_V2_t stakeexchange_buy_V2;
-    pd_stakeexchange_cancel_offer_V2_t stakeexchange_cancel_offer_V2;
-    pd_stakeexchange_configure_liquidity_account_V2_t stakeexchange_configure_liquidity_account_V2;
-    pd_stakeexchange_create_offer_V2_t stakeexchange_create_offer_V2;
-    pd_stakeexchange_withdraw_liquidity_V2_t stakeexchange_withdraw_liquidity_V2;
+    pd_crowdloan_create_V2_t crowdloan_create_V2;
+    pd_crowdloan_contribute_V2_t crowdloan_contribute_V2;
+    pd_crowdloan_withdraw_V2_t crowdloan_withdraw_V2;
+    pd_crowdloan_refund_V2_t crowdloan_refund_V2;
+    pd_crowdloan_dissolve_V2_t crowdloan_dissolve_V2;
+    pd_crowdloan_edit_V2_t crowdloan_edit_V2;
+    pd_crowdloan_add_memo_V2_t crowdloan_add_memo_V2;
+    pd_crowdloan_poke_V2_t crowdloan_poke_V2;
+    pd_crowdloan_contribute_all_V2_t crowdloan_contribute_all_V2;
     pd_multitokens_create_collection_V2_t multitokens_create_collection_V2;
     pd_multitokens_destroy_collection_V2_t multitokens_destroy_collection_V2;
     pd_multitokens_mutate_collection_V2_t multitokens_mutate_collection_V2;
@@ -1792,36 +1660,32 @@ typedef union {
     pd_nominationpools_set_commission_max_V2_t nominationpools_set_commission_max_V2;
     pd_nominationpools_set_commission_change_rate_V2_t nominationpools_set_commission_change_rate_V2;
     pd_nominationpools_claim_commission_V2_t nominationpools_claim_commission_V2;
-
-
-
-    ////////////
-    pd_balances_transfer_all_V2_t balances_transfer_all_V2;
-    pd_staking_validate_V2_t staking_validate_V2;
-    pd_staking_payout_stakers_V2_t staking_payout_stakers_V2;
+    pd_nominationpools_payout_rewards_V2_t nominationpools_payout_rewards_V2;
+    pd_nominationpools_queue_early_bird_bonus_V2_t nominationpools_queue_early_bird_bonus_V2;
+    pd_nominationpools_withdraw_unbonded_V2_t nominationpools_withdraw_unbonded_V2;
+    pd_nominationpools_distribute_early_bird_bonus_V2_t nominationpools_distribute_early_bird_bonus_V2;
+    pd_nominationpools_mutate_V2_t nominationpools_mutate_V2;
     pd_session_set_keys_V2_t session_set_keys_V2;
     pd_session_purge_keys_V2_t session_purge_keys_V2;
+    pd_stakeexchange_add_liquidity_V2_t stakeexchange_add_liquidity_V2;
+    pd_stakeexchange_buy_V2_t stakeexchange_buy_V2;
+    pd_stakeexchange_cancel_offer_V2_t stakeexchange_cancel_offer_V2;
+    pd_stakeexchange_configure_liquidity_account_V2_t stakeexchange_configure_liquidity_account_V2;
+    pd_stakeexchange_create_offer_V2_t stakeexchange_create_offer_V2;
+    pd_stakeexchange_withdraw_liquidity_V2_t stakeexchange_withdraw_liquidity_V2;
+    pd_staking_validate_V2_t staking_validate_V2;
+    pd_staking_payout_stakers_V2_t staking_payout_stakers_V2;
     pd_utility_batch_V2_t utility_batch_V2;
     pd_utility_batch_all_V2_t utility_batch_all_V2;
     pd_utility_force_batch_V2_t utility_force_batch_V2;
-    pd_crowdloan_create_V2_t crowdloan_create_V2;
-    pd_crowdloan_contribute_V2_t crowdloan_contribute_V2;
-    pd_crowdloan_withdraw_V2_t crowdloan_withdraw_V2;
-    pd_crowdloan_refund_V2_t crowdloan_refund_V2;
-    pd_crowdloan_dissolve_V2_t crowdloan_dissolve_V2;
-    pd_crowdloan_edit_V2_t crowdloan_edit_V2;
-    pd_crowdloan_add_memo_V2_t crowdloan_add_memo_V2;
-    pd_crowdloan_poke_V2_t crowdloan_poke_V2;
-    pd_crowdloan_contribute_all_V2_t crowdloan_contribute_all_V2;
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS
-
-    pd_multitokens_mutate_token_V2_t multitokens_mutate_token_V2;
-    pd_multitokens_mint_V2_t multitokens_mint_V2;
-    pd_multitokens_batch_mint_V2_t multitokens_batch_mint_V2;
     pd_balances_force_unreserve_V2_t balances_force_unreserve_V2;
     pd_balances_upgrade_accounts_V2_t balances_upgrade_accounts_V2;
     pd_balances_force_set_balance_V2_t balances_force_set_balance_V2;
+    pd_multitokens_mutate_token_V2_t multitokens_mutate_token_V2;
+    pd_multitokens_mint_V2_t multitokens_mint_V2;
+    pd_multitokens_batch_mint_V2_t multitokens_batch_mint_V2;
     pd_multitokens_force_mutate_collection_V2_t multitokens_force_mutate_collection_V2;
     pd_multitokens_force_transfer_V2_t multitokens_force_transfer_V2;
     pd_multitokens_force_set_collection_V2_t multitokens_force_set_collection_V2;
@@ -1835,14 +1699,133 @@ typedef union {
     pd_multitokens_force_approve_collection_V2_t multitokens_force_approve_collection_V2;
     pd_multitokens_force_freeze_V2_t multitokens_force_freeze_V2;
     pd_multitokens_force_set_next_collection_id_V2_t multitokens_force_set_next_collection_id_V2;
-
-    /////////////
     pd_xcmpallet_teleport_assets_V2_t xcmpallet_teleport_assets_V2;
     pd_xcmpallet_reserve_transfer_assets_V2_t xcmpallet_reserve_transfer_assets_V2;
     pd_xcmpallet_limited_reserve_transfer_assets_V2_t xcmpallet_limited_reserve_transfer_assets_V2;
     pd_xcmpallet_limited_teleport_assets_V2_t xcmpallet_limited_teleport_assets_V2;
 #endif
-
+    pd_auctions_new_auction_V2_t auctions_new_auction_V2;
+    pd_auctions_bid_V2_t auctions_bid_V2;
+    pd_auctions_cancel_auction_V2_t auctions_cancel_auction_V2;
+    pd_bounties_propose_bounty_V2_t bounties_propose_bounty_V2;
+    pd_bounties_approve_bounty_V2_t bounties_approve_bounty_V2;
+    pd_bounties_propose_curator_V2_t bounties_propose_curator_V2;
+    pd_bounties_unassign_curator_V2_t bounties_unassign_curator_V2;
+    pd_bounties_accept_curator_V2_t bounties_accept_curator_V2;
+    pd_bounties_award_bounty_V2_t bounties_award_bounty_V2;
+    pd_bounties_claim_bounty_V2_t bounties_claim_bounty_V2;
+    pd_bounties_close_bounty_V2_t bounties_close_bounty_V2;
+    pd_bounties_extend_bounty_expiry_V2_t bounties_extend_bounty_expiry_V2;
+    pd_childbounties_add_child_bounty_V2_t childbounties_add_child_bounty_V2;
+    pd_childbounties_propose_curator_V2_t childbounties_propose_curator_V2;
+    pd_childbounties_accept_curator_V2_t childbounties_accept_curator_V2;
+    pd_childbounties_unassign_curator_V2_t childbounties_unassign_curator_V2;
+    pd_childbounties_award_child_bounty_V2_t childbounties_award_child_bounty_V2;
+    pd_childbounties_claim_child_bounty_V2_t childbounties_claim_child_bounty_V2;
+    pd_childbounties_close_child_bounty_V2_t childbounties_close_child_bounty_V2;
+    pd_claims_claim_V2_t claims_claim_V2;
+    pd_claims_claim_attest_V2_t claims_claim_attest_V2;
+    pd_claims_attest_V2_t claims_attest_V2;
+    pd_claims_move_claim_V2_t claims_move_claim_V2;
+    pd_configuration_set_validation_upgrade_cooldown_V2_t configuration_set_validation_upgrade_cooldown_V2;
+    pd_configuration_set_validation_upgrade_delay_V2_t configuration_set_validation_upgrade_delay_V2;
+    pd_configuration_set_code_retention_period_V2_t configuration_set_code_retention_period_V2;
+    pd_configuration_set_max_code_size_V2_t configuration_set_max_code_size_V2;
+    pd_configuration_set_max_pov_size_V2_t configuration_set_max_pov_size_V2;
+    pd_configuration_set_max_head_data_size_V2_t configuration_set_max_head_data_size_V2;
+    pd_configuration_set_parathread_cores_V2_t configuration_set_parathread_cores_V2;
+    pd_configuration_set_parathread_retries_V2_t configuration_set_parathread_retries_V2;
+    pd_configuration_set_group_rotation_frequency_V2_t configuration_set_group_rotation_frequency_V2;
+    pd_configuration_set_chain_availability_period_V2_t configuration_set_chain_availability_period_V2;
+    pd_configuration_set_thread_availability_period_V2_t configuration_set_thread_availability_period_V2;
+    pd_configuration_set_scheduling_lookahead_V2_t configuration_set_scheduling_lookahead_V2;
+    pd_configuration_set_max_validators_per_core_V2_t configuration_set_max_validators_per_core_V2;
+    pd_configuration_set_max_validators_V2_t configuration_set_max_validators_V2;
+    pd_configuration_set_dispute_post_conclusion_acceptance_period_V2_t configuration_set_dispute_post_conclusion_acceptance_period_V2;
+    pd_configuration_set_no_show_slots_V2_t configuration_set_no_show_slots_V2;
+    pd_configuration_set_n_delay_tranches_V2_t configuration_set_n_delay_tranches_V2;
+    pd_configuration_set_zeroth_delay_tranche_width_V2_t configuration_set_zeroth_delay_tranche_width_V2;
+    pd_configuration_set_needed_approvals_V2_t configuration_set_needed_approvals_V2;
+    pd_configuration_set_relay_vrf_modulo_samples_V2_t configuration_set_relay_vrf_modulo_samples_V2;
+    pd_configuration_set_max_upward_queue_count_V2_t configuration_set_max_upward_queue_count_V2;
+    pd_configuration_set_max_upward_queue_size_V2_t configuration_set_max_upward_queue_size_V2;
+    pd_configuration_set_max_downward_message_size_V2_t configuration_set_max_downward_message_size_V2;
+    pd_configuration_set_max_upward_message_size_V2_t configuration_set_max_upward_message_size_V2;
+    pd_configuration_set_max_upward_message_num_per_candidate_V2_t configuration_set_max_upward_message_num_per_candidate_V2;
+    pd_configuration_set_hrmp_open_request_ttl_V2_t configuration_set_hrmp_open_request_ttl_V2;
+    pd_configuration_set_hrmp_sender_deposit_V2_t configuration_set_hrmp_sender_deposit_V2;
+    pd_configuration_set_hrmp_recipient_deposit_V2_t configuration_set_hrmp_recipient_deposit_V2;
+    pd_configuration_set_hrmp_channel_max_capacity_V2_t configuration_set_hrmp_channel_max_capacity_V2;
+    pd_configuration_set_hrmp_channel_max_total_size_V2_t configuration_set_hrmp_channel_max_total_size_V2;
+    pd_configuration_set_hrmp_max_parachain_inbound_channels_V2_t configuration_set_hrmp_max_parachain_inbound_channels_V2;
+    pd_configuration_set_hrmp_max_parathread_inbound_channels_V2_t configuration_set_hrmp_max_parathread_inbound_channels_V2;
+    pd_configuration_set_hrmp_channel_max_message_size_V2_t configuration_set_hrmp_channel_max_message_size_V2;
+    pd_configuration_set_hrmp_max_parachain_outbound_channels_V2_t configuration_set_hrmp_max_parachain_outbound_channels_V2;
+    pd_configuration_set_hrmp_max_parathread_outbound_channels_V2_t configuration_set_hrmp_max_parathread_outbound_channels_V2;
+    pd_configuration_set_hrmp_max_message_num_per_candidate_V2_t configuration_set_hrmp_max_message_num_per_candidate_V2;
+    pd_configuration_set_pvf_checking_enabled_V2_t configuration_set_pvf_checking_enabled_V2;
+    pd_configuration_set_pvf_voting_ttl_V2_t configuration_set_pvf_voting_ttl_V2;
+    pd_configuration_set_minimum_validation_upgrade_delay_V2_t configuration_set_minimum_validation_upgrade_delay_V2;
+    pd_configuration_set_bypass_consistency_check_V2_t configuration_set_bypass_consistency_check_V2;
+    pd_council_set_members_V2_t council_set_members_V2;
+    pd_council_execute_V2_t council_execute_V2;
+    pd_council_propose_V2_t council_propose_V2;
+    pd_council_vote_V2_t council_vote_V2;
+    pd_council_disapprove_proposal_V2_t council_disapprove_proposal_V2;
+    pd_council_close_V2_t council_close_V2;
+    pd_democracy_blacklist_V2_t democracy_blacklist_V2;
+    pd_democracy_set_metadata_V2_t democracy_set_metadata_V2;
+    pd_fastunstake_control_V2_t fastunstake_control_V2;
+    pd_identity_add_registrar_V2_t identity_add_registrar_V2;
+    pd_identity_set_identity_V2_t identity_set_identity_V2;
+    pd_identity_set_subs_V2_t identity_set_subs_V2;
+    pd_identity_clear_identity_V2_t identity_clear_identity_V2;
+    pd_identity_request_judgement_V2_t identity_request_judgement_V2;
+    pd_identity_cancel_request_V2_t identity_cancel_request_V2;
+    pd_identity_set_fee_V2_t identity_set_fee_V2;
+    pd_identity_set_account_id_V2_t identity_set_account_id_V2;
+    pd_identity_provide_judgement_V2_t identity_provide_judgement_V2;
+    pd_identity_kill_identity_V2_t identity_kill_identity_V2;
+    pd_identity_add_sub_V2_t identity_add_sub_V2;
+    pd_identity_rename_sub_V2_t identity_rename_sub_V2;
+    pd_identity_remove_sub_V2_t identity_remove_sub_V2;
+    pd_identity_quit_sub_V2_t identity_quit_sub_V2;
+    pd_indices_claim_V2_t indices_claim_V2;
+    pd_indices_transfer_V2_t indices_transfer_V2;
+    pd_indices_free_V2_t indices_free_V2;
+    pd_indices_force_transfer_V2_t indices_force_transfer_V2;
+    pd_indices_freeze_V2_t indices_freeze_V2;
+    pd_initializer_force_approve_V2_t initializer_force_approve_V2;
+    pd_nominationpools_set_configs_V2_t nominationpools_set_configs_V2;
+    pd_nominationpools_set_staking_info_V2_t nominationpools_set_staking_info_V2;
+    pd_nominationpools_create_with_pool_id_V2_t nominationpools_create_with_pool_id_V2;
+    pd_nominationpools_bond_extra_other_V2_t nominationpools_bond_extra_other_V2;
+    pd_parasdisputes_force_unfreeze_V2_t parasdisputes_force_unfreeze_V2;
+    pd_phragmenelection_vote_V2_t phragmenelection_vote_V2;
+    pd_phragmenelection_remove_voter_V2_t phragmenelection_remove_voter_V2;
+    pd_phragmenelection_submit_candidacy_V2_t phragmenelection_submit_candidacy_V2;
+    pd_phragmenelection_remove_member_V2_t phragmenelection_remove_member_V2;
+    pd_phragmenelection_clean_defunct_voters_V2_t phragmenelection_clean_defunct_voters_V2;
+    pd_preimage_note_preimage_V2_t preimage_note_preimage_V2;
+    pd_preimage_unnote_preimage_V2_t preimage_unnote_preimage_V2;
+    pd_preimage_request_preimage_V2_t preimage_request_preimage_V2;
+    pd_preimage_unrequest_preimage_V2_t preimage_unrequest_preimage_V2;
+    pd_proxy_remove_proxies_V2_t proxy_remove_proxies_V2;
+    pd_proxy_proxy_announced_V2_t proxy_proxy_announced_V2;
+    pd_referenda_submit_V2_t referenda_submit_V2;
+    pd_referenda_place_decision_deposit_V2_t referenda_place_decision_deposit_V2;
+    pd_referenda_refund_decision_deposit_V2_t referenda_refund_decision_deposit_V2;
+    pd_referenda_cancel_V2_t referenda_cancel_V2;
+    pd_referenda_kill_V2_t referenda_kill_V2;
+    pd_referenda_nudge_referendum_V2_t referenda_nudge_referendum_V2;
+    pd_referenda_one_fewer_deciding_V2_t referenda_one_fewer_deciding_V2;
+    pd_referenda_refund_submission_deposit_V2_t referenda_refund_submission_deposit_V2;
+    pd_referenda_set_metadata_V2_t referenda_set_metadata_V2;
+    pd_staking_kick_V2_t staking_kick_V2;
+    pd_staking_set_staking_configs_V2_t staking_set_staking_configs_V2;
+    pd_staking_chill_other_V2_t staking_chill_other_V2;
+    pd_staking_force_apply_min_commission_V2_t staking_force_apply_min_commission_V2;
+    pd_staking_set_min_commission_V2_t staking_set_min_commission_V2;
     pd_staking_bond_V2_t staking_bond_V2;
     pd_staking_bond_extra_V2_t staking_bond_extra_V2;
     pd_staking_unbond_V2_t staking_unbond_V2;
@@ -1852,8 +1835,6 @@ typedef union {
     pd_staking_set_payee_V2_t staking_set_payee_V2;
     pd_staking_set_controller_V2_t staking_set_controller_V2;
     pd_staking_rebond_V2_t staking_rebond_V2;
-    pd_staking_validate_V2_t staking_validate_V2;
-    pd_staking_payout_stakers_V2_t staking_payout_stakers_V2;
     pd_staking_set_validator_count_V2_t staking_set_validator_count_V2;
     pd_staking_increase_validator_count_V2_t staking_increase_validator_count_V2;
     pd_staking_scale_validator_count_V2_t staking_scale_validator_count_V2;
@@ -1864,675 +1845,404 @@ typedef union {
     pd_staking_force_new_era_always_V2_t staking_force_new_era_always_V2;
     pd_staking_cancel_deferred_slash_V2_t staking_cancel_deferred_slash_V2;
     pd_staking_reap_stash_V2_t staking_reap_stash_V2;
-    pd_staking_kick_V2_t staking_kick_V2;
-    pd_staking_set_staking_configs_V2_t staking_set_staking_configs_V2;
-    pd_staking_chill_other_V2_t staking_chill_other_V2;
-    pd_staking_force_apply_min_commission_V2_t staking_force_apply_min_commission_V2;
-    pd_staking_set_min_commission_V2_t staking_set_min_commission_V2;
-    pd_nominationpools_set_configs_V2_t nominationpools_set_configs_V2;
-    pd_nominationpools_set_staking_info_V2_t nominationpools_set_staking_info_V2;
-
-
-    ///////////
-    pd_preimage_note_preimage_V2_t preimage_note_preimage_V2;
-    pd_preimage_unnote_preimage_V2_t preimage_unnote_preimage_V2;
-    pd_preimage_request_preimage_V2_t preimage_request_preimage_V2;
-    pd_preimage_unrequest_preimage_V2_t preimage_unrequest_preimage_V2;
+    pd_technicalcommittee_set_members_V2_t technicalcommittee_set_members_V2;
+    pd_technicalcommittee_execute_V2_t technicalcommittee_execute_V2;
+    pd_technicalcommittee_propose_V2_t technicalcommittee_propose_V2;
+    pd_technicalcommittee_vote_V2_t technicalcommittee_vote_V2;
+    pd_technicalcommittee_disapprove_proposal_V2_t technicalcommittee_disapprove_proposal_V2;
+    pd_technicalcommittee_close_V2_t technicalcommittee_close_V2;
+    pd_technicalmembership_add_member_V2_t technicalmembership_add_member_V2;
+    pd_technicalmembership_remove_member_V2_t technicalmembership_remove_member_V2;
+    pd_technicalmembership_swap_member_V2_t technicalmembership_swap_member_V2;
+    pd_technicalmembership_reset_members_V2_t technicalmembership_reset_members_V2;
+    pd_technicalmembership_change_key_V2_t technicalmembership_change_key_V2;
+    pd_technicalmembership_set_prime_V2_t technicalmembership_set_prime_V2;
+    pd_technicalmembership_clear_prime_V2_t technicalmembership_clear_prime_V2;
+    pd_tips_report_awesome_V2_t tips_report_awesome_V2;
+    pd_tips_retract_tip_V2_t tips_retract_tip_V2;
+    pd_tips_tip_new_V2_t tips_tip_new_V2;
+    pd_tips_tip_V2_t tips_tip_V2;
+    pd_tips_close_tip_V2_t tips_close_tip_V2;
+    pd_tips_slash_tip_V2_t tips_slash_tip_V2;
+    pd_treasury_propose_spend_V2_t treasury_propose_spend_V2;
+    pd_treasury_reject_proposal_V2_t treasury_reject_proposal_V2;
+    pd_treasury_approve_proposal_V2_t treasury_approve_proposal_V2;
+    pd_treasury_spend_V2_t treasury_spend_V2;
+    pd_treasury_remove_approval_V2_t treasury_remove_approval_V2;
     pd_timestamp_set_V2_t timestamp_set_V2;
-    pd_indices_claim_V2_t indices_claim_V2;
-    pd_indices_transfer_V2_t indices_transfer_V2;
-    pd_indices_free_V2_t indices_free_V2;
-    pd_indices_force_transfer_V2_t indices_force_transfer_V2;
-    pd_indices_freeze_V2_t indices_freeze_V2;
-    pd_balances_force_unreserve_V2_t balances_force_unreserve_V2;
-    pd_balances_upgrade_accounts_V2_t balances_upgrade_accounts_V2;
-    pd_balances_force_set_balance_V2_t balances_force_set_balance_V2;
-    pd_staking_set_validator_count_V2_t staking_set_validator_count_V2;
-    pd_staking_increase_validator_count_V2_t staking_increase_validator_count_V2;
-    pd_staking_scale_validator_count_V2_t staking_scale_validator_count_V2;
-    pd_staking_force_no_eras_V2_t staking_force_no_eras_V2;
-    pd_staking_force_new_era_V2_t staking_force_new_era_V2;
-    pd_staking_set_invulnerables_V2_t staking_set_invulnerables_V2;
-    pd_staking_force_unstake_V2_t staking_force_unstake_V2;
-    pd_staking_force_new_era_always_V2_t staking_force_new_era_always_V2;
-    pd_staking_cancel_deferred_slash_V2_t staking_cancel_deferred_slash_V2;
-    pd_staking_reap_stash_V2_t staking_reap_stash_V2;
-    pd_staking_kick_V24_t staking_kick_V24;
-    pd_staking_set_staking_configs_V24_t staking_set_staking_configs_V24;
-    pd_staking_chill_other_V24_t staking_chill_other_V24;
-    pd_staking_force_apply_min_commission_V24_t staking_force_apply_min_commission_V24;
-    pd_staking_set_min_commission_V24_t staking_set_min_commission_V24;
-    pd_democracy_blacklist_V24_t democracy_blacklist_V24;
-    pd_democracy_set_metadata_V24_t democracy_set_metadata_V24;
-    pd_council_set_members_V24_t council_set_members_V24;
-    pd_council_execute_V24_t council_execute_V24;
-    pd_council_propose_V24_t council_propose_V24;
-    pd_council_vote_V24_t council_vote_V24;
-    pd_council_disapprove_proposal_V24_t council_disapprove_proposal_V24;
-    pd_council_close_V24_t council_close_V24;
-    pd_technicalcommittee_set_members_V24_t technicalcommittee_set_members_V24;
-    pd_technicalcommittee_execute_V24_t technicalcommittee_execute_V24;
-    pd_technicalcommittee_propose_V24_t technicalcommittee_propose_V24;
-    pd_technicalcommittee_vote_V24_t technicalcommittee_vote_V24;
-    pd_technicalcommittee_disapprove_proposal_V24_t technicalcommittee_disapprove_proposal_V24;
-    pd_technicalcommittee_close_V24_t technicalcommittee_close_V24;
-    pd_phragmenelection_vote_V24_t phragmenelection_vote_V24;
-    pd_phragmenelection_remove_voter_V24_t phragmenelection_remove_voter_V24;
-    pd_phragmenelection_submit_candidacy_V24_t phragmenelection_submit_candidacy_V24;
-    pd_phragmenelection_remove_member_V24_t phragmenelection_remove_member_V24;
-    pd_phragmenelection_clean_defunct_voters_V24_t phragmenelection_clean_defunct_voters_V24;
-    pd_technicalmembership_add_member_V24_t technicalmembership_add_member_V24;
-    pd_technicalmembership_remove_member_V24_t technicalmembership_remove_member_V24;
-    pd_technicalmembership_swap_member_V24_t technicalmembership_swap_member_V24;
-    pd_technicalmembership_reset_members_V24_t technicalmembership_reset_members_V24;
-    pd_technicalmembership_change_key_V24_t technicalmembership_change_key_V24;
-    pd_technicalmembership_set_prime_V24_t technicalmembership_set_prime_V24;
-    pd_technicalmembership_clear_prime_V24_t technicalmembership_clear_prime_V24;
-    pd_treasury_propose_spend_V24_t treasury_propose_spend_V24;
-    pd_treasury_reject_proposal_V24_t treasury_reject_proposal_V24;
-    pd_treasury_approve_proposal_V24_t treasury_approve_proposal_V24;
-    pd_treasury_spend_V24_t treasury_spend_V24;
-    pd_treasury_remove_approval_V24_t treasury_remove_approval_V24;
-    pd_referenda_submit_V24_t referenda_submit_V24;
-    pd_referenda_place_decision_deposit_V24_t referenda_place_decision_deposit_V24;
-    pd_referenda_refund_decision_deposit_V24_t referenda_refund_decision_deposit_V24;
-    pd_referenda_cancel_V24_t referenda_cancel_V24;
-    pd_referenda_kill_V24_t referenda_kill_V24;
-    pd_referenda_nudge_referendum_V24_t referenda_nudge_referendum_V24;
-    pd_referenda_one_fewer_deciding_V24_t referenda_one_fewer_deciding_V24;
-    pd_referenda_refund_submission_deposit_V24_t referenda_refund_submission_deposit_V24;
-    pd_referenda_set_metadata_V24_t referenda_set_metadata_V24;
-    pd_whitelist_whitelist_call_V24_t whitelist_whitelist_call_V24;
-    pd_whitelist_remove_whitelisted_call_V24_t whitelist_remove_whitelisted_call_V24;
-    pd_whitelist_dispatch_whitelisted_call_V24_t whitelist_dispatch_whitelisted_call_V24;
-    pd_whitelist_dispatch_whitelisted_call_with_preimage_V24_t whitelist_dispatch_whitelisted_call_with_preimage_V24;
-    pd_claims_claim_V24_t claims_claim_V24;
-    pd_claims_claim_attest_V24_t claims_claim_attest_V24;
-    pd_claims_attest_V24_t claims_attest_V24;
-    pd_claims_move_claim_V24_t claims_move_claim_V24;
-    pd_vesting_vest_V24_t vesting_vest_V24;
-    pd_vesting_vest_other_V24_t vesting_vest_other_V24;
-    pd_vesting_vested_transfer_V24_t vesting_vested_transfer_V24;
-    pd_vesting_force_vested_transfer_V24_t vesting_force_vested_transfer_V24;
-    pd_vesting_merge_schedules_V24_t vesting_merge_schedules_V24;
-    pd_utility_with_weight_V24_t utility_with_weight_V24;
-    pd_identity_add_registrar_V24_t identity_add_registrar_V24;
-    pd_identity_set_identity_V24_t identity_set_identity_V24;
-    pd_identity_set_subs_V24_t identity_set_subs_V24;
-    pd_identity_clear_identity_V24_t identity_clear_identity_V24;
-    pd_identity_request_judgement_V24_t identity_request_judgement_V24;
-    pd_identity_cancel_request_V24_t identity_cancel_request_V24;
-    pd_identity_set_fee_V24_t identity_set_fee_V24;
-    pd_identity_set_account_id_V24_t identity_set_account_id_V24;
-    pd_identity_provide_judgement_V24_t identity_provide_judgement_V24;
-    pd_identity_kill_identity_V24_t identity_kill_identity_V24;
-    pd_identity_add_sub_V24_t identity_add_sub_V24;
-    pd_identity_rename_sub_V24_t identity_rename_sub_V24;
-    pd_identity_remove_sub_V24_t identity_remove_sub_V24;
-    pd_identity_quit_sub_V24_t identity_quit_sub_V24;
-    pd_proxy_remove_proxies_V24_t proxy_remove_proxies_V24;
-    pd_proxy_proxy_announced_V24_t proxy_proxy_announced_V24;
-    pd_bounties_propose_bounty_V24_t bounties_propose_bounty_V24;
-    pd_bounties_approve_bounty_V24_t bounties_approve_bounty_V24;
-    pd_bounties_propose_curator_V24_t bounties_propose_curator_V24;
-    pd_bounties_unassign_curator_V24_t bounties_unassign_curator_V24;
-    pd_bounties_accept_curator_V24_t bounties_accept_curator_V24;
-    pd_bounties_award_bounty_V24_t bounties_award_bounty_V24;
-    pd_bounties_claim_bounty_V24_t bounties_claim_bounty_V24;
-    pd_bounties_close_bounty_V24_t bounties_close_bounty_V24;
-    pd_bounties_extend_bounty_expiry_V24_t bounties_extend_bounty_expiry_V24;
-    pd_childbounties_add_child_bounty_V24_t childbounties_add_child_bounty_V24;
-    pd_childbounties_propose_curator_V24_t childbounties_propose_curator_V24;
-    pd_childbounties_accept_curator_V24_t childbounties_accept_curator_V24;
-    pd_childbounties_unassign_curator_V24_t childbounties_unassign_curator_V24;
-    pd_childbounties_award_child_bounty_V24_t childbounties_award_child_bounty_V24;
-    pd_childbounties_claim_child_bounty_V24_t childbounties_claim_child_bounty_V24;
-    pd_childbounties_close_child_bounty_V24_t childbounties_close_child_bounty_V24;
-    pd_tips_report_awesome_V24_t tips_report_awesome_V24;
-    pd_tips_retract_tip_V24_t tips_retract_tip_V24;
-    pd_tips_tip_new_V24_t tips_tip_new_V24;
-    pd_tips_tip_V24_t tips_tip_V24;
-    pd_tips_close_tip_V24_t tips_close_tip_V24;
-    pd_tips_slash_tip_V24_t tips_slash_tip_V24;
-    pd_voterlist_rebag_V24_t voterlist_rebag_V24;
-    pd_voterlist_put_in_front_of_V24_t voterlist_put_in_front_of_V24;
-    pd_nominationpools_pool_withdraw_unbonded_V24_t nominationpools_pool_withdraw_unbonded_V24;
-    pd_nominationpools_create_with_pool_id_V24_t nominationpools_create_with_pool_id_V24;
-    pd_nominationpools_set_configs_V24_t nominationpools_set_configs_V24;
-    pd_nominationpools_bond_extra_other_V24_t nominationpools_bond_extra_other_V24;
-    pd_fastunstake_control_V24_t fastunstake_control_V24;
-    pd_configuration_set_validation_upgrade_cooldown_V24_t configuration_set_validation_upgrade_cooldown_V24;
-    pd_configuration_set_validation_upgrade_delay_V24_t configuration_set_validation_upgrade_delay_V24;
-    pd_configuration_set_code_retention_period_V24_t configuration_set_code_retention_period_V24;
-    pd_configuration_set_max_code_size_V24_t configuration_set_max_code_size_V24;
-    pd_configuration_set_max_pov_size_V24_t configuration_set_max_pov_size_V24;
-    pd_configuration_set_max_head_data_size_V24_t configuration_set_max_head_data_size_V24;
-    pd_configuration_set_parathread_cores_V24_t configuration_set_parathread_cores_V24;
-    pd_configuration_set_parathread_retries_V24_t configuration_set_parathread_retries_V24;
-    pd_configuration_set_group_rotation_frequency_V24_t configuration_set_group_rotation_frequency_V24;
-    pd_configuration_set_chain_availability_period_V24_t configuration_set_chain_availability_period_V24;
-    pd_configuration_set_thread_availability_period_V24_t configuration_set_thread_availability_period_V24;
-    pd_configuration_set_scheduling_lookahead_V24_t configuration_set_scheduling_lookahead_V24;
-    pd_configuration_set_max_validators_per_core_V24_t configuration_set_max_validators_per_core_V24;
-    pd_configuration_set_max_validators_V24_t configuration_set_max_validators_V24;
-    pd_configuration_set_dispute_post_conclusion_acceptance_period_V24_t configuration_set_dispute_post_conclusion_acceptance_period_V24;
-    pd_configuration_set_no_show_slots_V24_t configuration_set_no_show_slots_V24;
-    pd_configuration_set_n_delay_tranches_V24_t configuration_set_n_delay_tranches_V24;
-    pd_configuration_set_zeroth_delay_tranche_width_V24_t configuration_set_zeroth_delay_tranche_width_V24;
-    pd_configuration_set_needed_approvals_V24_t configuration_set_needed_approvals_V24;
-    pd_configuration_set_relay_vrf_modulo_samples_V24_t configuration_set_relay_vrf_modulo_samples_V24;
-    pd_configuration_set_max_upward_queue_count_V24_t configuration_set_max_upward_queue_count_V24;
-    pd_configuration_set_max_upward_queue_size_V24_t configuration_set_max_upward_queue_size_V24;
-    pd_configuration_set_max_downward_message_size_V24_t configuration_set_max_downward_message_size_V24;
-    pd_configuration_set_max_upward_message_size_V24_t configuration_set_max_upward_message_size_V24;
-    pd_configuration_set_max_upward_message_num_per_candidate_V24_t configuration_set_max_upward_message_num_per_candidate_V24;
-    pd_configuration_set_hrmp_open_request_ttl_V24_t configuration_set_hrmp_open_request_ttl_V24;
-    pd_configuration_set_hrmp_sender_deposit_V24_t configuration_set_hrmp_sender_deposit_V24;
-    pd_configuration_set_hrmp_recipient_deposit_V24_t configuration_set_hrmp_recipient_deposit_V24;
-    pd_configuration_set_hrmp_channel_max_capacity_V24_t configuration_set_hrmp_channel_max_capacity_V24;
-    pd_configuration_set_hrmp_channel_max_total_size_V24_t configuration_set_hrmp_channel_max_total_size_V24;
-    pd_configuration_set_hrmp_max_parachain_inbound_channels_V24_t configuration_set_hrmp_max_parachain_inbound_channels_V24;
-    pd_configuration_set_hrmp_max_parathread_inbound_channels_V24_t configuration_set_hrmp_max_parathread_inbound_channels_V24;
-    pd_configuration_set_hrmp_channel_max_message_size_V24_t configuration_set_hrmp_channel_max_message_size_V24;
-    pd_configuration_set_hrmp_max_parachain_outbound_channels_V24_t configuration_set_hrmp_max_parachain_outbound_channels_V24;
-    pd_configuration_set_hrmp_max_parathread_outbound_channels_V24_t configuration_set_hrmp_max_parathread_outbound_channels_V24;
-    pd_configuration_set_hrmp_max_message_num_per_candidate_V24_t configuration_set_hrmp_max_message_num_per_candidate_V24;
-    pd_configuration_set_pvf_checking_enabled_V24_t configuration_set_pvf_checking_enabled_V24;
-    pd_configuration_set_pvf_voting_ttl_V24_t configuration_set_pvf_voting_ttl_V24;
-    pd_configuration_set_minimum_validation_upgrade_delay_V24_t configuration_set_minimum_validation_upgrade_delay_V24;
-    pd_configuration_set_bypass_consistency_check_V24_t configuration_set_bypass_consistency_check_V24;
-    pd_initializer_force_approve_V24_t initializer_force_approve_V24;
-    pd_parasdisputes_force_unfreeze_V24_t parasdisputes_force_unfreeze_V24;
-    pd_auctions_new_auction_V24_t auctions_new_auction_V24;
-    pd_auctions_bid_V24_t auctions_bid_V24;
-    pd_auctions_cancel_auction_V24_t auctions_cancel_auction_V24;
+    pd_utility_with_weight_V2_t utility_with_weight_V2;
+    pd_vesting_vest_V2_t vesting_vest_V2;
+    pd_vesting_vest_other_V2_t vesting_vest_other_V2;
+    pd_vesting_vested_transfer_V2_t vesting_vested_transfer_V2;
+    pd_vesting_force_vested_transfer_V2_t vesting_force_vested_transfer_V2;
+    pd_vesting_merge_schedules_V2_t vesting_merge_schedules_V2;
+    pd_voterlist_rebag_V2_t voterlist_rebag_V2;
+    pd_voterlist_put_in_front_of_V2_t voterlist_put_in_front_of_V2;
+    pd_whitelist_whitelist_call_V2_t whitelist_whitelist_call_V2;
+    pd_whitelist_remove_whitelisted_call_V2_t whitelist_remove_whitelisted_call_V2;
+    pd_whitelist_dispatch_whitelisted_call_V2_t whitelist_dispatch_whitelisted_call_V2;
+    pd_whitelist_dispatch_whitelisted_call_with_preimage_V2_t whitelist_dispatch_whitelisted_call_with_preimage_V2;
 #endif
 } pd_MethodBasic_V2_t;
 
-#define PD_CALL_BALANCES_TRANSFER_ALLOW_DEATH_V24 0
-typedef struct {
-    pd_AccountIdLookupOfT_t dest;
-    pd_CompactBalance_t amount;
-} pd_balances_transfer_allow_death_V24_t;
 
-#define PD_CALL_BALANCES_FORCE_TRANSFER_V24 2
-typedef struct {
-    pd_AccountIdLookupOfT_t source;
-    pd_AccountIdLookupOfT_t dest;
-    pd_CompactBalance_t amount;
-} pd_balances_force_transfer_V24_t;
-
-#define PD_CALL_BALANCES_TRANSFER_KEEP_ALIVE_V24 3
-typedef struct {
-    pd_AccountIdLookupOfT_t dest;
-    pd_CompactBalance_t amount;
-} pd_balances_transfer_keep_alive_V24_t;
-
-#define PD_CALL_BALANCES_TRANSFER_V24 7
-typedef struct {
-    pd_AccountIdLookupOfT_t dest;
-    pd_CompactBalance_t amount;
-} pd_balances_transfer_V24_t;
-
-#define PD_CALL_STAKING_BOND_V24 0
-typedef struct {
-    pd_CompactBalance_t amount;
-    pd_RewardDestination_t payee;
-} pd_staking_bond_V24_t;
-
-#define PD_CALL_STAKING_BOND_EXTRA_V24 1
-typedef struct {
-    pd_CompactBalance_t amount;
-} pd_staking_bond_extra_V24_t;
-
-#define PD_CALL_STAKING_UNBOND_V24 2
-typedef struct {
-    pd_CompactBalance_t amount;
-} pd_staking_unbond_V24_t;
-
-#define PD_CALL_STAKING_WITHDRAW_UNBONDED_V24 3
-typedef struct {
-    pd_u32_t num_slashing_spans;
-} pd_staking_withdraw_unbonded_V24_t;
-
-#define PD_CALL_STAKING_NOMINATE_V24 5
-typedef struct {
-    pd_VecAccountIdLookupOfT_t targets;
-} pd_staking_nominate_V24_t;
-
-#define PD_CALL_STAKING_CHILL_V24 6
-typedef struct {
-} pd_staking_chill_V24_t;
-
-#define PD_CALL_STAKING_SET_PAYEE_V24 7
-typedef struct {
-    pd_RewardDestination_t payee;
-} pd_staking_set_payee_V24_t;
-
-#define PD_CALL_STAKING_SET_CONTROLLER_V24 8
-typedef struct {
-} pd_staking_set_controller_V24_t;
-
-#define PD_CALL_STAKING_REBOND_V24 19
-typedef struct {
-    pd_CompactBalance_t amount;
-} pd_staking_rebond_V24_t;
 
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS
 #endif
-#define PD_CALL_SYSTEM_REMARK_V24 0
+#define PD_CALL_SYSTEM_REMARK_V2 0
 typedef struct {
     pd_Bytes_t remark;
-} pd_system_remark_V24_t;
+} pd_system_remark_V2_t;
 
-#define PD_CALL_SYSTEM_SET_HEAP_PAGES_V24 1
+#define PD_CALL_SYSTEM_SET_HEAP_PAGES_V2 1
 typedef struct {
     pd_u64_t pages;
-} pd_system_set_heap_pages_V24_t;
+} pd_system_set_heap_pages_V2_t;
 
-#define PD_CALL_SYSTEM_SET_CODE_V24 2
+#define PD_CALL_SYSTEM_SET_CODE_V2 2
 typedef struct {
     pd_Vecu8_t code;
-} pd_system_set_code_V24_t;
+} pd_system_set_code_V2_t;
 
-#define PD_CALL_SYSTEM_SET_CODE_WITHOUT_CHECKS_V24 3
+#define PD_CALL_SYSTEM_SET_CODE_WITHOUT_CHECKS_V2 3
 typedef struct {
     pd_Vecu8_t code;
-} pd_system_set_code_without_checks_V24_t;
+} pd_system_set_code_without_checks_V2_t;
 
-#define PD_CALL_SYSTEM_REMARK_WITH_EVENT_V24 7
+#define PD_CALL_SYSTEM_REMARK_WITH_EVENT_V2 7
 typedef struct {
     pd_Bytes_t remark;
-} pd_system_remark_with_event_V24_t;
+} pd_system_remark_with_event_V2_t;
 
-#define PD_CALL_BALANCES_SET_BALANCE_DEPRECATED_V24 1
+#define PD_CALL_BALANCES_SET_BALANCE_DEPRECATED_V2 1
 typedef struct {
     pd_AccountIdLookupOfT_t who;
     pd_CompactBalance_t new_free;
     pd_CompactBalance_t old_reserved;
-} pd_balances_set_balance_deprecated_V24_t;
+} pd_balances_set_balance_deprecated_V2_t;
 
-#define PD_CALL_DEMOCRACY_PROPOSE_V24 0
+#define PD_CALL_DEMOCRACY_PROPOSE_V2 0
 typedef struct {
     pd_BoundedCallOfT_t proposal;
     pd_CompactBalance_t amount;
-} pd_democracy_propose_V24_t;
+} pd_democracy_propose_V2_t;
 
-#define PD_CALL_DEMOCRACY_SECOND_V24 1
+#define PD_CALL_DEMOCRACY_SECOND_V2 1
 typedef struct {
     pd_Compactu32_t proposal;
-} pd_democracy_second_V24_t;
+} pd_democracy_second_V2_t;
 
-#define PD_CALL_DEMOCRACY_VOTE_V24 2
+#define PD_CALL_DEMOCRACY_VOTE_V2 2
 typedef struct {
     pd_Compactu32_t ref_index;
     pd_AccountVote_t vote;
-} pd_democracy_vote_V24_t;
+} pd_democracy_vote_V2_t;
 
-#define PD_CALL_DEMOCRACY_EMERGENCY_CANCEL_V24 3
+#define PD_CALL_DEMOCRACY_EMERGENCY_CANCEL_V2 3
 typedef struct {
     pd_ReferendumIndex_t ref_index;
-} pd_democracy_emergency_cancel_V24_t;
+} pd_democracy_emergency_cancel_V2_t;
 
-#define PD_CALL_DEMOCRACY_EXTERNAL_PROPOSE_V24 4
+#define PD_CALL_DEMOCRACY_EXTERNAL_PROPOSE_V2 4
 typedef struct {
     pd_BoundedCallOfT_t proposal;
-} pd_democracy_external_propose_V24_t;
+} pd_democracy_external_propose_V2_t;
 
-#define PD_CALL_DEMOCRACY_EXTERNAL_PROPOSE_MAJORITY_V24 5
+#define PD_CALL_DEMOCRACY_EXTERNAL_PROPOSE_MAJORITY_V2 5
 typedef struct {
     pd_BoundedCallOfT_t proposal;
-} pd_democracy_external_propose_majority_V24_t;
+} pd_democracy_external_propose_majority_V2_t;
 
-#define PD_CALL_DEMOCRACY_EXTERNAL_PROPOSE_DEFAULT_V24 6
+#define PD_CALL_DEMOCRACY_EXTERNAL_PROPOSE_DEFAULT_V2 6
 typedef struct {
     pd_BoundedCallOfT_t proposal;
-} pd_democracy_external_propose_default_V24_t;
+} pd_democracy_external_propose_default_V2_t;
 
-#define PD_CALL_DEMOCRACY_FAST_TRACK_V24 7
+#define PD_CALL_DEMOCRACY_FAST_TRACK_V2 7
 typedef struct {
     pd_H256_t proposal_hash;
     pd_BlockNumber_t voting_period;
     pd_BlockNumber_t delay;
-} pd_democracy_fast_track_V24_t;
+} pd_democracy_fast_track_V2_t;
 
-#define PD_CALL_DEMOCRACY_VETO_EXTERNAL_V24 8
+#define PD_CALL_DEMOCRACY_VETO_EXTERNAL_V2 8
 typedef struct {
     pd_H256_t proposal_hash;
-} pd_democracy_veto_external_V24_t;
+} pd_democracy_veto_external_V2_t;
 
-#define PD_CALL_DEMOCRACY_CANCEL_REFERENDUM_V24 9
+#define PD_CALL_DEMOCRACY_CANCEL_REFERENDUM_V2 9
 typedef struct {
     pd_Compactu32_t ref_index;
-} pd_democracy_cancel_referendum_V24_t;
+} pd_democracy_cancel_referendum_V2_t;
 
-#define PD_CALL_DEMOCRACY_DELEGATE_V24 10
+#define PD_CALL_DEMOCRACY_DELEGATE_V2 10
 typedef struct {
     pd_AccountIdLookupOfT_t to;
     pd_Conviction_t conviction;
     pd_Balance_t balance;
-} pd_democracy_delegate_V24_t;
+} pd_democracy_delegate_V2_t;
 
-#define PD_CALL_DEMOCRACY_UNDELEGATE_V24 11
+#define PD_CALL_DEMOCRACY_UNDELEGATE_V2 11
 typedef struct {
-} pd_democracy_undelegate_V24_t;
+} pd_democracy_undelegate_V2_t;
 
-#define PD_CALL_DEMOCRACY_CLEAR_PUBLIC_PROPOSALS_V24 12
+#define PD_CALL_DEMOCRACY_CLEAR_PUBLIC_PROPOSALS_V2 12
 typedef struct {
-} pd_democracy_clear_public_proposals_V24_t;
+} pd_democracy_clear_public_proposals_V2_t;
 
-#define PD_CALL_DEMOCRACY_UNLOCK_V24 13
-typedef struct {
-    pd_AccountIdLookupOfT_t target;
-} pd_democracy_unlock_V24_t;
-
-#define PD_CALL_DEMOCRACY_REMOVE_VOTE_V24 14
-typedef struct {
-    pd_ReferendumIndex_t index;
-} pd_democracy_remove_vote_V24_t;
-
-#define PD_CALL_DEMOCRACY_REMOVE_OTHER_VOTE_V24 15
+#define PD_CALL_DEMOCRACY_UNLOCK_V2 13
 typedef struct {
     pd_AccountIdLookupOfT_t target;
-    pd_ReferendumIndex_t index;
-} pd_democracy_remove_other_vote_V24_t;
+} pd_democracy_unlock_V2_t;
 
-#define PD_CALL_DEMOCRACY_CANCEL_PROPOSAL_V24 17
+#define PD_CALL_DEMOCRACY_REMOVE_VOTE_V2 14
+typedef struct {
+    pd_ReferendumIndex_t index;
+} pd_democracy_remove_vote_V2_t;
+
+#define PD_CALL_DEMOCRACY_REMOVE_OTHER_VOTE_V2 15
+typedef struct {
+    pd_AccountIdLookupOfT_t target;
+    pd_ReferendumIndex_t index;
+} pd_democracy_remove_other_vote_V2_t;
+
+#define PD_CALL_DEMOCRACY_CANCEL_PROPOSAL_V2 17
 typedef struct {
     pd_Compactu32_t prop_index;
-} pd_democracy_cancel_proposal_V24_t;
+} pd_democracy_cancel_proposal_V2_t;
 
-#define PD_CALL_CONVICTIONVOTING_VOTE_V24 0
+#define PD_CALL_CONVICTIONVOTING_VOTE_V2 0
 typedef struct {
     pd_Compactu32_t poll_index;
     pd_AccountVote_t vote;
-} pd_convictionvoting_vote_V24_t;
+} pd_convictionvoting_vote_V2_t;
 
-#define PD_CALL_CONVICTIONVOTING_DELEGATE_V24 1
+#define PD_CALL_CONVICTIONVOTING_DELEGATE_V2 1
 typedef struct {
     pd_ClassOf_t class_;
     pd_AccountIdLookupOfT_t to;
     pd_Conviction_t conviction;
     pd_BalanceOf_t balance;
-} pd_convictionvoting_delegate_V24_t;
+} pd_convictionvoting_delegate_V2_t;
 
-#define PD_CALL_CONVICTIONVOTING_UNDELEGATE_V24 2
+#define PD_CALL_CONVICTIONVOTING_UNDELEGATE_V2 2
 typedef struct {
     pd_ClassOf_t class_;
-} pd_convictionvoting_undelegate_V24_t;
+} pd_convictionvoting_undelegate_V2_t;
 
-#define PD_CALL_CONVICTIONVOTING_UNLOCK_V24 3
+#define PD_CALL_CONVICTIONVOTING_UNLOCK_V2 3
 typedef struct {
     pd_ClassOf_t class_;
     pd_AccountIdLookupOfT_t target;
-} pd_convictionvoting_unlock_V24_t;
+} pd_convictionvoting_unlock_V2_t;
 
-#define PD_CALL_CONVICTIONVOTING_REMOVE_VOTE_V24 4
+#define PD_CALL_CONVICTIONVOTING_REMOVE_VOTE_V2 4
 typedef struct {
     pd_OptionClassOf_t class_;
     pd_PollIndexOf_t index;
-} pd_convictionvoting_remove_vote_V24_t;
+} pd_convictionvoting_remove_vote_V2_t;
 
-#define PD_CALL_CONVICTIONVOTING_REMOVE_OTHER_VOTE_V24 5
+#define PD_CALL_CONVICTIONVOTING_REMOVE_OTHER_VOTE_V2 5
 typedef struct {
     pd_AccountIdLookupOfT_t target;
     pd_ClassOf_t class_;
     pd_PollIndexOf_t index;
-} pd_convictionvoting_remove_other_vote_V24_t;
+} pd_convictionvoting_remove_other_vote_V2_t;
 
-#define PD_CALL_PROXY_PROXY_V24 0
+#define PD_CALL_PROXY_PROXY_V2 0
 typedef struct {
     pd_AccountIdLookupOfT_t real;
     pd_OptionProxyType_t force_proxy_type;
     pd_Call_t call;
-} pd_proxy_proxy_V24_t;
+} pd_proxy_proxy_V2_t;
 
-#define PD_CALL_PROXY_ADD_PROXY_V24 1
+#define PD_CALL_PROXY_ADD_PROXY_V2 1
 typedef struct {
     pd_AccountIdLookupOfT_t delegate;
     pd_ProxyType_t proxy_type;
     pd_BlockNumber_t delay;
-} pd_proxy_add_proxy_V24_t;
+} pd_proxy_add_proxy_V2_t;
 
-#define PD_CALL_PROXY_REMOVE_PROXY_V24 2
+#define PD_CALL_PROXY_REMOVE_PROXY_V2 2
 typedef struct {
     pd_AccountIdLookupOfT_t delegate;
     pd_ProxyType_t proxy_type;
     pd_BlockNumber_t delay;
-} pd_proxy_remove_proxy_V24_t;
+} pd_proxy_remove_proxy_V2_t;
 
-#define PD_CALL_PROXY_CREATE_PURE_V24 4
+#define PD_CALL_PROXY_CREATE_PURE_V2 4
 typedef struct {
     pd_ProxyType_t proxy_type;
     pd_BlockNumber_t delay;
     pd_u16_t index;
-} pd_proxy_create_pure_V24_t;
+} pd_proxy_create_pure_V2_t;
 
-#define PD_CALL_PROXY_KILL_PURE_V24 5
+#define PD_CALL_PROXY_KILL_PURE_V2 5
 typedef struct {
     pd_AccountIdLookupOfT_t spawner;
     pd_ProxyType_t proxy_type;
     pd_u16_t index;
     pd_Compactu32_t height;
     pd_Compactu32_t ext_index;
-} pd_proxy_kill_pure_V24_t;
+} pd_proxy_kill_pure_V2_t;
 
-#define PD_CALL_MULTISIG_AS_MULTI_THRESHOLD_1_V24 0
+#define PD_CALL_MULTISIG_AS_MULTI_THRESHOLD_1_V2 0
 typedef struct {
     pd_VecAccountId_t other_signatories;
     pd_Call_t call;
-} pd_multisig_as_multi_threshold_1_V24_t;
+} pd_multisig_as_multi_threshold_1_V2_t;
 
-#define PD_CALL_MULTISIG_AS_MULTI_V24 1
+#define PD_CALL_MULTISIG_AS_MULTI_V2 1
 typedef struct {
     pd_u16_t threshold;
     pd_VecAccountId_t other_signatories;
     pd_OptionTimepoint_t maybe_timepoint;
     pd_Call_t call;
     pd_Weight_t max_weight;
-} pd_multisig_as_multi_V24_t;
+} pd_multisig_as_multi_V2_t;
 
-#define PD_CALL_MULTISIG_APPROVE_AS_MULTI_V24 2
+#define PD_CALL_MULTISIG_APPROVE_AS_MULTI_V2 2
 typedef struct {
     pd_u16_t threshold;
     pd_VecAccountId_t other_signatories;
     pd_OptionTimepoint_t maybe_timepoint;
     pd_H256_t call_hash;
     pd_Weight_t max_weight;
-} pd_multisig_approve_as_multi_V24_t;
+} pd_multisig_approve_as_multi_V2_t;
 
-#define PD_CALL_MULTISIG_CANCEL_AS_MULTI_V24 3
+#define PD_CALL_MULTISIG_CANCEL_AS_MULTI_V2 3
 typedef struct {
     pd_u16_t threshold;
     pd_VecAccountId_t other_signatories;
     pd_Timepoint_t timepoint;
     pd_H256_t call_hash;
-} pd_multisig_cancel_as_multi_V24_t;
+} pd_multisig_cancel_as_multi_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_JOIN_V24 0
+#define PD_CALL_NOMINATIONPOOLS_JOIN_V2 0
 typedef struct {
     pd_CompactBalance_t amount;
     pd_PoolId_t pool_id;
-} pd_nominationpools_join_V24_t;
+} pd_nominationpools_join_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_BOND_EXTRA_V24 1
+#define PD_CALL_NOMINATIONPOOLS_BOND_EXTRA_V2 1
 typedef struct {
     pd_BondExtraBalanceOfT_t extra;
-} pd_nominationpools_bond_extra_V24_t;
+} pd_nominationpools_bond_extra_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_CLAIM_PAYOUT_V24 2
+#define PD_CALL_NOMINATIONPOOLS_CLAIM_PAYOUT_V2 2
 typedef struct {
-} pd_nominationpools_claim_payout_V24_t;
+} pd_nominationpools_claim_payout_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_UNBOND_V24 3
-typedef struct {
-    pd_AccountIdLookupOfT_t member_account;
-    pd_CompactBalance_t unbonding_points;
-} pd_nominationpools_unbond_V24_t;
-
-#define PD_CALL_NOMINATIONPOOLS_WITHDRAW_UNBONDED_V24 5
-typedef struct {
-    pd_AccountIdLookupOfT_t member_account;
-    pd_u32_t num_slashing_spans;
-} pd_nominationpools_withdraw_unbonded_V24_t;
-
-#define PD_CALL_NOMINATIONPOOLS_CREATE_V24 6
-typedef struct {
-    pd_CompactBalance_t amount;
-    pd_AccountIdLookupOfT_t root;
-    pd_AccountIdLookupOfT_t nominator;
-    pd_AccountIdLookupOfT_t bouncer;
-} pd_nominationpools_create_V24_t;
-
-#define PD_CALL_NOMINATIONPOOLS_NOMINATE_V24 8
-typedef struct {
-    pd_PoolId_t pool_id;
-    pd_VecAccountId_t validators;
-} pd_nominationpools_nominate_V24_t;
-
-#define PD_CALL_NOMINATIONPOOLS_SET_STATE_V24 9
+#define PD_CALL_NOMINATIONPOOLS_SET_STATE_V2 9
 typedef struct {
     pd_PoolId_t pool_id;
     pd_PoolState_t state;
-} pd_nominationpools_set_state_V24_t;
+} pd_nominationpools_set_state_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_SET_METADATA_V24 10
+#define PD_CALL_NOMINATIONPOOLS_SET_METADATA_V2 10
 typedef struct {
     pd_PoolId_t pool_id;
     pd_Vecu8_t metadata;
-} pd_nominationpools_set_metadata_V24_t;
+} pd_nominationpools_set_metadata_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_UPDATE_ROLES_V24 12
+#define PD_CALL_NOMINATIONPOOLS_UPDATE_ROLES_V2 12
 typedef struct {
     pd_PoolId_t pool_id;
     pd_ConfigOpAccountId_t new_root;
     pd_ConfigOpAccountId_t new_nominator;
     pd_ConfigOpAccountId_t new_bouncer;
-} pd_nominationpools_update_roles_V24_t;
+} pd_nominationpools_update_roles_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_CHILL_V24 13
-typedef struct {
-    pd_PoolId_t pool_id;
-} pd_nominationpools_chill_V24_t;
-
-#define PD_CALL_NOMINATIONPOOLS_SET_CLAIM_PERMISSION_V24 15
+#define PD_CALL_NOMINATIONPOOLS_SET_CLAIM_PERMISSION_V2 15
 typedef struct {
     pd_ClaimPermission_t permission;
-} pd_nominationpools_set_claim_permission_V24_t;
+} pd_nominationpools_set_claim_permission_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_CLAIM_PAYOUT_OTHER_V24 16
+#define PD_CALL_FASTUNSTAKE_REGISTER_FAST_UNSTAKE_V2 0
 typedef struct {
-    pd_AccountId_t other;
-} pd_nominationpools_claim_payout_other_V24_t;
+} pd_fastunstake_register_fast_unstake_V2_t;
 
-#define PD_CALL_NOMINATIONPOOLS_SET_COMMISSION_V24 17
+#define PD_CALL_FASTUNSTAKE_DEREGISTER_V2 1
 typedef struct {
-    pd_PoolId_t pool_id;
-    pd_OptionTuplePerbillAccountId_t new_commission;
-} pd_nominationpools_set_commission_V24_t;
-
-#define PD_CALL_NOMINATIONPOOLS_SET_COMMISSION_MAX_V24 18
-typedef struct {
-    pd_PoolId_t pool_id;
-    pd_Perbill_t max_commission;
-} pd_nominationpools_set_commission_max_V24_t;
-
-#define PD_CALL_NOMINATIONPOOLS_SET_COMMISSION_CHANGE_RATE_V24 19
-typedef struct {
-    pd_PoolId_t pool_id;
-    pd_CommissionChangeRateBlockNumber_t change_rate;
-} pd_nominationpools_set_commission_change_rate_V24_t;
-
-#define PD_CALL_NOMINATIONPOOLS_CLAIM_COMMISSION_V24 20
-typedef struct {
-    pd_PoolId_t pool_id;
-} pd_nominationpools_claim_commission_V24_t;
-
-#define PD_CALL_FASTUNSTAKE_REGISTER_FAST_UNSTAKE_V24 0
-typedef struct {
-} pd_fastunstake_register_fast_unstake_V24_t;
-
-#define PD_CALL_FASTUNSTAKE_DEREGISTER_V24 1
-typedef struct {
-} pd_fastunstake_deregister_V24_t;
+} pd_fastunstake_deregister_V2_t;
 
 #endif
 
 typedef union {
-    pd_balances_transfer_allow_death_V24_t balances_transfer_allow_death_V24;
-    pd_balances_force_transfer_V24_t balances_force_transfer_V24;
-    pd_balances_transfer_keep_alive_V24_t balances_transfer_keep_alive_V24;
-    pd_balances_transfer_V24_t balances_transfer_V24;
-    pd_staking_bond_V24_t staking_bond_V24;
-    pd_staking_bond_extra_V24_t staking_bond_extra_V24;
-    pd_staking_unbond_V24_t staking_unbond_V24;
-    pd_staking_withdraw_unbonded_V24_t staking_withdraw_unbonded_V24;
-    pd_staking_nominate_V24_t staking_nominate_V24;
-    pd_staking_chill_V24_t staking_chill_V24;
-    pd_staking_set_payee_V24_t staking_set_payee_V24;
-    pd_staking_set_controller_V24_t staking_set_controller_V24;
-    pd_staking_rebond_V24_t staking_rebond_V24;
+    pd_balances_transfer_allow_death_V2_t balances_transfer_allow_death_V2;
+    pd_balances_force_transfer_V2_t balances_force_transfer_V2;
+    pd_balances_transfer_keep_alive_V2_t balances_transfer_keep_alive_V2;
+    pd_balances_transfer_V2_t balances_transfer_V2;
+    pd_staking_bond_V2_t staking_bond_V2;
+    pd_staking_bond_extra_V2_t staking_bond_extra_V2;
+    pd_staking_unbond_V2_t staking_unbond_V2;
+    pd_staking_withdraw_unbonded_V2_t staking_withdraw_unbonded_V2;
+    pd_staking_nominate_V2_t staking_nominate_V2;
+    pd_staking_chill_V2_t staking_chill_V2;
+    pd_staking_set_payee_V2_t staking_set_payee_V2;
+    pd_staking_set_controller_V2_t staking_set_controller_V2;
+    pd_staking_rebond_V2_t staking_rebond_V2;
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS
 #endif
-    pd_system_remark_V24_t system_remark_V24;
-    pd_system_set_heap_pages_V24_t system_set_heap_pages_V24;
-    pd_system_set_code_V24_t system_set_code_V24;
-    pd_system_set_code_without_checks_V24_t system_set_code_without_checks_V24;
-    pd_system_remark_with_event_V24_t system_remark_with_event_V24;
-    pd_balances_set_balance_deprecated_V24_t balances_set_balance_deprecated_V24;
-    pd_democracy_propose_V24_t democracy_propose_V24;
-    pd_democracy_second_V24_t democracy_second_V24;
-    pd_democracy_vote_V24_t democracy_vote_V24;
-    pd_democracy_emergency_cancel_V24_t democracy_emergency_cancel_V24;
-    pd_democracy_external_propose_V24_t democracy_external_propose_V24;
-    pd_democracy_external_propose_majority_V24_t democracy_external_propose_majority_V24;
-    pd_democracy_external_propose_default_V24_t democracy_external_propose_default_V24;
-    pd_democracy_fast_track_V24_t democracy_fast_track_V24;
-    pd_democracy_veto_external_V24_t democracy_veto_external_V24;
-    pd_democracy_cancel_referendum_V24_t democracy_cancel_referendum_V24;
-    pd_democracy_delegate_V24_t democracy_delegate_V24;
-    pd_democracy_undelegate_V24_t democracy_undelegate_V24;
-    pd_democracy_clear_public_proposals_V24_t democracy_clear_public_proposals_V24;
-    pd_democracy_unlock_V24_t democracy_unlock_V24;
-    pd_democracy_remove_vote_V24_t democracy_remove_vote_V24;
-    pd_democracy_remove_other_vote_V24_t democracy_remove_other_vote_V24;
-    pd_democracy_cancel_proposal_V24_t democracy_cancel_proposal_V24;
-    pd_convictionvoting_vote_V24_t convictionvoting_vote_V24;
-    pd_convictionvoting_delegate_V24_t convictionvoting_delegate_V24;
-    pd_convictionvoting_undelegate_V24_t convictionvoting_undelegate_V24;
-    pd_convictionvoting_unlock_V24_t convictionvoting_unlock_V24;
-    pd_convictionvoting_remove_vote_V24_t convictionvoting_remove_vote_V24;
-    pd_convictionvoting_remove_other_vote_V24_t convictionvoting_remove_other_vote_V24;
-    pd_proxy_proxy_V24_t proxy_proxy_V24;
-    pd_proxy_add_proxy_V24_t proxy_add_proxy_V24;
-    pd_proxy_remove_proxy_V24_t proxy_remove_proxy_V24;
-    pd_proxy_create_pure_V24_t proxy_create_pure_V24;
-    pd_proxy_kill_pure_V24_t proxy_kill_pure_V24;
-    pd_multisig_as_multi_threshold_1_V24_t multisig_as_multi_threshold_1_V24;
-    pd_multisig_as_multi_V24_t multisig_as_multi_V24;
-    pd_multisig_approve_as_multi_V24_t multisig_approve_as_multi_V24;
-    pd_multisig_cancel_as_multi_V24_t multisig_cancel_as_multi_V24;
-    pd_nominationpools_join_V24_t nominationpools_join_V24;
-    pd_nominationpools_bond_extra_V24_t nominationpools_bond_extra_V24;
-    pd_nominationpools_claim_payout_V24_t nominationpools_claim_payout_V24;
-    pd_nominationpools_unbond_V24_t nominationpools_unbond_V24;
-    pd_nominationpools_withdraw_unbonded_V24_t nominationpools_withdraw_unbonded_V24;
-    pd_nominationpools_create_V24_t nominationpools_create_V24;
-    pd_nominationpools_nominate_V24_t nominationpools_nominate_V24;
-    pd_nominationpools_set_state_V24_t nominationpools_set_state_V24;
-    pd_nominationpools_set_metadata_V24_t nominationpools_set_metadata_V24;
-    pd_nominationpools_update_roles_V24_t nominationpools_update_roles_V24;
-    pd_nominationpools_chill_V24_t nominationpools_chill_V24;
-    pd_nominationpools_set_claim_permission_V24_t nominationpools_set_claim_permission_V24;
-    pd_nominationpools_claim_payout_other_V24_t nominationpools_claim_payout_other_V24;
-    pd_nominationpools_set_commission_V24_t nominationpools_set_commission_V24;
-    pd_nominationpools_set_commission_max_V24_t nominationpools_set_commission_max_V24;
-    pd_nominationpools_set_commission_change_rate_V24_t nominationpools_set_commission_change_rate_V24;
-    pd_nominationpools_claim_commission_V24_t nominationpools_claim_commission_V24;
-    pd_fastunstake_register_fast_unstake_V24_t fastunstake_register_fast_unstake_V24;
-    pd_fastunstake_deregister_V24_t fastunstake_deregister_V24;
+    pd_balances_set_balance_deprecated_V2_t balances_set_balance_deprecated_V2;
+    pd_convictionvoting_vote_V2_t convictionvoting_vote_V2;
+    pd_convictionvoting_delegate_V2_t convictionvoting_delegate_V2;
+    pd_convictionvoting_undelegate_V2_t convictionvoting_undelegate_V2;
+    pd_convictionvoting_unlock_V2_t convictionvoting_unlock_V2;
+    pd_convictionvoting_remove_vote_V2_t convictionvoting_remove_vote_V2;
+    pd_convictionvoting_remove_other_vote_V2_t convictionvoting_remove_other_vote_V2;
+    pd_democracy_propose_V2_t democracy_propose_V2;
+    pd_democracy_second_V2_t democracy_second_V2;
+    pd_democracy_vote_V2_t democracy_vote_V2;
+    pd_democracy_emergency_cancel_V2_t democracy_emergency_cancel_V2;
+    pd_democracy_external_propose_V2_t democracy_external_propose_V2;
+    pd_democracy_external_propose_majority_V2_t democracy_external_propose_majority_V2;
+    pd_democracy_external_propose_default_V2_t democracy_external_propose_default_V2;
+    pd_democracy_fast_track_V2_t democracy_fast_track_V2;
+    pd_democracy_veto_external_V2_t democracy_veto_external_V2;
+    pd_democracy_cancel_referendum_V2_t democracy_cancel_referendum_V2;
+    pd_democracy_delegate_V2_t democracy_delegate_V2;
+    pd_democracy_undelegate_V2_t democracy_undelegate_V2;
+    pd_democracy_clear_public_proposals_V2_t democracy_clear_public_proposals_V2;
+    pd_democracy_unlock_V2_t democracy_unlock_V2;
+    pd_democracy_remove_vote_V2_t democracy_remove_vote_V2;
+    pd_democracy_remove_other_vote_V2_t democracy_remove_other_vote_V2;
+    pd_democracy_cancel_proposal_V2_t democracy_cancel_proposal_V2;
+    pd_fastunstake_register_fast_unstake_V2_t fastunstake_register_fast_unstake_V2;
+    pd_fastunstake_deregister_V2_t fastunstake_deregister_V2;
+    pd_multisig_as_multi_threshold_1_V2_t multisig_as_multi_threshold_1_V2;
+    pd_multisig_as_multi_V2_t multisig_as_multi_V2;
+    pd_multisig_approve_as_multi_V2_t multisig_approve_as_multi_V2;
+    pd_multisig_cancel_as_multi_V2_t multisig_cancel_as_multi_V2;
+    pd_nominationpools_join_V2_t nominationpools_join_V2;
+    pd_nominationpools_bond_extra_V2_t nominationpools_bond_extra_V2;
+    pd_nominationpools_claim_payout_V2_t nominationpools_claim_payout_V2;
+    pd_nominationpools_unbond_V2_t nominationpools_unbond_V2;
+    pd_nominationpools_withdraw_unbonded_V2_t nominationpools_withdraw_unbonded_V2;
+    pd_nominationpools_create_V2_t nominationpools_create_V2;
+    pd_nominationpools_nominate_V2_t nominationpools_nominate_V2;
+    pd_nominationpools_set_state_V2_t nominationpools_set_state_V2;
+    pd_nominationpools_set_metadata_V2_t nominationpools_set_metadata_V2;
+    pd_nominationpools_update_roles_V2_t nominationpools_update_roles_V2;
+    pd_nominationpools_chill_V2_t nominationpools_chill_V2;
+    pd_nominationpools_set_claim_permission_V2_t nominationpools_set_claim_permission_V2;
+    pd_nominationpools_claim_payout_other_V2_t nominationpools_claim_payout_other_V2;
+    pd_nominationpools_set_commission_V2_t nominationpools_set_commission_V2;
+    pd_nominationpools_set_commission_max_V2_t nominationpools_set_commission_max_V2;
+    pd_nominationpools_set_commission_change_rate_V2_t nominationpools_set_commission_change_rate_V2;
+    pd_nominationpools_claim_commission_V2_t nominationpools_claim_commission_V2;
+    pd_proxy_proxy_V2_t proxy_proxy_V2;
+    pd_proxy_add_proxy_V2_t proxy_add_proxy_V2;
+    pd_proxy_remove_proxy_V2_t proxy_remove_proxy_V2;
+    pd_proxy_create_pure_V2_t proxy_create_pure_V2;
+    pd_proxy_kill_pure_V2_t proxy_kill_pure_V2;
+    pd_system_remark_V2_t system_remark_V2;
+    pd_system_set_heap_pages_V2_t system_set_heap_pages_V2;
+    pd_system_set_code_V2_t system_set_code_V2;
+    pd_system_set_code_without_checks_V2_t system_set_code_without_checks_V2;
+    pd_system_remark_with_event_V2_t system_remark_with_event_V2;
 #endif
 } pd_MethodNested_V2_t;
 
