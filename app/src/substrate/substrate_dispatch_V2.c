@@ -2519,138 +2519,8 @@ parser_error_t _readMethod_V2(
         case 1543: /* module 6 call 7 */
         CHECK_ERROR(_readMethod_balances_transfer_V2(c, &method->basic.balances_transfer_V2))
             break;
-        case 4608: /* module 18 call 0 */
-        CHECK_ERROR(_readMethod_nominationpools_bond_V2(c, &method->basic.nominationpools_bond_V2))
-            break;
-        case 4611: /* module 18 call 3 */
-        CHECK_ERROR(_readMethod_nominationpools_unbond_V2(c, &method->basic.nominationpools_unbond_V2))
-            break;
-        case 4612: /* module 18 call 4 */
-        CHECK_ERROR(_readMethod_nominationpools_pool_withdraw_unbonded_V2(c,
-                                                                          &method->basic.nominationpools_pool_withdraw_unbonded_V2))
-            break;
-        case 4613: /* module 18 call 5 */
-        CHECK_ERROR(
-                _readMethod_nominationpools_withdraw_unbonded_V2(c, &method->basic.nominationpools_withdraw_unbonded_V2))
-            break;
-        case 4614: /* module 18 call 6 */
-        CHECK_ERROR(_readMethod_nominationpools_create_V2(c, &method->basic.nominationpools_create_V2))
-            break;
-        case 4616: /* module 18 call 8 */
-        CHECK_ERROR(_readMethod_nominationpools_nominate_V2(c, &method->basic.nominationpools_nominate_V2))
-            break;
-        case 4621: /* module 18 call 13 */
-        CHECK_ERROR(_readMethod_nominationpools_chill_V2(c, &method->basic.nominationpools_chill_V2))
-            break;
-        case 4622: /* module 18 call 14 */
-        CHECK_ERROR(_readMethod_nominationpools_destroy_V2(c, &method->basic.nominationpools_destroy_V2))
-            break;
-        case 4626: /* module 18 call 18 */
-        CHECK_ERROR(_readMethod_nominationpools_payout_rewards_V2(c,
-                                                                  &method->basic.nominationpools_payout_rewards_V2))
-            break;
-        case 4627: /* module 18 call 19 */
-        CHECK_ERROR(_readMethod_nominationpools_mutate_V2(c, &method->basic.nominationpools_mutate_V2))
-            break;
-        case 4628: /* module 18 call 20 */
-        CHECK_ERROR(_readMethod_nominationpools_unbond_deposit_V2(c, &method->basic.nominationpools_unbond_deposit_V2))
-            break;
-        case 4629: /* module 18 call 21 */
-        CHECK_ERROR(_readMethod_nominationpools_withdraw_deposit_V2(c, &method->basic.nominationpools_withdraw_deposit_V2))
-            break;
-        case 4631: /* module 18 call 23 */
-        CHECK_ERROR(_readMethod_nominationpools_queue_early_bird_bonus_V2(c,
-                                                                          &method->basic.nominationpools_queue_early_bird_bonus_V2))
-            break;
-        case 4632: /* module 18 call 24 */
-        CHECK_ERROR(_readMethod_nominationpools_distribute_early_bird_bonus_V2(c,
-                                                                               &method->basic.nominationpools_distribute_early_bird_bonus_V2))
-            break;
-        case 4864: /* module 19 call 0 */
-        CHECK_ERROR(_readMethod_stakeexchange_create_offer_V2(c, &method->basic.stakeexchange_create_offer_V2))
-            break;
-        case 4865: /* module 19 call 1 */
-        CHECK_ERROR(_readMethod_stakeexchange_cancel_offer_V2(c, &method->basic.stakeexchange_cancel_offer_V2))
-            break;
-        case 4866: /* module 19 call 2 */
-        CHECK_ERROR(_readMethod_stakeexchange_configure_liquidity_account_V2(c, &method->basic.stakeexchange_configure_liquidity_account_V2))
-            break;
-        case 4867: /* module 19 call 3 */
-        CHECK_ERROR(_readMethod_stakeexchange_withdraw_liquidity_V2(c, &method->basic.stakeexchange_withdraw_liquidity_V2))
-            break;
-        case 4868: /* module 19 call 4 */
-        CHECK_ERROR(_readMethod_stakeexchange_add_liquidity_V2(c, &method->basic.stakeexchange_add_liquidity_V2))
-            break;
-        case 4869: /* module 19 call 5 */
-        CHECK_ERROR(_readMethod_stakeexchange_buy_V2(c, &method->basic.stakeexchange_buy_V2))
-            break;
 
 
-
-
-        case 1280: /* module 5 call 0 */
-        CHECK_ERROR(_readMethod_balances_transfer_allow_death_V2(c, &method->nested.balances_transfer_allow_death_V2))
-            break;
-        case 1282: /* module 5 call 2 */
-        CHECK_ERROR(_readMethod_balances_force_transfer_V2(c, &method->nested.balances_force_transfer_V2))
-            break;
-        case 1283: /* module 5 call 3 */
-        CHECK_ERROR(_readMethod_balances_transfer_keep_alive_V2(c, &method->nested.balances_transfer_keep_alive_V2))
-            break;
-        case 1284: /* module 5 call 4 */
-        CHECK_ERROR(_readMethod_balances_transfer_all_V2(c, &method->basic.balances_transfer_all_V2))
-            break;
-        case 1287: /* module 5 call 7 */
-        CHECK_ERROR(_readMethod_balances_transfer_V2(c, &method->nested.balances_transfer_V2))
-            break;
-        case 1792: /* module 7 call 0 */
-        CHECK_ERROR(_readMethod_staking_bond_V2(c, &method->nested.staking_bond_V2))
-            break;
-        case 1793: /* module 7 call 1 */
-        CHECK_ERROR(_readMethod_staking_bond_extra_V2(c, &method->nested.staking_bond_extra_V2))
-            break;
-        case 1794: /* module 7 call 2 */
-        CHECK_ERROR(_readMethod_staking_unbond_V2(c, &method->nested.staking_unbond_V2))
-            break;
-        case 1795: /* module 7 call 3 */
-        CHECK_ERROR(_readMethod_staking_withdraw_unbonded_V2(c, &method->nested.staking_withdraw_unbonded_V2))
-            break;
-        case 1796: /* module 7 call 4 */
-        CHECK_ERROR(_readMethod_staking_validate_V2(c, &method->basic.staking_validate_V2))
-            break;
-        case 1797: /* module 7 call 5 */
-        CHECK_ERROR(_readMethod_staking_nominate_V2(c, &method->nested.staking_nominate_V2))
-            break;
-        case 1798: /* module 7 call 6 */
-        CHECK_ERROR(_readMethod_staking_chill_V2(c, &method->nested.staking_chill_V2))
-            break;
-        case 1799: /* module 7 call 7 */
-        CHECK_ERROR(_readMethod_staking_set_payee_V2(c, &method->nested.staking_set_payee_V2))
-            break;
-        case 1800: /* module 7 call 8 */
-        CHECK_ERROR(_readMethod_staking_set_controller_V2(c, &method->nested.staking_set_controller_V2))
-            break;
-        case 1810: /* module 7 call 18 */
-        CHECK_ERROR(_readMethod_staking_payout_stakers_V2(c, &method->basic.staking_payout_stakers_V2))
-            break;
-        case 1811: /* module 7 call 19 */
-        CHECK_ERROR(_readMethod_staking_rebond_V2(c, &method->nested.staking_rebond_V2))
-            break;
-        case 2304: /* module 9 call 0 */
-        CHECK_ERROR(_readMethod_session_set_keys_V2(c, &method->basic.session_set_keys_V2))
-            break;
-        case 2305: /* module 9 call 1 */
-        CHECK_ERROR(_readMethod_session_purge_keys_V2(c, &method->basic.session_purge_keys_V2))
-            break;
-        case 6656: /* module 26 call 0 */
-        CHECK_ERROR(_readMethod_utility_batch_V2(c, &method->basic.utility_batch_V2))
-            break;
-        case 6658: /* module 26 call 2 */
-        CHECK_ERROR(_readMethod_utility_batch_all_V2(c, &method->basic.utility_batch_all_V2))
-            break;
-        case 6660: /* module 26 call 4 */
-        CHECK_ERROR(_readMethod_utility_force_batch_V2(c, &method->basic.utility_force_batch_V2))
-            break;
         case 18688: /* module 73 call 0 */
         CHECK_ERROR(_readMethod_crowdloan_create_V2(c, &method->basic.crowdloan_create_V2))
             break;
@@ -2680,7 +2550,6 @@ parser_error_t _readMethod_V2(
             break;
 
 
-            // Correct
         case 64768: /* module 253 call 0 */
         CHECK_ERROR(_readMethod_multitokens_create_collection_V2(c, &method->basic.multitokens_create_collection_V2))
             break;
@@ -2735,10 +2604,101 @@ parser_error_t _readMethod_V2(
         case 64801: /* module 253 call 33 */
         CHECK_ERROR(_readMethod_multitokens_claim_tokens_V2(c, &method->basic.multitokens_claim_tokens_V2))
             break;
-            ////////////////
+
+
+        case 4608: /* module 18 call 0 */
+        CHECK_ERROR(_readMethod_nominationpools_bond_V2(c, &method->basic.nominationpools_bond_V2))
+            break;
+        case 4611: /* module 18 call 3 */
+        CHECK_ERROR(_readMethod_nominationpools_unbond_V2(c, &method->basic.nominationpools_unbond_V2))
+            break;
+        case 4612: /* module 18 call 4 */
+        CHECK_ERROR(_readMethod_nominationpools_pool_withdraw_unbonded_V2(c,
+                                                                          &method->basic.nominationpools_pool_withdraw_unbonded_V2))
+            break;
+        case 4613: /* module 18 call 5 */
+        CHECK_ERROR(
+                _readMethod_nominationpools_withdraw_unbonded_V2(c, &method->basic.nominationpools_withdraw_unbonded_V2))
+            break;
+        case 4614: /* module 18 call 6 */
+        CHECK_ERROR(_readMethod_nominationpools_create_V2(c, &method->basic.nominationpools_create_V2))
+            break;
+        case 4616: /* module 18 call 8 */
+        CHECK_ERROR(_readMethod_nominationpools_nominate_V2(c, &method->basic.nominationpools_nominate_V2))
+            break;
+        case 4621: /* module 18 call 13 */
+        CHECK_ERROR(_readMethod_nominationpools_chill_V2(c, &method->basic.nominationpools_chill_V2))
+            break;
+        case 4622: /* module 18 call 14 */
+        CHECK_ERROR(_readMethod_nominationpools_destroy_V2(c, &method->basic.nominationpools_destroy_V2))
+            break;
+        case 4626: /* module 18 call 18 */
+        CHECK_ERROR(_readMethod_nominationpools_payout_rewards_V2(c,
+                                                                  &method->basic.nominationpools_payout_rewards_V2))
+            break;
+        case 4627: /* module 18 call 19 */
+        CHECK_ERROR(_readMethod_nominationpools_mutate_V2(c, &method->basic.nominationpools_mutate_V2))
+            break;
+        case 4628: /* module 18 call 20 */
+        CHECK_ERROR(_readMethod_nominationpools_unbond_deposit_V2(c, &method->basic.nominationpools_unbond_deposit_V2))
+            break;
+        case 4629: /* module 18 call 21 */
+        CHECK_ERROR(_readMethod_nominationpools_withdraw_deposit_V2(c, &method->basic.nominationpools_withdraw_deposit_V2))
+            break;
+        case 4631: /* module 18 call 23 */
+        CHECK_ERROR(_readMethod_nominationpools_queue_early_bird_bonus_V2(c,
+                                                                          &method->basic.nominationpools_queue_early_bird_bonus_V2))
+            break;
+        case 4632: /* module 18 call 24 */
+        CHECK_ERROR(_readMethod_nominationpools_distribute_early_bird_bonus_V2(c,
+                                                                               &method->basic.nominationpools_distribute_early_bird_bonus_V2))
+            break;
+
+
+
+        case 2304: /* module 9 call 0 */
+        CHECK_ERROR(_readMethod_session_set_keys_V2(c, &method->basic.session_set_keys_V2))
+            break;
+        case 2305: /* module 9 call 1 */
+        CHECK_ERROR(_readMethod_session_purge_keys_V2(c, &method->basic.session_purge_keys_V2))
+            break;
+
+
+        case 4864: /* module 19 call 0 */
+        CHECK_ERROR(_readMethod_stakeexchange_create_offer_V2(c, &method->basic.stakeexchange_create_offer_V2))
+            break;
+        case 4865: /* module 19 call 1 */
+        CHECK_ERROR(_readMethod_stakeexchange_cancel_offer_V2(c, &method->basic.stakeexchange_cancel_offer_V2))
+            break;
+        case 4866: /* module 19 call 2 */
+        CHECK_ERROR(_readMethod_stakeexchange_configure_liquidity_account_V2(c, &method->basic.stakeexchange_configure_liquidity_account_V2))
+            break;
+        case 4867: /* module 19 call 3 */
+        CHECK_ERROR(_readMethod_stakeexchange_withdraw_liquidity_V2(c, &method->basic.stakeexchange_withdraw_liquidity_V2))
+            break;
+        case 4868: /* module 19 call 4 */
+        CHECK_ERROR(_readMethod_stakeexchange_add_liquidity_V2(c, &method->basic.stakeexchange_add_liquidity_V2))
+            break;
+        case 4869: /* module 19 call 5 */
+        CHECK_ERROR(_readMethod_stakeexchange_buy_V2(c, &method->basic.stakeexchange_buy_V2))
+            break;
+
+
+        case 6656: /* module 26 call 0 */
+        CHECK_ERROR(_readMethod_utility_batch_V2(c, &method->basic.utility_batch_V2))
+            break;
+        case 6658: /* module 26 call 2 */
+        CHECK_ERROR(_readMethod_utility_batch_all_V2(c, &method->basic.utility_batch_all_V2))
+            break;
+        case 6660: /* module 26 call 4 */
+        CHECK_ERROR(_readMethod_utility_force_batch_V2(c, &method->basic.utility_force_batch_V2))
+            break;
+
 
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS
+
+
         case 1538: /* module 6 call 2 */
         CHECK_ERROR(_readMethod_balances_force_transfer_V2(c, &method->basic.balances_force_transfer_V2))
             break;
@@ -2752,21 +2712,6 @@ parser_error_t _readMethod_V2(
         CHECK_ERROR(_readMethod_balances_force_set_balance_V2(c, &method->basic.balances_force_set_balance_V2))
             break;
 
-        case 25345: /* module 99 call 1 */
-        CHECK_ERROR(_readMethod_xcmpallet_teleport_assets_V2(c, &method->basic.xcmpallet_teleport_assets_V2))
-            break;
-        case 25346: /* module 99 call 2 */
-        CHECK_ERROR(_readMethod_xcmpallet_reserve_transfer_assets_V2(c, &method->basic.xcmpallet_reserve_transfer_assets_V2))
-            break;
-        case 25352: /* module 99 call 8 */
-        CHECK_ERROR(_readMethod_xcmpallet_limited_reserve_transfer_assets_V2(c, &method->basic.xcmpallet_limited_reserve_transfer_assets_V2))
-            break;
-        case 25353: /* module 99 call 9 */
-        CHECK_ERROR(_readMethod_xcmpallet_limited_teleport_assets_V2(c, &method->basic.xcmpallet_limited_teleport_assets_V2))
-            break;
-
-
-            //// Correct
 
         case 64771: /* module 253 call 3 */
         CHECK_ERROR(_readMethod_multitokens_mutate_token_V2(c, &method->basic.multitokens_mutate_token_V2))
@@ -2817,137 +2762,37 @@ parser_error_t _readMethod_V2(
         CHECK_ERROR(_readMethod_multitokens_force_set_next_collection_id_V2(c, &method->basic.multitokens_force_set_next_collection_id_V2))
             break;
 
-#endif
-        case 2304: /* module 9 call 0 */
-        CHECK_ERROR(_readMethod_staking_bond_V2(c, &method->basic.staking_bond_V2))
+
+
+        case 25345: /* module 99 call 1 */
+        CHECK_ERROR(_readMethod_xcmpallet_teleport_assets_V2(c, &method->basic.xcmpallet_teleport_assets_V2))
             break;
-        case 2305: /* module 9 call 1 */
-        CHECK_ERROR(_readMethod_staking_bond_extra_V2(c, &method->basic.staking_bond_extra_V2))
+        case 25346: /* module 99 call 2 */
+        CHECK_ERROR(_readMethod_xcmpallet_reserve_transfer_assets_V2(c, &method->basic.xcmpallet_reserve_transfer_assets_V2))
             break;
-        case 2306: /* module 9 call 2 */
-        CHECK_ERROR(_readMethod_staking_unbond_V2(c, &method->basic.staking_unbond_V2))
+        case 25352: /* module 99 call 8 */
+        CHECK_ERROR(_readMethod_xcmpallet_limited_reserve_transfer_assets_V2(c, &method->basic.xcmpallet_limited_reserve_transfer_assets_V2))
             break;
-        case 2307: /* module 9 call 3 */
-        CHECK_ERROR(_readMethod_staking_withdraw_unbonded_V2(c, &method->basic.staking_withdraw_unbonded_V2))
-            break;
-        case 2308: /* module 9 call 4 */
-        CHECK_ERROR(_readMethod_staking_validate_V2(c, &method->basic.staking_validate_V2))
-            break;
-        case 2309: /* module 9 call 5 */
-        CHECK_ERROR(_readMethod_staking_nominate_V2(c, &method->basic.staking_nominate_V2))
-            break;
-        case 2310: /* module 9 call 6 */
-        CHECK_ERROR(_readMethod_staking_chill_V2(c, &method->basic.staking_chill_V2))
-            break;
-        case 2311: /* module 9 call 7 */
-        CHECK_ERROR(_readMethod_staking_set_payee_V2(c, &method->basic.staking_set_payee_V2))
-            break;
-        case 2312: /* module 9 call 8 */
-        CHECK_ERROR(_readMethod_staking_set_controller_V2(c, &method->basic.staking_set_controller_V2))
-            break;
-        case 2313: /* module 9 call 9 */
-        CHECK_ERROR(_readMethod_staking_set_validator_count_V2(c, &method->basic.staking_set_validator_count_V2))
-            break;
-        case 2314: /* module 9 call 10 */
-        CHECK_ERROR(_readMethod_staking_increase_validator_count_V2(c, &method->basic.staking_increase_validator_count_V2))
-            break;
-        case 2315: /* module 9 call 11 */
-        CHECK_ERROR(_readMethod_staking_scale_validator_count_V2(c, &method->basic.staking_scale_validator_count_V2))
-            break;
-        case 2316: /* module 9 call 12 */
-        CHECK_ERROR(_readMethod_staking_force_no_eras_V2(c, &method->basic.staking_force_no_eras_V2))
-            break;
-        case 2317: /* module 9 call 13 */
-        CHECK_ERROR(_readMethod_staking_force_new_era_V2(c, &method->basic.staking_force_new_era_V2))
-            break;
-        case 2318: /* module 9 call 14 */
-        CHECK_ERROR(_readMethod_staking_set_invulnerables_V2(c, &method->basic.staking_set_invulnerables_V2))
-            break;
-        case 2319: /* module 9 call 15 */
-        CHECK_ERROR(_readMethod_staking_force_unstake_V2(c, &method->basic.staking_force_unstake_V2))
-            break;
-        case 2320: /* module 9 call 16 */
-        CHECK_ERROR(_readMethod_staking_force_new_era_always_V2(c, &method->basic.staking_force_new_era_always_V2))
-            break;
-        case 2321: /* module 9 call 17 */
-        CHECK_ERROR(_readMethod_staking_cancel_deferred_slash_V2(c, &method->basic.staking_cancel_deferred_slash_V2))
-            break;
-        case 2322: /* module 9 call 18 */
-        CHECK_ERROR(_readMethod_staking_payout_stakers_V2(c, &method->basic.staking_payout_stakers_V2))
-            break;
-        case 2323: /* module 9 call 19 */
-        CHECK_ERROR(_readMethod_staking_rebond_V2(c, &method->basic.staking_rebond_V2))
-            break;
-        case 2324: /* module 9 call 20 */
-        CHECK_ERROR(_readMethod_staking_reap_stash_V2(c, &method->basic.staking_reap_stash_V2))
-            break;
-        case 2325: /* module 9 call 21 */
-        CHECK_ERROR(_readMethod_staking_kick_V2(c, &method->basic.staking_kick_V2))
-            break;
-        case 2326: /* module 9 call 22 */
-        CHECK_ERROR(_readMethod_staking_set_staking_configs_V2(c, &method->basic.staking_set_staking_configs_V2))
-            break;
-        case 2327: /* module 9 call 23 */
-        CHECK_ERROR(_readMethod_staking_chill_other_V2(c, &method->basic.staking_chill_other_V2))
-            break;
-        case 2328: /* module 9 call 24 */
-        CHECK_ERROR(_readMethod_staking_force_apply_min_commission_V2(c, &method->basic.staking_force_apply_min_commission_V2))
-            break;
-        case 2329: /* module 9 call 25 */
-        CHECK_ERROR(_readMethod_staking_set_min_commission_V2(c, &method->basic.staking_set_min_commission_V2))
-            break;
-        case 4619: /* module 18 call 11 */
-        CHECK_ERROR(_readMethod_nominationpools_set_configs_V2(c, &method->basic.nominationpools_set_configs_V2))
-            break;
-        case 4630: /* module 18 call 22 */
-        CHECK_ERROR(_readMethod_nominationpools_set_staking_info_V2(c, &method->basic.nominationpools_set_staking_info_V2))
+        case 25353: /* module 99 call 9 */
+        CHECK_ERROR(_readMethod_xcmpallet_limited_teleport_assets_V2(c, &method->basic.xcmpallet_limited_teleport_assets_V2))
             break;
 
-        case 0: /* module 0 call 0 */
-        CHECK_ERROR(_readMethod_system_remark_V2(c, &method->nested.system_remark_V2))
+
+#endif
+
+
+        case 18432: /* module 72 call 0 */
+        CHECK_ERROR(_readMethod_auctions_new_auction_V2(c, &method->basic.auctions_new_auction_V2))
             break;
-        case 1: /* module 0 call 1 */
-        CHECK_ERROR(_readMethod_system_set_heap_pages_V2(c, &method->nested.system_set_heap_pages_V2))
+        case 18433: /* module 72 call 1 */
+        CHECK_ERROR(_readMethod_auctions_bid_V2(c, &method->basic.auctions_bid_V2))
             break;
-        case 2: /* module 0 call 2 */
-        CHECK_ERROR(_readMethod_system_set_code_V2(c, &method->nested.system_set_code_V2))
+        case 18434: /* module 72 call 2 */
+        CHECK_ERROR(_readMethod_auctions_cancel_auction_V2(c, &method->basic.auctions_cancel_auction_V2))
             break;
-        case 3: /* module 0 call 3 */
-        CHECK_ERROR(_readMethod_system_set_code_without_checks_V2(c, &method->nested.system_set_code_without_checks_V2))
-            break;
-        case 7: /* module 0 call 7 */
-        CHECK_ERROR(_readMethod_system_remark_with_event_V2(c, &method->nested.system_remark_with_event_V2))
-            break;
-        case 2560: /* module 10 call 0 */
-        CHECK_ERROR(_readMethod_preimage_note_preimage_V2(c, &method->basic.preimage_note_preimage_V2))
-            break;
-        case 2561: /* module 10 call 1 */
-        CHECK_ERROR(_readMethod_preimage_unnote_preimage_V2(c, &method->basic.preimage_unnote_preimage_V2))
-            break;
-        case 2562: /* module 10 call 2 */
-        CHECK_ERROR(_readMethod_preimage_request_preimage_V2(c, &method->basic.preimage_request_preimage_V2))
-            break;
-        case 2563: /* module 10 call 3 */
-        CHECK_ERROR(_readMethod_preimage_unrequest_preimage_V2(c, &method->basic.preimage_unrequest_preimage_V2))
-            break;
-        case 768: /* module 3 call 0 */
-        CHECK_ERROR(_readMethod_timestamp_set_V2(c, &method->basic.timestamp_set_V2))
-            break;
-        case 1024: /* module 4 call 0 */
-        CHECK_ERROR(_readMethod_indices_claim_V2(c, &method->basic.indices_claim_V2))
-            break;
-        case 1025: /* module 4 call 1 */
-        CHECK_ERROR(_readMethod_indices_transfer_V2(c, &method->basic.indices_transfer_V2))
-            break;
-        case 1026: /* module 4 call 2 */
-        CHECK_ERROR(_readMethod_indices_free_V2(c, &method->basic.indices_free_V2))
-            break;
-        case 1027: /* module 4 call 3 */
-        CHECK_ERROR(_readMethod_indices_force_transfer_V2(c, &method->basic.indices_force_transfer_V2))
-            break;
-        case 1028: /* module 4 call 4 */
-        CHECK_ERROR(_readMethod_indices_freeze_V2(c, &method->basic.indices_freeze_V2))
-            break;
+
+
+
         case 1281: /* module 5 call 1 */
         CHECK_ERROR(_readMethod_balances_set_balance_deprecated_V2(c, &method->nested.balances_set_balance_deprecated_V2))
             break;
@@ -2960,357 +2805,7 @@ parser_error_t _readMethod_V2(
         case 1288: /* module 5 call 8 */
         CHECK_ERROR(_readMethod_balances_force_set_balance_V2(c, &method->basic.balances_force_set_balance_V2))
             break;
-        case 1801: /* module 7 call 9 */
-        CHECK_ERROR(_readMethod_staking_set_validator_count_V2(c, &method->basic.staking_set_validator_count_V2))
-            break;
-        case 1802: /* module 7 call 10 */
-        CHECK_ERROR(_readMethod_staking_increase_validator_count_V2(c, &method->basic.staking_increase_validator_count_V2))
-            break;
-        case 1803: /* module 7 call 11 */
-        CHECK_ERROR(_readMethod_staking_scale_validator_count_V2(c, &method->basic.staking_scale_validator_count_V2))
-            break;
-        case 1804: /* module 7 call 12 */
-        CHECK_ERROR(_readMethod_staking_force_no_eras_V2(c, &method->basic.staking_force_no_eras_V2))
-            break;
-        case 1805: /* module 7 call 13 */
-        CHECK_ERROR(_readMethod_staking_force_new_era_V2(c, &method->basic.staking_force_new_era_V2))
-            break;
-        case 1806: /* module 7 call 14 */
-        CHECK_ERROR(_readMethod_staking_set_invulnerables_V2(c, &method->basic.staking_set_invulnerables_V2))
-            break;
-        case 1807: /* module 7 call 15 */
-        CHECK_ERROR(_readMethod_staking_force_unstake_V2(c, &method->basic.staking_force_unstake_V2))
-            break;
-        case 1808: /* module 7 call 16 */
-        CHECK_ERROR(_readMethod_staking_force_new_era_always_V2(c, &method->basic.staking_force_new_era_always_V2))
-            break;
-        case 1809: /* module 7 call 17 */
-        CHECK_ERROR(_readMethod_staking_cancel_deferred_slash_V2(c, &method->basic.staking_cancel_deferred_slash_V2))
-            break;
-        case 1812: /* module 7 call 20 */
-        CHECK_ERROR(_readMethod_staking_reap_stash_V2(c, &method->basic.staking_reap_stash_V2))
-            break;
-        case 1813: /* module 7 call 21 */
-        CHECK_ERROR(_readMethod_staking_kick_V2(c, &method->basic.staking_kick_V2))
-            break;
-        case 1814: /* module 7 call 22 */
-        CHECK_ERROR(_readMethod_staking_set_staking_configs_V2(c, &method->basic.staking_set_staking_configs_V2))
-            break;
-        case 1815: /* module 7 call 23 */
-        CHECK_ERROR(_readMethod_staking_chill_other_V2(c, &method->basic.staking_chill_other_V2))
-            break;
-        case 1816: /* module 7 call 24 */
-        CHECK_ERROR(_readMethod_staking_force_apply_min_commission_V2(c, &method->basic.staking_force_apply_min_commission_V2))
-            break;
-        case 1817: /* module 7 call 25 */
-        CHECK_ERROR(_readMethod_staking_set_min_commission_V2(c, &method->basic.staking_set_min_commission_V2))
-            break;
-        case 3584: /* module 14 call 0 */
-        CHECK_ERROR(_readMethod_democracy_propose_V2(c, &method->nested.democracy_propose_V2))
-            break;
-        case 3585: /* module 14 call 1 */
-        CHECK_ERROR(_readMethod_democracy_second_V2(c, &method->nested.democracy_second_V2))
-            break;
-        case 3586: /* module 14 call 2 */
-        CHECK_ERROR(_readMethod_democracy_vote_V2(c, &method->nested.democracy_vote_V2))
-            break;
-        case 3587: /* module 14 call 3 */
-        CHECK_ERROR(_readMethod_democracy_emergency_cancel_V2(c, &method->nested.democracy_emergency_cancel_V2))
-            break;
-        case 3588: /* module 14 call 4 */
-        CHECK_ERROR(_readMethod_democracy_external_propose_V2(c, &method->nested.democracy_external_propose_V2))
-            break;
-        case 3589: /* module 14 call 5 */
-        CHECK_ERROR(_readMethod_democracy_external_propose_majority_V2(c, &method->nested.democracy_external_propose_majority_V2))
-            break;
-        case 3590: /* module 14 call 6 */
-        CHECK_ERROR(_readMethod_democracy_external_propose_default_V2(c, &method->nested.democracy_external_propose_default_V2))
-            break;
-        case 3591: /* module 14 call 7 */
-        CHECK_ERROR(_readMethod_democracy_fast_track_V2(c, &method->nested.democracy_fast_track_V2))
-            break;
-        case 3592: /* module 14 call 8 */
-        CHECK_ERROR(_readMethod_democracy_veto_external_V2(c, &method->nested.democracy_veto_external_V2))
-            break;
-        case 3593: /* module 14 call 9 */
-        CHECK_ERROR(_readMethod_democracy_cancel_referendum_V2(c, &method->nested.democracy_cancel_referendum_V2))
-            break;
-        case 3594: /* module 14 call 10 */
-        CHECK_ERROR(_readMethod_democracy_delegate_V2(c, &method->nested.democracy_delegate_V2))
-            break;
-        case 3595: /* module 14 call 11 */
-        CHECK_ERROR(_readMethod_democracy_undelegate_V2(c, &method->nested.democracy_undelegate_V2))
-            break;
-        case 3596: /* module 14 call 12 */
-        CHECK_ERROR(_readMethod_democracy_clear_public_proposals_V2(c, &method->nested.democracy_clear_public_proposals_V2))
-            break;
-        case 3597: /* module 14 call 13 */
-        CHECK_ERROR(_readMethod_democracy_unlock_V2(c, &method->nested.democracy_unlock_V2))
-            break;
-        case 3598: /* module 14 call 14 */
-        CHECK_ERROR(_readMethod_democracy_remove_vote_V2(c, &method->nested.democracy_remove_vote_V2))
-            break;
-        case 3599: /* module 14 call 15 */
-        CHECK_ERROR(_readMethod_democracy_remove_other_vote_V2(c, &method->nested.democracy_remove_other_vote_V2))
-            break;
-        case 3600: /* module 14 call 16 */
-        CHECK_ERROR(_readMethod_democracy_blacklist_V2(c, &method->basic.democracy_blacklist_V2))
-            break;
-        case 3601: /* module 14 call 17 */
-        CHECK_ERROR(_readMethod_democracy_cancel_proposal_V2(c, &method->nested.democracy_cancel_proposal_V2))
-            break;
-        case 3602: /* module 14 call 18 */
-        CHECK_ERROR(_readMethod_democracy_set_metadata_V2(c, &method->basic.democracy_set_metadata_V2))
-            break;
-        case 3840: /* module 15 call 0 */
-        CHECK_ERROR(_readMethod_council_set_members_V2(c, &method->basic.council_set_members_V2))
-            break;
-        case 3841: /* module 15 call 1 */
-        CHECK_ERROR(_readMethod_council_execute_V2(c, &method->basic.council_execute_V2))
-            break;
-        case 3842: /* module 15 call 2 */
-        CHECK_ERROR(_readMethod_council_propose_V2(c, &method->basic.council_propose_V2))
-            break;
-        case 3843: /* module 15 call 3 */
-        CHECK_ERROR(_readMethod_council_vote_V2(c, &method->basic.council_vote_V2))
-            break;
-        case 3845: /* module 15 call 5 */
-        CHECK_ERROR(_readMethod_council_disapprove_proposal_V2(c, &method->basic.council_disapprove_proposal_V2))
-            break;
-        case 3846: /* module 15 call 6 */
-        CHECK_ERROR(_readMethod_council_close_V2(c, &method->basic.council_close_V2))
-            break;
-        case 4096: /* module 16 call 0 */
-        CHECK_ERROR(_readMethod_technicalcommittee_set_members_V2(c, &method->basic.technicalcommittee_set_members_V2))
-            break;
-        case 4097: /* module 16 call 1 */
-        CHECK_ERROR(_readMethod_technicalcommittee_execute_V2(c, &method->basic.technicalcommittee_execute_V2))
-            break;
-        case 4098: /* module 16 call 2 */
-        CHECK_ERROR(_readMethod_technicalcommittee_propose_V2(c, &method->basic.technicalcommittee_propose_V2))
-            break;
-        case 4099: /* module 16 call 3 */
-        CHECK_ERROR(_readMethod_technicalcommittee_vote_V2(c, &method->basic.technicalcommittee_vote_V2))
-            break;
-        case 4101: /* module 16 call 5 */
-        CHECK_ERROR(_readMethod_technicalcommittee_disapprove_proposal_V2(c, &method->basic.technicalcommittee_disapprove_proposal_V2))
-            break;
-        case 4102: /* module 16 call 6 */
-        CHECK_ERROR(_readMethod_technicalcommittee_close_V2(c, &method->basic.technicalcommittee_close_V2))
-            break;
-        case 4352: /* module 17 call 0 */
-        CHECK_ERROR(_readMethod_phragmenelection_vote_V2(c, &method->basic.phragmenelection_vote_V2))
-            break;
-        case 4353: /* module 17 call 1 */
-        CHECK_ERROR(_readMethod_phragmenelection_remove_voter_V2(c, &method->basic.phragmenelection_remove_voter_V2))
-            break;
-        case 4354: /* module 17 call 2 */
-        CHECK_ERROR(_readMethod_phragmenelection_submit_candidacy_V2(c, &method->basic.phragmenelection_submit_candidacy_V2))
-            break;
-        case 4356: /* module 17 call 4 */
-        CHECK_ERROR(_readMethod_phragmenelection_remove_member_V2(c, &method->basic.phragmenelection_remove_member_V2))
-            break;
-        case 4357: /* module 17 call 5 */
-        CHECK_ERROR(_readMethod_phragmenelection_clean_defunct_voters_V2(c, &method->basic.phragmenelection_clean_defunct_voters_V2))
-            break;
-        case 4608: /* module 18 call 0 */
-        CHECK_ERROR(_readMethod_technicalmembership_add_member_V2(c, &method->basic.technicalmembership_add_member_V2))
-            break;
-        case 4609: /* module 18 call 1 */
-        CHECK_ERROR(_readMethod_technicalmembership_remove_member_V2(c, &method->basic.technicalmembership_remove_member_V2))
-            break;
-        case 4610: /* module 18 call 2 */
-        CHECK_ERROR(_readMethod_technicalmembership_swap_member_V2(c, &method->basic.technicalmembership_swap_member_V2))
-            break;
-        case 4611: /* module 18 call 3 */
-        CHECK_ERROR(_readMethod_technicalmembership_reset_members_V2(c, &method->basic.technicalmembership_reset_members_V2))
-            break;
-        case 4612: /* module 18 call 4 */
-        CHECK_ERROR(_readMethod_technicalmembership_change_key_V2(c, &method->basic.technicalmembership_change_key_V2))
-            break;
-        case 4613: /* module 18 call 5 */
-        CHECK_ERROR(_readMethod_technicalmembership_set_prime_V2(c, &method->basic.technicalmembership_set_prime_V2))
-            break;
-        case 4614: /* module 18 call 6 */
-        CHECK_ERROR(_readMethod_technicalmembership_clear_prime_V2(c, &method->basic.technicalmembership_clear_prime_V2))
-            break;
-        case 4864: /* module 19 call 0 */
-        CHECK_ERROR(_readMethod_treasury_propose_spend_V2(c, &method->basic.treasury_propose_spend_V2))
-            break;
-        case 4865: /* module 19 call 1 */
-        CHECK_ERROR(_readMethod_treasury_reject_proposal_V2(c, &method->basic.treasury_reject_proposal_V2))
-            break;
-        case 4866: /* module 19 call 2 */
-        CHECK_ERROR(_readMethod_treasury_approve_proposal_V2(c, &method->basic.treasury_approve_proposal_V2))
-            break;
-        case 4867: /* module 19 call 3 */
-        CHECK_ERROR(_readMethod_treasury_spend_V2(c, &method->basic.treasury_spend_V2))
-            break;
-        case 4868: /* module 19 call 4 */
-        CHECK_ERROR(_readMethod_treasury_remove_approval_V2(c, &method->basic.treasury_remove_approval_V2))
-            break;
-        case 5120: /* module 20 call 0 */
-        CHECK_ERROR(_readMethod_convictionvoting_vote_V2(c, &method->nested.convictionvoting_vote_V2))
-            break;
-        case 5121: /* module 20 call 1 */
-        CHECK_ERROR(_readMethod_convictionvoting_delegate_V2(c, &method->nested.convictionvoting_delegate_V2))
-            break;
-        case 5122: /* module 20 call 2 */
-        CHECK_ERROR(_readMethod_convictionvoting_undelegate_V2(c, &method->nested.convictionvoting_undelegate_V2))
-            break;
-        case 5123: /* module 20 call 3 */
-        CHECK_ERROR(_readMethod_convictionvoting_unlock_V2(c, &method->nested.convictionvoting_unlock_V2))
-            break;
-        case 5124: /* module 20 call 4 */
-        CHECK_ERROR(_readMethod_convictionvoting_remove_vote_V2(c, &method->nested.convictionvoting_remove_vote_V2))
-            break;
-        case 5125: /* module 20 call 5 */
-        CHECK_ERROR(_readMethod_convictionvoting_remove_other_vote_V2(c, &method->nested.convictionvoting_remove_other_vote_V2))
-            break;
-        case 5376: /* module 21 call 0 */
-        CHECK_ERROR(_readMethod_referenda_submit_V2(c, &method->basic.referenda_submit_V2))
-            break;
-        case 5377: /* module 21 call 1 */
-        CHECK_ERROR(_readMethod_referenda_place_decision_deposit_V2(c, &method->basic.referenda_place_decision_deposit_V2))
-            break;
-        case 5378: /* module 21 call 2 */
-        CHECK_ERROR(_readMethod_referenda_refund_decision_deposit_V2(c, &method->basic.referenda_refund_decision_deposit_V2))
-            break;
-        case 5379: /* module 21 call 3 */
-        CHECK_ERROR(_readMethod_referenda_cancel_V2(c, &method->basic.referenda_cancel_V2))
-            break;
-        case 5380: /* module 21 call 4 */
-        CHECK_ERROR(_readMethod_referenda_kill_V2(c, &method->basic.referenda_kill_V2))
-            break;
-        case 5381: /* module 21 call 5 */
-        CHECK_ERROR(_readMethod_referenda_nudge_referendum_V2(c, &method->basic.referenda_nudge_referendum_V2))
-            break;
-        case 5382: /* module 21 call 6 */
-        CHECK_ERROR(_readMethod_referenda_one_fewer_deciding_V2(c, &method->basic.referenda_one_fewer_deciding_V2))
-            break;
-        case 5383: /* module 21 call 7 */
-        CHECK_ERROR(_readMethod_referenda_refund_submission_deposit_V2(c, &method->basic.referenda_refund_submission_deposit_V2))
-            break;
-        case 5384: /* module 21 call 8 */
-        CHECK_ERROR(_readMethod_referenda_set_metadata_V2(c, &method->basic.referenda_set_metadata_V2))
-            break;
-        case 5888: /* module 23 call 0 */
-        CHECK_ERROR(_readMethod_whitelist_whitelist_call_V2(c, &method->basic.whitelist_whitelist_call_V2))
-            break;
-        case 5889: /* module 23 call 1 */
-        CHECK_ERROR(_readMethod_whitelist_remove_whitelisted_call_V2(c, &method->basic.whitelist_remove_whitelisted_call_V2))
-            break;
-        case 5890: /* module 23 call 2 */
-        CHECK_ERROR(_readMethod_whitelist_dispatch_whitelisted_call_V2(c, &method->basic.whitelist_dispatch_whitelisted_call_V2))
-            break;
-        case 5891: /* module 23 call 3 */
-        CHECK_ERROR(_readMethod_whitelist_dispatch_whitelisted_call_with_preimage_V2(c, &method->basic.whitelist_dispatch_whitelisted_call_with_preimage_V2))
-            break;
-        case 6144: /* module 24 call 0 */
-        CHECK_ERROR(_readMethod_claims_claim_V2(c, &method->basic.claims_claim_V2))
-            break;
-        case 6146: /* module 24 call 2 */
-        CHECK_ERROR(_readMethod_claims_claim_attest_V2(c, &method->basic.claims_claim_attest_V2))
-            break;
-        case 6147: /* module 24 call 3 */
-        CHECK_ERROR(_readMethod_claims_attest_V2(c, &method->basic.claims_attest_V2))
-            break;
-        case 6148: /* module 24 call 4 */
-        CHECK_ERROR(_readMethod_claims_move_claim_V2(c, &method->basic.claims_move_claim_V2))
-            break;
-        case 6400: /* module 25 call 0 */
-        CHECK_ERROR(_readMethod_vesting_vest_V2(c, &method->basic.vesting_vest_V2))
-            break;
-        case 6401: /* module 25 call 1 */
-        CHECK_ERROR(_readMethod_vesting_vest_other_V2(c, &method->basic.vesting_vest_other_V2))
-            break;
-        case 6402: /* module 25 call 2 */
-        CHECK_ERROR(_readMethod_vesting_vested_transfer_V2(c, &method->basic.vesting_vested_transfer_V2))
-            break;
-        case 6403: /* module 25 call 3 */
-        CHECK_ERROR(_readMethod_vesting_force_vested_transfer_V2(c, &method->basic.vesting_force_vested_transfer_V2))
-            break;
-        case 6404: /* module 25 call 4 */
-        CHECK_ERROR(_readMethod_vesting_merge_schedules_V2(c, &method->basic.vesting_merge_schedules_V2))
-            break;
-        case 6661: /* module 26 call 5 */
-        CHECK_ERROR(_readMethod_utility_with_weight_V2(c, &method->basic.utility_with_weight_V2))
-            break;
-        case 7168: /* module 28 call 0 */
-        CHECK_ERROR(_readMethod_identity_add_registrar_V2(c, &method->basic.identity_add_registrar_V2))
-            break;
-        case 7169: /* module 28 call 1 */
-        CHECK_ERROR(_readMethod_identity_set_identity_V2(c, &method->basic.identity_set_identity_V2))
-            break;
-        case 7170: /* module 28 call 2 */
-        CHECK_ERROR(_readMethod_identity_set_subs_V2(c, &method->basic.identity_set_subs_V2))
-            break;
-        case 7171: /* module 28 call 3 */
-        CHECK_ERROR(_readMethod_identity_clear_identity_V2(c, &method->basic.identity_clear_identity_V2))
-            break;
-        case 7172: /* module 28 call 4 */
-        CHECK_ERROR(_readMethod_identity_request_judgement_V2(c, &method->basic.identity_request_judgement_V2))
-            break;
-        case 7173: /* module 28 call 5 */
-        CHECK_ERROR(_readMethod_identity_cancel_request_V2(c, &method->basic.identity_cancel_request_V2))
-            break;
-        case 7174: /* module 28 call 6 */
-        CHECK_ERROR(_readMethod_identity_set_fee_V2(c, &method->basic.identity_set_fee_V2))
-            break;
-        case 7175: /* module 28 call 7 */
-        CHECK_ERROR(_readMethod_identity_set_account_id_V2(c, &method->basic.identity_set_account_id_V2))
-            break;
-        case 7177: /* module 28 call 9 */
-        CHECK_ERROR(_readMethod_identity_provide_judgement_V2(c, &method->basic.identity_provide_judgement_V2))
-            break;
-        case 7178: /* module 28 call 10 */
-        CHECK_ERROR(_readMethod_identity_kill_identity_V2(c, &method->basic.identity_kill_identity_V2))
-            break;
-        case 7179: /* module 28 call 11 */
-        CHECK_ERROR(_readMethod_identity_add_sub_V2(c, &method->basic.identity_add_sub_V2))
-            break;
-        case 7180: /* module 28 call 12 */
-        CHECK_ERROR(_readMethod_identity_rename_sub_V2(c, &method->basic.identity_rename_sub_V2))
-            break;
-        case 7181: /* module 28 call 13 */
-        CHECK_ERROR(_readMethod_identity_remove_sub_V2(c, &method->basic.identity_remove_sub_V2))
-            break;
-        case 7182: /* module 28 call 14 */
-        CHECK_ERROR(_readMethod_identity_quit_sub_V2(c, &method->basic.identity_quit_sub_V2))
-            break;
-        case 7424: /* module 29 call 0 */
-        CHECK_ERROR(_readMethod_proxy_proxy_V2(c, &method->nested.proxy_proxy_V2))
-            break;
-        case 7425: /* module 29 call 1 */
-        CHECK_ERROR(_readMethod_proxy_add_proxy_V2(c, &method->nested.proxy_add_proxy_V2))
-            break;
-        case 7426: /* module 29 call 2 */
-        CHECK_ERROR(_readMethod_proxy_remove_proxy_V2(c, &method->nested.proxy_remove_proxy_V2))
-            break;
-        case 7427: /* module 29 call 3 */
-        CHECK_ERROR(_readMethod_proxy_remove_proxies_V2(c, &method->basic.proxy_remove_proxies_V2))
-            break;
-        case 7428: /* module 29 call 4 */
-        CHECK_ERROR(_readMethod_proxy_create_pure_V2(c, &method->nested.proxy_create_pure_V2))
-            break;
-        case 7429: /* module 29 call 5 */
-        CHECK_ERROR(_readMethod_proxy_kill_pure_V2(c, &method->nested.proxy_kill_pure_V2))
-            break;
-        case 7433: /* module 29 call 9 */
-        CHECK_ERROR(_readMethod_proxy_proxy_announced_V2(c, &method->basic.proxy_proxy_announced_V2))
-            break;
-        case 7680: /* module 30 call 0 */
-        CHECK_ERROR(_readMethod_multisig_as_multi_threshold_1_V2(c, &method->nested.multisig_as_multi_threshold_1_V2))
-            break;
-        case 7681: /* module 30 call 1 */
-        CHECK_ERROR(_readMethod_multisig_as_multi_V2(c, &method->nested.multisig_as_multi_V2))
-            break;
-        case 7682: /* module 30 call 2 */
-        CHECK_ERROR(_readMethod_multisig_approve_as_multi_V2(c, &method->nested.multisig_approve_as_multi_V2))
-            break;
-        case 7683: /* module 30 call 3 */
-        CHECK_ERROR(_readMethod_multisig_cancel_as_multi_V2(c, &method->nested.multisig_cancel_as_multi_V2))
-            break;
+
         case 8704: /* module 34 call 0 */
         CHECK_ERROR(_readMethod_bounties_propose_bounty_V2(c, &method->basic.bounties_propose_bounty_V2))
             break;
@@ -3338,6 +2833,7 @@ parser_error_t _readMethod_V2(
         case 8712: /* module 34 call 8 */
         CHECK_ERROR(_readMethod_bounties_extend_bounty_expiry_V2(c, &method->basic.bounties_extend_bounty_expiry_V2))
             break;
+
         case 9728: /* module 38 call 0 */
         CHECK_ERROR(_readMethod_childbounties_add_child_bounty_V2(c, &method->basic.childbounties_add_child_bounty_V2))
             break;
@@ -3359,102 +2855,21 @@ parser_error_t _readMethod_V2(
         case 9734: /* module 38 call 6 */
         CHECK_ERROR(_readMethod_childbounties_close_child_bounty_V2(c, &method->basic.childbounties_close_child_bounty_V2))
             break;
-        case 8960: /* module 35 call 0 */
-        CHECK_ERROR(_readMethod_tips_report_awesome_V2(c, &method->basic.tips_report_awesome_V2))
+
+        case 6144: /* module 24 call 0 */
+        CHECK_ERROR(_readMethod_claims_claim_V2(c, &method->basic.claims_claim_V2))
             break;
-        case 8961: /* module 35 call 1 */
-        CHECK_ERROR(_readMethod_tips_retract_tip_V2(c, &method->basic.tips_retract_tip_V2))
+        case 6146: /* module 24 call 2 */
+        CHECK_ERROR(_readMethod_claims_claim_attest_V2(c, &method->basic.claims_claim_attest_V2))
             break;
-        case 8962: /* module 35 call 2 */
-        CHECK_ERROR(_readMethod_tips_tip_new_V2(c, &method->basic.tips_tip_new_V2))
+        case 6147: /* module 24 call 3 */
+        CHECK_ERROR(_readMethod_claims_attest_V2(c, &method->basic.claims_attest_V2))
             break;
-        case 8963: /* module 35 call 3 */
-        CHECK_ERROR(_readMethod_tips_tip_V2(c, &method->basic.tips_tip_V2))
+        case 6148: /* module 24 call 4 */
+        CHECK_ERROR(_readMethod_claims_move_claim_V2(c, &method->basic.claims_move_claim_V2))
             break;
-        case 8964: /* module 35 call 4 */
-        CHECK_ERROR(_readMethod_tips_close_tip_V2(c, &method->basic.tips_close_tip_V2))
-            break;
-        case 8965: /* module 35 call 5 */
-        CHECK_ERROR(_readMethod_tips_slash_tip_V2(c, &method->basic.tips_slash_tip_V2))
-            break;
-        case 9472: /* module 37 call 0 */
-        CHECK_ERROR(_readMethod_voterlist_rebag_V2(c, &method->basic.voterlist_rebag_V2))
-            break;
-        case 9473: /* module 37 call 1 */
-        CHECK_ERROR(_readMethod_voterlist_put_in_front_of_V2(c, &method->basic.voterlist_put_in_front_of_V2))
-            break;
-        case 9984: /* module 39 call 0 */
-        CHECK_ERROR(_readMethod_nominationpools_join_V2(c, &method->nested.nominationpools_join_V2))
-            break;
-        case 9985: /* module 39 call 1 */
-        CHECK_ERROR(_readMethod_nominationpools_bond_extra_V2(c, &method->nested.nominationpools_bond_extra_V2))
-            break;
-        case 9986: /* module 39 call 2 */
-        CHECK_ERROR(_readMethod_nominationpools_claim_payout_V2(c, &method->nested.nominationpools_claim_payout_V2))
-            break;
-        case 9987: /* module 39 call 3 */
-        CHECK_ERROR(_readMethod_nominationpools_unbond_V2(c, &method->nested.nominationpools_unbond_V2))
-            break;
-        case 9988: /* module 39 call 4 */
-        CHECK_ERROR(_readMethod_nominationpools_pool_withdraw_unbonded_V2(c, &method->basic.nominationpools_pool_withdraw_unbonded_V2))
-            break;
-        case 9989: /* module 39 call 5 */
-        CHECK_ERROR(_readMethod_nominationpools_withdraw_unbonded_V2(c, &method->nested.nominationpools_withdraw_unbonded_V2))
-            break;
-        case 9990: /* module 39 call 6 */
-        CHECK_ERROR(_readMethod_nominationpools_create_V2(c, &method->nested.nominationpools_create_V2))
-            break;
-        case 9991: /* module 39 call 7 */
-        CHECK_ERROR(_readMethod_nominationpools_create_with_pool_id_V2(c, &method->basic.nominationpools_create_with_pool_id_V2))
-            break;
-        case 9992: /* module 39 call 8 */
-        CHECK_ERROR(_readMethod_nominationpools_nominate_V2(c, &method->nested.nominationpools_nominate_V2))
-            break;
-        case 9993: /* module 39 call 9 */
-        CHECK_ERROR(_readMethod_nominationpools_set_state_V2(c, &method->nested.nominationpools_set_state_V2))
-            break;
-        case 9994: /* module 39 call 10 */
-        CHECK_ERROR(_readMethod_nominationpools_set_metadata_V2(c, &method->nested.nominationpools_set_metadata_V2))
-            break;
-        case 9995: /* module 39 call 11 */
-        CHECK_ERROR(_readMethod_nominationpools_set_configs_V2(c, &method->basic.nominationpools_set_configs_V2))
-            break;
-        case 9996: /* module 39 call 12 */
-        CHECK_ERROR(_readMethod_nominationpools_update_roles_V2(c, &method->nested.nominationpools_update_roles_V2))
-            break;
-        case 9997: /* module 39 call 13 */
-        CHECK_ERROR(_readMethod_nominationpools_chill_V2(c, &method->nested.nominationpools_chill_V2))
-            break;
-        case 9998: /* module 39 call 14 */
-        CHECK_ERROR(_readMethod_nominationpools_bond_extra_other_V2(c, &method->basic.nominationpools_bond_extra_other_V2))
-            break;
-        case 9999: /* module 39 call 15 */
-        CHECK_ERROR(_readMethod_nominationpools_set_claim_permission_V2(c, &method->nested.nominationpools_set_claim_permission_V2))
-            break;
-        case 10000: /* module 39 call 16 */
-        CHECK_ERROR(_readMethod_nominationpools_claim_payout_other_V2(c, &method->nested.nominationpools_claim_payout_other_V2))
-            break;
-        case 10001: /* module 39 call 17 */
-        CHECK_ERROR(_readMethod_nominationpools_set_commission_V2(c, &method->nested.nominationpools_set_commission_V2))
-            break;
-        case 10002: /* module 39 call 18 */
-        CHECK_ERROR(_readMethod_nominationpools_set_commission_max_V2(c, &method->nested.nominationpools_set_commission_max_V2))
-            break;
-        case 10003: /* module 39 call 19 */
-        CHECK_ERROR(_readMethod_nominationpools_set_commission_change_rate_V2(c, &method->nested.nominationpools_set_commission_change_rate_V2))
-            break;
-        case 10004: /* module 39 call 20 */
-        CHECK_ERROR(_readMethod_nominationpools_claim_commission_V2(c, &method->nested.nominationpools_claim_commission_V2))
-            break;
-        case 10240: /* module 40 call 0 */
-        CHECK_ERROR(_readMethod_fastunstake_register_fast_unstake_V2(c, &method->nested.fastunstake_register_fast_unstake_V2))
-            break;
-        case 10241: /* module 40 call 1 */
-        CHECK_ERROR(_readMethod_fastunstake_deregister_V2(c, &method->nested.fastunstake_deregister_V2))
-            break;
-        case 10242: /* module 40 call 2 */
-        CHECK_ERROR(_readMethod_fastunstake_control_V2(c, &method->basic.fastunstake_control_V2))
-            break;
+
+
         case 13056: /* module 51 call 0 */
         CHECK_ERROR(_readMethod_configuration_set_validation_upgrade_cooldown_V2(c, &method->basic.configuration_set_validation_upgrade_cooldown_V2))
             break;
@@ -3575,21 +2990,584 @@ parser_error_t _readMethod_V2(
         case 13100: /* module 51 call 44 */
         CHECK_ERROR(_readMethod_configuration_set_bypass_consistency_check_V2(c, &method->basic.configuration_set_bypass_consistency_check_V2))
             break;
+
+
+
+        case 5120: /* module 20 call 0 */
+        CHECK_ERROR(_readMethod_convictionvoting_vote_V2(c, &method->nested.convictionvoting_vote_V2))
+            break;
+        case 5121: /* module 20 call 1 */
+        CHECK_ERROR(_readMethod_convictionvoting_delegate_V2(c, &method->nested.convictionvoting_delegate_V2))
+            break;
+        case 5122: /* module 20 call 2 */
+        CHECK_ERROR(_readMethod_convictionvoting_undelegate_V2(c, &method->nested.convictionvoting_undelegate_V2))
+            break;
+        case 5123: /* module 20 call 3 */
+        CHECK_ERROR(_readMethod_convictionvoting_unlock_V2(c, &method->nested.convictionvoting_unlock_V2))
+            break;
+        case 5124: /* module 20 call 4 */
+        CHECK_ERROR(_readMethod_convictionvoting_remove_vote_V2(c, &method->nested.convictionvoting_remove_vote_V2))
+            break;
+        case 5125: /* module 20 call 5 */
+        CHECK_ERROR(_readMethod_convictionvoting_remove_other_vote_V2(c, &method->nested.convictionvoting_remove_other_vote_V2))
+            break;
+
+
+        case 3840: /* module 15 call 0 */
+        CHECK_ERROR(_readMethod_council_set_members_V2(c, &method->basic.council_set_members_V2))
+            break;
+        case 3841: /* module 15 call 1 */
+        CHECK_ERROR(_readMethod_council_execute_V2(c, &method->basic.council_execute_V2))
+            break;
+        case 3842: /* module 15 call 2 */
+        CHECK_ERROR(_readMethod_council_propose_V2(c, &method->basic.council_propose_V2))
+            break;
+        case 3843: /* module 15 call 3 */
+        CHECK_ERROR(_readMethod_council_vote_V2(c, &method->basic.council_vote_V2))
+            break;
+        case 3845: /* module 15 call 5 */
+        CHECK_ERROR(_readMethod_council_disapprove_proposal_V2(c, &method->basic.council_disapprove_proposal_V2))
+            break;
+        case 3846: /* module 15 call 6 */
+        CHECK_ERROR(_readMethod_council_close_V2(c, &method->basic.council_close_V2))
+            break;
+
+
+        case 3584: /* module 14 call 0 */
+        CHECK_ERROR(_readMethod_democracy_propose_V2(c, &method->nested.democracy_propose_V2))
+            break;
+        case 3585: /* module 14 call 1 */
+        CHECK_ERROR(_readMethod_democracy_second_V2(c, &method->nested.democracy_second_V2))
+            break;
+        case 3586: /* module 14 call 2 */
+        CHECK_ERROR(_readMethod_democracy_vote_V2(c, &method->nested.democracy_vote_V2))
+            break;
+        case 3587: /* module 14 call 3 */
+        CHECK_ERROR(_readMethod_democracy_emergency_cancel_V2(c, &method->nested.democracy_emergency_cancel_V2))
+            break;
+        case 3588: /* module 14 call 4 */
+        CHECK_ERROR(_readMethod_democracy_external_propose_V2(c, &method->nested.democracy_external_propose_V2))
+            break;
+        case 3589: /* module 14 call 5 */
+        CHECK_ERROR(_readMethod_democracy_external_propose_majority_V2(c, &method->nested.democracy_external_propose_majority_V2))
+            break;
+        case 3590: /* module 14 call 6 */
+        CHECK_ERROR(_readMethod_democracy_external_propose_default_V2(c, &method->nested.democracy_external_propose_default_V2))
+            break;
+        case 3591: /* module 14 call 7 */
+        CHECK_ERROR(_readMethod_democracy_fast_track_V2(c, &method->nested.democracy_fast_track_V2))
+            break;
+        case 3592: /* module 14 call 8 */
+        CHECK_ERROR(_readMethod_democracy_veto_external_V2(c, &method->nested.democracy_veto_external_V2))
+            break;
+        case 3593: /* module 14 call 9 */
+        CHECK_ERROR(_readMethod_democracy_cancel_referendum_V2(c, &method->nested.democracy_cancel_referendum_V2))
+            break;
+        case 3594: /* module 14 call 10 */
+        CHECK_ERROR(_readMethod_democracy_delegate_V2(c, &method->nested.democracy_delegate_V2))
+            break;
+        case 3595: /* module 14 call 11 */
+        CHECK_ERROR(_readMethod_democracy_undelegate_V2(c, &method->nested.democracy_undelegate_V2))
+            break;
+        case 3596: /* module 14 call 12 */
+        CHECK_ERROR(_readMethod_democracy_clear_public_proposals_V2(c, &method->nested.democracy_clear_public_proposals_V2))
+            break;
+        case 3597: /* module 14 call 13 */
+        CHECK_ERROR(_readMethod_democracy_unlock_V2(c, &method->nested.democracy_unlock_V2))
+            break;
+        case 3598: /* module 14 call 14 */
+        CHECK_ERROR(_readMethod_democracy_remove_vote_V2(c, &method->nested.democracy_remove_vote_V2))
+            break;
+        case 3599: /* module 14 call 15 */
+        CHECK_ERROR(_readMethod_democracy_remove_other_vote_V2(c, &method->nested.democracy_remove_other_vote_V2))
+            break;
+        case 3600: /* module 14 call 16 */
+        CHECK_ERROR(_readMethod_democracy_blacklist_V2(c, &method->basic.democracy_blacklist_V2))
+            break;
+        case 3601: /* module 14 call 17 */
+        CHECK_ERROR(_readMethod_democracy_cancel_proposal_V2(c, &method->nested.democracy_cancel_proposal_V2))
+            break;
+        case 3602: /* module 14 call 18 */
+        CHECK_ERROR(_readMethod_democracy_set_metadata_V2(c, &method->basic.democracy_set_metadata_V2))
+            break;
+
+        case 10240: /* module 40 call 0 */
+        CHECK_ERROR(_readMethod_fastunstake_register_fast_unstake_V2(c, &method->nested.fastunstake_register_fast_unstake_V2))
+            break;
+        case 10241: /* module 40 call 1 */
+        CHECK_ERROR(_readMethod_fastunstake_deregister_V2(c, &method->nested.fastunstake_deregister_V2))
+            break;
+        case 10242: /* module 40 call 2 */
+        CHECK_ERROR(_readMethod_fastunstake_control_V2(c, &method->basic.fastunstake_control_V2))
+            break;
+
+
+        case 7168: /* module 28 call 0 */
+        CHECK_ERROR(_readMethod_identity_add_registrar_V2(c, &method->basic.identity_add_registrar_V2))
+            break;
+        case 7169: /* module 28 call 1 */
+        CHECK_ERROR(_readMethod_identity_set_identity_V2(c, &method->basic.identity_set_identity_V2))
+            break;
+        case 7170: /* module 28 call 2 */
+        CHECK_ERROR(_readMethod_identity_set_subs_V2(c, &method->basic.identity_set_subs_V2))
+            break;
+        case 7171: /* module 28 call 3 */
+        CHECK_ERROR(_readMethod_identity_clear_identity_V2(c, &method->basic.identity_clear_identity_V2))
+            break;
+        case 7172: /* module 28 call 4 */
+        CHECK_ERROR(_readMethod_identity_request_judgement_V2(c, &method->basic.identity_request_judgement_V2))
+            break;
+        case 7173: /* module 28 call 5 */
+        CHECK_ERROR(_readMethod_identity_cancel_request_V2(c, &method->basic.identity_cancel_request_V2))
+            break;
+        case 7174: /* module 28 call 6 */
+        CHECK_ERROR(_readMethod_identity_set_fee_V2(c, &method->basic.identity_set_fee_V2))
+            break;
+        case 7175: /* module 28 call 7 */
+        CHECK_ERROR(_readMethod_identity_set_account_id_V2(c, &method->basic.identity_set_account_id_V2))
+            break;
+        case 7177: /* module 28 call 9 */
+        CHECK_ERROR(_readMethod_identity_provide_judgement_V2(c, &method->basic.identity_provide_judgement_V2))
+            break;
+        case 7178: /* module 28 call 10 */
+        CHECK_ERROR(_readMethod_identity_kill_identity_V2(c, &method->basic.identity_kill_identity_V2))
+            break;
+        case 7179: /* module 28 call 11 */
+        CHECK_ERROR(_readMethod_identity_add_sub_V2(c, &method->basic.identity_add_sub_V2))
+            break;
+        case 7180: /* module 28 call 12 */
+        CHECK_ERROR(_readMethod_identity_rename_sub_V2(c, &method->basic.identity_rename_sub_V2))
+            break;
+        case 7181: /* module 28 call 13 */
+        CHECK_ERROR(_readMethod_identity_remove_sub_V2(c, &method->basic.identity_remove_sub_V2))
+            break;
+        case 7182: /* module 28 call 14 */
+        CHECK_ERROR(_readMethod_identity_quit_sub_V2(c, &method->basic.identity_quit_sub_V2))
+            break;
+
+
+        case 1024: /* module 4 call 0 */
+        CHECK_ERROR(_readMethod_indices_claim_V2(c, &method->basic.indices_claim_V2))
+            break;
+        case 1025: /* module 4 call 1 */
+        CHECK_ERROR(_readMethod_indices_transfer_V2(c, &method->basic.indices_transfer_V2))
+            break;
+        case 1026: /* module 4 call 2 */
+        CHECK_ERROR(_readMethod_indices_free_V2(c, &method->basic.indices_free_V2))
+            break;
+        case 1027: /* module 4 call 3 */
+        CHECK_ERROR(_readMethod_indices_force_transfer_V2(c, &method->basic.indices_force_transfer_V2))
+            break;
+        case 1028: /* module 4 call 4 */
+        CHECK_ERROR(_readMethod_indices_freeze_V2(c, &method->basic.indices_freeze_V2))
+            break;
+
+
         case 14592: /* module 57 call 0 */
         CHECK_ERROR(_readMethod_initializer_force_approve_V2(c, &method->basic.initializer_force_approve_V2))
             break;
+
+
+        case 7680: /* module 30 call 0 */
+        CHECK_ERROR(_readMethod_multisig_as_multi_threshold_1_V2(c, &method->nested.multisig_as_multi_threshold_1_V2))
+            break;
+        case 7681: /* module 30 call 1 */
+        CHECK_ERROR(_readMethod_multisig_as_multi_V2(c, &method->nested.multisig_as_multi_V2))
+            break;
+        case 7682: /* module 30 call 2 */
+        CHECK_ERROR(_readMethod_multisig_approve_as_multi_V2(c, &method->nested.multisig_approve_as_multi_V2))
+            break;
+        case 7683: /* module 30 call 3 */
+        CHECK_ERROR(_readMethod_multisig_cancel_as_multi_V2(c, &method->nested.multisig_cancel_as_multi_V2))
+            break;
+
+
+        case 9984: /* module 39 call 0 */
+        CHECK_ERROR(_readMethod_nominationpools_join_V2(c, &method->nested.nominationpools_join_V2))
+            break;
+        case 9985: /* module 39 call 1 */
+        CHECK_ERROR(_readMethod_nominationpools_bond_extra_V2(c, &method->nested.nominationpools_bond_extra_V2))
+            break;
+        case 9986: /* module 39 call 2 */
+        CHECK_ERROR(_readMethod_nominationpools_claim_payout_V2(c, &method->nested.nominationpools_claim_payout_V2))
+            break;
+        case 9987: /* module 39 call 3 */
+        CHECK_ERROR(_readMethod_nominationpools_unbond_V2(c, &method->nested.nominationpools_unbond_V2))
+            break;
+        case 9988: /* module 39 call 4 */
+        CHECK_ERROR(_readMethod_nominationpools_pool_withdraw_unbonded_V2(c, &method->basic.nominationpools_pool_withdraw_unbonded_V2))
+            break;
+        case 9989: /* module 39 call 5 */
+        CHECK_ERROR(_readMethod_nominationpools_withdraw_unbonded_V2(c, &method->nested.nominationpools_withdraw_unbonded_V2))
+            break;
+        case 9990: /* module 39 call 6 */
+        CHECK_ERROR(_readMethod_nominationpools_create_V2(c, &method->nested.nominationpools_create_V2))
+            break;
+        case 9991: /* module 39 call 7 */
+        CHECK_ERROR(_readMethod_nominationpools_create_with_pool_id_V2(c, &method->basic.nominationpools_create_with_pool_id_V2))
+            break;
+        case 9992: /* module 39 call 8 */
+        CHECK_ERROR(_readMethod_nominationpools_nominate_V2(c, &method->nested.nominationpools_nominate_V2))
+            break;
+        case 9993: /* module 39 call 9 */
+        CHECK_ERROR(_readMethod_nominationpools_set_state_V2(c, &method->nested.nominationpools_set_state_V2))
+            break;
+        case 9994: /* module 39 call 10 */
+        CHECK_ERROR(_readMethod_nominationpools_set_metadata_V2(c, &method->nested.nominationpools_set_metadata_V2))
+            break;
+        case 9995: /* module 39 call 11 */
+        CHECK_ERROR(_readMethod_nominationpools_set_configs_V2(c, &method->basic.nominationpools_set_configs_V2))
+            break;
+        case 9996: /* module 39 call 12 */
+        CHECK_ERROR(_readMethod_nominationpools_update_roles_V2(c, &method->nested.nominationpools_update_roles_V2))
+            break;
+        case 9997: /* module 39 call 13 */
+        CHECK_ERROR(_readMethod_nominationpools_chill_V2(c, &method->nested.nominationpools_chill_V2))
+            break;
+        case 9998: /* module 39 call 14 */
+        CHECK_ERROR(_readMethod_nominationpools_bond_extra_other_V2(c, &method->basic.nominationpools_bond_extra_other_V2))
+            break;
+        case 9999: /* module 39 call 15 */
+        CHECK_ERROR(_readMethod_nominationpools_set_claim_permission_V2(c, &method->nested.nominationpools_set_claim_permission_V2))
+            break;
+        case 10000: /* module 39 call 16 */
+        CHECK_ERROR(_readMethod_nominationpools_claim_payout_other_V2(c, &method->nested.nominationpools_claim_payout_other_V2))
+            break;
+        case 10001: /* module 39 call 17 */
+        CHECK_ERROR(_readMethod_nominationpools_set_commission_V2(c, &method->nested.nominationpools_set_commission_V2))
+            break;
+        case 10002: /* module 39 call 18 */
+        CHECK_ERROR(_readMethod_nominationpools_set_commission_max_V2(c, &method->nested.nominationpools_set_commission_max_V2))
+            break;
+        case 10003: /* module 39 call 19 */
+        CHECK_ERROR(_readMethod_nominationpools_set_commission_change_rate_V2(c, &method->nested.nominationpools_set_commission_change_rate_V2))
+            break;
+        case 10004: /* module 39 call 20 */
+        CHECK_ERROR(_readMethod_nominationpools_claim_commission_V2(c, &method->nested.nominationpools_claim_commission_V2))
+            break;
+
         case 15872: /* module 62 call 0 */
         CHECK_ERROR(_readMethod_parasdisputes_force_unfreeze_V2(c, &method->basic.parasdisputes_force_unfreeze_V2))
             break;
-        case 18432: /* module 72 call 0 */
-        CHECK_ERROR(_readMethod_auctions_new_auction_V2(c, &method->basic.auctions_new_auction_V2))
+
+
+        case 4352: /* module 17 call 0 */
+        CHECK_ERROR(_readMethod_phragmenelection_vote_V2(c, &method->basic.phragmenelection_vote_V2))
             break;
-        case 18433: /* module 72 call 1 */
-        CHECK_ERROR(_readMethod_auctions_bid_V2(c, &method->basic.auctions_bid_V2))
+        case 4353: /* module 17 call 1 */
+        CHECK_ERROR(_readMethod_phragmenelection_remove_voter_V2(c, &method->basic.phragmenelection_remove_voter_V2))
             break;
-        case 18434: /* module 72 call 2 */
-        CHECK_ERROR(_readMethod_auctions_cancel_auction_V2(c, &method->basic.auctions_cancel_auction_V2))
+        case 4354: /* module 17 call 2 */
+        CHECK_ERROR(_readMethod_phragmenelection_submit_candidacy_V2(c, &method->basic.phragmenelection_submit_candidacy_V2))
             break;
+        case 4356: /* module 17 call 4 */
+        CHECK_ERROR(_readMethod_phragmenelection_remove_member_V2(c, &method->basic.phragmenelection_remove_member_V2))
+            break;
+        case 4357: /* module 17 call 5 */
+        CHECK_ERROR(_readMethod_phragmenelection_clean_defunct_voters_V2(c, &method->basic.phragmenelection_clean_defunct_voters_V2))
+            break;
+
+
+        case 2560: /* module 10 call 0 */
+        CHECK_ERROR(_readMethod_preimage_note_preimage_V2(c, &method->basic.preimage_note_preimage_V2))
+            break;
+        case 2561: /* module 10 call 1 */
+        CHECK_ERROR(_readMethod_preimage_unnote_preimage_V2(c, &method->basic.preimage_unnote_preimage_V2))
+            break;
+        case 2562: /* module 10 call 2 */
+        CHECK_ERROR(_readMethod_preimage_request_preimage_V2(c, &method->basic.preimage_request_preimage_V2))
+            break;
+        case 2563: /* module 10 call 3 */
+        CHECK_ERROR(_readMethod_preimage_unrequest_preimage_V2(c, &method->basic.preimage_unrequest_preimage_V2))
+            break;
+
+
+        case 7424: /* module 29 call 0 */
+        CHECK_ERROR(_readMethod_proxy_proxy_V2(c, &method->nested.proxy_proxy_V2))
+            break;
+        case 7425: /* module 29 call 1 */
+        CHECK_ERROR(_readMethod_proxy_add_proxy_V2(c, &method->nested.proxy_add_proxy_V2))
+            break;
+        case 7426: /* module 29 call 2 */
+        CHECK_ERROR(_readMethod_proxy_remove_proxy_V2(c, &method->nested.proxy_remove_proxy_V2))
+            break;
+        case 7427: /* module 29 call 3 */
+        CHECK_ERROR(_readMethod_proxy_remove_proxies_V2(c, &method->basic.proxy_remove_proxies_V2))
+            break;
+        case 7428: /* module 29 call 4 */
+        CHECK_ERROR(_readMethod_proxy_create_pure_V2(c, &method->nested.proxy_create_pure_V2))
+            break;
+        case 7429: /* module 29 call 5 */
+        CHECK_ERROR(_readMethod_proxy_kill_pure_V2(c, &method->nested.proxy_kill_pure_V2))
+            break;
+        case 7433: /* module 29 call 9 */
+        CHECK_ERROR(_readMethod_proxy_proxy_announced_V2(c, &method->basic.proxy_proxy_announced_V2))
+            break;
+
+
+        case 4619: /* module 18 call 11 */
+        CHECK_ERROR(_readMethod_nominationpools_set_configs_V2(c, &method->basic.nominationpools_set_configs_V2))
+            break;
+        case 4630: /* module 18 call 22 */
+        CHECK_ERROR(_readMethod_nominationpools_set_staking_info_V2(c, &method->basic.nominationpools_set_staking_info_V2))
+            break;
+
+        case 5376: /* module 21 call 0 */
+        CHECK_ERROR(_readMethod_referenda_submit_V2(c, &method->basic.referenda_submit_V2))
+            break;
+        case 5377: /* module 21 call 1 */
+        CHECK_ERROR(_readMethod_referenda_place_decision_deposit_V2(c, &method->basic.referenda_place_decision_deposit_V2))
+            break;
+        case 5378: /* module 21 call 2 */
+        CHECK_ERROR(_readMethod_referenda_refund_decision_deposit_V2(c, &method->basic.referenda_refund_decision_deposit_V2))
+            break;
+        case 5379: /* module 21 call 3 */
+        CHECK_ERROR(_readMethod_referenda_cancel_V2(c, &method->basic.referenda_cancel_V2))
+            break;
+        case 5380: /* module 21 call 4 */
+        CHECK_ERROR(_readMethod_referenda_kill_V2(c, &method->basic.referenda_kill_V2))
+            break;
+        case 5381: /* module 21 call 5 */
+        CHECK_ERROR(_readMethod_referenda_nudge_referendum_V2(c, &method->basic.referenda_nudge_referendum_V2))
+            break;
+        case 5382: /* module 21 call 6 */
+        CHECK_ERROR(_readMethod_referenda_one_fewer_deciding_V2(c, &method->basic.referenda_one_fewer_deciding_V2))
+            break;
+        case 5383: /* module 21 call 7 */
+        CHECK_ERROR(_readMethod_referenda_refund_submission_deposit_V2(c, &method->basic.referenda_refund_submission_deposit_V2))
+            break;
+        case 5384: /* module 21 call 8 */
+        CHECK_ERROR(_readMethod_referenda_set_metadata_V2(c, &method->basic.referenda_set_metadata_V2))
+            break;
+
+
+        case 2304: /* module 9 call 0 */
+        CHECK_ERROR(_readMethod_staking_bond_V2(c, &method->basic.staking_bond_V2))
+            break;
+        case 2305: /* module 9 call 1 */
+        CHECK_ERROR(_readMethod_staking_bond_extra_V2(c, &method->basic.staking_bond_extra_V2))
+            break;
+        case 2306: /* module 9 call 2 */
+        CHECK_ERROR(_readMethod_staking_unbond_V2(c, &method->basic.staking_unbond_V2))
+            break;
+        case 2307: /* module 9 call 3 */
+        CHECK_ERROR(_readMethod_staking_withdraw_unbonded_V2(c, &method->basic.staking_withdraw_unbonded_V2))
+            break;
+        case 2308: /* module 9 call 4 */
+        CHECK_ERROR(_readMethod_staking_validate_V2(c, &method->basic.staking_validate_V2))
+            break;
+        case 2309: /* module 9 call 5 */
+        CHECK_ERROR(_readMethod_staking_nominate_V2(c, &method->basic.staking_nominate_V2))
+            break;
+        case 2310: /* module 9 call 6 */
+        CHECK_ERROR(_readMethod_staking_chill_V2(c, &method->basic.staking_chill_V2))
+            break;
+        case 2311: /* module 9 call 7 */
+        CHECK_ERROR(_readMethod_staking_set_payee_V2(c, &method->basic.staking_set_payee_V2))
+            break;
+        case 2312: /* module 9 call 8 */
+        CHECK_ERROR(_readMethod_staking_set_controller_V2(c, &method->basic.staking_set_controller_V2))
+            break;
+        case 2313: /* module 9 call 9 */
+        CHECK_ERROR(_readMethod_staking_set_validator_count_V2(c, &method->basic.staking_set_validator_count_V2))
+            break;
+        case 2314: /* module 9 call 10 */
+        CHECK_ERROR(_readMethod_staking_increase_validator_count_V2(c, &method->basic.staking_increase_validator_count_V2))
+            break;
+        case 2315: /* module 9 call 11 */
+        CHECK_ERROR(_readMethod_staking_scale_validator_count_V2(c, &method->basic.staking_scale_validator_count_V2))
+            break;
+        case 2316: /* module 9 call 12 */
+        CHECK_ERROR(_readMethod_staking_force_no_eras_V2(c, &method->basic.staking_force_no_eras_V2))
+            break;
+        case 2317: /* module 9 call 13 */
+        CHECK_ERROR(_readMethod_staking_force_new_era_V2(c, &method->basic.staking_force_new_era_V2))
+            break;
+        case 2318: /* module 9 call 14 */
+        CHECK_ERROR(_readMethod_staking_set_invulnerables_V2(c, &method->basic.staking_set_invulnerables_V2))
+            break;
+        case 2319: /* module 9 call 15 */
+        CHECK_ERROR(_readMethod_staking_force_unstake_V2(c, &method->basic.staking_force_unstake_V2))
+            break;
+        case 2320: /* module 9 call 16 */
+        CHECK_ERROR(_readMethod_staking_force_new_era_always_V2(c, &method->basic.staking_force_new_era_always_V2))
+            break;
+        case 2321: /* module 9 call 17 */
+        CHECK_ERROR(_readMethod_staking_cancel_deferred_slash_V2(c, &method->basic.staking_cancel_deferred_slash_V2))
+            break;
+        case 2322: /* module 9 call 18 */
+        CHECK_ERROR(_readMethod_staking_payout_stakers_V2(c, &method->basic.staking_payout_stakers_V2))
+            break;
+        case 2323: /* module 9 call 19 */
+        CHECK_ERROR(_readMethod_staking_rebond_V2(c, &method->basic.staking_rebond_V2))
+            break;
+        case 2324: /* module 9 call 20 */
+        CHECK_ERROR(_readMethod_staking_reap_stash_V2(c, &method->basic.staking_reap_stash_V2))
+            break;
+        case 2325: /* module 9 call 21 */
+        CHECK_ERROR(_readMethod_staking_kick_V2(c, &method->basic.staking_kick_V2))
+            break;
+        case 2326: /* module 9 call 22 */
+        CHECK_ERROR(_readMethod_staking_set_staking_configs_V2(c, &method->basic.staking_set_staking_configs_V2))
+            break;
+        case 2327: /* module 9 call 23 */
+        CHECK_ERROR(_readMethod_staking_chill_other_V2(c, &method->basic.staking_chill_other_V2))
+            break;
+        case 2328: /* module 9 call 24 */
+        CHECK_ERROR(_readMethod_staking_force_apply_min_commission_V2(c, &method->basic.staking_force_apply_min_commission_V2))
+            break;
+        case 2329: /* module 9 call 25 */
+        CHECK_ERROR(_readMethod_staking_set_min_commission_V2(c, &method->basic.staking_set_min_commission_V2))
+            break;
+
+
+        case 0: /* module 0 call 0 */
+        CHECK_ERROR(_readMethod_system_remark_V2(c, &method->nested.system_remark_V2))
+            break;
+        case 1: /* module 0 call 1 */
+        CHECK_ERROR(_readMethod_system_set_heap_pages_V2(c, &method->nested.system_set_heap_pages_V2))
+            break;
+        case 2: /* module 0 call 2 */
+        CHECK_ERROR(_readMethod_system_set_code_V2(c, &method->nested.system_set_code_V2))
+            break;
+        case 3: /* module 0 call 3 */
+        CHECK_ERROR(_readMethod_system_set_code_without_checks_V2(c, &method->nested.system_set_code_without_checks_V2))
+            break;
+        case 7: /* module 0 call 7 */
+        CHECK_ERROR(_readMethod_system_remark_with_event_V2(c, &method->nested.system_remark_with_event_V2))
+            break;
+
+
+
+        case 4096: /* module 16 call 0 */
+        CHECK_ERROR(_readMethod_technicalcommittee_set_members_V2(c, &method->basic.technicalcommittee_set_members_V2))
+            break;
+        case 4097: /* module 16 call 1 */
+        CHECK_ERROR(_readMethod_technicalcommittee_execute_V2(c, &method->basic.technicalcommittee_execute_V2))
+            break;
+        case 4098: /* module 16 call 2 */
+        CHECK_ERROR(_readMethod_technicalcommittee_propose_V2(c, &method->basic.technicalcommittee_propose_V2))
+            break;
+        case 4099: /* module 16 call 3 */
+        CHECK_ERROR(_readMethod_technicalcommittee_vote_V2(c, &method->basic.technicalcommittee_vote_V2))
+            break;
+        case 4101: /* module 16 call 5 */
+        CHECK_ERROR(_readMethod_technicalcommittee_disapprove_proposal_V2(c, &method->basic.technicalcommittee_disapprove_proposal_V2))
+            break;
+        case 4102: /* module 16 call 6 */
+        CHECK_ERROR(_readMethod_technicalcommittee_close_V2(c, &method->basic.technicalcommittee_close_V2))
+            break;
+
+        case 4608: /* module 18 call 0 */
+        CHECK_ERROR(_readMethod_technicalmembership_add_member_V2(c, &method->basic.technicalmembership_add_member_V2))
+            break;
+        case 4609: /* module 18 call 1 */
+        CHECK_ERROR(_readMethod_technicalmembership_remove_member_V2(c, &method->basic.technicalmembership_remove_member_V2))
+            break;
+        case 4610: /* module 18 call 2 */
+        CHECK_ERROR(_readMethod_technicalmembership_swap_member_V2(c, &method->basic.technicalmembership_swap_member_V2))
+            break;
+        case 4611: /* module 18 call 3 */
+        CHECK_ERROR(_readMethod_technicalmembership_reset_members_V2(c, &method->basic.technicalmembership_reset_members_V2))
+            break;
+        case 4612: /* module 18 call 4 */
+        CHECK_ERROR(_readMethod_technicalmembership_change_key_V2(c, &method->basic.technicalmembership_change_key_V2))
+            break;
+        case 4613: /* module 18 call 5 */
+        CHECK_ERROR(_readMethod_technicalmembership_set_prime_V2(c, &method->basic.technicalmembership_set_prime_V2))
+            break;
+        case 4614: /* module 18 call 6 */
+        CHECK_ERROR(_readMethod_technicalmembership_clear_prime_V2(c, &method->basic.technicalmembership_clear_prime_V2))
+            break;
+
+
+        case 768: /* module 3 call 0 */
+        CHECK_ERROR(_readMethod_timestamp_set_V2(c, &method->basic.timestamp_set_V2))
+            break;
+
+
+        case 8960: /* module 35 call 0 */
+        CHECK_ERROR(_readMethod_tips_report_awesome_V2(c, &method->basic.tips_report_awesome_V2))
+            break;
+        case 8961: /* module 35 call 1 */
+        CHECK_ERROR(_readMethod_tips_retract_tip_V2(c, &method->basic.tips_retract_tip_V2))
+            break;
+        case 8962: /* module 35 call 2 */
+        CHECK_ERROR(_readMethod_tips_tip_new_V2(c, &method->basic.tips_tip_new_V2))
+            break;
+        case 8963: /* module 35 call 3 */
+        CHECK_ERROR(_readMethod_tips_tip_V2(c, &method->basic.tips_tip_V2))
+            break;
+        case 8964: /* module 35 call 4 */
+        CHECK_ERROR(_readMethod_tips_close_tip_V2(c, &method->basic.tips_close_tip_V2))
+            break;
+        case 8965: /* module 35 call 5 */
+        CHECK_ERROR(_readMethod_tips_slash_tip_V2(c, &method->basic.tips_slash_tip_V2))
+            break;
+
+
+
+        case 4864: /* module 19 call 0 */
+        CHECK_ERROR(_readMethod_treasury_propose_spend_V2(c, &method->basic.treasury_propose_spend_V2))
+            break;
+        case 4865: /* module 19 call 1 */
+        CHECK_ERROR(_readMethod_treasury_reject_proposal_V2(c, &method->basic.treasury_reject_proposal_V2))
+            break;
+        case 4866: /* module 19 call 2 */
+        CHECK_ERROR(_readMethod_treasury_approve_proposal_V2(c, &method->basic.treasury_approve_proposal_V2))
+            break;
+        case 4867: /* module 19 call 3 */
+        CHECK_ERROR(_readMethod_treasury_spend_V2(c, &method->basic.treasury_spend_V2))
+            break;
+        case 4868: /* module 19 call 4 */
+        CHECK_ERROR(_readMethod_treasury_remove_approval_V2(c, &method->basic.treasury_remove_approval_V2))
+            break;
+
+
+        case 6661: /* module 26 call 5 */
+        CHECK_ERROR(_readMethod_utility_with_weight_V2(c, &method->basic.utility_with_weight_V2))
+            break;
+
+
+
+        case 6400: /* module 25 call 0 */
+        CHECK_ERROR(_readMethod_vesting_vest_V2(c, &method->basic.vesting_vest_V2))
+            break;
+        case 6401: /* module 25 call 1 */
+        CHECK_ERROR(_readMethod_vesting_vest_other_V2(c, &method->basic.vesting_vest_other_V2))
+            break;
+        case 6402: /* module 25 call 2 */
+        CHECK_ERROR(_readMethod_vesting_vested_transfer_V2(c, &method->basic.vesting_vested_transfer_V2))
+            break;
+        case 6403: /* module 25 call 3 */
+        CHECK_ERROR(_readMethod_vesting_force_vested_transfer_V2(c, &method->basic.vesting_force_vested_transfer_V2))
+            break;
+        case 6404: /* module 25 call 4 */
+        CHECK_ERROR(_readMethod_vesting_merge_schedules_V2(c, &method->basic.vesting_merge_schedules_V2))
+            break;
+
+        case 9472: /* module 37 call 0 */
+        CHECK_ERROR(_readMethod_voterlist_rebag_V2(c, &method->basic.voterlist_rebag_V2))
+            break;
+        case 9473: /* module 37 call 1 */
+        CHECK_ERROR(_readMethod_voterlist_put_in_front_of_V2(c, &method->basic.voterlist_put_in_front_of_V2))
+            break;
+
+
+
+        case 5888: /* module 23 call 0 */
+        CHECK_ERROR(_readMethod_whitelist_whitelist_call_V2(c, &method->basic.whitelist_whitelist_call_V2))
+            break;
+        case 5889: /* module 23 call 1 */
+        CHECK_ERROR(_readMethod_whitelist_remove_whitelisted_call_V2(c, &method->basic.whitelist_remove_whitelisted_call_V2))
+            break;
+        case 5890: /* module 23 call 2 */
+        CHECK_ERROR(_readMethod_whitelist_dispatch_whitelisted_call_V2(c, &method->basic.whitelist_dispatch_whitelisted_call_V2))
+            break;
+        case 5891: /* module 23 call 3 */
+        CHECK_ERROR(_readMethod_whitelist_dispatch_whitelisted_call_with_preimage_V2(c, &method->basic.whitelist_dispatch_whitelisted_call_with_preimage_V2))
+            break;
+
 #endif
         default:
             return parser_unexpected_callIndex;
@@ -3615,9 +3593,6 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
         case 253:
             return STR_MO_MULTITOKENS;
 
-
-        case 5:
-            return STR_MO_BALANCES;
         case 7:
             return STR_MO_STAKING;
         case 9:
@@ -8283,857 +8258,9 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 4608: /* module 18 call 0 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_bond_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_bond_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_bond_V2 - amount */;
-                    return _toStringBondValueOfT(
-                            &m->basic.nominationpools_bond_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4611: /* module 18 call 3 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_unbond_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_unbond_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_unbond_V2 - member_account */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_unbond_V2.member_account,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_unbond_V2 - unbonding_points */;
-                    return _toStringCompactBalance(
-                            &m->basic.nominationpools_unbond_V2.unbonding_points,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4612: /* module 18 call 4 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_pool_withdraw_unbonded_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_pool_withdraw_unbonded_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4613: /* module 18 call 5 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_withdraw_unbonded_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_withdraw_unbonded_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_withdraw_unbonded_V2 - member_account */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_withdraw_unbonded_V2.member_account,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_withdraw_unbonded_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->basic.nominationpools_withdraw_unbonded_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4614: /* module 18 call 6 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_create_V2 - token_id */;
-                    return _toStringTokenIdOf(
-                            &m->basic.nominationpools_create_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_create_V2 - deposit */;
-                    return _toStringCompactBalance(
-                            &m->basic.nominationpools_create_V2.deposit,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_create_V2 - capacity */;
-                    return _toStringCompactBalance(
-                            &m->basic.nominationpools_create_V2.capacity,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* nominationpools_create_V2 - duration */;
-                    return _toStringCompactIndex(
-                            &m->basic.nominationpools_create_V2.duration,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* nominationpools_create_V2 - admin */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_create_V2.admin,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 5: /* nominationpools_create_V2 - nominator */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_create_V2.nominator,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4616: /* module 18 call 8 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_nominate_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_nominate_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_nominate_V2 - validators */;
-                    return _toStringVecAccountId(
-                            &m->basic.nominationpools_nominate_V2.validators,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4621: /* module 18 call 13 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_chill_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_chill_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4622: /* module 18 call 14 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_destroy_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_destroy_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4626: /* module 18 call 18 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_payout_rewards_V2 - validator_stash */;
-                    return _toStringAccountId(
-                            &m->basic.nominationpools_payout_rewards_V2.validator_stash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_payout_rewards_V2 - era */;
-                    return _toStringEraIndex(
-                            &m->basic.nominationpools_payout_rewards_V2.era,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4627: /* module 18 call 19 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_mutate_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_mutate_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_mutate_V2 - mutation */;
-                    return _toStringPoolMutationOfT(
-                            &m->basic.nominationpools_mutate_V2.mutation,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4628: /* module 18 call 20 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_unbond_deposit_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_unbond_deposit_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4629: /* module 18 call 21 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_withdraw_deposit_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_withdraw_deposit_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4631: /* module 18 call 23 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 4632: /* module 18 call 24 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_distribute_early_bird_bonus_V2 - transfer_count */;
-                    return _toStringu32(
-                            &m->basic.nominationpools_distribute_early_bird_bonus_V2.transfer_count,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4864: /* module 19 call 0 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_create_offer_V2 - offer */;
-                    return _toStringOfferOfT(
-                            &m->basic.stakeexchange_create_offer_V2.offer,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4865: /* module 19 call 1 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_cancel_offer_V2 - offer_id */;
-                    return _toStringOfferId(
-                            &m->basic.stakeexchange_cancel_offer_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4866: /* module 19 call 2 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_configure_liquidity_account_V2 - config */;
-                    return _toStringLiquidityAccountConfigOfT(
-                            &m->basic.stakeexchange_configure_liquidity_account_V2.config,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4867: /* module 19 call 3 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_withdraw_liquidity_V2 - offer_id */;
-                    return _toStringOfferId(
-                            &m->basic.stakeexchange_withdraw_liquidity_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* stakeexchange_withdraw_liquidity_V2 - amount */;
-                    return _toStringBalanceOf(
-                            &m->basic.stakeexchange_withdraw_liquidity_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4868: /* module 19 call 4 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_add_liquidity_V2 - offer_id */;
-                    return _toStringOfferId(
-                            &m->basic.stakeexchange_add_liquidity_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* stakeexchange_add_liquidity_V2 - amount */;
-                    return _toStringBalanceOf(
-                            &m->basic.stakeexchange_add_liquidity_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4869: /* module 19 call 5 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_buy_V2 - offer_id */;
-                    return _toStringOfferId(
-                            &m->basic.stakeexchange_buy_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* stakeexchange_buy_V2 - amount */;
-                    return _toStringBalanceOf(
-                            &m->basic.stakeexchange_buy_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* stakeexchange_buy_V2 - token_id */;
-                    return _toStringTokenIdOf(
-                            &m->basic.stakeexchange_buy_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64768: /* module 253 call 0 */
-            switch (itemIdx) {
-                case 0: /* multitokens_create_collection_V2 - descriptor */;
-                    return _toStringCollectionDescriptor(
-                            &m->basic.multitokens_create_collection_V2.descriptor,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64769: /* module 253 call 1 */
-            switch (itemIdx) {
-                case 0: /* multitokens_destroy_collection_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_destroy_collection_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64770: /* module 253 call 2 */
-            switch (itemIdx) {
-                case 0: /* multitokens_mutate_collection_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_mutate_collection_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_mutate_collection_V2 - mutation */;
-                    return _toStringCollectionMutation(
-                            &m->basic.multitokens_mutate_collection_V2.mutation,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64773: /* module 253 call 5 */
-            switch (itemIdx) {
-                case 0: /* multitokens_burn_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_burn_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_burn_V2 - params */;
-                    return _toStringBurnParamsOfT(
-                            &m->basic.multitokens_burn_V2.params,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64774: /* module 253 call 6 */
-            switch (itemIdx) {
-                case 0: /* multitokens_transfer_V2 - recipient */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.multitokens_transfer_V2.recipient,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_transfer_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_transfer_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_transfer_V2 - params */;
-                    return _toStringTransferParamsOfT(
-                            &m->basic.multitokens_transfer_V2.params,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64775: /* module 253 call 7 */
-            switch (itemIdx) {
-                case 0: /* multitokens_freeze_V2 - info */;
-                    return _toStringFreezeOf(
-                            &m->basic.multitokens_freeze_V2.info,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64776: /* module 253 call 8 */
-            switch (itemIdx) {
-                case 0: /* multitokens_thaw_V2 - info */;
-                    return _toStringFreezeOf(
-                            &m->basic.multitokens_thaw_V2.info,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64777: /* module 253 call 9 */
-            switch (itemIdx) {
-                case 0: /* multitokens_set_attribute_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_set_attribute_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_set_attribute_V2 - token_id */;
-                    return _toStringOptionTokenId(
-                            &m->basic.multitokens_set_attribute_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_set_attribute_V2 - key */;
-                    return _toStringBytes(
-                            &m->basic.multitokens_set_attribute_V2.key,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* multitokens_set_attribute_V2 - value */;
-                    return _toStringBytes(
-                            &m->basic.multitokens_set_attribute_V2.value,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64778: /* module 253 call 10 */
-            switch (itemIdx) {
-                case 0: /* multitokens_remove_attribute_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_remove_attribute_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_remove_attribute_V2 - token_id */;
-                    return _toStringOptionTokenId(
-                            &m->basic.multitokens_remove_attribute_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_remove_attribute_V2 - key */;
-                    return _toStringBytes(
-                            &m->basic.multitokens_remove_attribute_V2.key,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64779: /* module 253 call 11 */
-            switch (itemIdx) {
-                case 0: /* multitokens_remove_all_attributes_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_remove_all_attributes_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_remove_all_attributes_V2 - token_id */;
-                    return _toStringOptionTokenId(
-                            &m->basic.multitokens_remove_all_attributes_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_remove_all_attributes_V2 - attribute_count */;
-                    return _toStringu32(
-                            &m->basic.multitokens_remove_all_attributes_V2.attribute_count,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64780: /* module 253 call 12 */
-            switch (itemIdx) {
-                case 0: /* multitokens_batch_transfer_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_batch_transfer_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_batch_transfer_V2 - recipients */;
-                    return _toStringVecTransferRecipientsOf(
-                            &m->basic.multitokens_batch_transfer_V2.recipients,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64782: /* module 253 call 14 */
-            switch (itemIdx) {
-                case 0: /* multitokens_batch_set_attribute_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_batch_set_attribute_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_batch_set_attribute_V2 - token_id */;
-                    return _toStringOptionTokenId(
-                            &m->basic.multitokens_batch_set_attribute_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_batch_set_attribute_V2 - attributes */;
-                    return _toStringVecAttributeKeyValuePair(
-                            &m->basic.multitokens_batch_set_attribute_V2.attributes,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64783: /* module 253 call 15 */
-            switch (itemIdx) {
-                case 0: /* multitokens_approve_collection_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_approve_collection_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_approve_collection_V2 - operator */;
-                    return _toStringAccountId(
-                            &m->basic.multitokens_approve_collection_V2.operator_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_approve_collection_V2 - expiration */;
-                    return _toStringOptionu32(
-                            &m->basic.multitokens_approve_collection_V2.expiration,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64784: /* module 253 call 16 */
-            switch (itemIdx) {
-                case 0: /* multitokens_unapprove_collection_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_unapprove_collection_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_unapprove_collection_V2 - operator */;
-                    return _toStringAccountId(
-                            &m->basic.multitokens_unapprove_collection_V2.operator_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64785: /* module 253 call 17 */
-            switch (itemIdx) {
-                case 0: /* multitokens_approve_token_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_approve_token_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_approve_token_V2 - token_id */;
-                    return _toStringCompactTokenId(
-                            &m->basic.multitokens_approve_token_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_approve_token_V2 - operator */;
-                    return _toStringAccountId(
-                            &m->basic.multitokens_approve_token_V2.operator_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* multitokens_approve_token_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.multitokens_approve_token_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* multitokens_approve_token_V2 - expiration */;
-                    return _toStringOptionu32(
-                            &m->basic.multitokens_approve_token_V2.expiration,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 5: /* multitokens_approve_token_V2 - current_amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.multitokens_approve_token_V2.current_amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64786: /* module 253 call 18 */
-            switch (itemIdx) {
-                case 0: /* multitokens_unapprove_token_V2 - collection_id */;
-                    return _toStringCompactCollectionId(
-                            &m->basic.multitokens_unapprove_token_V2.collection_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_unapprove_token_V2 - token_id */;
-                    return _toStringCompactTokenId(
-                            &m->basic.multitokens_unapprove_token_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_unapprove_token_V2 - operator */;
-                    return _toStringAccountId(
-                            &m->basic.multitokens_unapprove_token_V2.operator_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64800: /* module 253 call 32 */
-            switch (itemIdx) {
-                case 0: /* multitokens_claim_collections_V2 - destination */;
-                    return _toStringAccountId(
-                            &m->basic.multitokens_claim_collections_V2.destination,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_claim_collections_V2 - ethereum_signature */;
-                    return _toStringEcdsaSignature(
-                            &m->basic.multitokens_claim_collections_V2.ethereum_signature,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_claim_collections_V2 - ethereum_address */;
-                    return _toStringEthereumAddress(
-                            &m->basic.multitokens_claim_collections_V2.ethereum_address,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 64801: /* module 253 call 33 */
-            switch (itemIdx) {
-                case 0: /* multitokens_claim_tokens_V2 - destination */;
-                    return _toStringAccountId(
-                            &m->basic.multitokens_claim_tokens_V2.destination,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multitokens_claim_tokens_V2 - ethereum_signature */;
-                    return _toStringEcdsaSignature(
-                            &m->basic.multitokens_claim_tokens_V2.ethereum_signature,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multitokens_claim_tokens_V2 - ethereum_address */;
-                    return _toStringEthereumAddress(
-                            &m->basic.multitokens_claim_tokens_V2.ethereum_address,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
 
 
 
-
-
-            ///////////
-        case 1280: /* module 5 call 0 */
-            switch (itemIdx) {
-                case 0: /* balances_transfer_allow_death_V2 - dest */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_transfer_allow_death_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_transfer_allow_death_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.balances_transfer_allow_death_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1282: /* module 5 call 2 */
-            switch (itemIdx) {
-                case 0: /* balances_force_transfer_V2 - source */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_force_transfer_V2.source,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_force_transfer_V2 - dest */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_force_transfer_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* balances_force_transfer_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.balances_force_transfer_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1283: /* module 5 call 3 */
-            switch (itemIdx) {
-                case 0: /* balances_transfer_keep_alive_V2 - dest */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_transfer_keep_alive_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_transfer_keep_alive_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.balances_transfer_keep_alive_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1284: /* module 5 call 4 */
-            switch (itemIdx) {
-                case 0: /* balances_transfer_all_V2 - dest */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.balances_transfer_all_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_transfer_all_V2 - keep_alive */;
-                    return _toStringbool(
-                            &m->basic.balances_transfer_all_V2.keep_alive,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1287: /* module 5 call 7 */
-            switch (itemIdx) {
-                case 0: /* balances_transfer_V2 - dest */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.balances_transfer_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_transfer_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.balances_transfer_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1792: /* module 7 call 0 */
-            switch (itemIdx) {
-                case 0: /* staking_bond_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.staking_bond_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_bond_V2 - payee */;
-                    return _toStringRewardDestination(
-                            &m->nested.staking_bond_V2.payee,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1793: /* module 7 call 1 */
-            switch (itemIdx) {
-                case 0: /* staking_bond_extra_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.staking_bond_extra_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1794: /* module 7 call 2 */
-            switch (itemIdx) {
-                case 0: /* staking_unbond_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.staking_unbond_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1795: /* module 7 call 3 */
-            switch (itemIdx) {
-                case 0: /* staking_withdraw_unbonded_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->nested.staking_withdraw_unbonded_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1796: /* module 7 call 4 */
-            switch (itemIdx) {
-                case 0: /* staking_validate_V2 - prefs */;
-                    return _toStringValidatorPrefs(
-                            &m->basic.staking_validate_V2.prefs,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1797: /* module 7 call 5 */
-            switch (itemIdx) {
-                case 0: /* staking_nominate_V2 - targets */;
-                    return _toStringVecAccountIdLookupOfT(
-                            &m->nested.staking_nominate_V2.targets,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1798: /* module 7 call 6 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 1799: /* module 7 call 7 */
-            switch (itemIdx) {
-                case 0: /* staking_set_payee_V2 - payee */;
-                    return _toStringRewardDestination(
-                            &m->nested.staking_set_payee_V2.payee,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1800: /* module 7 call 8 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 1810: /* module 7 call 18 */
-            switch (itemIdx) {
-                case 0: /* staking_payout_stakers_V2 - validator_stash */;
-                    return _toStringAccountId(
-                            &m->basic.staking_payout_stakers_V2.validator_stash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_payout_stakers_V2 - era */;
-                    return _toStringEraIndex(
-                            &m->basic.staking_payout_stakers_V2.era,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1811: /* module 7 call 19 */
-            switch (itemIdx) {
-                case 0: /* staking_rebond_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.staking_rebond_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2304: /* module 9 call 0 */
-            switch (itemIdx) {
-                case 0: /* session_set_keys_V2 - keys */;
-                    return _toStringKeys(
-                            &m->basic.session_set_keys_V2.keys,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* session_set_keys_V2 - proof */;
-                    return _toStringBytes(
-                            &m->basic.session_set_keys_V2.proof,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2305: /* module 9 call 1 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 6656: /* module 26 call 0 */
-            switch (itemIdx) {
-                case 0: /* utility_batch_V2 - calls */;
-                    return _toStringVecCall(
-                            &m->basic.utility_batch_V2.calls,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 6658: /* module 26 call 2 */
-            switch (itemIdx) {
-                case 0: /* utility_batch_all_V2 - calls */;
-                    return _toStringVecCall(
-                            &m->basic.utility_batch_all_V2.calls,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 6660: /* module 26 call 4 */
-            switch (itemIdx) {
-                case 0: /* utility_force_batch_V2 - calls */;
-                    return _toStringVecCall(
-                            &m->basic.utility_force_batch_V2.calls,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
         case 18688: /* module 73 call 0 */
             switch (itemIdx) {
                 case 0: /* crowdloan_create_V2 - index */;
@@ -9299,353 +8426,9 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-#ifdef SUBSTRATE_PARSER_FULL
-#ifndef TARGET_NANOS
-        case 1536: /* module 6 call 0 */
-            switch (itemIdx) {
-                case 0: /* balances_transfer_allow_death_V2 - dest */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.balances_transfer_allow_death_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_transfer_allow_death_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.balances_transfer_allow_death_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1539: /* module 6 call 3 */
-            switch (itemIdx) {
-                case 0: /* balances_transfer_keep_alive_V2 - dest */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.balances_transfer_keep_alive_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_transfer_keep_alive_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.balances_transfer_keep_alive_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1540: /* module 6 call 4 */
-            switch (itemIdx) {
-                case 0: /* balances_transfer_all_V2 - dest */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.balances_transfer_all_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_transfer_all_V2 - keep_alive */;
-                    return _toStringbool(
-                            &m->basic.balances_transfer_all_V2.keep_alive,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1543: /* module 6 call 7 */
-            switch (itemIdx) {
-                case 0: /* balances_transfer_V2 - dest */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.balances_transfer_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* balances_transfer_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.balances_transfer_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4608: /* module 18 call 0 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_bond_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_bond_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_bond_V2 - amount */;
-                    return _toStringBondValueOfT(
-                            &m->basic.nominationpools_bond_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4611: /* module 18 call 3 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_unbond_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_unbond_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_unbond_V2 - member_account */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_unbond_V2.member_account,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_unbond_V2 - unbonding_points */;
-                    return _toStringCompactBalance(
-                            &m->basic.nominationpools_unbond_V2.unbonding_points,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4612: /* module 18 call 4 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_pool_withdraw_unbonded_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_pool_withdraw_unbonded_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4613: /* module 18 call 5 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_withdraw_unbonded_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_withdraw_unbonded_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_withdraw_unbonded_V2 - member_account */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_withdraw_unbonded_V2.member_account,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_withdraw_unbonded_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->basic.nominationpools_withdraw_unbonded_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4614: /* module 18 call 6 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_create_V2 - token_id */;
-                    return _toStringTokenIdOf(
-                            &m->basic.nominationpools_create_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_create_V2 - deposit */;
-                    return _toStringCompactBalance(
-                            &m->basic.nominationpools_create_V2.deposit,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_create_V2 - capacity */;
-                    return _toStringCompactBalance(
-                            &m->basic.nominationpools_create_V2.capacity,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* nominationpools_create_V2 - duration */;
-                    return _toStringCompactIndex(
-                            &m->basic.nominationpools_create_V2.duration,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* nominationpools_create_V2 - admin */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_create_V2.admin,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 5: /* nominationpools_create_V2 - nominator */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_create_V2.nominator,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4616: /* module 18 call 8 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_nominate_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_nominate_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_nominate_V2 - validators */;
-                    return _toStringVecAccountId(
-                            &m->basic.nominationpools_nominate_V2.validators,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4621: /* module 18 call 13 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_chill_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_chill_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4622: /* module 18 call 14 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_destroy_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_destroy_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4626: /* module 18 call 18 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_payout_rewards_V2 - validator_stash */;
-                    return _toStringAccountId(
-                            &m->basic.nominationpools_payout_rewards_V2.validator_stash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_payout_rewards_V2 - era */;
-                    return _toStringEraIndex(
-                            &m->basic.nominationpools_payout_rewards_V2.era,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4627: /* module 18 call 19 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_mutate_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_mutate_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_mutate_V2 - mutation */;
-                    return _toStringPoolMutationOfT(
-                            &m->basic.nominationpools_mutate_V2.mutation,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4628: /* module 18 call 20 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_unbond_deposit_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_unbond_deposit_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4629: /* module 18 call 21 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_withdraw_deposit_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_withdraw_deposit_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4631: /* module 18 call 23 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 4632: /* module 18 call 24 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_distribute_early_bird_bonus_V2 - transfer_count */;
-                    return _toStringu32(
-                            &m->basic.nominationpools_distribute_early_bird_bonus_V2.transfer_count,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4864: /* module 19 call 0 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_create_offer_V2 - offer */;
-                    return _toStringOfferOfT(
-                            &m->basic.stakeexchange_create_offer_V2.offer,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4865: /* module 19 call 1 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_cancel_offer_V2 - offer_id */;
-                    return _toStringOfferId(
-                            &m->basic.stakeexchange_cancel_offer_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4866: /* module 19 call 2 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_configure_liquidity_account_V2 - config */;
-                    return _toStringLiquidityAccountConfigOfT(
-                            &m->basic.stakeexchange_configure_liquidity_account_V2.config,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4867: /* module 19 call 3 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_withdraw_liquidity_V2 - offer_id */;
-                    return _toStringOfferId(
-                            &m->basic.stakeexchange_withdraw_liquidity_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* stakeexchange_withdraw_liquidity_V2 - amount */;
-                    return _toStringBalanceOf(
-                            &m->basic.stakeexchange_withdraw_liquidity_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4868: /* module 19 call 4 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_add_liquidity_V2 - offer_id */;
-                    return _toStringOfferId(
-                            &m->basic.stakeexchange_add_liquidity_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* stakeexchange_add_liquidity_V2 - amount */;
-                    return _toStringBalanceOf(
-                            &m->basic.stakeexchange_add_liquidity_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4869: /* module 19 call 5 */
-            switch (itemIdx) {
-                case 0: /* stakeexchange_buy_V2 - offer_id */;
-                    return _toStringOfferId(
-                            &m->basic.stakeexchange_buy_V2.offer_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* stakeexchange_buy_V2 - amount */;
-                    return _toStringBalanceOf(
-                            &m->basic.stakeexchange_buy_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* stakeexchange_buy_V2 - token_id */;
-                    return _toStringTokenIdOf(
-                            &m->basic.stakeexchange_buy_V2.token_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
+
+
+
         case 64768: /* module 253 call 0 */
             switch (itemIdx) {
                 case 0: /* multitokens_create_collection_V2 - descriptor */;
@@ -9968,7 +8751,1031 @@ parser_error_t _getMethod_ItemValue_V2(
             }
 
 
-/////////////
+
+        case 2304: /* module 9 call 0 */
+            switch (itemIdx) {
+                case 0: /* session_set_keys_V2 - keys */;
+                    return _toStringKeys(
+                            &m->basic.session_set_keys_V2.keys,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* session_set_keys_V2 - proof */;
+                    return _toStringBytes(
+                            &m->basic.session_set_keys_V2.proof,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2305: /* module 9 call 1 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+
+
+
+        case 4608: /* module 18 call 0 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_bond_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_bond_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_bond_V2 - amount */;
+                    return _toStringBondValueOfT(
+                            &m->basic.nominationpools_bond_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4611: /* module 18 call 3 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_unbond_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_unbond_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_unbond_V2 - member_account */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.nominationpools_unbond_V2.member_account,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* nominationpools_unbond_V2 - unbonding_points */;
+                    return _toStringCompactBalance(
+                            &m->basic.nominationpools_unbond_V2.unbonding_points,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4612: /* module 18 call 4 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_pool_withdraw_unbonded_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_pool_withdraw_unbonded_V2 - num_slashing_spans */;
+                    return _toStringu32(
+                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.num_slashing_spans,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4613: /* module 18 call 5 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_withdraw_unbonded_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_withdraw_unbonded_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_withdraw_unbonded_V2 - member_account */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.nominationpools_withdraw_unbonded_V2.member_account,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* nominationpools_withdraw_unbonded_V2 - num_slashing_spans */;
+                    return _toStringu32(
+                            &m->basic.nominationpools_withdraw_unbonded_V2.num_slashing_spans,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4614: /* module 18 call 6 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_create_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.nominationpools_create_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_create_V2 - deposit */;
+                    return _toStringCompactBalance(
+                            &m->basic.nominationpools_create_V2.deposit,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* nominationpools_create_V2 - capacity */;
+                    return _toStringCompactBalance(
+                            &m->basic.nominationpools_create_V2.capacity,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* nominationpools_create_V2 - duration */;
+                    return _toStringCompactIndex(
+                            &m->basic.nominationpools_create_V2.duration,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 4: /* nominationpools_create_V2 - admin */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.nominationpools_create_V2.admin,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 5: /* nominationpools_create_V2 - nominator */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.nominationpools_create_V2.nominator,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4616: /* module 18 call 8 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_nominate_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_nominate_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_nominate_V2 - validators */;
+                    return _toStringVecAccountId(
+                            &m->basic.nominationpools_nominate_V2.validators,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4621: /* module 18 call 13 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_chill_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_chill_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4622: /* module 18 call 14 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_destroy_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_destroy_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4626: /* module 18 call 18 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_payout_rewards_V2 - validator_stash */;
+                    return _toStringAccountId(
+                            &m->basic.nominationpools_payout_rewards_V2.validator_stash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_payout_rewards_V2 - era */;
+                    return _toStringEraIndex(
+                            &m->basic.nominationpools_payout_rewards_V2.era,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4627: /* module 18 call 19 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_mutate_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_mutate_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_mutate_V2 - mutation */;
+                    return _toStringPoolMutationOfT(
+                            &m->basic.nominationpools_mutate_V2.mutation,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4628: /* module 18 call 20 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_unbond_deposit_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_unbond_deposit_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4629: /* module 18 call 21 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_withdraw_deposit_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_withdraw_deposit_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4631: /* module 18 call 23 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 4632: /* module 18 call 24 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_distribute_early_bird_bonus_V2 - transfer_count */;
+                    return _toStringu32(
+                            &m->basic.nominationpools_distribute_early_bird_bonus_V2.transfer_count,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
+
+        case 4864: /* module 19 call 0 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_create_offer_V2 - offer */;
+                    return _toStringOfferOfT(
+                            &m->basic.stakeexchange_create_offer_V2.offer,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4865: /* module 19 call 1 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_cancel_offer_V2 - offer_id */;
+                    return _toStringOfferId(
+                            &m->basic.stakeexchange_cancel_offer_V2.offer_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4866: /* module 19 call 2 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_configure_liquidity_account_V2 - config */;
+                    return _toStringLiquidityAccountConfigOfT(
+                            &m->basic.stakeexchange_configure_liquidity_account_V2.config,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4867: /* module 19 call 3 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_withdraw_liquidity_V2 - offer_id */;
+                    return _toStringOfferId(
+                            &m->basic.stakeexchange_withdraw_liquidity_V2.offer_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* stakeexchange_withdraw_liquidity_V2 - amount */;
+                    return _toStringBalanceOf(
+                            &m->basic.stakeexchange_withdraw_liquidity_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4868: /* module 19 call 4 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_add_liquidity_V2 - offer_id */;
+                    return _toStringOfferId(
+                            &m->basic.stakeexchange_add_liquidity_V2.offer_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* stakeexchange_add_liquidity_V2 - amount */;
+                    return _toStringBalanceOf(
+                            &m->basic.stakeexchange_add_liquidity_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4869: /* module 19 call 5 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_buy_V2 - offer_id */;
+                    return _toStringOfferId(
+                            &m->basic.stakeexchange_buy_V2.offer_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* stakeexchange_buy_V2 - amount */;
+                    return _toStringBalanceOf(
+                            &m->basic.stakeexchange_buy_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* stakeexchange_buy_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.stakeexchange_buy_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
+
+
+        case 6656: /* module 26 call 0 */
+            switch (itemIdx) {
+                case 0: /* utility_batch_V2 - calls */;
+                    return _toStringVecCall(
+                            &m->basic.utility_batch_V2.calls,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 6658: /* module 26 call 2 */
+            switch (itemIdx) {
+                case 0: /* utility_batch_all_V2 - calls */;
+                    return _toStringVecCall(
+                            &m->basic.utility_batch_all_V2.calls,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 6660: /* module 26 call 4 */
+            switch (itemIdx) {
+                case 0: /* utility_force_batch_V2 - calls */;
+                    return _toStringVecCall(
+                            &m->basic.utility_force_batch_V2.calls,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+            ///////////////////////
+
+#ifdef SUBSTRATE_PARSER_FULL
+#ifndef TARGET_NANOS
+        case 1536: /* module 6 call 0 */
+            switch (itemIdx) {
+                case 0: /* balances_transfer_allow_death_V2 - dest */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.balances_transfer_allow_death_V2.dest,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* balances_transfer_allow_death_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->basic.balances_transfer_allow_death_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1539: /* module 6 call 3 */
+            switch (itemIdx) {
+                case 0: /* balances_transfer_keep_alive_V2 - dest */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.balances_transfer_keep_alive_V2.dest,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* balances_transfer_keep_alive_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->basic.balances_transfer_keep_alive_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1540: /* module 6 call 4 */
+            switch (itemIdx) {
+                case 0: /* balances_transfer_all_V2 - dest */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.balances_transfer_all_V2.dest,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* balances_transfer_all_V2 - keep_alive */;
+                    return _toStringbool(
+                            &m->basic.balances_transfer_all_V2.keep_alive,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1543: /* module 6 call 7 */
+            switch (itemIdx) {
+                case 0: /* balances_transfer_V2 - dest */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.balances_transfer_V2.dest,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* balances_transfer_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->basic.balances_transfer_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 64768: /* module 253 call 0 */
+            switch (itemIdx) {
+                case 0: /* multitokens_create_collection_V2 - descriptor */;
+                    return _toStringCollectionDescriptor(
+                            &m->basic.multitokens_create_collection_V2.descriptor,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64769: /* module 253 call 1 */
+            switch (itemIdx) {
+                case 0: /* multitokens_destroy_collection_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_destroy_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64770: /* module 253 call 2 */
+            switch (itemIdx) {
+                case 0: /* multitokens_mutate_collection_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_mutate_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_mutate_collection_V2 - mutation */;
+                    return _toStringCollectionMutation(
+                            &m->basic.multitokens_mutate_collection_V2.mutation,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64773: /* module 253 call 5 */
+            switch (itemIdx) {
+                case 0: /* multitokens_burn_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_burn_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_burn_V2 - params */;
+                    return _toStringBurnParamsOfT(
+                            &m->basic.multitokens_burn_V2.params,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64774: /* module 253 call 6 */
+            switch (itemIdx) {
+                case 0: /* multitokens_transfer_V2 - recipient */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.multitokens_transfer_V2.recipient,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_transfer_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_transfer_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_transfer_V2 - params */;
+                    return _toStringTransferParamsOfT(
+                            &m->basic.multitokens_transfer_V2.params,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64775: /* module 253 call 7 */
+            switch (itemIdx) {
+                case 0: /* multitokens_freeze_V2 - info */;
+                    return _toStringFreezeOf(
+                            &m->basic.multitokens_freeze_V2.info,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64776: /* module 253 call 8 */
+            switch (itemIdx) {
+                case 0: /* multitokens_thaw_V2 - info */;
+                    return _toStringFreezeOf(
+                            &m->basic.multitokens_thaw_V2.info,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64777: /* module 253 call 9 */
+            switch (itemIdx) {
+                case 0: /* multitokens_set_attribute_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_set_attribute_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_set_attribute_V2 - token_id */;
+                    return _toStringOptionTokenId(
+                            &m->basic.multitokens_set_attribute_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_set_attribute_V2 - key */;
+                    return _toStringBytes(
+                            &m->basic.multitokens_set_attribute_V2.key,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* multitokens_set_attribute_V2 - value */;
+                    return _toStringBytes(
+                            &m->basic.multitokens_set_attribute_V2.value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64778: /* module 253 call 10 */
+            switch (itemIdx) {
+                case 0: /* multitokens_remove_attribute_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_remove_attribute_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_remove_attribute_V2 - token_id */;
+                    return _toStringOptionTokenId(
+                            &m->basic.multitokens_remove_attribute_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_remove_attribute_V2 - key */;
+                    return _toStringBytes(
+                            &m->basic.multitokens_remove_attribute_V2.key,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64779: /* module 253 call 11 */
+            switch (itemIdx) {
+                case 0: /* multitokens_remove_all_attributes_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_remove_all_attributes_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_remove_all_attributes_V2 - token_id */;
+                    return _toStringOptionTokenId(
+                            &m->basic.multitokens_remove_all_attributes_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_remove_all_attributes_V2 - attribute_count */;
+                    return _toStringu32(
+                            &m->basic.multitokens_remove_all_attributes_V2.attribute_count,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64780: /* module 253 call 12 */
+            switch (itemIdx) {
+                case 0: /* multitokens_batch_transfer_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_batch_transfer_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_batch_transfer_V2 - recipients */;
+                    return _toStringVecTransferRecipientsOf(
+                            &m->basic.multitokens_batch_transfer_V2.recipients,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64782: /* module 253 call 14 */
+            switch (itemIdx) {
+                case 0: /* multitokens_batch_set_attribute_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_batch_set_attribute_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_batch_set_attribute_V2 - token_id */;
+                    return _toStringOptionTokenId(
+                            &m->basic.multitokens_batch_set_attribute_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_batch_set_attribute_V2 - attributes */;
+                    return _toStringVecAttributeKeyValuePair(
+                            &m->basic.multitokens_batch_set_attribute_V2.attributes,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64783: /* module 253 call 15 */
+            switch (itemIdx) {
+                case 0: /* multitokens_approve_collection_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_approve_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_approve_collection_V2 - operator */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_approve_collection_V2.operator_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_approve_collection_V2 - expiration */;
+                    return _toStringOptionu32(
+                            &m->basic.multitokens_approve_collection_V2.expiration,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64784: /* module 253 call 16 */
+            switch (itemIdx) {
+                case 0: /* multitokens_unapprove_collection_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_unapprove_collection_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_unapprove_collection_V2 - operator */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_unapprove_collection_V2.operator_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64785: /* module 253 call 17 */
+            switch (itemIdx) {
+                case 0: /* multitokens_approve_token_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_approve_token_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_approve_token_V2 - token_id */;
+                    return _toStringCompactTokenId(
+                            &m->basic.multitokens_approve_token_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_approve_token_V2 - operator */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_approve_token_V2.operator_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* multitokens_approve_token_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->basic.multitokens_approve_token_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 4: /* multitokens_approve_token_V2 - expiration */;
+                    return _toStringOptionu32(
+                            &m->basic.multitokens_approve_token_V2.expiration,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 5: /* multitokens_approve_token_V2 - current_amount */;
+                    return _toStringCompactBalance(
+                            &m->basic.multitokens_approve_token_V2.current_amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64786: /* module 253 call 18 */
+            switch (itemIdx) {
+                case 0: /* multitokens_unapprove_token_V2 - collection_id */;
+                    return _toStringCompactCollectionId(
+                            &m->basic.multitokens_unapprove_token_V2.collection_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_unapprove_token_V2 - token_id */;
+                    return _toStringCompactTokenId(
+                            &m->basic.multitokens_unapprove_token_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_unapprove_token_V2 - operator */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_unapprove_token_V2.operator_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64800: /* module 253 call 32 */
+            switch (itemIdx) {
+                case 0: /* multitokens_claim_collections_V2 - destination */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_claim_collections_V2.destination,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_claim_collections_V2 - ethereum_signature */;
+                    return _toStringEcdsaSignature(
+                            &m->basic.multitokens_claim_collections_V2.ethereum_signature,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_claim_collections_V2 - ethereum_address */;
+                    return _toStringEthereumAddress(
+                            &m->basic.multitokens_claim_collections_V2.ethereum_address,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 64801: /* module 253 call 33 */
+            switch (itemIdx) {
+                case 0: /* multitokens_claim_tokens_V2 - destination */;
+                    return _toStringAccountId(
+                            &m->basic.multitokens_claim_tokens_V2.destination,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multitokens_claim_tokens_V2 - ethereum_signature */;
+                    return _toStringEcdsaSignature(
+                            &m->basic.multitokens_claim_tokens_V2.ethereum_signature,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multitokens_claim_tokens_V2 - ethereum_address */;
+                    return _toStringEthereumAddress(
+                            &m->basic.multitokens_claim_tokens_V2.ethereum_address,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
+        case 4608: /* module 18 call 0 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_bond_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_bond_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_bond_V2 - amount */;
+                    return _toStringBondValueOfT(
+                            &m->basic.nominationpools_bond_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4611: /* module 18 call 3 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_unbond_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_unbond_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_unbond_V2 - member_account */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.nominationpools_unbond_V2.member_account,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* nominationpools_unbond_V2 - unbonding_points */;
+                    return _toStringCompactBalance(
+                            &m->basic.nominationpools_unbond_V2.unbonding_points,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4612: /* module 18 call 4 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_pool_withdraw_unbonded_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_pool_withdraw_unbonded_V2 - num_slashing_spans */;
+                    return _toStringu32(
+                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.num_slashing_spans,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4613: /* module 18 call 5 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_withdraw_unbonded_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_withdraw_unbonded_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_withdraw_unbonded_V2 - member_account */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.nominationpools_withdraw_unbonded_V2.member_account,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* nominationpools_withdraw_unbonded_V2 - num_slashing_spans */;
+                    return _toStringu32(
+                            &m->basic.nominationpools_withdraw_unbonded_V2.num_slashing_spans,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4614: /* module 18 call 6 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_create_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.nominationpools_create_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_create_V2 - deposit */;
+                    return _toStringCompactBalance(
+                            &m->basic.nominationpools_create_V2.deposit,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* nominationpools_create_V2 - capacity */;
+                    return _toStringCompactBalance(
+                            &m->basic.nominationpools_create_V2.capacity,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* nominationpools_create_V2 - duration */;
+                    return _toStringCompactIndex(
+                            &m->basic.nominationpools_create_V2.duration,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 4: /* nominationpools_create_V2 - admin */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.nominationpools_create_V2.admin,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 5: /* nominationpools_create_V2 - nominator */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.nominationpools_create_V2.nominator,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4616: /* module 18 call 8 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_nominate_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_nominate_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_nominate_V2 - validators */;
+                    return _toStringVecAccountId(
+                            &m->basic.nominationpools_nominate_V2.validators,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4621: /* module 18 call 13 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_chill_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_chill_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4622: /* module 18 call 14 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_destroy_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_destroy_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4626: /* module 18 call 18 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_payout_rewards_V2 - validator_stash */;
+                    return _toStringAccountId(
+                            &m->basic.nominationpools_payout_rewards_V2.validator_stash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_payout_rewards_V2 - era */;
+                    return _toStringEraIndex(
+                            &m->basic.nominationpools_payout_rewards_V2.era,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4627: /* module 18 call 19 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_mutate_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_mutate_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_mutate_V2 - mutation */;
+                    return _toStringPoolMutationOfT(
+                            &m->basic.nominationpools_mutate_V2.mutation,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4628: /* module 18 call 20 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_unbond_deposit_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_unbond_deposit_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4629: /* module 18 call 21 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_withdraw_deposit_V2 - pool_id */;
+                    return _toStringPoolId(
+                            &m->basic.nominationpools_withdraw_deposit_V2.pool_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4631: /* module 18 call 23 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 4632: /* module 18 call 24 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_distribute_early_bird_bonus_V2 - transfer_count */;
+                    return _toStringu32(
+                            &m->basic.nominationpools_distribute_early_bird_bonus_V2.transfer_count,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4864: /* module 19 call 0 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_create_offer_V2 - offer */;
+                    return _toStringOfferOfT(
+                            &m->basic.stakeexchange_create_offer_V2.offer,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4865: /* module 19 call 1 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_cancel_offer_V2 - offer_id */;
+                    return _toStringOfferId(
+                            &m->basic.stakeexchange_cancel_offer_V2.offer_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4866: /* module 19 call 2 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_configure_liquidity_account_V2 - config */;
+                    return _toStringLiquidityAccountConfigOfT(
+                            &m->basic.stakeexchange_configure_liquidity_account_V2.config,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4867: /* module 19 call 3 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_withdraw_liquidity_V2 - offer_id */;
+                    return _toStringOfferId(
+                            &m->basic.stakeexchange_withdraw_liquidity_V2.offer_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* stakeexchange_withdraw_liquidity_V2 - amount */;
+                    return _toStringBalanceOf(
+                            &m->basic.stakeexchange_withdraw_liquidity_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4868: /* module 19 call 4 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_add_liquidity_V2 - offer_id */;
+                    return _toStringOfferId(
+                            &m->basic.stakeexchange_add_liquidity_V2.offer_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* stakeexchange_add_liquidity_V2 - amount */;
+                    return _toStringBalanceOf(
+                            &m->basic.stakeexchange_add_liquidity_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4869: /* module 19 call 5 */
+            switch (itemIdx) {
+                case 0: /* stakeexchange_buy_V2 - offer_id */;
+                    return _toStringOfferId(
+                            &m->basic.stakeexchange_buy_V2.offer_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* stakeexchange_buy_V2 - amount */;
+                    return _toStringBalanceOf(
+                            &m->basic.stakeexchange_buy_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* stakeexchange_buy_V2 - token_id */;
+                    return _toStringTokenIdOf(
+                            &m->basic.stakeexchange_buy_V2.token_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
         case 25345: /* module 99 call 1 */
             switch (itemIdx) {
                 case 0: /* xcmpallet_teleport_assets_V2 - dest */;
@@ -10081,489 +9888,60 @@ parser_error_t _getMethod_ItemValue_V2(
             }
 #endif
 
-        case 2304: /* module 9 call 0 */
+/////////////////////////
+
+        case 18432: /* module 72 call 0 */
             switch (itemIdx) {
-                case 0: /* staking_bond_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.staking_bond_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_bond_V2 - payee */;
-                    return _toStringRewardDestination(
-                            &m->basic.staking_bond_V2.payee,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2305: /* module 9 call 1 */
-            switch (itemIdx) {
-                case 0: /* staking_bond_extra_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.staking_bond_extra_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2306: /* module 9 call 2 */
-            switch (itemIdx) {
-                case 0: /* staking_unbond_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.staking_unbond_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2307: /* module 9 call 3 */
-            switch (itemIdx) {
-                case 0: /* staking_withdraw_unbonded_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->basic.staking_withdraw_unbonded_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2308: /* module 9 call 4 */
-            switch (itemIdx) {
-                case 0: /* staking_validate_V2 - prefs */;
-                    return _toStringValidatorPrefs(
-                            &m->basic.staking_validate_V2.prefs,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2309: /* module 9 call 5 */
-            switch (itemIdx) {
-                case 0: /* staking_nominate_V2 - targets */;
-                    return _toStringVecAccountIdLookupOfT(
-                            &m->basic.staking_nominate_V2.targets,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2310: /* module 9 call 6 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 2311: /* module 9 call 7 */
-            switch (itemIdx) {
-                case 0: /* staking_set_payee_V2 - payee */;
-                    return _toStringRewardDestination(
-                            &m->basic.staking_set_payee_V2.payee,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2312: /* module 9 call 8 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 2313: /* module 9 call 9 */
-            switch (itemIdx) {
-                case 0: /* staking_set_validator_count_V2 - new_ */;
+                case 0: /* auctions_new_auction_V2 - duration */;
                     return _toStringCompactu32(
-                            &m->basic.staking_set_validator_count_V2.new_,
+                            &m->basic.auctions_new_auction_V2.duration,
                             outValue, outValueLen,
                             pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2314: /* module 9 call 10 */
-            switch (itemIdx) {
-                case 0: /* staking_increase_validator_count_V2 - additional */;
+                case 1: /* auctions_new_auction_V2 - lease_period_index */;
                     return _toStringCompactu32(
-                            &m->basic.staking_increase_validator_count_V2.additional,
+                            &m->basic.auctions_new_auction_V2.lease_period_index,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
-        case 2315: /* module 9 call 11 */
+        case 18433: /* module 72 call 1 */
             switch (itemIdx) {
-                case 0: /* staking_scale_validator_count_V2 - factor */;
-                    return _toStringPercent(
-                            &m->basic.staking_scale_validator_count_V2.factor,
+                case 0: /* auctions_bid_V2 - para */;
+                    return _toStringCompactu32(
+                            &m->basic.auctions_bid_V2.para,
                             outValue, outValueLen,
                             pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2316: /* module 9 call 12 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 2317: /* module 9 call 13 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 2318: /* module 9 call 14 */
-            switch (itemIdx) {
-                case 0: /* staking_set_invulnerables_V2 - invulnerables */;
-                    return _toStringVecAccountId(
-                            &m->basic.staking_set_invulnerables_V2.invulnerables,
+                case 1: /* auctions_bid_V2 - auction_index */;
+                    return _toStringCompactu32(
+                            &m->basic.auctions_bid_V2.auction_index,
                             outValue, outValueLen,
                             pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2319: /* module 9 call 15 */
-            switch (itemIdx) {
-                case 0: /* staking_force_unstake_V2 - stash */;
-                    return _toStringAccountId(
-                            &m->basic.staking_force_unstake_V2.stash,
+                case 2: /* auctions_bid_V2 - first_slot */;
+                    return _toStringCompactu32(
+                            &m->basic.auctions_bid_V2.first_slot,
                             outValue, outValueLen,
                             pageIdx, pageCount);
-                case 1: /* staking_force_unstake_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->basic.staking_force_unstake_V2.num_slashing_spans,
+                case 3: /* auctions_bid_V2 - last_slot */;
+                    return _toStringCompactu32(
+                            &m->basic.auctions_bid_V2.last_slot,
                             outValue, outValueLen,
                             pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2320: /* module 9 call 16 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 2321: /* module 9 call 17 */
-            switch (itemIdx) {
-                case 0: /* staking_cancel_deferred_slash_V2 - era */;
-                    return _toStringEraIndex(
-                            &m->basic.staking_cancel_deferred_slash_V2.era,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_cancel_deferred_slash_V2 - slash_indices */;
-                    return _toStringVecu32(
-                            &m->basic.staking_cancel_deferred_slash_V2.slash_indices,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2322: /* module 9 call 18 */
-            switch (itemIdx) {
-                case 0: /* staking_payout_stakers_V2 - validator_stash */;
-                    return _toStringAccountId(
-                            &m->basic.staking_payout_stakers_V2.validator_stash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_payout_stakers_V2 - era */;
-                    return _toStringEraIndex(
-                            &m->basic.staking_payout_stakers_V2.era,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2323: /* module 9 call 19 */
-            switch (itemIdx) {
-                case 0: /* staking_rebond_V2 - value */;
+                case 4: /* auctions_bid_V2 - amount */;
                     return _toStringCompactBalance(
-                            &m->basic.staking_rebond_V2.value,
+                            &m->basic.auctions_bid_V2.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
-        case 2324: /* module 9 call 20 */
+        case 18434: /* module 72 call 2 */
             switch (itemIdx) {
-                case 0: /* staking_reap_stash_V2 - stash */;
-                    return _toStringAccountId(
-                            &m->basic.staking_reap_stash_V2.stash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_reap_stash_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->basic.staking_reap_stash_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2325: /* module 9 call 21 */
-            switch (itemIdx) {
-                case 0: /* staking_kick_V2 - who */;
-                    return _toStringVecAccountIdLookupOfT(
-                            &m->basic.staking_kick_V2.who,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2326: /* module 9 call 22 */
-            switch (itemIdx) {
-                case 0: /* staking_set_staking_configs_V2 - min_nominator_bond */;
-                    return _toStringConfigOpBalanceOfT(
-                            &m->basic.staking_set_staking_configs_V2.min_nominator_bond,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_set_staking_configs_V2 - min_validator_bond */;
-                    return _toStringConfigOpBalanceOfT(
-                            &m->basic.staking_set_staking_configs_V2.min_validator_bond,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* staking_set_staking_configs_V2 - max_nominator_count */;
-                    return _toStringConfigOpu32(
-                            &m->basic.staking_set_staking_configs_V2.max_nominator_count,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* staking_set_staking_configs_V2 - max_validator_count */;
-                    return _toStringConfigOpu32(
-                            &m->basic.staking_set_staking_configs_V2.max_validator_count,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* staking_set_staking_configs_V2 - chill_threshold */;
-                    return _toStringConfigOpPercent(
-                            &m->basic.staking_set_staking_configs_V2.chill_threshold,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 5: /* staking_set_staking_configs_V2 - min_commission */;
-                    return _toStringConfigOpPerbill(
-                            &m->basic.staking_set_staking_configs_V2.min_commission,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2327: /* module 9 call 23 */
-            switch (itemIdx) {
-                case 0: /* staking_chill_other_V2 - controller */;
-                    return _toStringAccountId(
-                            &m->basic.staking_chill_other_V2.controller,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2328: /* module 9 call 24 */
-            switch (itemIdx) {
-                case 0: /* staking_force_apply_min_commission_V2 - validator_stash */;
-                    return _toStringAccountId(
-                            &m->basic.staking_force_apply_min_commission_V2.validator_stash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2329: /* module 9 call 25 */
-            switch (itemIdx) {
-                case 0: /* staking_set_min_commission_V2 - new_ */;
-                    return _toStringPerbill(
-                            &m->basic.staking_set_min_commission_V2.new_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4619: /* module 18 call 11 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_set_configs_V2 - min_join_bond */;
-                    return _toStringConfigOpBalanceOfT(
-                            &m->basic.nominationpools_set_configs_V2.min_join_bond,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_set_configs_V2 - min_create_bond */;
-                    return _toStringConfigOpBalanceOfT(
-                            &m->basic.nominationpools_set_configs_V2.min_create_bond,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_set_configs_V2 - global_max_commission */;
-                    return _toStringConfigOpPerbill(
-                            &m->basic.nominationpools_set_configs_V2.global_max_commission,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4630: /* module 18 call 22 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_set_staking_info_V2 - info */;
-                    return _toStringStakingInfo(
-                            &m->basic.nominationpools_set_staking_info_V2.info,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
 
 
-/////////////
-        case 0: /* module 0 call 0 */
-            switch (itemIdx) {
-                case 0: /* system_remark_V2 - remark */;
-                    return _toStringBytes(
-                            &m->nested.system_remark_V2.remark,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1: /* module 0 call 1 */
-            switch (itemIdx) {
-                case 0: /* system_set_heap_pages_V2 - pages */;
-                    return _toStringu64(
-                            &m->nested.system_set_heap_pages_V2.pages,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2: /* module 0 call 2 */
-            switch (itemIdx) {
-                case 0: /* system_set_code_V2 - code */;
-                    return _toStringVecu8(
-                            &m->nested.system_set_code_V2.code,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3: /* module 0 call 3 */
-            switch (itemIdx) {
-                case 0: /* system_set_code_without_checks_V2 - code */;
-                    return _toStringVecu8(
-                            &m->nested.system_set_code_without_checks_V2.code,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7: /* module 0 call 7 */
-            switch (itemIdx) {
-                case 0: /* system_remark_with_event_V2 - remark */;
-                    return _toStringBytes(
-                            &m->nested.system_remark_with_event_V2.remark,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2560: /* module 10 call 0 */
-            switch (itemIdx) {
-                case 0: /* preimage_note_preimage_V2 - bytes */;
-                    return _toStringVecu8(
-                            &m->basic.preimage_note_preimage_V2.bytes,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2561: /* module 10 call 1 */
-            switch (itemIdx) {
-                case 0: /* preimage_unnote_preimage_V2 - hash */;
-                    return _toStringHash(
-                            &m->basic.preimage_unnote_preimage_V2.hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2562: /* module 10 call 2 */
-            switch (itemIdx) {
-                case 0: /* preimage_request_preimage_V2 - hash */;
-                    return _toStringHash(
-                            &m->basic.preimage_request_preimage_V2.hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 2563: /* module 10 call 3 */
-            switch (itemIdx) {
-                case 0: /* preimage_unrequest_preimage_V2 - hash */;
-                    return _toStringHash(
-                            &m->basic.preimage_unrequest_preimage_V2.hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 768: /* module 3 call 0 */
-            switch (itemIdx) {
-                case 0: /* timestamp_set_V2 - now */;
-                    return _toStringCompactu64(
-                            &m->basic.timestamp_set_V2.now,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1024: /* module 4 call 0 */
-            switch (itemIdx) {
-                case 0: /* indices_claim_V2 - index */;
-                    return _toStringAccountIndex(
-                            &m->basic.indices_claim_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1025: /* module 4 call 1 */
-            switch (itemIdx) {
-                case 0: /* indices_transfer_V2 - new_ */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.indices_transfer_V2.new_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* indices_transfer_V2 - index */;
-                    return _toStringAccountIndex(
-                            &m->basic.indices_transfer_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1026: /* module 4 call 2 */
-            switch (itemIdx) {
-                case 0: /* indices_free_V2 - index */;
-                    return _toStringAccountIndex(
-                            &m->basic.indices_free_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1027: /* module 4 call 3 */
-            switch (itemIdx) {
-                case 0: /* indices_force_transfer_V2 - new_ */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.indices_force_transfer_V2.new_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* indices_force_transfer_V2 - index */;
-                    return _toStringAccountIndex(
-                            &m->basic.indices_force_transfer_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* indices_force_transfer_V2 - freeze */;
-                    return _toStringbool(
-                            &m->basic.indices_force_transfer_V2.freeze,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1028: /* module 4 call 4 */
-            switch (itemIdx) {
-                case 0: /* indices_freeze_V2 - index */;
-                    return _toStringAccountIndex(
-                            &m->basic.indices_freeze_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
         case 1281: /* module 5 call 1 */
             switch (itemIdx) {
                 case 0: /* balances_set_balance_deprecated_V2 - who */;
@@ -10624,1631 +10002,8 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 1801: /* module 7 call 9 */
-            switch (itemIdx) {
-                case 0: /* staking_set_validator_count_V2 - new_ */;
-                    return _toStringCompactu32(
-                            &m->basic.staking_set_validator_count_V2.new_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1802: /* module 7 call 10 */
-            switch (itemIdx) {
-                case 0: /* staking_increase_validator_count_V2 - additional */;
-                    return _toStringCompactu32(
-                            &m->basic.staking_increase_validator_count_V2.additional,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1803: /* module 7 call 11 */
-            switch (itemIdx) {
-                case 0: /* staking_scale_validator_count_V2 - factor */;
-                    return _toStringPercent(
-                            &m->basic.staking_scale_validator_count_V2.factor,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1804: /* module 7 call 12 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 1805: /* module 7 call 13 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 1806: /* module 7 call 14 */
-            switch (itemIdx) {
-                case 0: /* staking_set_invulnerables_V2 - invulnerables */;
-                    return _toStringVecAccountId(
-                            &m->basic.staking_set_invulnerables_V2.invulnerables,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1807: /* module 7 call 15 */
-            switch (itemIdx) {
-                case 0: /* staking_force_unstake_V2 - stash */;
-                    return _toStringAccountId(
-                            &m->basic.staking_force_unstake_V2.stash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_force_unstake_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->basic.staking_force_unstake_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1808: /* module 7 call 16 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 1809: /* module 7 call 17 */
-            switch (itemIdx) {
-                case 0: /* staking_cancel_deferred_slash_V2 - era */;
-                    return _toStringEraIndex(
-                            &m->basic.staking_cancel_deferred_slash_V2.era,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_cancel_deferred_slash_V2 - slash_indices */;
-                    return _toStringVecu32(
-                            &m->basic.staking_cancel_deferred_slash_V2.slash_indices,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1812: /* module 7 call 20 */
-            switch (itemIdx) {
-                case 0: /* staking_reap_stash_V2 - stash */;
-                    return _toStringAccountId(
-                            &m->basic.staking_reap_stash_V2.stash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_reap_stash_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->basic.staking_reap_stash_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1813: /* module 7 call 21 */
-            switch (itemIdx) {
-                case 0: /* staking_kick_V2 - who */;
-                    return _toStringVecAccountIdLookupOfT(
-                            &m->basic.staking_kick_V2.who,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1814: /* module 7 call 22 */
-            switch (itemIdx) {
-                case 0: /* staking_set_staking_configs_V2 - min_nominator_bond */;
-                    return _toStringConfigOpBalanceOfT(
-                            &m->basic.staking_set_staking_configs_V2.min_nominator_bond,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* staking_set_staking_configs_V2 - min_validator_bond */;
-                    return _toStringConfigOpBalanceOfT(
-                            &m->basic.staking_set_staking_configs_V2.min_validator_bond,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* staking_set_staking_configs_V2 - max_nominator_count */;
-                    return _toStringConfigOpu32(
-                            &m->basic.staking_set_staking_configs_V2.max_nominator_count,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* staking_set_staking_configs_V2 - max_validator_count */;
-                    return _toStringConfigOpu32(
-                            &m->basic.staking_set_staking_configs_V2.max_validator_count,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* staking_set_staking_configs_V2 - chill_threshold */;
-                    return _toStringConfigOpPercent(
-                            &m->basic.staking_set_staking_configs_V2.chill_threshold,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 5: /* staking_set_staking_configs_V2 - min_commission */;
-                    return _toStringConfigOpPerbill(
-                            &m->basic.staking_set_staking_configs_V2.min_commission,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1815: /* module 7 call 23 */
-            switch (itemIdx) {
-                case 0: /* staking_chill_other_V2 - controller */;
-                    return _toStringAccountId(
-                            &m->basic.staking_chill_other_V2.controller,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1816: /* module 7 call 24 */
-            switch (itemIdx) {
-                case 0: /* staking_force_apply_min_commission_V2 - validator_stash */;
-                    return _toStringAccountId(
-                            &m->basic.staking_force_apply_min_commission_V2.validator_stash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 1817: /* module 7 call 25 */
-            switch (itemIdx) {
-                case 0: /* staking_set_min_commission_V2 - new_ */;
-                    return _toStringPerbill(
-                            &m->basic.staking_set_min_commission_V2.new_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3584: /* module 14 call 0 */
-            switch (itemIdx) {
-                case 0: /* democracy_propose_V2 - proposal */;
-                    return _toStringBoundedCallOfT(
-                            &m->nested.democracy_propose_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* democracy_propose_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.democracy_propose_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3585: /* module 14 call 1 */
-            switch (itemIdx) {
-                case 0: /* democracy_second_V2 - proposal */;
-                    return _toStringCompactu32(
-                            &m->nested.democracy_second_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3586: /* module 14 call 2 */
-            switch (itemIdx) {
-                case 0: /* democracy_vote_V2 - ref_index */;
-                    return _toStringCompactu32(
-                            &m->nested.democracy_vote_V2.ref_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* democracy_vote_V2 - vote */;
-                    return _toStringAccountVote(
-                            &m->nested.democracy_vote_V2.vote,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3587: /* module 14 call 3 */
-            switch (itemIdx) {
-                case 0: /* democracy_emergency_cancel_V2 - ref_index */;
-                    return _toStringReferendumIndex(
-                            &m->nested.democracy_emergency_cancel_V2.ref_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3588: /* module 14 call 4 */
-            switch (itemIdx) {
-                case 0: /* democracy_external_propose_V2 - proposal */;
-                    return _toStringBoundedCallOfT(
-                            &m->nested.democracy_external_propose_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3589: /* module 14 call 5 */
-            switch (itemIdx) {
-                case 0: /* democracy_external_propose_majority_V2 - proposal */;
-                    return _toStringBoundedCallOfT(
-                            &m->nested.democracy_external_propose_majority_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3590: /* module 14 call 6 */
-            switch (itemIdx) {
-                case 0: /* democracy_external_propose_default_V2 - proposal */;
-                    return _toStringBoundedCallOfT(
-                            &m->nested.democracy_external_propose_default_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3591: /* module 14 call 7 */
-            switch (itemIdx) {
-                case 0: /* democracy_fast_track_V2 - proposal_hash */;
-                    return _toStringH256(
-                            &m->nested.democracy_fast_track_V2.proposal_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* democracy_fast_track_V2 - voting_period */;
-                    return _toStringBlockNumber(
-                            &m->nested.democracy_fast_track_V2.voting_period,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* democracy_fast_track_V2 - delay */;
-                    return _toStringBlockNumber(
-                            &m->nested.democracy_fast_track_V2.delay,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3592: /* module 14 call 8 */
-            switch (itemIdx) {
-                case 0: /* democracy_veto_external_V2 - proposal_hash */;
-                    return _toStringH256(
-                            &m->nested.democracy_veto_external_V2.proposal_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3593: /* module 14 call 9 */
-            switch (itemIdx) {
-                case 0: /* democracy_cancel_referendum_V2 - ref_index */;
-                    return _toStringCompactu32(
-                            &m->nested.democracy_cancel_referendum_V2.ref_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3594: /* module 14 call 10 */
-            switch (itemIdx) {
-                case 0: /* democracy_delegate_V2 - to */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.democracy_delegate_V2.to,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* democracy_delegate_V2 - conviction */;
-                    return _toStringConviction(
-                            &m->nested.democracy_delegate_V2.conviction,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* democracy_delegate_V2 - balance */;
-                    return _toStringBalance(
-                            &m->nested.democracy_delegate_V2.balance,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3595: /* module 14 call 11 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 3596: /* module 14 call 12 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 3597: /* module 14 call 13 */
-            switch (itemIdx) {
-                case 0: /* democracy_unlock_V2 - target */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.democracy_unlock_V2.target,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3598: /* module 14 call 14 */
-            switch (itemIdx) {
-                case 0: /* democracy_remove_vote_V2 - index */;
-                    return _toStringReferendumIndex(
-                            &m->nested.democracy_remove_vote_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3599: /* module 14 call 15 */
-            switch (itemIdx) {
-                case 0: /* democracy_remove_other_vote_V2 - target */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.democracy_remove_other_vote_V2.target,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* democracy_remove_other_vote_V2 - index */;
-                    return _toStringReferendumIndex(
-                            &m->nested.democracy_remove_other_vote_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3600: /* module 14 call 16 */
-            switch (itemIdx) {
-                case 0: /* democracy_blacklist_V2 - proposal_hash */;
-                    return _toStringH256(
-                            &m->basic.democracy_blacklist_V2.proposal_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* democracy_blacklist_V2 - maybe_ref_index */;
-                    return _toStringOptionReferendumIndex(
-                            &m->basic.democracy_blacklist_V2.maybe_ref_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3601: /* module 14 call 17 */
-            switch (itemIdx) {
-                case 0: /* democracy_cancel_proposal_V2 - prop_index */;
-                    return _toStringCompactu32(
-                            &m->nested.democracy_cancel_proposal_V2.prop_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3602: /* module 14 call 18 */
-            switch (itemIdx) {
-                case 0: /* democracy_set_metadata_V2 - owner */;
-                    return _toStringMetadataOwner(
-                            &m->basic.democracy_set_metadata_V2.owner,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* democracy_set_metadata_V2 - maybe_hash */;
-                    return _toStringOptionPreimageHash(
-                            &m->basic.democracy_set_metadata_V2.maybe_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3840: /* module 15 call 0 */
-            switch (itemIdx) {
-                case 0: /* council_set_members_V2 - new_members */;
-                    return _toStringVecAccountId(
-                            &m->basic.council_set_members_V2.new_members,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* council_set_members_V2 - prime */;
-                    return _toStringOptionAccountId(
-                            &m->basic.council_set_members_V2.prime,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* council_set_members_V2 - old_count */;
-                    return _toStringMemberCount(
-                            &m->basic.council_set_members_V2.old_count,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3841: /* module 15 call 1 */
-            switch (itemIdx) {
-                case 0: /* council_execute_V2 - proposal */;
-                    return _toStringProposal(
-                            &m->basic.council_execute_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* council_execute_V2 - length_bound */;
-                    return _toStringCompactu32(
-                            &m->basic.council_execute_V2.length_bound,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3842: /* module 15 call 2 */
-            switch (itemIdx) {
-                case 0: /* council_propose_V2 - threshold */;
-                    return _toStringCompactu32(
-                            &m->basic.council_propose_V2.threshold,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* council_propose_V2 - proposal */;
-                    return _toStringProposal(
-                            &m->basic.council_propose_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* council_propose_V2 - length_bound */;
-                    return _toStringCompactu32(
-                            &m->basic.council_propose_V2.length_bound,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3843: /* module 15 call 3 */
-            switch (itemIdx) {
-                case 0: /* council_vote_V2 - proposal */;
-                    return _toStringHash(
-                            &m->basic.council_vote_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* council_vote_V2 - index */;
-                    return _toStringCompactu32(
-                            &m->basic.council_vote_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* council_vote_V2 - approve */;
-                    return _toStringbool(
-                            &m->basic.council_vote_V2.approve,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3845: /* module 15 call 5 */
-            switch (itemIdx) {
-                case 0: /* council_disapprove_proposal_V2 - proposal_hash */;
-                    return _toStringHash(
-                            &m->basic.council_disapprove_proposal_V2.proposal_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 3846: /* module 15 call 6 */
-            switch (itemIdx) {
-                case 0: /* council_close_V2 - proposal_hash */;
-                    return _toStringHash(
-                            &m->basic.council_close_V2.proposal_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* council_close_V2 - index */;
-                    return _toStringCompactu32(
-                            &m->basic.council_close_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* council_close_V2 - proposal_weight_bound */;
-                    return _toStringWeight(
-                            &m->basic.council_close_V2.proposal_weight_bound,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* council_close_V2 - length_bound */;
-                    return _toStringCompactu32(
-                            &m->basic.council_close_V2.length_bound,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4096: /* module 16 call 0 */
-            switch (itemIdx) {
-                case 0: /* technicalcommittee_set_members_V2 - new_members */;
-                    return _toStringVecAccountId(
-                            &m->basic.technicalcommittee_set_members_V2.new_members,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* technicalcommittee_set_members_V2 - prime */;
-                    return _toStringOptionAccountId(
-                            &m->basic.technicalcommittee_set_members_V2.prime,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* technicalcommittee_set_members_V2 - old_count */;
-                    return _toStringMemberCount(
-                            &m->basic.technicalcommittee_set_members_V2.old_count,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4097: /* module 16 call 1 */
-            switch (itemIdx) {
-                case 0: /* technicalcommittee_execute_V2 - proposal */;
-                    return _toStringProposal(
-                            &m->basic.technicalcommittee_execute_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* technicalcommittee_execute_V2 - length_bound */;
-                    return _toStringCompactu32(
-                            &m->basic.technicalcommittee_execute_V2.length_bound,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4098: /* module 16 call 2 */
-            switch (itemIdx) {
-                case 0: /* technicalcommittee_propose_V2 - threshold */;
-                    return _toStringCompactu32(
-                            &m->basic.technicalcommittee_propose_V2.threshold,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* technicalcommittee_propose_V2 - proposal */;
-                    return _toStringProposal(
-                            &m->basic.technicalcommittee_propose_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* technicalcommittee_propose_V2 - length_bound */;
-                    return _toStringCompactu32(
-                            &m->basic.technicalcommittee_propose_V2.length_bound,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4099: /* module 16 call 3 */
-            switch (itemIdx) {
-                case 0: /* technicalcommittee_vote_V2 - proposal */;
-                    return _toStringHash(
-                            &m->basic.technicalcommittee_vote_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* technicalcommittee_vote_V2 - index */;
-                    return _toStringCompactu32(
-                            &m->basic.technicalcommittee_vote_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* technicalcommittee_vote_V2 - approve */;
-                    return _toStringbool(
-                            &m->basic.technicalcommittee_vote_V2.approve,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4101: /* module 16 call 5 */
-            switch (itemIdx) {
-                case 0: /* technicalcommittee_disapprove_proposal_V2 - proposal_hash */;
-                    return _toStringHash(
-                            &m->basic.technicalcommittee_disapprove_proposal_V2.proposal_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4102: /* module 16 call 6 */
-            switch (itemIdx) {
-                case 0: /* technicalcommittee_close_V2 - proposal_hash */;
-                    return _toStringHash(
-                            &m->basic.technicalcommittee_close_V2.proposal_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* technicalcommittee_close_V2 - index */;
-                    return _toStringCompactu32(
-                            &m->basic.technicalcommittee_close_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* technicalcommittee_close_V2 - proposal_weight_bound */;
-                    return _toStringWeight(
-                            &m->basic.technicalcommittee_close_V2.proposal_weight_bound,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* technicalcommittee_close_V2 - length_bound */;
-                    return _toStringCompactu32(
-                            &m->basic.technicalcommittee_close_V2.length_bound,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4352: /* module 17 call 0 */
-            switch (itemIdx) {
-                case 0: /* phragmenelection_vote_V2 - votes */;
-                    return _toStringVecAccountId(
-                            &m->basic.phragmenelection_vote_V2.votes,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* phragmenelection_vote_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.phragmenelection_vote_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4353: /* module 17 call 1 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 4354: /* module 17 call 2 */
-            switch (itemIdx) {
-                case 0: /* phragmenelection_submit_candidacy_V2 - candidate_count */;
-                    return _toStringCompactu32(
-                            &m->basic.phragmenelection_submit_candidacy_V2.candidate_count,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4356: /* module 17 call 4 */
-            switch (itemIdx) {
-                case 0: /* phragmenelection_remove_member_V2 - who */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.phragmenelection_remove_member_V2.who,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* phragmenelection_remove_member_V2 - slash_bond */;
-                    return _toStringbool(
-                            &m->basic.phragmenelection_remove_member_V2.slash_bond,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* phragmenelection_remove_member_V2 - rerun_election */;
-                    return _toStringbool(
-                            &m->basic.phragmenelection_remove_member_V2.rerun_election,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4357: /* module 17 call 5 */
-            switch (itemIdx) {
-                case 0: /* phragmenelection_clean_defunct_voters_V2 - num_voters */;
-                    return _toStringu32(
-                            &m->basic.phragmenelection_clean_defunct_voters_V2.num_voters,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* phragmenelection_clean_defunct_voters_V2 - num_defunct */;
-                    return _toStringu32(
-                            &m->basic.phragmenelection_clean_defunct_voters_V2.num_defunct,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4608: /* module 18 call 0 */
-            switch (itemIdx) {
-                case 0: /* technicalmembership_add_member_V2 - who */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.technicalmembership_add_member_V2.who,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4609: /* module 18 call 1 */
-            switch (itemIdx) {
-                case 0: /* technicalmembership_remove_member_V2 - who */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.technicalmembership_remove_member_V2.who,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4610: /* module 18 call 2 */
-            switch (itemIdx) {
-                case 0: /* technicalmembership_swap_member_V2 - remove */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.technicalmembership_swap_member_V2.remove,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* technicalmembership_swap_member_V2 - add */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.technicalmembership_swap_member_V2.add,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4611: /* module 18 call 3 */
-            switch (itemIdx) {
-                case 0: /* technicalmembership_reset_members_V2 - members */;
-                    return _toStringVecAccountId(
-                            &m->basic.technicalmembership_reset_members_V2.members,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4612: /* module 18 call 4 */
-            switch (itemIdx) {
-                case 0: /* technicalmembership_change_key_V2 - new_ */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.technicalmembership_change_key_V2.new_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4613: /* module 18 call 5 */
-            switch (itemIdx) {
-                case 0: /* technicalmembership_set_prime_V2 - who */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.technicalmembership_set_prime_V2.who,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4614: /* module 18 call 6 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 4864: /* module 19 call 0 */
-            switch (itemIdx) {
-                case 0: /* treasury_propose_spend_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.treasury_propose_spend_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* treasury_propose_spend_V2 - beneficiary */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.treasury_propose_spend_V2.beneficiary,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4865: /* module 19 call 1 */
-            switch (itemIdx) {
-                case 0: /* treasury_reject_proposal_V2 - proposal_id */;
-                    return _toStringCompactu32(
-                            &m->basic.treasury_reject_proposal_V2.proposal_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4866: /* module 19 call 2 */
-            switch (itemIdx) {
-                case 0: /* treasury_approve_proposal_V2 - proposal_id */;
-                    return _toStringCompactu32(
-                            &m->basic.treasury_approve_proposal_V2.proposal_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4867: /* module 19 call 3 */
-            switch (itemIdx) {
-                case 0: /* treasury_spend_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.treasury_spend_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* treasury_spend_V2 - beneficiary */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.treasury_spend_V2.beneficiary,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 4868: /* module 19 call 4 */
-            switch (itemIdx) {
-                case 0: /* treasury_remove_approval_V2 - proposal_id */;
-                    return _toStringCompactu32(
-                            &m->basic.treasury_remove_approval_V2.proposal_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5120: /* module 20 call 0 */
-            switch (itemIdx) {
-                case 0: /* convictionvoting_vote_V2 - poll_index */;
-                    return _toStringCompactu32(
-                            &m->nested.convictionvoting_vote_V2.poll_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* convictionvoting_vote_V2 - vote */;
-                    return _toStringAccountVote(
-                            &m->nested.convictionvoting_vote_V2.vote,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5121: /* module 20 call 1 */
-            switch (itemIdx) {
-                case 0: /* convictionvoting_delegate_V2 - class_ */;
-                    return _toStringClassOf(
-                            &m->nested.convictionvoting_delegate_V2.class_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* convictionvoting_delegate_V2 - to */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.convictionvoting_delegate_V2.to,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* convictionvoting_delegate_V2 - conviction */;
-                    return _toStringConviction(
-                            &m->nested.convictionvoting_delegate_V2.conviction,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* convictionvoting_delegate_V2 - balance */;
-                    return _toStringBalanceOf(
-                            &m->nested.convictionvoting_delegate_V2.balance,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5122: /* module 20 call 2 */
-            switch (itemIdx) {
-                case 0: /* convictionvoting_undelegate_V2 - class_ */;
-                    return _toStringClassOf(
-                            &m->nested.convictionvoting_undelegate_V2.class_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5123: /* module 20 call 3 */
-            switch (itemIdx) {
-                case 0: /* convictionvoting_unlock_V2 - class_ */;
-                    return _toStringClassOf(
-                            &m->nested.convictionvoting_unlock_V2.class_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* convictionvoting_unlock_V2 - target */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.convictionvoting_unlock_V2.target,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5124: /* module 20 call 4 */
-            switch (itemIdx) {
-                case 0: /* convictionvoting_remove_vote_V2 - class_ */;
-                    return _toStringOptionClassOf(
-                            &m->nested.convictionvoting_remove_vote_V2.class_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* convictionvoting_remove_vote_V2 - index */;
-                    return _toStringPollIndexOf(
-                            &m->nested.convictionvoting_remove_vote_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5125: /* module 20 call 5 */
-            switch (itemIdx) {
-                case 0: /* convictionvoting_remove_other_vote_V2 - target */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.convictionvoting_remove_other_vote_V2.target,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* convictionvoting_remove_other_vote_V2 - class_ */;
-                    return _toStringClassOf(
-                            &m->nested.convictionvoting_remove_other_vote_V2.class_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* convictionvoting_remove_other_vote_V2 - index */;
-                    return _toStringPollIndexOf(
-                            &m->nested.convictionvoting_remove_other_vote_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5376: /* module 21 call 0 */
-            switch (itemIdx) {
-                case 0: /* referenda_submit_V2 - proposal_origin */;
-                    return _toStringBoxPalletsOriginOfT(
-                            &m->basic.referenda_submit_V2.proposal_origin,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* referenda_submit_V2 - proposal */;
-                    return _toStringBoundedCallOfT(
-                            &m->basic.referenda_submit_V2.proposal,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* referenda_submit_V2 - enactment_moment */;
-                    return _toStringDispatchTimeBlockNumber(
-                            &m->basic.referenda_submit_V2.enactment_moment,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5377: /* module 21 call 1 */
-            switch (itemIdx) {
-                case 0: /* referenda_place_decision_deposit_V2 - index */;
-                    return _toStringReferendumIndex(
-                            &m->basic.referenda_place_decision_deposit_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5378: /* module 21 call 2 */
-            switch (itemIdx) {
-                case 0: /* referenda_refund_decision_deposit_V2 - index */;
-                    return _toStringReferendumIndex(
-                            &m->basic.referenda_refund_decision_deposit_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5379: /* module 21 call 3 */
-            switch (itemIdx) {
-                case 0: /* referenda_cancel_V2 - index */;
-                    return _toStringReferendumIndex(
-                            &m->basic.referenda_cancel_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5380: /* module 21 call 4 */
-            switch (itemIdx) {
-                case 0: /* referenda_kill_V2 - index */;
-                    return _toStringReferendumIndex(
-                            &m->basic.referenda_kill_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5381: /* module 21 call 5 */
-            switch (itemIdx) {
-                case 0: /* referenda_nudge_referendum_V2 - index */;
-                    return _toStringReferendumIndex(
-                            &m->basic.referenda_nudge_referendum_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5382: /* module 21 call 6 */
-            switch (itemIdx) {
-                case 0: /* referenda_one_fewer_deciding_V2 - track */;
-                    return _toStringTrackIdOf(
-                            &m->basic.referenda_one_fewer_deciding_V2.track,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5383: /* module 21 call 7 */
-            switch (itemIdx) {
-                case 0: /* referenda_refund_submission_deposit_V2 - index */;
-                    return _toStringReferendumIndex(
-                            &m->basic.referenda_refund_submission_deposit_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5384: /* module 21 call 8 */
-            switch (itemIdx) {
-                case 0: /* referenda_set_metadata_V2 - index */;
-                    return _toStringReferendumIndex(
-                            &m->basic.referenda_set_metadata_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* referenda_set_metadata_V2 - maybe_hash */;
-                    return _toStringOptionPreimageHash(
-                            &m->basic.referenda_set_metadata_V2.maybe_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5888: /* module 23 call 0 */
-            switch (itemIdx) {
-                case 0: /* whitelist_whitelist_call_V2 - call_hash */;
-                    return _toStringPreimageHash(
-                            &m->basic.whitelist_whitelist_call_V2.call_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5889: /* module 23 call 1 */
-            switch (itemIdx) {
-                case 0: /* whitelist_remove_whitelisted_call_V2 - call_hash */;
-                    return _toStringPreimageHash(
-                            &m->basic.whitelist_remove_whitelisted_call_V2.call_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5890: /* module 23 call 2 */
-            switch (itemIdx) {
-                case 0: /* whitelist_dispatch_whitelisted_call_V2 - call_hash */;
-                    return _toStringPreimageHash(
-                            &m->basic.whitelist_dispatch_whitelisted_call_V2.call_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* whitelist_dispatch_whitelisted_call_V2 - call_encoded_len */;
-                    return _toStringu32(
-                            &m->basic.whitelist_dispatch_whitelisted_call_V2.call_encoded_len,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* whitelist_dispatch_whitelisted_call_V2 - call_weight_witness */;
-                    return _toStringWeight(
-                            &m->basic.whitelist_dispatch_whitelisted_call_V2.call_weight_witness,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 5891: /* module 23 call 3 */
-            switch (itemIdx) {
-                case 0: /* whitelist_dispatch_whitelisted_call_with_preimage_V2 - call */;
-                    return _toStringCall(
-                            &m->basic.whitelist_dispatch_whitelisted_call_with_preimage_V2.call,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 6144: /* module 24 call 0 */
-            switch (itemIdx) {
-                case 0: /* claims_claim_V2 - dest */;
-                    return _toStringAccountId(
-                            &m->basic.claims_claim_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* claims_claim_V2 - ethereum_signature */;
-                    return _toStringEcdsaSignature(
-                            &m->basic.claims_claim_V2.ethereum_signature,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 6146: /* module 24 call 2 */
-            switch (itemIdx) {
-                case 0: /* claims_claim_attest_V2 - dest */;
-                    return _toStringAccountId(
-                            &m->basic.claims_claim_attest_V2.dest,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* claims_claim_attest_V2 - ethereum_signature */;
-                    return _toStringEcdsaSignature(
-                            &m->basic.claims_claim_attest_V2.ethereum_signature,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* claims_claim_attest_V2 - statement */;
-                    return _toStringBytes(
-                            &m->basic.claims_claim_attest_V2.statement,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 6147: /* module 24 call 3 */
-            switch (itemIdx) {
-                case 0: /* claims_attest_V2 - statement */;
-                    return _toStringBytes(
-                            &m->basic.claims_attest_V2.statement,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 6148: /* module 24 call 4 */
-            switch (itemIdx) {
-                case 0: /* claims_move_claim_V2 - old */;
-                    return _toStringEthereumAddress(
-                            &m->basic.claims_move_claim_V2.old,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* claims_move_claim_V2 - new_ */;
-                    return _toStringEthereumAddress(
-                            &m->basic.claims_move_claim_V2.new_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* claims_move_claim_V2 - maybe_preclaim */;
-                    return _toStringOptionAccountId(
-                            &m->basic.claims_move_claim_V2.maybe_preclaim,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 6400: /* module 25 call 0 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 6401: /* module 25 call 1 */
-            switch (itemIdx) {
-                case 0: /* vesting_vest_other_V2 - target */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.vesting_vest_other_V2.target,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 6402: /* module 25 call 2 */
-            switch (itemIdx) {
-                case 0: /* vesting_vested_transfer_V2 - target */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.vesting_vested_transfer_V2.target,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* vesting_vested_transfer_V2 - schedule */;
-                    return _toStringVestingInfo(
-                            &m->basic.vesting_vested_transfer_V2.schedule,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 6403: /* module 25 call 3 */
-            switch (itemIdx) {
-                case 0: /* vesting_force_vested_transfer_V2 - source */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.vesting_force_vested_transfer_V2.source,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* vesting_force_vested_transfer_V2 - target */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.vesting_force_vested_transfer_V2.target,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* vesting_force_vested_transfer_V2 - schedule */;
-                    return _toStringVestingInfo(
-                            &m->basic.vesting_force_vested_transfer_V2.schedule,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 6404: /* module 25 call 4 */
-            switch (itemIdx) {
-                case 0: /* vesting_merge_schedules_V2 - schedule1_index */;
-                    return _toStringu32(
-                            &m->basic.vesting_merge_schedules_V2.schedule1_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* vesting_merge_schedules_V2 - schedule2_index */;
-                    return _toStringu32(
-                            &m->basic.vesting_merge_schedules_V2.schedule2_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 6661: /* module 26 call 5 */
-            switch (itemIdx) {
-                case 0: /* utility_with_weight_V2 - call */;
-                    return _toStringCall(
-                            &m->basic.utility_with_weight_V2.call,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* utility_with_weight_V2 - weight */;
-                    return _toStringWeight(
-                            &m->basic.utility_with_weight_V2.weight,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7168: /* module 28 call 0 */
-            switch (itemIdx) {
-                case 0: /* identity_add_registrar_V2 - account */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.identity_add_registrar_V2.account,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7169: /* module 28 call 1 */
-            switch (itemIdx) {
-                case 0: /* identity_set_identity_V2 - info */;
-                    return _toStringIdentityInfo(
-                            &m->basic.identity_set_identity_V2.info,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7170: /* module 28 call 2 */
-            switch (itemIdx) {
-                case 0: /* identity_set_subs_V2 - subs */;
-                    return _toStringVecTupleAccountIdData(
-                            &m->basic.identity_set_subs_V2.subs,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7171: /* module 28 call 3 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 7172: /* module 28 call 4 */
-            switch (itemIdx) {
-                case 0: /* identity_request_judgement_V2 - reg_index */;
-                    return _toStringCompactu32(
-                            &m->basic.identity_request_judgement_V2.reg_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* identity_request_judgement_V2 - max_fee */;
-                    return _toStringCompactu128(
-                            &m->basic.identity_request_judgement_V2.max_fee,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7173: /* module 28 call 5 */
-            switch (itemIdx) {
-                case 0: /* identity_cancel_request_V2 - reg_index */;
-                    return _toStringRegistrarIndex(
-                            &m->basic.identity_cancel_request_V2.reg_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7174: /* module 28 call 6 */
-            switch (itemIdx) {
-                case 0: /* identity_set_fee_V2 - index */;
-                    return _toStringCompactu32(
-                            &m->basic.identity_set_fee_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* identity_set_fee_V2 - fee */;
-                    return _toStringCompactu128(
-                            &m->basic.identity_set_fee_V2.fee,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7175: /* module 28 call 7 */
-            switch (itemIdx) {
-                case 0: /* identity_set_account_id_V2 - index */;
-                    return _toStringCompactu32(
-                            &m->basic.identity_set_account_id_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* identity_set_account_id_V2 - new_ */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.identity_set_account_id_V2.new_,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7177: /* module 28 call 9 */
-            switch (itemIdx) {
-                case 0: /* identity_provide_judgement_V2 - reg_index */;
-                    return _toStringCompactu32(
-                            &m->basic.identity_provide_judgement_V2.reg_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* identity_provide_judgement_V2 - target */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.identity_provide_judgement_V2.target,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* identity_provide_judgement_V2 - judgement */;
-                    return _toStringJudgementBalanceOfT(
-                            &m->basic.identity_provide_judgement_V2.judgement,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* identity_provide_judgement_V2 - identity */;
-                    return _toStringHash(
-                            &m->basic.identity_provide_judgement_V2.identity,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7178: /* module 28 call 10 */
-            switch (itemIdx) {
-                case 0: /* identity_kill_identity_V2 - target */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.identity_kill_identity_V2.target,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7179: /* module 28 call 11 */
-            switch (itemIdx) {
-                case 0: /* identity_add_sub_V2 - sub */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.identity_add_sub_V2.sub,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* identity_add_sub_V2 - data */;
-                    return _toStringData(
-                            &m->basic.identity_add_sub_V2.data,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7180: /* module 28 call 12 */
-            switch (itemIdx) {
-                case 0: /* identity_rename_sub_V2 - sub */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.identity_rename_sub_V2.sub,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* identity_rename_sub_V2 - data */;
-                    return _toStringData(
-                            &m->basic.identity_rename_sub_V2.data,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7181: /* module 28 call 13 */
-            switch (itemIdx) {
-                case 0: /* identity_remove_sub_V2 - sub */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.identity_remove_sub_V2.sub,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7182: /* module 28 call 14 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 7424: /* module 29 call 0 */
-            switch (itemIdx) {
-                case 0: /* proxy_proxy_V2 - real */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.proxy_proxy_V2.real,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* proxy_proxy_V2 - force_proxy_type */;
-                    return _toStringOptionProxyType(
-                            &m->nested.proxy_proxy_V2.force_proxy_type,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* proxy_proxy_V2 - call */;
-                    return _toStringCall(
-                            &m->nested.proxy_proxy_V2.call,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7425: /* module 29 call 1 */
-            switch (itemIdx) {
-                case 0: /* proxy_add_proxy_V2 - delegate */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.proxy_add_proxy_V2.delegate,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* proxy_add_proxy_V2 - proxy_type */;
-                    return _toStringProxyType(
-                            &m->nested.proxy_add_proxy_V2.proxy_type,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* proxy_add_proxy_V2 - delay */;
-                    return _toStringBlockNumber(
-                            &m->nested.proxy_add_proxy_V2.delay,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7426: /* module 29 call 2 */
-            switch (itemIdx) {
-                case 0: /* proxy_remove_proxy_V2 - delegate */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.proxy_remove_proxy_V2.delegate,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* proxy_remove_proxy_V2 - proxy_type */;
-                    return _toStringProxyType(
-                            &m->nested.proxy_remove_proxy_V2.proxy_type,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* proxy_remove_proxy_V2 - delay */;
-                    return _toStringBlockNumber(
-                            &m->nested.proxy_remove_proxy_V2.delay,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7427: /* module 29 call 3 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 7428: /* module 29 call 4 */
-            switch (itemIdx) {
-                case 0: /* proxy_create_pure_V2 - proxy_type */;
-                    return _toStringProxyType(
-                            &m->nested.proxy_create_pure_V2.proxy_type,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* proxy_create_pure_V2 - delay */;
-                    return _toStringBlockNumber(
-                            &m->nested.proxy_create_pure_V2.delay,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* proxy_create_pure_V2 - index */;
-                    return _toStringu16(
-                            &m->nested.proxy_create_pure_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7429: /* module 29 call 5 */
-            switch (itemIdx) {
-                case 0: /* proxy_kill_pure_V2 - spawner */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.proxy_kill_pure_V2.spawner,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* proxy_kill_pure_V2 - proxy_type */;
-                    return _toStringProxyType(
-                            &m->nested.proxy_kill_pure_V2.proxy_type,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* proxy_kill_pure_V2 - index */;
-                    return _toStringu16(
-                            &m->nested.proxy_kill_pure_V2.index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* proxy_kill_pure_V2 - height */;
-                    return _toStringCompactu32(
-                            &m->nested.proxy_kill_pure_V2.height,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* proxy_kill_pure_V2 - ext_index */;
-                    return _toStringCompactu32(
-                            &m->nested.proxy_kill_pure_V2.ext_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7433: /* module 29 call 9 */
-            switch (itemIdx) {
-                case 0: /* proxy_proxy_announced_V2 - delegate */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.proxy_proxy_announced_V2.delegate,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* proxy_proxy_announced_V2 - real */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.proxy_proxy_announced_V2.real,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* proxy_proxy_announced_V2 - force_proxy_type */;
-                    return _toStringOptionProxyType(
-                            &m->basic.proxy_proxy_announced_V2.force_proxy_type,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* proxy_proxy_announced_V2 - call */;
-                    return _toStringCall(
-                            &m->basic.proxy_proxy_announced_V2.call,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7680: /* module 30 call 0 */
-            switch (itemIdx) {
-                case 0: /* multisig_as_multi_threshold_1_V2 - other_signatories */;
-                    return _toStringVecAccountId(
-                            &m->nested.multisig_as_multi_threshold_1_V2.other_signatories,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multisig_as_multi_threshold_1_V2 - call */;
-                    return _toStringCall(
-                            &m->nested.multisig_as_multi_threshold_1_V2.call,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7681: /* module 30 call 1 */
-            switch (itemIdx) {
-                case 0: /* multisig_as_multi_V2 - threshold */;
-                    return _toStringu16(
-                            &m->nested.multisig_as_multi_V2.threshold,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multisig_as_multi_V2 - other_signatories */;
-                    return _toStringVecAccountId(
-                            &m->nested.multisig_as_multi_V2.other_signatories,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multisig_as_multi_V2 - maybe_timepoint */;
-                    return _toStringOptionTimepoint(
-                            &m->nested.multisig_as_multi_V2.maybe_timepoint,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* multisig_as_multi_V2 - call */;
-                    return _toStringCall(
-                            &m->nested.multisig_as_multi_V2.call,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* multisig_as_multi_V2 - max_weight */;
-                    return _toStringWeight(
-                            &m->nested.multisig_as_multi_V2.max_weight,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7682: /* module 30 call 2 */
-            switch (itemIdx) {
-                case 0: /* multisig_approve_as_multi_V2 - threshold */;
-                    return _toStringu16(
-                            &m->nested.multisig_approve_as_multi_V2.threshold,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multisig_approve_as_multi_V2 - other_signatories */;
-                    return _toStringVecAccountId(
-                            &m->nested.multisig_approve_as_multi_V2.other_signatories,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multisig_approve_as_multi_V2 - maybe_timepoint */;
-                    return _toStringOptionTimepoint(
-                            &m->nested.multisig_approve_as_multi_V2.maybe_timepoint,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* multisig_approve_as_multi_V2 - call_hash */;
-                    return _toStringH256(
-                            &m->nested.multisig_approve_as_multi_V2.call_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* multisig_approve_as_multi_V2 - max_weight */;
-                    return _toStringWeight(
-                            &m->nested.multisig_approve_as_multi_V2.max_weight,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 7683: /* module 30 call 3 */
-            switch (itemIdx) {
-                case 0: /* multisig_cancel_as_multi_V2 - threshold */;
-                    return _toStringu16(
-                            &m->nested.multisig_cancel_as_multi_V2.threshold,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* multisig_cancel_as_multi_V2 - other_signatories */;
-                    return _toStringVecAccountId(
-                            &m->nested.multisig_cancel_as_multi_V2.other_signatories,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* multisig_cancel_as_multi_V2 - timepoint */;
-                    return _toStringTimepoint(
-                            &m->nested.multisig_cancel_as_multi_V2.timepoint,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* multisig_cancel_as_multi_V2 - call_hash */;
-                    return _toStringH256(
-                            &m->nested.multisig_cancel_as_multi_V2.call_hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
+
+
         case 8704: /* module 34 call 0 */
             switch (itemIdx) {
                 case 0: /* bounties_propose_bounty_V2 - amount */;
@@ -12489,461 +10244,75 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
-        case 8960: /* module 35 call 0 */
+
+
+        case 6144: /* module 24 call 0 */
             switch (itemIdx) {
-                case 0: /* tips_report_awesome_V2 - reason */;
-                    return _toStringBytes(
-                            &m->basic.tips_report_awesome_V2.reason,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* tips_report_awesome_V2 - who */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.tips_report_awesome_V2.who,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 8961: /* module 35 call 1 */
-            switch (itemIdx) {
-                case 0: /* tips_retract_tip_V2 - hash */;
-                    return _toStringHash(
-                            &m->basic.tips_retract_tip_V2.hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 8962: /* module 35 call 2 */
-            switch (itemIdx) {
-                case 0: /* tips_tip_new_V2 - reason */;
-                    return _toStringBytes(
-                            &m->basic.tips_tip_new_V2.reason,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* tips_tip_new_V2 - who */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.tips_tip_new_V2.who,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* tips_tip_new_V2 - tip_value */;
-                    return _toStringCompactu128(
-                            &m->basic.tips_tip_new_V2.tip_value,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 8963: /* module 35 call 3 */
-            switch (itemIdx) {
-                case 0: /* tips_tip_V2 - hash */;
-                    return _toStringHash(
-                            &m->basic.tips_tip_V2.hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* tips_tip_V2 - tip_value */;
-                    return _toStringCompactu128(
-                            &m->basic.tips_tip_V2.tip_value,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 8964: /* module 35 call 4 */
-            switch (itemIdx) {
-                case 0: /* tips_close_tip_V2 - hash */;
-                    return _toStringHash(
-                            &m->basic.tips_close_tip_V2.hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 8965: /* module 35 call 5 */
-            switch (itemIdx) {
-                case 0: /* tips_slash_tip_V2 - hash */;
-                    return _toStringHash(
-                            &m->basic.tips_slash_tip_V2.hash,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9472: /* module 37 call 0 */
-            switch (itemIdx) {
-                case 0: /* voterlist_rebag_V2 - dislocated */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.voterlist_rebag_V2.dislocated,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9473: /* module 37 call 1 */
-            switch (itemIdx) {
-                case 0: /* voterlist_put_in_front_of_V2 - lighter */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.voterlist_put_in_front_of_V2.lighter,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9984: /* module 39 call 0 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_join_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.nominationpools_join_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_join_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_join_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9985: /* module 39 call 1 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_bond_extra_V2 - extra */;
-                    return _toStringBondExtraBalanceOfT(
-                            &m->nested.nominationpools_bond_extra_V2.extra,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9986: /* module 39 call 2 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 9987: /* module 39 call 3 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_unbond_V2 - member_account */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.nominationpools_unbond_V2.member_account,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_unbond_V2 - unbonding_points */;
-                    return _toStringCompactBalance(
-                            &m->nested.nominationpools_unbond_V2.unbonding_points,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9988: /* module 39 call 4 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_pool_withdraw_unbonded_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_pool_withdraw_unbonded_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->basic.nominationpools_pool_withdraw_unbonded_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9989: /* module 39 call 5 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_withdraw_unbonded_V2 - member_account */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.nominationpools_withdraw_unbonded_V2.member_account,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_withdraw_unbonded_V2 - num_slashing_spans */;
-                    return _toStringu32(
-                            &m->nested.nominationpools_withdraw_unbonded_V2.num_slashing_spans,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9990: /* module 39 call 6 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_create_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->nested.nominationpools_create_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_create_V2 - root */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.nominationpools_create_V2.root,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_create_V2 - nominator */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.nominationpools_create_V2.nominator,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* nominationpools_create_V2 - bouncer */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->nested.nominationpools_create_V2.bouncer,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9991: /* module 39 call 7 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_create_with_pool_id_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.nominationpools_create_with_pool_id_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_create_with_pool_id_V2 - root */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_create_with_pool_id_V2.root,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_create_with_pool_id_V2 - nominator */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_create_with_pool_id_V2.nominator,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* nominationpools_create_with_pool_id_V2 - bouncer */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_create_with_pool_id_V2.bouncer,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* nominationpools_create_with_pool_id_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->basic.nominationpools_create_with_pool_id_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9992: /* module 39 call 8 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_nominate_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_nominate_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_nominate_V2 - validators */;
-                    return _toStringVecAccountId(
-                            &m->nested.nominationpools_nominate_V2.validators,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9993: /* module 39 call 9 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_set_state_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_set_state_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_set_state_V2 - state */;
-                    return _toStringPoolState(
-                            &m->nested.nominationpools_set_state_V2.state,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9994: /* module 39 call 10 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_set_metadata_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_set_metadata_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_set_metadata_V2 - metadata */;
-                    return _toStringVecu8(
-                            &m->nested.nominationpools_set_metadata_V2.metadata,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9995: /* module 39 call 11 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_set_configs_V2 - min_join_bond */;
-                    return _toStringConfigOpBalanceOfT(
-                            &m->basic.nominationpools_set_configs_V2.min_join_bond,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_set_configs_V2 - min_create_bond */;
-                    return _toStringConfigOpBalanceOfT(
-                            &m->basic.nominationpools_set_configs_V2.min_create_bond,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_set_configs_V2 - max_pools */;
-                    return _toStringConfigOpu32(
-                            &m->basic.nominationpools_set_configs_V2.max_pools,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* nominationpools_set_configs_V2 - max_members */;
-                    return _toStringConfigOpu32(
-                            &m->basic.nominationpools_set_configs_V2.max_members,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* nominationpools_set_configs_V2 - max_members_per_pool */;
-                    return _toStringConfigOpu32(
-                            &m->basic.nominationpools_set_configs_V2.max_members_per_pool,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 5: /* nominationpools_set_configs_V2 - global_max_commission */;
-                    return _toStringConfigOpPerbill(
-                            &m->basic.nominationpools_set_configs_V2.global_max_commission,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9996: /* module 39 call 12 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_update_roles_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_update_roles_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_update_roles_V2 - new_root */;
-                    return _toStringConfigOpAccountId(
-                            &m->nested.nominationpools_update_roles_V2.new_root,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* nominationpools_update_roles_V2 - new_nominator */;
-                    return _toStringConfigOpAccountId(
-                            &m->nested.nominationpools_update_roles_V2.new_nominator,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* nominationpools_update_roles_V2 - new_bouncer */;
-                    return _toStringConfigOpAccountId(
-                            &m->nested.nominationpools_update_roles_V2.new_bouncer,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9997: /* module 39 call 13 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_chill_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_chill_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9998: /* module 39 call 14 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_bond_extra_other_V2 - member */;
-                    return _toStringAccountIdLookupOfT(
-                            &m->basic.nominationpools_bond_extra_other_V2.member,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_bond_extra_other_V2 - extra */;
-                    return _toStringBondExtraBalanceOfT(
-                            &m->basic.nominationpools_bond_extra_other_V2.extra,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 9999: /* module 39 call 15 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_set_claim_permission_V2 - permission */;
-                    return _toStringClaimPermission(
-                            &m->nested.nominationpools_set_claim_permission_V2.permission,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 10000: /* module 39 call 16 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_claim_payout_other_V2 - other */;
+                case 0: /* claims_claim_V2 - dest */;
                     return _toStringAccountId(
-                            &m->nested.nominationpools_claim_payout_other_V2.other,
+                            &m->basic.claims_claim_V2.dest,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* claims_claim_V2 - ethereum_signature */;
+                    return _toStringEcdsaSignature(
+                            &m->basic.claims_claim_V2.ethereum_signature,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
-        case 10001: /* module 39 call 17 */
+        case 6146: /* module 24 call 2 */
             switch (itemIdx) {
-                case 0: /* nominationpools_set_commission_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_set_commission_V2.pool_id,
+                case 0: /* claims_claim_attest_V2 - dest */;
+                    return _toStringAccountId(
+                            &m->basic.claims_claim_attest_V2.dest,
                             outValue, outValueLen,
                             pageIdx, pageCount);
-                case 1: /* nominationpools_set_commission_V2 - new_commission */;
-                    return _toStringOptionTuplePerbillAccountId(
-                            &m->nested.nominationpools_set_commission_V2.new_commission,
+                case 1: /* claims_claim_attest_V2 - ethereum_signature */;
+                    return _toStringEcdsaSignature(
+                            &m->basic.claims_claim_attest_V2.ethereum_signature,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* claims_claim_attest_V2 - statement */;
+                    return _toStringBytes(
+                            &m->basic.claims_claim_attest_V2.statement,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
-        case 10002: /* module 39 call 18 */
+        case 6147: /* module 24 call 3 */
             switch (itemIdx) {
-                case 0: /* nominationpools_set_commission_max_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_set_commission_max_V2.pool_id,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* nominationpools_set_commission_max_V2 - max_commission */;
-                    return _toStringPerbill(
-                            &m->nested.nominationpools_set_commission_max_V2.max_commission,
+                case 0: /* claims_attest_V2 - statement */;
+                    return _toStringBytes(
+                            &m->basic.claims_attest_V2.statement,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
-        case 10003: /* module 39 call 19 */
+        case 6148: /* module 24 call 4 */
             switch (itemIdx) {
-                case 0: /* nominationpools_set_commission_change_rate_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_set_commission_change_rate_V2.pool_id,
+                case 0: /* claims_move_claim_V2 - old */;
+                    return _toStringEthereumAddress(
+                            &m->basic.claims_move_claim_V2.old,
                             outValue, outValueLen,
                             pageIdx, pageCount);
-                case 1: /* nominationpools_set_commission_change_rate_V2 - change_rate */;
-                    return _toStringCommissionChangeRateBlockNumber(
-                            &m->nested.nominationpools_set_commission_change_rate_V2.change_rate,
+                case 1: /* claims_move_claim_V2 - new_ */;
+                    return _toStringEthereumAddress(
+                            &m->basic.claims_move_claim_V2.new_,
                             outValue, outValueLen,
                             pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 10004: /* module 39 call 20 */
-            switch (itemIdx) {
-                case 0: /* nominationpools_claim_commission_V2 - pool_id */;
-                    return _toStringPoolId(
-                            &m->nested.nominationpools_claim_commission_V2.pool_id,
+                case 2: /* claims_move_claim_V2 - maybe_preclaim */;
+                    return _toStringOptionAccountId(
+                            &m->basic.claims_move_claim_V2.maybe_preclaim,
                             outValue, outValueLen,
                             pageIdx, pageCount);
                 default:
                     return parser_no_data;
             }
-        case 10240: /* module 40 call 0 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 10241: /* module 40 call 1 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
-        case 10242: /* module 40 call 2 */
-            switch (itemIdx) {
-                case 0: /* fastunstake_control_V2 - eras_to_check */;
-                    return _toStringEraIndex(
-                            &m->basic.fastunstake_control_V2.eras_to_check,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
+
+
         case 13056: /* module 51 call 0 */
             switch (itemIdx) {
                 case 0: /* configuration_set_validation_upgrade_cooldown_V2 - new_ */;
@@ -13344,6 +10713,713 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
+
+        case 5120: /* module 20 call 0 */
+            switch (itemIdx) {
+                case 0: /* convictionvoting_vote_V2 - poll_index */;
+                    return _toStringCompactu32(
+                            &m->nested.convictionvoting_vote_V2.poll_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* convictionvoting_vote_V2 - vote */;
+                    return _toStringAccountVote(
+                            &m->nested.convictionvoting_vote_V2.vote,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5121: /* module 20 call 1 */
+            switch (itemIdx) {
+                case 0: /* convictionvoting_delegate_V2 - class_ */;
+                    return _toStringClassOf(
+                            &m->nested.convictionvoting_delegate_V2.class_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* convictionvoting_delegate_V2 - to */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.convictionvoting_delegate_V2.to,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* convictionvoting_delegate_V2 - conviction */;
+                    return _toStringConviction(
+                            &m->nested.convictionvoting_delegate_V2.conviction,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* convictionvoting_delegate_V2 - balance */;
+                    return _toStringBalanceOf(
+                            &m->nested.convictionvoting_delegate_V2.balance,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5122: /* module 20 call 2 */
+            switch (itemIdx) {
+                case 0: /* convictionvoting_undelegate_V2 - class_ */;
+                    return _toStringClassOf(
+                            &m->nested.convictionvoting_undelegate_V2.class_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5123: /* module 20 call 3 */
+            switch (itemIdx) {
+                case 0: /* convictionvoting_unlock_V2 - class_ */;
+                    return _toStringClassOf(
+                            &m->nested.convictionvoting_unlock_V2.class_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* convictionvoting_unlock_V2 - target */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.convictionvoting_unlock_V2.target,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5124: /* module 20 call 4 */
+            switch (itemIdx) {
+                case 0: /* convictionvoting_remove_vote_V2 - class_ */;
+                    return _toStringOptionClassOf(
+                            &m->nested.convictionvoting_remove_vote_V2.class_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* convictionvoting_remove_vote_V2 - index */;
+                    return _toStringPollIndexOf(
+                            &m->nested.convictionvoting_remove_vote_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5125: /* module 20 call 5 */
+            switch (itemIdx) {
+                case 0: /* convictionvoting_remove_other_vote_V2 - target */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.convictionvoting_remove_other_vote_V2.target,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* convictionvoting_remove_other_vote_V2 - class_ */;
+                    return _toStringClassOf(
+                            &m->nested.convictionvoting_remove_other_vote_V2.class_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* convictionvoting_remove_other_vote_V2 - index */;
+                    return _toStringPollIndexOf(
+                            &m->nested.convictionvoting_remove_other_vote_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 3840: /* module 15 call 0 */
+            switch (itemIdx) {
+                case 0: /* council_set_members_V2 - new_members */;
+                    return _toStringVecAccountId(
+                            &m->basic.council_set_members_V2.new_members,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* council_set_members_V2 - prime */;
+                    return _toStringOptionAccountId(
+                            &m->basic.council_set_members_V2.prime,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* council_set_members_V2 - old_count */;
+                    return _toStringMemberCount(
+                            &m->basic.council_set_members_V2.old_count,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3841: /* module 15 call 1 */
+            switch (itemIdx) {
+                case 0: /* council_execute_V2 - proposal */;
+                    return _toStringProposal(
+                            &m->basic.council_execute_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* council_execute_V2 - length_bound */;
+                    return _toStringCompactu32(
+                            &m->basic.council_execute_V2.length_bound,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3842: /* module 15 call 2 */
+            switch (itemIdx) {
+                case 0: /* council_propose_V2 - threshold */;
+                    return _toStringCompactu32(
+                            &m->basic.council_propose_V2.threshold,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* council_propose_V2 - proposal */;
+                    return _toStringProposal(
+                            &m->basic.council_propose_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* council_propose_V2 - length_bound */;
+                    return _toStringCompactu32(
+                            &m->basic.council_propose_V2.length_bound,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3843: /* module 15 call 3 */
+            switch (itemIdx) {
+                case 0: /* council_vote_V2 - proposal */;
+                    return _toStringHash(
+                            &m->basic.council_vote_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* council_vote_V2 - index */;
+                    return _toStringCompactu32(
+                            &m->basic.council_vote_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* council_vote_V2 - approve */;
+                    return _toStringbool(
+                            &m->basic.council_vote_V2.approve,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3845: /* module 15 call 5 */
+            switch (itemIdx) {
+                case 0: /* council_disapprove_proposal_V2 - proposal_hash */;
+                    return _toStringHash(
+                            &m->basic.council_disapprove_proposal_V2.proposal_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3846: /* module 15 call 6 */
+            switch (itemIdx) {
+                case 0: /* council_close_V2 - proposal_hash */;
+                    return _toStringHash(
+                            &m->basic.council_close_V2.proposal_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* council_close_V2 - index */;
+                    return _toStringCompactu32(
+                            &m->basic.council_close_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* council_close_V2 - proposal_weight_bound */;
+                    return _toStringWeight(
+                            &m->basic.council_close_V2.proposal_weight_bound,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* council_close_V2 - length_bound */;
+                    return _toStringCompactu32(
+                            &m->basic.council_close_V2.length_bound,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
+        case 3584: /* module 14 call 0 */
+            switch (itemIdx) {
+                case 0: /* democracy_propose_V2 - proposal */;
+                    return _toStringBoundedCallOfT(
+                            &m->nested.democracy_propose_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* democracy_propose_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->nested.democracy_propose_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3585: /* module 14 call 1 */
+            switch (itemIdx) {
+                case 0: /* democracy_second_V2 - proposal */;
+                    return _toStringCompactu32(
+                            &m->nested.democracy_second_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3586: /* module 14 call 2 */
+            switch (itemIdx) {
+                case 0: /* democracy_vote_V2 - ref_index */;
+                    return _toStringCompactu32(
+                            &m->nested.democracy_vote_V2.ref_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* democracy_vote_V2 - vote */;
+                    return _toStringAccountVote(
+                            &m->nested.democracy_vote_V2.vote,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3587: /* module 14 call 3 */
+            switch (itemIdx) {
+                case 0: /* democracy_emergency_cancel_V2 - ref_index */;
+                    return _toStringReferendumIndex(
+                            &m->nested.democracy_emergency_cancel_V2.ref_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3588: /* module 14 call 4 */
+            switch (itemIdx) {
+                case 0: /* democracy_external_propose_V2 - proposal */;
+                    return _toStringBoundedCallOfT(
+                            &m->nested.democracy_external_propose_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3589: /* module 14 call 5 */
+            switch (itemIdx) {
+                case 0: /* democracy_external_propose_majority_V2 - proposal */;
+                    return _toStringBoundedCallOfT(
+                            &m->nested.democracy_external_propose_majority_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3590: /* module 14 call 6 */
+            switch (itemIdx) {
+                case 0: /* democracy_external_propose_default_V2 - proposal */;
+                    return _toStringBoundedCallOfT(
+                            &m->nested.democracy_external_propose_default_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3591: /* module 14 call 7 */
+            switch (itemIdx) {
+                case 0: /* democracy_fast_track_V2 - proposal_hash */;
+                    return _toStringH256(
+                            &m->nested.democracy_fast_track_V2.proposal_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* democracy_fast_track_V2 - voting_period */;
+                    return _toStringBlockNumber(
+                            &m->nested.democracy_fast_track_V2.voting_period,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* democracy_fast_track_V2 - delay */;
+                    return _toStringBlockNumber(
+                            &m->nested.democracy_fast_track_V2.delay,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3592: /* module 14 call 8 */
+            switch (itemIdx) {
+                case 0: /* democracy_veto_external_V2 - proposal_hash */;
+                    return _toStringH256(
+                            &m->nested.democracy_veto_external_V2.proposal_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3593: /* module 14 call 9 */
+            switch (itemIdx) {
+                case 0: /* democracy_cancel_referendum_V2 - ref_index */;
+                    return _toStringCompactu32(
+                            &m->nested.democracy_cancel_referendum_V2.ref_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3594: /* module 14 call 10 */
+            switch (itemIdx) {
+                case 0: /* democracy_delegate_V2 - to */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.democracy_delegate_V2.to,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* democracy_delegate_V2 - conviction */;
+                    return _toStringConviction(
+                            &m->nested.democracy_delegate_V2.conviction,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* democracy_delegate_V2 - balance */;
+                    return _toStringBalance(
+                            &m->nested.democracy_delegate_V2.balance,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3595: /* module 14 call 11 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 3596: /* module 14 call 12 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 3597: /* module 14 call 13 */
+            switch (itemIdx) {
+                case 0: /* democracy_unlock_V2 - target */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.democracy_unlock_V2.target,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3598: /* module 14 call 14 */
+            switch (itemIdx) {
+                case 0: /* democracy_remove_vote_V2 - index */;
+                    return _toStringReferendumIndex(
+                            &m->nested.democracy_remove_vote_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3599: /* module 14 call 15 */
+            switch (itemIdx) {
+                case 0: /* democracy_remove_other_vote_V2 - target */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.democracy_remove_other_vote_V2.target,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* democracy_remove_other_vote_V2 - index */;
+                    return _toStringReferendumIndex(
+                            &m->nested.democracy_remove_other_vote_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3600: /* module 14 call 16 */
+            switch (itemIdx) {
+                case 0: /* democracy_blacklist_V2 - proposal_hash */;
+                    return _toStringH256(
+                            &m->basic.democracy_blacklist_V2.proposal_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* democracy_blacklist_V2 - maybe_ref_index */;
+                    return _toStringOptionReferendumIndex(
+                            &m->basic.democracy_blacklist_V2.maybe_ref_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3601: /* module 14 call 17 */
+            switch (itemIdx) {
+                case 0: /* democracy_cancel_proposal_V2 - prop_index */;
+                    return _toStringCompactu32(
+                            &m->nested.democracy_cancel_proposal_V2.prop_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3602: /* module 14 call 18 */
+            switch (itemIdx) {
+                case 0: /* democracy_set_metadata_V2 - owner */;
+                    return _toStringMetadataOwner(
+                            &m->basic.democracy_set_metadata_V2.owner,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* democracy_set_metadata_V2 - maybe_hash */;
+                    return _toStringOptionPreimageHash(
+                            &m->basic.democracy_set_metadata_V2.maybe_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
+        case 10240: /* module 40 call 0 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 10241: /* module 40 call 1 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 10242: /* module 40 call 2 */
+            switch (itemIdx) {
+                case 0: /* fastunstake_control_V2 - eras_to_check */;
+                    return _toStringEraIndex(
+                            &m->basic.fastunstake_control_V2.eras_to_check,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
+        case 7168: /* module 28 call 0 */
+            switch (itemIdx) {
+                case 0: /* identity_add_registrar_V2 - account */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.identity_add_registrar_V2.account,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7169: /* module 28 call 1 */
+            switch (itemIdx) {
+                case 0: /* identity_set_identity_V2 - info */;
+                    return _toStringIdentityInfo(
+                            &m->basic.identity_set_identity_V2.info,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7170: /* module 28 call 2 */
+            switch (itemIdx) {
+                case 0: /* identity_set_subs_V2 - subs */;
+                    return _toStringVecTupleAccountIdData(
+                            &m->basic.identity_set_subs_V2.subs,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7171: /* module 28 call 3 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 7172: /* module 28 call 4 */
+            switch (itemIdx) {
+                case 0: /* identity_request_judgement_V2 - reg_index */;
+                    return _toStringCompactu32(
+                            &m->basic.identity_request_judgement_V2.reg_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* identity_request_judgement_V2 - max_fee */;
+                    return _toStringCompactu128(
+                            &m->basic.identity_request_judgement_V2.max_fee,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7173: /* module 28 call 5 */
+            switch (itemIdx) {
+                case 0: /* identity_cancel_request_V2 - reg_index */;
+                    return _toStringRegistrarIndex(
+                            &m->basic.identity_cancel_request_V2.reg_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7174: /* module 28 call 6 */
+            switch (itemIdx) {
+                case 0: /* identity_set_fee_V2 - index */;
+                    return _toStringCompactu32(
+                            &m->basic.identity_set_fee_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* identity_set_fee_V2 - fee */;
+                    return _toStringCompactu128(
+                            &m->basic.identity_set_fee_V2.fee,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7175: /* module 28 call 7 */
+            switch (itemIdx) {
+                case 0: /* identity_set_account_id_V2 - index */;
+                    return _toStringCompactu32(
+                            &m->basic.identity_set_account_id_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* identity_set_account_id_V2 - new_ */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.identity_set_account_id_V2.new_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7177: /* module 28 call 9 */
+            switch (itemIdx) {
+                case 0: /* identity_provide_judgement_V2 - reg_index */;
+                    return _toStringCompactu32(
+                            &m->basic.identity_provide_judgement_V2.reg_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* identity_provide_judgement_V2 - target */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.identity_provide_judgement_V2.target,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* identity_provide_judgement_V2 - judgement */;
+                    return _toStringJudgementBalanceOfT(
+                            &m->basic.identity_provide_judgement_V2.judgement,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* identity_provide_judgement_V2 - identity */;
+                    return _toStringHash(
+                            &m->basic.identity_provide_judgement_V2.identity,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7178: /* module 28 call 10 */
+            switch (itemIdx) {
+                case 0: /* identity_kill_identity_V2 - target */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.identity_kill_identity_V2.target,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7179: /* module 28 call 11 */
+            switch (itemIdx) {
+                case 0: /* identity_add_sub_V2 - sub */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.identity_add_sub_V2.sub,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* identity_add_sub_V2 - data */;
+                    return _toStringData(
+                            &m->basic.identity_add_sub_V2.data,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7180: /* module 28 call 12 */
+            switch (itemIdx) {
+                case 0: /* identity_rename_sub_V2 - sub */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.identity_rename_sub_V2.sub,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* identity_rename_sub_V2 - data */;
+                    return _toStringData(
+                            &m->basic.identity_rename_sub_V2.data,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7181: /* module 28 call 13 */
+            switch (itemIdx) {
+                case 0: /* identity_remove_sub_V2 - sub */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.identity_remove_sub_V2.sub,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7182: /* module 28 call 14 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 1024: /* module 4 call 0 */
+            switch (itemIdx) {
+                case 0: /* indices_claim_V2 - index */;
+                    return _toStringAccountIndex(
+                            &m->basic.indices_claim_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1025: /* module 4 call 1 */
+            switch (itemIdx) {
+                case 0: /* indices_transfer_V2 - new_ */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.indices_transfer_V2.new_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* indices_transfer_V2 - index */;
+                    return _toStringAccountIndex(
+                            &m->basic.indices_transfer_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1026: /* module 4 call 2 */
+            switch (itemIdx) {
+                case 0: /* indices_free_V2 - index */;
+                    return _toStringAccountIndex(
+                            &m->basic.indices_free_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1027: /* module 4 call 3 */
+            switch (itemIdx) {
+                case 0: /* indices_force_transfer_V2 - new_ */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.indices_force_transfer_V2.new_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* indices_force_transfer_V2 - index */;
+                    return _toStringAccountIndex(
+                            &m->basic.indices_force_transfer_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* indices_force_transfer_V2 - freeze */;
+                    return _toStringbool(
+                            &m->basic.indices_force_transfer_V2.freeze,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1028: /* module 4 call 4 */
+            switch (itemIdx) {
+                case 0: /* indices_freeze_V2 - index */;
+                    return _toStringAccountIndex(
+                            &m->basic.indices_freeze_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
         case 14592: /* module 57 call 0 */
             switch (itemIdx) {
                 case 0: /* initializer_force_approve_V2 - up_to */;
@@ -13354,61 +11430,1351 @@ parser_error_t _getMethod_ItemValue_V2(
                 default:
                     return parser_no_data;
             }
+
+
+
+        case 7680: /* module 30 call 0 */
+            switch (itemIdx) {
+                case 0: /* multisig_as_multi_threshold_1_V2 - other_signatories */;
+                    return _toStringVecAccountId(
+                            &m->nested.multisig_as_multi_threshold_1_V2.other_signatories,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multisig_as_multi_threshold_1_V2 - call */;
+                    return _toStringCall(
+                            &m->nested.multisig_as_multi_threshold_1_V2.call,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7681: /* module 30 call 1 */
+            switch (itemIdx) {
+                case 0: /* multisig_as_multi_V2 - threshold */;
+                    return _toStringu16(
+                            &m->nested.multisig_as_multi_V2.threshold,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multisig_as_multi_V2 - other_signatories */;
+                    return _toStringVecAccountId(
+                            &m->nested.multisig_as_multi_V2.other_signatories,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multisig_as_multi_V2 - maybe_timepoint */;
+                    return _toStringOptionTimepoint(
+                            &m->nested.multisig_as_multi_V2.maybe_timepoint,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* multisig_as_multi_V2 - call */;
+                    return _toStringCall(
+                            &m->nested.multisig_as_multi_V2.call,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 4: /* multisig_as_multi_V2 - max_weight */;
+                    return _toStringWeight(
+                            &m->nested.multisig_as_multi_V2.max_weight,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7682: /* module 30 call 2 */
+            switch (itemIdx) {
+                case 0: /* multisig_approve_as_multi_V2 - threshold */;
+                    return _toStringu16(
+                            &m->nested.multisig_approve_as_multi_V2.threshold,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multisig_approve_as_multi_V2 - other_signatories */;
+                    return _toStringVecAccountId(
+                            &m->nested.multisig_approve_as_multi_V2.other_signatories,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multisig_approve_as_multi_V2 - maybe_timepoint */;
+                    return _toStringOptionTimepoint(
+                            &m->nested.multisig_approve_as_multi_V2.maybe_timepoint,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* multisig_approve_as_multi_V2 - call_hash */;
+                    return _toStringH256(
+                            &m->nested.multisig_approve_as_multi_V2.call_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 4: /* multisig_approve_as_multi_V2 - max_weight */;
+                    return _toStringWeight(
+                            &m->nested.multisig_approve_as_multi_V2.max_weight,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7683: /* module 30 call 3 */
+            switch (itemIdx) {
+                case 0: /* multisig_cancel_as_multi_V2 - threshold */;
+                    return _toStringu16(
+                            &m->nested.multisig_cancel_as_multi_V2.threshold,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* multisig_cancel_as_multi_V2 - other_signatories */;
+                    return _toStringVecAccountId(
+                            &m->nested.multisig_cancel_as_multi_V2.other_signatories,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* multisig_cancel_as_multi_V2 - timepoint */;
+                    return _toStringTimepoint(
+                            &m->nested.multisig_cancel_as_multi_V2.timepoint,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* multisig_cancel_as_multi_V2 - call_hash */;
+                    return _toStringH256(
+                            &m->nested.multisig_cancel_as_multi_V2.call_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+        case 4619: /* module 18 call 11 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_set_configs_V2 - min_join_bond */;
+                    return _toStringConfigOpBalanceOfT(
+                            &m->basic.nominationpools_set_configs_V2.min_join_bond,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* nominationpools_set_configs_V2 - min_create_bond */;
+                    return _toStringConfigOpBalanceOfT(
+                            &m->basic.nominationpools_set_configs_V2.min_create_bond,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* nominationpools_set_configs_V2 - global_max_commission */;
+                    return _toStringConfigOpPerbill(
+                            &m->basic.nominationpools_set_configs_V2.global_max_commission,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4630: /* module 18 call 22 */
+            switch (itemIdx) {
+                case 0: /* nominationpools_set_staking_info_V2 - info */;
+                    return _toStringStakingInfo(
+                            &m->basic.nominationpools_set_staking_info_V2.info,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 4352: /* module 17 call 0 */
+            switch (itemIdx) {
+                case 0: /* phragmenelection_vote_V2 - votes */;
+                    return _toStringVecAccountId(
+                            &m->basic.phragmenelection_vote_V2.votes,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* phragmenelection_vote_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->basic.phragmenelection_vote_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4353: /* module 17 call 1 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 4354: /* module 17 call 2 */
+            switch (itemIdx) {
+                case 0: /* phragmenelection_submit_candidacy_V2 - candidate_count */;
+                    return _toStringCompactu32(
+                            &m->basic.phragmenelection_submit_candidacy_V2.candidate_count,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4356: /* module 17 call 4 */
+            switch (itemIdx) {
+                case 0: /* phragmenelection_remove_member_V2 - who */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.phragmenelection_remove_member_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* phragmenelection_remove_member_V2 - slash_bond */;
+                    return _toStringbool(
+                            &m->basic.phragmenelection_remove_member_V2.slash_bond,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* phragmenelection_remove_member_V2 - rerun_election */;
+                    return _toStringbool(
+                            &m->basic.phragmenelection_remove_member_V2.rerun_election,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4357: /* module 17 call 5 */
+            switch (itemIdx) {
+                case 0: /* phragmenelection_clean_defunct_voters_V2 - num_voters */;
+                    return _toStringu32(
+                            &m->basic.phragmenelection_clean_defunct_voters_V2.num_voters,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* phragmenelection_clean_defunct_voters_V2 - num_defunct */;
+                    return _toStringu32(
+                            &m->basic.phragmenelection_clean_defunct_voters_V2.num_defunct,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
+
+        case 2560: /* module 10 call 0 */
+            switch (itemIdx) {
+                case 0: /* preimage_note_preimage_V2 - bytes */;
+                    return _toStringVecu8(
+                            &m->basic.preimage_note_preimage_V2.bytes,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2561: /* module 10 call 1 */
+            switch (itemIdx) {
+                case 0: /* preimage_unnote_preimage_V2 - hash */;
+                    return _toStringHash(
+                            &m->basic.preimage_unnote_preimage_V2.hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2562: /* module 10 call 2 */
+            switch (itemIdx) {
+                case 0: /* preimage_request_preimage_V2 - hash */;
+                    return _toStringHash(
+                            &m->basic.preimage_request_preimage_V2.hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2563: /* module 10 call 3 */
+            switch (itemIdx) {
+                case 0: /* preimage_unrequest_preimage_V2 - hash */;
+                    return _toStringHash(
+                            &m->basic.preimage_unrequest_preimage_V2.hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 7424: /* module 29 call 0 */
+            switch (itemIdx) {
+                case 0: /* proxy_proxy_V2 - real */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.proxy_proxy_V2.real,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* proxy_proxy_V2 - force_proxy_type */;
+                    return _toStringOptionProxyType(
+                            &m->nested.proxy_proxy_V2.force_proxy_type,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* proxy_proxy_V2 - call */;
+                    return _toStringCall(
+                            &m->nested.proxy_proxy_V2.call,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7425: /* module 29 call 1 */
+            switch (itemIdx) {
+                case 0: /* proxy_add_proxy_V2 - delegate */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.proxy_add_proxy_V2.delegate,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* proxy_add_proxy_V2 - proxy_type */;
+                    return _toStringProxyType(
+                            &m->nested.proxy_add_proxy_V2.proxy_type,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* proxy_add_proxy_V2 - delay */;
+                    return _toStringBlockNumber(
+                            &m->nested.proxy_add_proxy_V2.delay,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7426: /* module 29 call 2 */
+            switch (itemIdx) {
+                case 0: /* proxy_remove_proxy_V2 - delegate */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.proxy_remove_proxy_V2.delegate,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* proxy_remove_proxy_V2 - proxy_type */;
+                    return _toStringProxyType(
+                            &m->nested.proxy_remove_proxy_V2.proxy_type,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* proxy_remove_proxy_V2 - delay */;
+                    return _toStringBlockNumber(
+                            &m->nested.proxy_remove_proxy_V2.delay,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7427: /* module 29 call 3 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 7428: /* module 29 call 4 */
+            switch (itemIdx) {
+                case 0: /* proxy_create_pure_V2 - proxy_type */;
+                    return _toStringProxyType(
+                            &m->nested.proxy_create_pure_V2.proxy_type,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* proxy_create_pure_V2 - delay */;
+                    return _toStringBlockNumber(
+                            &m->nested.proxy_create_pure_V2.delay,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* proxy_create_pure_V2 - index */;
+                    return _toStringu16(
+                            &m->nested.proxy_create_pure_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7429: /* module 29 call 5 */
+            switch (itemIdx) {
+                case 0: /* proxy_kill_pure_V2 - spawner */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->nested.proxy_kill_pure_V2.spawner,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* proxy_kill_pure_V2 - proxy_type */;
+                    return _toStringProxyType(
+                            &m->nested.proxy_kill_pure_V2.proxy_type,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* proxy_kill_pure_V2 - index */;
+                    return _toStringu16(
+                            &m->nested.proxy_kill_pure_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* proxy_kill_pure_V2 - height */;
+                    return _toStringCompactu32(
+                            &m->nested.proxy_kill_pure_V2.height,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 4: /* proxy_kill_pure_V2 - ext_index */;
+                    return _toStringCompactu32(
+                            &m->nested.proxy_kill_pure_V2.ext_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7433: /* module 29 call 9 */
+            switch (itemIdx) {
+                case 0: /* proxy_proxy_announced_V2 - delegate */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.proxy_proxy_announced_V2.delegate,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* proxy_proxy_announced_V2 - real */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.proxy_proxy_announced_V2.real,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* proxy_proxy_announced_V2 - force_proxy_type */;
+                    return _toStringOptionProxyType(
+                            &m->basic.proxy_proxy_announced_V2.force_proxy_type,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* proxy_proxy_announced_V2 - call */;
+                    return _toStringCall(
+                            &m->basic.proxy_proxy_announced_V2.call,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 5376: /* module 21 call 0 */
+            switch (itemIdx) {
+                case 0: /* referenda_submit_V2 - proposal_origin */;
+                    return _toStringBoxPalletsOriginOfT(
+                            &m->basic.referenda_submit_V2.proposal_origin,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* referenda_submit_V2 - proposal */;
+                    return _toStringBoundedCallOfT(
+                            &m->basic.referenda_submit_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* referenda_submit_V2 - enactment_moment */;
+                    return _toStringDispatchTimeBlockNumber(
+                            &m->basic.referenda_submit_V2.enactment_moment,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5377: /* module 21 call 1 */
+            switch (itemIdx) {
+                case 0: /* referenda_place_decision_deposit_V2 - index */;
+                    return _toStringReferendumIndex(
+                            &m->basic.referenda_place_decision_deposit_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5378: /* module 21 call 2 */
+            switch (itemIdx) {
+                case 0: /* referenda_refund_decision_deposit_V2 - index */;
+                    return _toStringReferendumIndex(
+                            &m->basic.referenda_refund_decision_deposit_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5379: /* module 21 call 3 */
+            switch (itemIdx) {
+                case 0: /* referenda_cancel_V2 - index */;
+                    return _toStringReferendumIndex(
+                            &m->basic.referenda_cancel_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5380: /* module 21 call 4 */
+            switch (itemIdx) {
+                case 0: /* referenda_kill_V2 - index */;
+                    return _toStringReferendumIndex(
+                            &m->basic.referenda_kill_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5381: /* module 21 call 5 */
+            switch (itemIdx) {
+                case 0: /* referenda_nudge_referendum_V2 - index */;
+                    return _toStringReferendumIndex(
+                            &m->basic.referenda_nudge_referendum_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5382: /* module 21 call 6 */
+            switch (itemIdx) {
+                case 0: /* referenda_one_fewer_deciding_V2 - track */;
+                    return _toStringTrackIdOf(
+                            &m->basic.referenda_one_fewer_deciding_V2.track,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5383: /* module 21 call 7 */
+            switch (itemIdx) {
+                case 0: /* referenda_refund_submission_deposit_V2 - index */;
+                    return _toStringReferendumIndex(
+                            &m->basic.referenda_refund_submission_deposit_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5384: /* module 21 call 8 */
+            switch (itemIdx) {
+                case 0: /* referenda_set_metadata_V2 - index */;
+                    return _toStringReferendumIndex(
+                            &m->basic.referenda_set_metadata_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* referenda_set_metadata_V2 - maybe_hash */;
+                    return _toStringOptionPreimageHash(
+                            &m->basic.referenda_set_metadata_V2.maybe_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 2304: /* module 9 call 0 */
+            switch (itemIdx) {
+                case 0: /* staking_bond_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->basic.staking_bond_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* staking_bond_V2 - payee */;
+                    return _toStringRewardDestination(
+                            &m->basic.staking_bond_V2.payee,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2305: /* module 9 call 1 */
+            switch (itemIdx) {
+                case 0: /* staking_bond_extra_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->basic.staking_bond_extra_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2306: /* module 9 call 2 */
+            switch (itemIdx) {
+                case 0: /* staking_unbond_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->basic.staking_unbond_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2307: /* module 9 call 3 */
+            switch (itemIdx) {
+                case 0: /* staking_withdraw_unbonded_V2 - num_slashing_spans */;
+                    return _toStringu32(
+                            &m->basic.staking_withdraw_unbonded_V2.num_slashing_spans,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2308: /* module 9 call 4 */
+            switch (itemIdx) {
+                case 0: /* staking_validate_V2 - prefs */;
+                    return _toStringValidatorPrefs(
+                            &m->basic.staking_validate_V2.prefs,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2309: /* module 9 call 5 */
+            switch (itemIdx) {
+                case 0: /* staking_nominate_V2 - targets */;
+                    return _toStringVecAccountIdLookupOfT(
+                            &m->basic.staking_nominate_V2.targets,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2310: /* module 9 call 6 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 2311: /* module 9 call 7 */
+            switch (itemIdx) {
+                case 0: /* staking_set_payee_V2 - payee */;
+                    return _toStringRewardDestination(
+                            &m->basic.staking_set_payee_V2.payee,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2312: /* module 9 call 8 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 2313: /* module 9 call 9 */
+            switch (itemIdx) {
+                case 0: /* staking_set_validator_count_V2 - new_ */;
+                    return _toStringCompactu32(
+                            &m->basic.staking_set_validator_count_V2.new_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2314: /* module 9 call 10 */
+            switch (itemIdx) {
+                case 0: /* staking_increase_validator_count_V2 - additional */;
+                    return _toStringCompactu32(
+                            &m->basic.staking_increase_validator_count_V2.additional,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2315: /* module 9 call 11 */
+            switch (itemIdx) {
+                case 0: /* staking_scale_validator_count_V2 - factor */;
+                    return _toStringPercent(
+                            &m->basic.staking_scale_validator_count_V2.factor,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2316: /* module 9 call 12 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 2317: /* module 9 call 13 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 2318: /* module 9 call 14 */
+            switch (itemIdx) {
+                case 0: /* staking_set_invulnerables_V2 - invulnerables */;
+                    return _toStringVecAccountId(
+                            &m->basic.staking_set_invulnerables_V2.invulnerables,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2319: /* module 9 call 15 */
+            switch (itemIdx) {
+                case 0: /* staking_force_unstake_V2 - stash */;
+                    return _toStringAccountId(
+                            &m->basic.staking_force_unstake_V2.stash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* staking_force_unstake_V2 - num_slashing_spans */;
+                    return _toStringu32(
+                            &m->basic.staking_force_unstake_V2.num_slashing_spans,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2320: /* module 9 call 16 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 2321: /* module 9 call 17 */
+            switch (itemIdx) {
+                case 0: /* staking_cancel_deferred_slash_V2 - era */;
+                    return _toStringEraIndex(
+                            &m->basic.staking_cancel_deferred_slash_V2.era,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* staking_cancel_deferred_slash_V2 - slash_indices */;
+                    return _toStringVecu32(
+                            &m->basic.staking_cancel_deferred_slash_V2.slash_indices,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2322: /* module 9 call 18 */
+            switch (itemIdx) {
+                case 0: /* staking_payout_stakers_V2 - validator_stash */;
+                    return _toStringAccountId(
+                            &m->basic.staking_payout_stakers_V2.validator_stash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* staking_payout_stakers_V2 - era */;
+                    return _toStringEraIndex(
+                            &m->basic.staking_payout_stakers_V2.era,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2323: /* module 9 call 19 */
+            switch (itemIdx) {
+                case 0: /* staking_rebond_V2 - value */;
+                    return _toStringCompactBalance(
+                            &m->basic.staking_rebond_V2.value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2324: /* module 9 call 20 */
+            switch (itemIdx) {
+                case 0: /* staking_reap_stash_V2 - stash */;
+                    return _toStringAccountId(
+                            &m->basic.staking_reap_stash_V2.stash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* staking_reap_stash_V2 - num_slashing_spans */;
+                    return _toStringu32(
+                            &m->basic.staking_reap_stash_V2.num_slashing_spans,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2325: /* module 9 call 21 */
+            switch (itemIdx) {
+                case 0: /* staking_kick_V2 - who */;
+                    return _toStringVecAccountIdLookupOfT(
+                            &m->basic.staking_kick_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2326: /* module 9 call 22 */
+            switch (itemIdx) {
+                case 0: /* staking_set_staking_configs_V2 - min_nominator_bond */;
+                    return _toStringConfigOpBalanceOfT(
+                            &m->basic.staking_set_staking_configs_V2.min_nominator_bond,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* staking_set_staking_configs_V2 - min_validator_bond */;
+                    return _toStringConfigOpBalanceOfT(
+                            &m->basic.staking_set_staking_configs_V2.min_validator_bond,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* staking_set_staking_configs_V2 - max_nominator_count */;
+                    return _toStringConfigOpu32(
+                            &m->basic.staking_set_staking_configs_V2.max_nominator_count,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* staking_set_staking_configs_V2 - max_validator_count */;
+                    return _toStringConfigOpu32(
+                            &m->basic.staking_set_staking_configs_V2.max_validator_count,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 4: /* staking_set_staking_configs_V2 - chill_threshold */;
+                    return _toStringConfigOpPercent(
+                            &m->basic.staking_set_staking_configs_V2.chill_threshold,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 5: /* staking_set_staking_configs_V2 - min_commission */;
+                    return _toStringConfigOpPerbill(
+                            &m->basic.staking_set_staking_configs_V2.min_commission,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2327: /* module 9 call 23 */
+            switch (itemIdx) {
+                case 0: /* staking_chill_other_V2 - controller */;
+                    return _toStringAccountId(
+                            &m->basic.staking_chill_other_V2.controller,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2328: /* module 9 call 24 */
+            switch (itemIdx) {
+                case 0: /* staking_force_apply_min_commission_V2 - validator_stash */;
+                    return _toStringAccountId(
+                            &m->basic.staking_force_apply_min_commission_V2.validator_stash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2329: /* module 9 call 25 */
+            switch (itemIdx) {
+                case 0: /* staking_set_min_commission_V2 - new_ */;
+                    return _toStringPerbill(
+                            &m->basic.staking_set_min_commission_V2.new_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 0: /* module 0 call 0 */
+            switch (itemIdx) {
+                case 0: /* system_remark_V2 - remark */;
+                    return _toStringBytes(
+                            &m->nested.system_remark_V2.remark,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 1: /* module 0 call 1 */
+            switch (itemIdx) {
+                case 0: /* system_set_heap_pages_V2 - pages */;
+                    return _toStringu64(
+                            &m->nested.system_set_heap_pages_V2.pages,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 2: /* module 0 call 2 */
+            switch (itemIdx) {
+                case 0: /* system_set_code_V2 - code */;
+                    return _toStringVecu8(
+                            &m->nested.system_set_code_V2.code,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 3: /* module 0 call 3 */
+            switch (itemIdx) {
+                case 0: /* system_set_code_without_checks_V2 - code */;
+                    return _toStringVecu8(
+                            &m->nested.system_set_code_without_checks_V2.code,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 7: /* module 0 call 7 */
+            switch (itemIdx) {
+                case 0: /* system_remark_with_event_V2 - remark */;
+                    return _toStringBytes(
+                            &m->nested.system_remark_with_event_V2.remark,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
+        case 4096: /* module 16 call 0 */
+            switch (itemIdx) {
+                case 0: /* technicalcommittee_set_members_V2 - new_members */;
+                    return _toStringVecAccountId(
+                            &m->basic.technicalcommittee_set_members_V2.new_members,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* technicalcommittee_set_members_V2 - prime */;
+                    return _toStringOptionAccountId(
+                            &m->basic.technicalcommittee_set_members_V2.prime,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* technicalcommittee_set_members_V2 - old_count */;
+                    return _toStringMemberCount(
+                            &m->basic.technicalcommittee_set_members_V2.old_count,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4097: /* module 16 call 1 */
+            switch (itemIdx) {
+                case 0: /* technicalcommittee_execute_V2 - proposal */;
+                    return _toStringProposal(
+                            &m->basic.technicalcommittee_execute_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* technicalcommittee_execute_V2 - length_bound */;
+                    return _toStringCompactu32(
+                            &m->basic.technicalcommittee_execute_V2.length_bound,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4098: /* module 16 call 2 */
+            switch (itemIdx) {
+                case 0: /* technicalcommittee_propose_V2 - threshold */;
+                    return _toStringCompactu32(
+                            &m->basic.technicalcommittee_propose_V2.threshold,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* technicalcommittee_propose_V2 - proposal */;
+                    return _toStringProposal(
+                            &m->basic.technicalcommittee_propose_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* technicalcommittee_propose_V2 - length_bound */;
+                    return _toStringCompactu32(
+                            &m->basic.technicalcommittee_propose_V2.length_bound,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4099: /* module 16 call 3 */
+            switch (itemIdx) {
+                case 0: /* technicalcommittee_vote_V2 - proposal */;
+                    return _toStringHash(
+                            &m->basic.technicalcommittee_vote_V2.proposal,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* technicalcommittee_vote_V2 - index */;
+                    return _toStringCompactu32(
+                            &m->basic.technicalcommittee_vote_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* technicalcommittee_vote_V2 - approve */;
+                    return _toStringbool(
+                            &m->basic.technicalcommittee_vote_V2.approve,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4101: /* module 16 call 5 */
+            switch (itemIdx) {
+                case 0: /* technicalcommittee_disapprove_proposal_V2 - proposal_hash */;
+                    return _toStringHash(
+                            &m->basic.technicalcommittee_disapprove_proposal_V2.proposal_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4102: /* module 16 call 6 */
+            switch (itemIdx) {
+                case 0: /* technicalcommittee_close_V2 - proposal_hash */;
+                    return _toStringHash(
+                            &m->basic.technicalcommittee_close_V2.proposal_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* technicalcommittee_close_V2 - index */;
+                    return _toStringCompactu32(
+                            &m->basic.technicalcommittee_close_V2.index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* technicalcommittee_close_V2 - proposal_weight_bound */;
+                    return _toStringWeight(
+                            &m->basic.technicalcommittee_close_V2.proposal_weight_bound,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 3: /* technicalcommittee_close_V2 - length_bound */;
+                    return _toStringCompactu32(
+                            &m->basic.technicalcommittee_close_V2.length_bound,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 4608: /* module 18 call 0 */
+            switch (itemIdx) {
+                case 0: /* technicalmembership_add_member_V2 - who */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.technicalmembership_add_member_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4609: /* module 18 call 1 */
+            switch (itemIdx) {
+                case 0: /* technicalmembership_remove_member_V2 - who */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.technicalmembership_remove_member_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4610: /* module 18 call 2 */
+            switch (itemIdx) {
+                case 0: /* technicalmembership_swap_member_V2 - remove */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.technicalmembership_swap_member_V2.remove,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* technicalmembership_swap_member_V2 - add */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.technicalmembership_swap_member_V2.add,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4611: /* module 18 call 3 */
+            switch (itemIdx) {
+                case 0: /* technicalmembership_reset_members_V2 - members */;
+                    return _toStringVecAccountId(
+                            &m->basic.technicalmembership_reset_members_V2.members,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4612: /* module 18 call 4 */
+            switch (itemIdx) {
+                case 0: /* technicalmembership_change_key_V2 - new_ */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.technicalmembership_change_key_V2.new_,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4613: /* module 18 call 5 */
+            switch (itemIdx) {
+                case 0: /* technicalmembership_set_prime_V2 - who */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.technicalmembership_set_prime_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4614: /* module 18 call 6 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 768: /* module 3 call 0 */
+            switch (itemIdx) {
+                case 0: /* timestamp_set_V2 - now */;
+                    return _toStringCompactu64(
+                            &m->basic.timestamp_set_V2.now,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 8960: /* module 35 call 0 */
+            switch (itemIdx) {
+                case 0: /* tips_report_awesome_V2 - reason */;
+                    return _toStringBytes(
+                            &m->basic.tips_report_awesome_V2.reason,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* tips_report_awesome_V2 - who */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.tips_report_awesome_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 8961: /* module 35 call 1 */
+            switch (itemIdx) {
+                case 0: /* tips_retract_tip_V2 - hash */;
+                    return _toStringHash(
+                            &m->basic.tips_retract_tip_V2.hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 8962: /* module 35 call 2 */
+            switch (itemIdx) {
+                case 0: /* tips_tip_new_V2 - reason */;
+                    return _toStringBytes(
+                            &m->basic.tips_tip_new_V2.reason,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* tips_tip_new_V2 - who */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.tips_tip_new_V2.who,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* tips_tip_new_V2 - tip_value */;
+                    return _toStringCompactu128(
+                            &m->basic.tips_tip_new_V2.tip_value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 8963: /* module 35 call 3 */
+            switch (itemIdx) {
+                case 0: /* tips_tip_V2 - hash */;
+                    return _toStringHash(
+                            &m->basic.tips_tip_V2.hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* tips_tip_V2 - tip_value */;
+                    return _toStringCompactu128(
+                            &m->basic.tips_tip_V2.tip_value,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 8964: /* module 35 call 4 */
+            switch (itemIdx) {
+                case 0: /* tips_close_tip_V2 - hash */;
+                    return _toStringHash(
+                            &m->basic.tips_close_tip_V2.hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 8965: /* module 35 call 5 */
+            switch (itemIdx) {
+                case 0: /* tips_slash_tip_V2 - hash */;
+                    return _toStringHash(
+                            &m->basic.tips_slash_tip_V2.hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+        case 4864: /* module 19 call 0 */
+            switch (itemIdx) {
+                case 0: /* treasury_propose_spend_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->basic.treasury_propose_spend_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* treasury_propose_spend_V2 - beneficiary */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.treasury_propose_spend_V2.beneficiary,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4865: /* module 19 call 1 */
+            switch (itemIdx) {
+                case 0: /* treasury_reject_proposal_V2 - proposal_id */;
+                    return _toStringCompactu32(
+                            &m->basic.treasury_reject_proposal_V2.proposal_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4866: /* module 19 call 2 */
+            switch (itemIdx) {
+                case 0: /* treasury_approve_proposal_V2 - proposal_id */;
+                    return _toStringCompactu32(
+                            &m->basic.treasury_approve_proposal_V2.proposal_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4867: /* module 19 call 3 */
+            switch (itemIdx) {
+                case 0: /* treasury_spend_V2 - amount */;
+                    return _toStringCompactBalance(
+                            &m->basic.treasury_spend_V2.amount,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* treasury_spend_V2 - beneficiary */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.treasury_spend_V2.beneficiary,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 4868: /* module 19 call 4 */
+            switch (itemIdx) {
+                case 0: /* treasury_remove_approval_V2 - proposal_id */;
+                    return _toStringCompactu32(
+                            &m->basic.treasury_remove_approval_V2.proposal_id,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
+        case 6661: /* module 26 call 5 */
+            switch (itemIdx) {
+                case 0: /* utility_with_weight_V2 - call */;
+                    return _toStringCall(
+                            &m->basic.utility_with_weight_V2.call,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* utility_with_weight_V2 - weight */;
+                    return _toStringWeight(
+                            &m->basic.utility_with_weight_V2.weight,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
+        case 6400: /* module 25 call 0 */
+            switch (itemIdx) {
+                default:
+                    return parser_no_data;
+            }
+        case 6401: /* module 25 call 1 */
+            switch (itemIdx) {
+                case 0: /* vesting_vest_other_V2 - target */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.vesting_vest_other_V2.target,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 6402: /* module 25 call 2 */
+            switch (itemIdx) {
+                case 0: /* vesting_vested_transfer_V2 - target */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.vesting_vested_transfer_V2.target,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* vesting_vested_transfer_V2 - schedule */;
+                    return _toStringVestingInfo(
+                            &m->basic.vesting_vested_transfer_V2.schedule,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 6403: /* module 25 call 3 */
+            switch (itemIdx) {
+                case 0: /* vesting_force_vested_transfer_V2 - source */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.vesting_force_vested_transfer_V2.source,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* vesting_force_vested_transfer_V2 - target */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.vesting_force_vested_transfer_V2.target,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* vesting_force_vested_transfer_V2 - schedule */;
+                    return _toStringVestingInfo(
+                            &m->basic.vesting_force_vested_transfer_V2.schedule,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 6404: /* module 25 call 4 */
+            switch (itemIdx) {
+                case 0: /* vesting_merge_schedules_V2 - schedule1_index */;
+                    return _toStringu32(
+                            &m->basic.vesting_merge_schedules_V2.schedule1_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* vesting_merge_schedules_V2 - schedule2_index */;
+                    return _toStringu32(
+                            &m->basic.vesting_merge_schedules_V2.schedule2_index,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+        case 9472: /* module 37 call 0 */
+            switch (itemIdx) {
+                case 0: /* voterlist_rebag_V2 - dislocated */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.voterlist_rebag_V2.dislocated,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 9473: /* module 37 call 1 */
+            switch (itemIdx) {
+                case 0: /* voterlist_put_in_front_of_V2 - lighter */;
+                    return _toStringAccountIdLookupOfT(
+                            &m->basic.voterlist_put_in_front_of_V2.lighter,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+
+
+        case 5888: /* module 23 call 0 */
+            switch (itemIdx) {
+                case 0: /* whitelist_whitelist_call_V2 - call_hash */;
+                    return _toStringPreimageHash(
+                            &m->basic.whitelist_whitelist_call_V2.call_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5889: /* module 23 call 1 */
+            switch (itemIdx) {
+                case 0: /* whitelist_remove_whitelisted_call_V2 - call_hash */;
+                    return _toStringPreimageHash(
+                            &m->basic.whitelist_remove_whitelisted_call_V2.call_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5890: /* module 23 call 2 */
+            switch (itemIdx) {
+                case 0: /* whitelist_dispatch_whitelisted_call_V2 - call_hash */;
+                    return _toStringPreimageHash(
+                            &m->basic.whitelist_dispatch_whitelisted_call_V2.call_hash,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 1: /* whitelist_dispatch_whitelisted_call_V2 - call_encoded_len */;
+                    return _toStringu32(
+                            &m->basic.whitelist_dispatch_whitelisted_call_V2.call_encoded_len,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                case 2: /* whitelist_dispatch_whitelisted_call_V2 - call_weight_witness */;
+                    return _toStringWeight(
+                            &m->basic.whitelist_dispatch_whitelisted_call_V2.call_weight_witness,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+        case 5891: /* module 23 call 3 */
+            switch (itemIdx) {
+                case 0: /* whitelist_dispatch_whitelisted_call_with_preimage_V2 - call */;
+                    return _toStringCall(
+                            &m->basic.whitelist_dispatch_whitelisted_call_with_preimage_V2.call,
+                            outValue, outValueLen,
+                            pageIdx, pageCount);
+                default:
+                    return parser_no_data;
+            }
+
+            //////////////////////
+
         case 15872: /* module 62 call 0 */
             switch (itemIdx) {
                 default:
                     return parser_no_data;
             }
-        case 18432: /* module 72 call 0 */
-            switch (itemIdx) {
-                case 0: /* auctions_new_auction_V2 - duration */;
-                    return _toStringCompactu32(
-                            &m->basic.auctions_new_auction_V2.duration,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* auctions_new_auction_V2 - lease_period_index */;
-                    return _toStringCompactu32(
-                            &m->basic.auctions_new_auction_V2.lease_period_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 18433: /* module 72 call 1 */
-            switch (itemIdx) {
-                case 0: /* auctions_bid_V2 - para */;
-                    return _toStringCompactu32(
-                            &m->basic.auctions_bid_V2.para,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 1: /* auctions_bid_V2 - auction_index */;
-                    return _toStringCompactu32(
-                            &m->basic.auctions_bid_V2.auction_index,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 2: /* auctions_bid_V2 - first_slot */;
-                    return _toStringCompactu32(
-                            &m->basic.auctions_bid_V2.first_slot,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 3: /* auctions_bid_V2 - last_slot */;
-                    return _toStringCompactu32(
-                            &m->basic.auctions_bid_V2.last_slot,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                case 4: /* auctions_bid_V2 - amount */;
-                    return _toStringCompactBalance(
-                            &m->basic.auctions_bid_V2.amount,
-                            outValue, outValueLen,
-                            pageIdx, pageCount);
-                default:
-                    return parser_no_data;
-            }
-        case 18434: /* module 72 call 2 */
-            switch (itemIdx) {
-                default:
-                    return parser_no_data;
-            }
+
+
+
 #endif
         default:
             return parser_ok;
