@@ -1545,7 +1545,34 @@ parser_error_t _toStringBoxPalletsProposalOrigin(
         uint8_t pageIdx,
         uint8_t* pageCount);
 
+parser_error_t _toStringPoolMutationOfT(
+        const pd_PoolMutationOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
         
+parser_error_t _toStringBondValueOfT(
+        const pd_BondValueOfT_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringStakingInfo(
+        const pd_StakingInfo_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringOptionPerbill(
+        const pd_OptionPerbill_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
 #ifdef __cplusplus
 }
 #endif

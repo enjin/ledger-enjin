@@ -2560,7 +2560,7 @@ parser_error_t _readStakingInfo(parser_context_t* c, pd_StakingInfo_t* v)
     return parser_ok;
 } 
 
-parser_error_t _readCommissionNewCommission(parser_context_t* c, pd_CommissionNewCommission_t* v)
+parser_error_t _readNewCommissionMutation(parser_context_t* c, pd_NewCommissionMutation_t* v)
 {
     CHECK_INPUT()
     CHECK_ERROR(_readUInt8(c, &v->value))
@@ -2577,20 +2577,20 @@ parser_error_t _readCommissionNewCommission(parser_context_t* c, pd_CommissionNe
     return parser_ok;
 }
 
-parser_error_t _readChangeRate(parser_context_t* c, pd_ChangeRate_t* v)
+parser_error_t _readCommissionChangeRate(parser_context_t* c, pd_CommissionChangeRate_t* v)
 {
     CHECK_INPUT()
-    CHECK_ERROR(_readPerbill(c, &v->maxDelta))
-    CHECK_ERROR(_readu32(c, &v->minDelay))
+    CHECK_ERROR(_readPerbill(c, &v->max_delta))
+    CHECK_ERROR(_readu32(c, &v->min_delay))
     return parser_ok;
 }
 
-parser_error_t _readOptionChangeRate(parser_context_t* c, pd_OptionCommissionChangeRate_t* v)
+parser_error_t _readOptionCommissionChangeRate(parser_context_t* c, pd_OptionCommissionChangeRate_t* v)
 {
     CHECK_INPUT()
     CHECK_ERROR(_readUInt8(c, &v->some))
     if (v->some > 0) {
-        CHECK_ERROR(_readChangeRate(c, &v->contained))
+        CHECK_ERROR(_readCommissionChangeRate(c, &v->contained))
     }
     return parser_ok;
 }
@@ -2651,11 +2651,11 @@ parser_error_t _readPoolMutationOfT(parser_context_t* c, pd_PoolMutationOfT_t* v
 {
     CHECK_INPUT()
     CHECK_ERROR(_readOptionu32(c, &v->duration))
-    CHECK_ERROR(_readCommissionNewCommission(c, &v->newCommission))
+    CHECK_ERROR(_readNewCommissionMutation(c, &v->newCommission))
     CHECK_ERROR(_readOptionPerbill(c, &v->maxCommission))
-    CHECK_ERROR(_readOptionChangeRate(c, &v->changeRate))
-    CHECK_ERROR(_readOptionRolesMutation(c, &v->roles))
+    CHECK_ERROR(_readOptionCommissionChangeRate(c, &v->changeRate))
     CHECK_ERROR(_readOptionu128(c, &v->capacity))
+    CHECK_ERROR(_readOptionBytes(c, &v->name))
     return parser_ok;
 }
 
@@ -7075,7 +7075,6 @@ parser_error_t _toStringu128(
     return parser_ok;
 }
 
-
 parser_error_t _toStringOptionu64(
         const pd_Optionu64_t* v,
         char* outValue,
@@ -7113,6 +7112,50 @@ parser_error_t _toStringOptionu128(
                 &v->contained,
                 outValue, outValueLen,
                 pageIdx, pageCount))
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringOptionPerbill(
+        const pd_OptionPerbill_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringPerbill(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount));
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringOptionBytes(
+        const pd_OptionBytes_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringBytes(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount));
     } else {
         snprintf(outValue, outValueLen, "None");
     }
@@ -7463,6 +7506,65 @@ parser_error_t _toStringOptionTokenAccountOf(
                 &v->contained,
                 outValue, outValueLen,
                 pageIdx, pageCount))
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringCommissionChangeRate(
+    const pd_CommissionChangeRate_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringPerbill(&v->max_delta, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringu32(&v->min_delay, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx >= *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringPerbill(&v->max_delta, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringu32(&v->min_delay, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringOptionCommissionChangeRate(
+        const pd_OptionCommissionChangeRate_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringCommissionChangeRate(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount));
     } else {
         snprintf(outValue, outValueLen, "None");
     }
@@ -8251,7 +8353,6 @@ parser_error_t _toStringTokenSufficiency(
     return parser_ok;
 }
 
-
 parser_error_t _toStringFreezeState(
         const pd_FreezeState_t* v,
         char* outValue,
@@ -9022,6 +9123,151 @@ parser_error_t _toStringBoxPalletsProposalOrigin(
     return parser_ok;
 }
 
+parser_error_t _toStringBondValueOfT(
+    const pd_BondValueOfT_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    *pageCount = 1;
+    switch (v->value) {
+    case 0: // Amount
+        CHECK_ERROR(_toStringCompactu128(&v->amount, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 1: // Fill
+        snprintf(outValue, outValueLen, "Fill");
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _toStringNewComissionMutation(
+    const pd_NewCommissionMutation_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    *pageCount = 1;
+    switch (v->value) {
+    case 0: // NoMutation
+        snprintf(outValue, outValueLen, "NoMutation");
+        break;
+    case 1: // SomeMutation
+        CHECK_ERROR(_toStringOptionPerbill(&v->set, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _toStringPoolMutationOfT(
+    const pd_PoolMutationOfT_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[6] = { 0 };
+    CHECK_ERROR(_toStringOptionu32(&v->duration, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringNewComissionMutation(&v->newCommission, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringOptionPerbill(&v->maxCommission, outValue, outValueLen, 0, &pages[2]))
+    CHECK_ERROR(_toStringOptionCommissionChangeRate(&v->changeRate, outValue, outValueLen, 0, &pages[3]))
+    CHECK_ERROR(_toStringOptionu128(&v->capacity, outValue, outValueLen, 0, &pages[4]))
+    CHECK_ERROR(_toStringOptionBytes(&v->name, outValue, outValueLen, 0, &pages[5]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringOptionu32(&v->duration, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringNewComissionMutation(&v->newCommission, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    pageIdx -= pages[1];
+
+    if (pageIdx < pages[2]) {
+        CHECK_ERROR(_toStringOptionPerbill(&v->maxCommission, outValue, outValueLen, pageIdx, &pages[2]))
+        return parser_ok;
+    }
+    pageIdx -= pages[2];
+
+    if (pageIdx < pages[3]) {
+        CHECK_ERROR(_toStringOptionCommissionChangeRate(&v->changeRate, outValue, outValueLen, pageIdx, &pages[3]))
+        return parser_ok;
+    }
+    pageIdx -= pages[3];
+
+    if (pageIdx < pages[4]) {
+        CHECK_ERROR(_toStringOptionu128(&v->capacity, outValue, outValueLen, pageIdx, &pages[4]))
+        return parser_ok;
+    }
+    pageIdx -= pages[4];
+
+    if (pageIdx < pages[5]) {
+        CHECK_ERROR(_toStringOptionBytes(&v->name, outValue, outValueLen, pageIdx, &pages[5]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringStakingInfo(
+    const pd_StakingInfo_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringPerbill(&v->annual_inflation_rate, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringPerbill(&v->collator_payout_cut, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringPerbill(&v->annual_inflation_rate, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringPerbill(&v->collator_payout_cut, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
 
 
 ///////////////////////////////////

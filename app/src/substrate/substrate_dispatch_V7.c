@@ -132,7 +132,7 @@ __Z_INLINE parser_error_t _readMethod_staking_payout_stakers_V7(
 __Z_INLINE parser_error_t _readMethod_staking_rebond_V7(
     parser_context_t* c, pd_staking_rebond_V7_t* m)
 {
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    CHECK_ERROR(_readBalanceOf(c, &m->amount))
     return parser_ok;
 }
 
@@ -10120,7 +10120,7 @@ parser_error_t _getMethod_ItemValue_V7(
     case 4630: /* module 18 call 22 */
         switch (itemIdx) {
         case 0: /* nominationpools_set_staking_info_V7 - info */;
-            return _toStringPoolsStakingInfo(
+            return _toStringStakingInfo(
                     &m->basic.nominationpools_set_staking_info_V7.info,
                     outValue, outValueLen,
                     pageIdx, pageCount);

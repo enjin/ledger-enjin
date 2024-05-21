@@ -1432,16 +1432,16 @@ typedef struct {
 typedef struct {
     uint8_t value;
     pd_OptionPerbill_t set;
-} pd_CommissionNewCommission_t;
+} pd_NewCommissionMutation_t;
 
 typedef struct {
-    pd_Perbill_t maxDelta;
-    pd_u32_t minDelay;
-} pd_ChangeRate_t;
+    pd_Perbill_t max_delta;
+    pd_u32_t min_delay;
+} pd_CommissionChangeRate_t;
 
 typedef struct {
     uint8_t some;
-    pd_ChangeRate_t contained;
+    pd_CommissionChangeRate_t contained;
 } pd_OptionCommissionChangeRate_t;
 
 typedef struct {
@@ -1466,11 +1466,11 @@ typedef struct {
 
 typedef struct {
     pd_Optionu32_t duration;
-    pd_CommissionNewCommission_t newCommission;
+    pd_NewCommissionMutation_t newCommission;
     pd_OptionPerbill_t maxCommission;
     pd_OptionCommissionChangeRate_t changeRate;
-    pd_OptionPoolRolesMutation_t roles;
     pd_Optionu128_t capacity;
+    pd_OptionBytes_t name;
 } pd_PoolMutationOfT_t;
 
 typedef struct {
