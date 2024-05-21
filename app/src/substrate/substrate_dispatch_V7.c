@@ -1765,8 +1765,8 @@ __Z_INLINE parser_error_t _readMethod_nominationpools_nominate_V7(
 __Z_INLINE parser_error_t _readMethod_nominationpools_set_configs_V7(
         parser_context_t* c, pd_nominationpools_set_configs_V7_t* m)
 {
-    CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_join_bond))
-    CHECK_ERROR(_readConfigOpBalanceOfT(c, &m->min_create_bond))
+    CHECK_ERROR(_readConfigOpu128(c, &m->min_join_bond))
+    CHECK_ERROR(_readConfigOpu128(c, &m->min_create_bond))
     CHECK_ERROR(_readConfigOpPerbill(c, &m->global_max_commission))
     CHECK_ERROR(_readConfigOpPerbill(c, &m->required_payout_count))
     return parser_ok;
@@ -6461,7 +6461,7 @@ const char* _getMethod_ItemName_V7(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
     case 4614: /* module 18 call 6 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_pool_id;
+            return STR_IT_token_id;
         case 1:
             return STR_IT_deposit;
         case 2:
@@ -9909,350 +9909,298 @@ parser_error_t _getMethod_ItemValue_V7(
         }
     case 4608: /* module 18 call 0 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_bond_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_bond_V7.pool_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_bond_V7 - amount */;
+            return _toStringBondValueOfT(
+                    &m->basic.nominationpools_bond_V7.amount,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        case 1:
-            return STR_IT_amount;
-        default:
-            return NULL;
         }
     case 4611: /* module 18 call 3 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_unbond_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_unbond_V7.pool_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_unbond_V7 - member_account */;
+            return _toStringAccountIdLookupOfT(
+                    &m->basic.nominationpools_unbond_V7.member_account,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 2: /* nominationpools_unbond_V7 - unbonding_points */;
+            return _toStringCompactBalance(
+                    &m->basic.nominationpools_unbond_V7.unbonding_points,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        case 1:
-            return STR_IT_member_account;
-        case 2:
-            return STR_IT_unbonding_points;
-        default:
-            return NULL;
         }
     case 4612: /* module 18 call 4 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_pool_withdraw_unbonded_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_pool_withdraw_unbonded_V7.pool_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_pool_withdraw_unbonded_V7 - num_slashing_spans */;
+            return _toStringu32(
+                    &m->basic.nominationpools_pool_withdraw_unbonded_V7.num_slashing_spans,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        case 1:
-            return STR_IT_num_slashing_spans;
-        default:
-            return NULL;
         }
     case 4613: /* module 18 call 5 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_withdraw_unbonded_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_withdraw_unbonded_V7.pool_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_withdraw_unbonded_V7 - member_account */;
+            return _toStringAccountIdLookupOfT(
+                    &m->basic.nominationpools_withdraw_unbonded_V7.member_account,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 2: /* nominationpools_withdraw_unbonded_V7 - num_slashing_spans */;
+            return _toStringu32(
+                    &m->basic.nominationpools_withdraw_unbonded_V7.num_slashing_spans,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        case 1:
-            return STR_IT_member_account;
-        case 2:
-            return STR_IT_num_slashing_spans;
-        default:
-            return NULL;
         }
     case 4614: /* module 18 call 6 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
-            return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+        case 0: /* nominationpools_create_V7 - token_id */;
+            return _toStringTokenIdOf(
+                    &m->basic.nominationpools_create_V7.token_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_create_V7 - deposit */;
+            return _toStringCompactBalance(
+                    &m->basic.nominationpools_create_V7.deposit,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 2: /* nominationpools_create_V7 - capacity */;
+            return _toStringCompactBalance(
+                    &m->basic.nominationpools_create_V7.capacity,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 3: /* nominationpools_create_V7 - duration */;
+            return _toStringCompactIndex(
+                    &m->basic.nominationpools_create_V7.duration,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 4: /* nominationpools_create_V7 - name */;
+            return _toStringBytes(
+                    &m->basic.nominationpools_create_V7.name,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        case 1:
-            return STR_IT_deposit;
-        case 2:
-            return STR_IT_capacity;
-        case 3:
-            return STR_IT_duration;
-        case 4:
-            return STR_IT_name;
-        default:
-            return NULL;
         }
     case 4616: /* module 18 call 8 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_nominate_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_nominate_V7.pool_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_nominate_V7 - validators */;
+            return _toStringVecAccountId(
+                    &m->basic.nominationpools_nominate_V7.validators,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        case 1:
-            return STR_IT_validators;
-        default:
-            return NULL;
         }
     case 4619: /* module 18 call 11 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
-            return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+        case 0: /* nominationpools_set_configs_V7 - min_join_bond */;
+            return _toStringConfigOpu128( // ConfigOpu128
+                    &m->basic.nominationpools_set_configs_V7.min_join_bond,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_set_configs_V7 - min_create_bond */;
+            return _toStringConfigOpu128(
+                    &m->basic.nominationpools_set_configs_V7.min_create_bond,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 2: /* nominationpools_set_configs_V7 - global_max_commission */;
+            return _toStringConfigOpPerbill(
+                    &m->basic.nominationpools_set_configs_V7.global_max_commission,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 3: /* nominationpools_set_configs_V7 - required_payout_count */;
+            return _toStringConfigOpPerbill(
+                    &m->basic.nominationpools_set_configs_V7.required_payout_count,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_min_join_bond;
-        case 1:
-            return STR_IT_min_create_bond;
-        case 2:
-            return STR_IT_global_max_commission;
-        case 3:
-            return STR_IT_required_payout_count;
-        default:
-            return NULL;
         }
     case 4621: /* module 18 call 13 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_chill_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_chill_V7.pool_id,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        default:
-            return NULL;
         }
     case 4622: /* module 18 call 14 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_destroy_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_destroy_V7.pool_id,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        default:
-            return NULL;
         }
     case 4626: /* module 18 call 18 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
-            return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+        case 0: /* nominationpools_payout_rewards_V7 - validator_stash */;
+            return _toStringAccountId(
+                    &m->basic.nominationpools_payout_rewards_V7.validator_stash,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_payout_rewards_V7 - era */;
+            return _toStringEraIndex(
+                    &m->basic.nominationpools_payout_rewards_V7.era,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_validator_stash;
-        case 1:
-            return STR_IT_era;
-        default:
-            return NULL;
         }
     case 4627: /* module 18 call 19 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_mutate_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_mutate_V7.pool_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_mutate_V7 - mutation */;
+            return _toStringPoolMutationOfT(
+                    &m->basic.nominationpools_mutate_V7.mutation,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
         }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        case 1:
-            return STR_IT_mutation;
-        default:
-            return NULL;
-        }
-        return STR_ME_MUTATE;
     case 4628: /* module 18 call 20 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_unbond_deposit_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_unbond_deposit_V7.pool_id,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        default:
-            return NULL;
         }
     case 4629: /* module 18 call 21 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_withdraw_deposit_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_withdraw_deposit_V7.pool_id,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        default:
-            return NULL;
         }
     case 4630: /* module 18 call 22 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
-            return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+        case 0: /* nominationpools_set_staking_info_V7 - info */;
+            return _toStringPoolsStakingInfo(
+                    &m->basic.nominationpools_set_staking_info_V7.info,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_info;
-        default:
-            return NULL;
         }
     case 4631: /* module 18 call 23 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
-            return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+        case 0: /* nominationpools_calculate_early_bird_bonus_V7 - pool_count */;
+            return _toStringu32(
+                    &m->basic.nominationpools_calculate_early_bird_bonus_V7.pool_count,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_count;
-        default:
-            return NULL;
         }
     case 4632: /* module 18 call 24 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_pay_early_bird_bonus_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_pay_early_bird_bonus_V7.pool_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_pay_early_bird_bonus_V7 - payment_id */;
+            return _toStringu32(
+                    &m->basic.nominationpools_pay_early_bird_bonus_V7.payment_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 2: /* nominationpools_pay_early_bird_bonus_V7 - account_count */;
+            return _toStringu32(
+                    &m->basic.nominationpools_pay_early_bird_bonus_V7.account_count,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        case 1:
-            return STR_IT_payment_id;
-        case 2:
-            return STR_IT_account_count;
-        default:
-            return NULL;
         }
     case 4633: /* module 18 call 25 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
-            return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+        case 0: /* nominationpools_process_payouts_V7 - pool_count */;
+            return _toStringu32(
+                    &m->basic.nominationpools_process_payouts_V7.pool_count,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_count;
-        default:
-            return NULL;
         }
     case 4634: /* module 18 call 26 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_withdraw_free_balance_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_withdraw_free_balance_V7.pool_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_withdraw_free_balance_V7 - destination */;
+            return _toStringAccountIdLookupOfT(
+                    &m->basic.nominationpools_withdraw_free_balance_V7.destination,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 2: /* nominationpools_withdraw_free_balance_V7 - amount */;
+            return _toStringu128(
+                    &m->basic.nominationpools_withdraw_free_balance_V7.amount,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        case 1:
-            return STR_IT_destination;
-        case 2:
-            return STR_IT_amount;
-        default:
-            return NULL;
         }
     case 4635: /* module 18 call 27 */
         switch (itemIdx) {
-        case 0: /* nominationpools_ -  */;
+        case 0: /* nominationpools_capture_early_bird_bonus_shares_V7 - pool_id */;
             return _toStringPoolId(
-                    &m->basic.nominationpools_.,
+                    &m->basic.nominationpools_capture_early_bird_bonus_shares_V7.pool_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* nominationpools_capture_early_bird_bonus_shares_V7 - account_count */;
+            return _toStringu32(
+                    &m->basic.nominationpools_capture_early_bird_bonus_shares_V7.account_count,
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
             return parser_no_data;
-        }
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_pool_id;
-        case 1:
-            return STR_IT_account_count;
-        default:
-            return NULL;
         }
     case 4636: /* module 18 call 28 */
         switch (itemIdx) {

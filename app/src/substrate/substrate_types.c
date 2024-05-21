@@ -1744,6 +1744,24 @@ parser_error_t _readOptionu128(parser_context_t* c, pd_Optionu128_t* v)
     return parser_ok;
 }
 
+
+parser_error_t _readConfigOpu128(parser_context_t* c, pd_ConfigOpu128_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+    switch (v->value) {
+    case 0: // Noop
+    case 2: // Remove
+        break;
+    case 1:
+        CHECK_ERROR(_readu128(c, &v->set))
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
 parser_error_t _readOptionBytes(parser_context_t* c, pd_OptionBytes_t* v)
 {
     CHECK_INPUT()
@@ -7110,6 +7128,32 @@ parser_error_t _toStringVecu128(
         uint8_t* pageCount)
 {
     GEN_DEF_TOSTRING_VECTOR(u128);
+}
+
+
+parser_error_t _toStringConfigOpu128(
+    const pd_ConfigOpu128_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    *pageCount = 1;
+    switch (v->value) {
+    case 0:
+        snprintf(outValue, outValueLen, "Noop");
+        break;
+    case 1:
+        CHECK_ERROR(_toStringu128(&v->set, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 2:
+        snprintf(outValue, outValueLen, "Remove");
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+    return parser_ok;
 }
 
 parser_error_t _toStringCompactPerbill(

@@ -990,6 +990,11 @@ typedef struct {
 } pd_Optionu128_t;
 
 typedef struct {
+    uint8_t value;
+    pd_u128_t set;
+} pd_ConfigOpu128_t;
+
+typedef struct {
     compactInt_t value;
 } pd_CompactPerbill_t;
 

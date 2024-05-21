@@ -1124,8 +1124,8 @@ typedef struct {
 
 #define PD_CALL_NOMINATIONPOOLS_SET_CONFIGS_V7 11
 typedef struct {
-    pd_ConfigOpBalanceOfT_t min_join_bond;
-    pd_ConfigOpBalanceOfT_t min_create_bond;
+    pd_ConfigOpu128_t min_join_bond;
+    pd_ConfigOpu128_t min_create_bond;
     pd_ConfigOpPerbill_t global_max_commission;
     pd_ConfigOpPerbill_t required_payout_count;
 } pd_nominationpools_set_configs_V7_t;
@@ -1771,7 +1771,7 @@ typedef struct {
 
 #define PD_CALL_STAKING_REBOND_V7 19
 typedef struct {
-    pd_CompactBalance_t amount;
+    pd_BalanceOf_t amount;
 } pd_staking_rebond_V7_t;
 
 #define PD_CALL_SESSION_SET_KEYS_V7 0

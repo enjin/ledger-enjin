@@ -517,6 +517,13 @@ static const char* STR_IT_is_frozen = "Is frozen";
 static const char* STR_IT_rules = "Rules";
 static const char* STR_IT_user_ids = "User ids";
 static const char* STR_IT_consumption = "Consumption";
+static const char* STR_IT_deposit = "Deposit";
+static const char* STR_IT_capacity = "Capacity";
+static const char* STR_IT_name = "Name";
+static const char* STR_IT_required_payout_count = "Required payout count";
+static const char* STR_IT_pool_count = "Pool count";
+static const char* STR_IT_payment_id = "Payment id";
+static const char* STR_IT_account_count = "Account count";
 
 #ifdef __cplusplus
 }
