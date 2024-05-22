@@ -266,6 +266,12 @@ static const char* STR_ME_FORCE_FREEZE = "Force freeze";
 static const char* STR_ME_FORCE_SET_NEXT_COLLECTION_ID = "Force set next collection id";
 static const char* STR_ME_CLAIM_COLLECTIONS = "Claim collections";
 static const char* STR_ME_CLAIM_TOKENS = "Claim tokens";
+static const char* STR_ME_FORCE_SET_ETHEREUM_ACCOUNT = "Force set ethereum account";
+static const char* STR_ME_FORCE_SET_ETHEREUM_COLLECTION_ID = "Force set ethereum collection id";
+static const char* STR_ME_FINISH_CLAIM_TOKENS = "Finish claim tokens";
+static const char* STR_ME_FORCE_SET_UNMINTABLE_TOKEN_IDS = "Force set unmintable token ids";
+static const char* STR_ME_FORCE_CREATE_ETHEREUM_COLLECTION = "Force create ethereum collection";
+static const char* STR_ME_FORCE_SET_ETHEREUM_UNMINTABLE_TOKEN_IDS = "Force set ethereum unmintable token ids";
 static const char* STR_ME_BOND = "Bond";
 static const char* STR_ME_CALCULATE_EARLY_BIRD_BONUS = "Calculate early bird bonus";
 static const char* STR_ME_CAPTURE_EARLY_BIRD_BONUS_SHARES = "Capture early bird bonus shares";
@@ -524,6 +530,12 @@ static const char* STR_IT_required_payout_count = "Required payout count";
 static const char* STR_IT_pool_count = "Pool count";
 static const char* STR_IT_payment_id = "Payment id";
 static const char* STR_IT_account_count = "Account count";
+static const char* STR_IT_address = "Address";
+static const char* STR_IT_ethereum_collection_id = "Ethereum collection id";
+static const char* STR_IT_native_collection_id = "Native collection id";
+static const char* STR_IT_base_token_id = "Base token id";
+static const char* STR_IT_token_index = "Token index";
+static const char* STR_IT_claimer = "Claimer";
 
 #ifdef __cplusplus
 }

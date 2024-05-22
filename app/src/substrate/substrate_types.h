@@ -1010,6 +1010,11 @@ typedef struct {
 } pd_Vecu128_t;
 
 typedef struct {
+    uint8_t some;
+    pd_Vecu128_t contained;
+} pd_OptionVecu128_t;
+
+typedef struct {
     uint8_t value;
     pd_u128_t senj;
 } pd_VoteCurrency_t;

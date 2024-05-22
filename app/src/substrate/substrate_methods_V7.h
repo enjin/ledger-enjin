@@ -62,7 +62,7 @@ extern "C" {
 #define PD_CALL_NOMINATIONPOOLS_V7 18 // ok
 #define PD_CALL_FELLOWSHIPCOLLECTIVE_V7 106 // ok
 #define PD_CALL_FELLOWSHIPREFERENDA_V7 107 // ok
-#define PD_CALL_MARKETPLACE_V7 50
+#define PD_CALL_MARKETPLACE_V7 249 // ok
 #define PD_CALL_FUELTANKS_V7 54
 
 #define PD_CALL_UTILITY_BATCH_V7 0
@@ -868,6 +868,20 @@ typedef struct {
     pd_CollectionMutation_t mutation;
 } pd_multitokens_mutate_collection_V7_t;
 
+#define PD_CALL_MULTITOKENS_MUTATE_TOKEN_V7 3
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_CompactTokenId_t token_id;
+    pd_TokenMutation_t mutation;
+} pd_multitokens_mutate_token_V7_t;
+
+#define PD_CALL_MULTITOKENS_MINT_V7 4
+typedef struct {
+    pd_AccountIdLookupOfT_t recipient;
+    pd_CompactCollectionId_t collection_id;
+    pd_MintParamsOf_t params;
+} pd_multitokens_mint_V7_t;
+
 #define PD_CALL_MULTITOKENS_BURN_V7 5
 typedef struct {
     pd_CompactCollectionId_t collection_id;
@@ -919,6 +933,13 @@ typedef struct {
     pd_VecTransferRecipientsOf_t recipients;
 } pd_multitokens_batch_transfer_V7_t;
 
+#define PD_CALL_MULTITOKENS_BATCH_MINT_V7 13
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_VecMintRecipientsOf_t recipients;
+} pd_multitokens_batch_mint_V7_t;
+
+
 #define PD_CALL_MULTITOKENS_BATCH_SET_ATTRIBUTE_V7 14
 typedef struct {
     pd_CompactCollectionId_t collection_id;
@@ -955,40 +976,6 @@ typedef struct {
     pd_CompactTokenId_t token_id;
     pd_AccountId_t operator_;
 } pd_multitokens_unapprove_token_V7_t;
-
-#define PD_CALL_MULTITOKENS_CLAIM_COLLECTIONS_V7 32
-typedef struct {
-    pd_AccountId_t destination;
-    pd_EcdsaSignature_t ethereum_signature;
-    pd_EthereumAddress_t ethereum_address;
-} pd_multitokens_claim_collections_V7_t;
-
-#define PD_CALL_MULTITOKENS_CLAIM_TOKENS_V7 33
-typedef struct {
-    pd_AccountId_t destination;
-    pd_EcdsaSignature_t ethereum_signature;
-    pd_EthereumAddress_t ethereum_address;
-} pd_multitokens_claim_tokens_V7_t;
-
-#define PD_CALL_MULTITOKENS_MUTATE_TOKEN_V7 3
-typedef struct {
-    pd_CompactCollectionId_t collection_id;
-    pd_CompactTokenId_t token_id;
-    pd_TokenMutation_t mutation;
-} pd_multitokens_mutate_token_V7_t;
-
-#define PD_CALL_MULTITOKENS_MINT_V7 4
-typedef struct {
-    pd_AccountIdLookupOfT_t recipient;
-    pd_CompactCollectionId_t collection_id;
-    pd_MintParamsOf_t params;
-} pd_multitokens_mint_V7_t;
-
-#define PD_CALL_MULTITOKENS_BATCH_MINT_V7 13
-typedef struct {
-    pd_CompactCollectionId_t collection_id;
-    pd_VecMintRecipientsOf_t recipients;
-} pd_multitokens_batch_mint_V7_t;
 
 #define PD_CALL_MULTITOKENS_FORCE_MUTATE_COLLECTION_V7 19
 typedef struct {
@@ -1081,7 +1068,62 @@ typedef struct {
     pd_CompactCollectionId_t value;
 } pd_multitokens_force_set_next_collection_id_V7_t;
 
-#define PD_CALL_NOMINATIONPOOLS_BOND_V7 0
+#define PD_CALL_MULTITOKENS_CLAIM_COLLECTIONS_V7 32
+typedef struct {
+    pd_AccountId_t destination;
+    pd_EcdsaSignature_t ethereum_signature;
+    pd_EthereumAddress_t ethereum_address;
+    pd_Compactu32_t collection_count;
+} pd_multitokens_claim_collections_V7_t;
+
+#define PD_CALL_MULTITOKENS_CLAIM_TOKENS_V7 33
+typedef struct {
+    pd_AccountId_t destination;
+    pd_EcdsaSignature_t ethereum_signature;
+    pd_EthereumAddress_t ethereum_address;
+} pd_multitokens_claim_tokens_V7_t;
+
+#define PD_CALL_MULTITOKENS_FORCE_SET_ETHEREUM_ACCOUNT_V7 34
+typedef struct {
+    pd_EthereumAddress_t address;
+    pd_OptionVecu128_t value;
+} pd_multitokens_force_set_ethereum_account_V7_t;
+ 
+#define PD_CALL_MULTITOKENS_FORCE_SET_ETHEREUM_COLLECTION_ID_V7 35
+typedef struct {
+    pd_CompactCollectionId_t ethereum_collection_id;
+    pd_Optionu128_t native_collection_id;
+} pd_multitokens_force_set_ethereum_collection_id_V7_t;
+
+#define PD_CALL_MULTITOKENS_FINISH_CLAIM_TOKENS_V7 36
+typedef struct {
+    pd_AccountId_t destination;
+    pd_EthereumAddress_t ethereum_address;
+} pd_multitokens_finish_claim_tokens_V7_t;
+
+#define PD_CALL_MULTITOKENS_FORCE_SET_UNMINTABLE_TOKEN_IDS_V7 38
+typedef struct {
+    pd_CompactCollectionId_t collection_id;
+    pd_Compactu64_t base_token_id;
+    pd_Compactu64_t token_index;
+} pd_multitokens_force_set_unmintable_token_ids_V7_t;
+
+#define PD_CALL_MULTITOKENS_FORCE_CREATE_ETHEREUM_COLLECTION_V7 39
+typedef struct {
+    pd_AccountId_t owner;
+    pd_EthereumAddress_t claimer;
+    pd_CompactCollectionId_t ethereum_collection_id;
+    pd_CollectionDescriptor_t descriptor;
+} pd_multitokens_force_create_ethereum_collection_V7_t;
+
+#define PD_CALL_MULTITOKENS_FORCE_SET_ETHEREUM_UNMINTABLE_TOKEN_IDS_V7 40
+typedef struct {
+    pd_CompactCollectionId_t ethereum_collection_id;
+    pd_Compactu64_t base_token_id;
+    pd_Compactu64_t token_index;
+} pd_multitokens_force_set_ethereum_unmintable_token_ids_V7_t;
+
+#define PD_CALL_NOMINATIONPOOLS_BOND_V7 40
 typedef struct {
     pd_PoolId_t pool_id;
     pd_BondValueOfT_t amount;
@@ -1632,6 +1674,12 @@ typedef union {
     pd_multitokens_force_approve_collection_V7_t multitokens_force_approve_collection_V7;
     pd_multitokens_force_freeze_V7_t multitokens_force_freeze_V7;
     pd_multitokens_force_set_next_collection_id_V7_t multitokens_force_set_next_collection_id_V7;
+    pd_multitokens_force_set_ethereum_account_V7_t multitokens_force_set_ethereum_account_V7;
+    pd_multitokens_force_set_ethereum_collection_id_V7_t multitokens_force_set_ethereum_collection_id_V7;
+    pd_multitokens_finish_claim_tokens_V7_t multitokens_finish_claim_tokens_V7;
+    pd_multitokens_force_set_unmintable_token_ids_V7_t multitokens_force_set_unmintable_token_ids_V7;
+    pd_multitokens_force_create_ethereum_collection_V7_t multitokens_force_create_ethereum_collection_V7;
+    pd_multitokens_force_set_ethereum_unmintable_token_ids_V7_t multitokens_force_set_ethereum_unmintable_token_ids_V7;
     pd_nominationpools_bond_V7_t nominationpools_bond_V7;
     pd_nominationpools_unbond_V7_t nominationpools_unbond_V7;
     pd_nominationpools_pool_withdraw_unbonded_V7_t nominationpools_pool_withdraw_unbonded_V7;
