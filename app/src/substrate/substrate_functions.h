@@ -221,6 +221,8 @@ parser_error_t _readBoxPalletsProposalOrigin(parser_context_t* c, pd_BoxPalletsP
 parser_error_t _readVoteCurrency(parser_context_t* c, pd_VoteCurrency_t* v);
 parser_error_t _readConfigOpu128(parser_context_t* c, pd_ConfigOpu128_t* v);
 parser_error_t _readOptionVecu128(parser_context_t* c, pd_OptionVecu128_t* v);
+parser_error_t _readOptionUserAccountManagement(parser_context_t* c, pd_OptionUserAccountManagement_t* v);
+parser_error_t _readOptionVecAccountRuleDescriptor(parser_context_t* c, pd_OptionVecAccountRuleDescriptor_t* v);
 
 // Common toString functions
 parser_error_t _toStringu8(
@@ -1582,6 +1584,41 @@ parser_error_t _toStringOptionu128(
 
 parser_error_t _toStringOptionVecu128(
         const pd_OptionVecu128_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringFuelTankDescriptorOfT(
+        const pd_FuelTankDescriptorOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringTankMutation(
+        const pd_FuelTankMutationOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringRulesDispatchRuleKind(
+        const pd_DispatchRuleKind_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringRuleDescriptorsOfT(
+        const pd_DispatchRuleDescriptor_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringConsumptionOfT(
+        const pd_ConsumptionOf_t* v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,

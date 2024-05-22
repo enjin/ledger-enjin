@@ -1375,7 +1375,6 @@ typedef struct {
     pd_ShouldMutateTokenMetadata_t metadata;
 } pd_TokenMutation_t;
 
-
 typedef struct {
     pd_Compactu128_t unitPrice;
 } pd_InsufficientTokenSufficiency_t;
@@ -1551,10 +1550,22 @@ typedef struct {
 } pd_ShouldMutateOption_t;
 
 typedef struct {
+    uint8_t value;
+    union {
+        pd_VecAccountId_t whitelisted_callers;
+        pd_TokenAssetId_t require_token;
+    };
+} pd_AccountRuleDescriptor_t;
+
+typedef struct {
     uint64_t _len;
     const uint8_t* _ptr;
     uint64_t _lenBuffer;
 } pd_VecAccountRuleDescriptor_t;
+
+typedef struct {
+
+} pd_DispatchRuleDescriptor_t;
 
 typedef struct {
     uint64_t _len;

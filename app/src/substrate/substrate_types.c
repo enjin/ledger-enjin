@@ -1762,6 +1762,16 @@ parser_error_t _readConfigOpu128(parser_context_t* c, pd_ConfigOpu128_t* v)
     return parser_ok;
 }
 
+parser_error_t _readOptionbool(parser_context_t* c, pd_Optionbool_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+        CHECK_ERROR(_readbool(c, &v->contained))
+    }
+    return parser_ok;
+}
+
 parser_error_t _readOptionBytes(parser_context_t* c, pd_OptionBytes_t* v)
 {
     CHECK_INPUT()
@@ -2753,28 +2763,97 @@ parser_error_t _readOptionAuctionDataOfT(parser_context_t* c, pd_OptionAuctionDa
     return parser_ok;
 }
 
+parser_error_t _readUserAccountManagement(parser_context_t* c, pd_UserAccountManagement_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readbool(c, &v->tankReservesExistentialDeposit))
+    CHECK_ERROR(_readbool(c, &v->tankReservesAccountCreationDeposit))
+    return parser_ok;
+}
+
+parser_error_t _readOptionUserAccountManagement(parser_context_t* c, pd_OptionUserAccountManagement_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+        CHECK_ERROR(_readUserAccountManagement(c, &v->contained))
+    }
+    return parser_ok;
+}
+
 parser_error_t _readFuelTankDescriptorOf(parser_context_t* c, pd_FuelTankDescriptorOf_t* v)
 {
+    CHECK_INPUT()
+    CHECK_ERROR(_readBytes(c, &v->name))
+    CHECK_ERROR(_readOptionUserAccountManagement(c, &v->userAccountManagement))
+    CHECK_ERROR(_readBytes(c, &v->ruleSets))
+    CHECK_ERROR(_readbool(c, &v->providesDeposit))
+    CHECK_ERROR(_readRulesAccountRuleDescriptor(c, &v->accountRules))
+    return parser_ok;
+}
+
+parser_error_t _readDispatchSettings(parser_context_t* c, pd_DispatchSettings_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readbool(c, &v->useNoneOrigin))
+    CHECK_ERROR(_readbool(c, &v->paysRemainingFee))
+    return parser_ok;
 }
 
 parser_error_t _readOptionDispatchSettings(parser_context_t* c, pd_OptionDispatchSettings_t* v)
 {
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+        CHECK_ERROR(_readDispatchSettings(c, &v->contained))
+    }
+    return parser_ok;
 }
 
 parser_error_t _readConsumptionOf(parser_context_t* c, pd_ConsumptionOf_t* v)
 {
+    CHECK_INPUT()
+    CHECK_ERROR(_readCompactu128(c, &v->totalConsumed))
+    CHECK_ERROR(_readOptionu32(c, &v->lastResetBlock))
+    return parser_ok;
 }
+
+parser_error_t _readDispatchRuleDescriptor(parser_context_t* c, pd_DispatchRuleDescriptor_t* v)
+{
+    CHECK_INPUT()
+    // CHECK_ERROR(_readAccountId(c, &v->accountId))
+    // CHECK_ERROR(_readTransferParamsOfT(c, &v->params))
+    return parser_ok;
+}
+
 
 parser_error_t _readVecDispatchRuleDescriptor(parser_context_t* c, pd_VecDispatchRuleDescriptor_t* v)
 {
+    GEN_DEF_READVECTOR(DispatchRuleDescriptor)
 }
 
 parser_error_t _readFuelTankMutationOf(parser_context_t* c, pd_FuelTankMutationOf_t* v)
 {
+    CHECK_INPUT()
+    CHECK_ERROR(_readOptionUserAccountManagement(c, &v->userAccountManagement))
+    CHECK_ERROR(_readOptionbool(c, &v->providesDeposit))
+    CHECK_ERROR(_readOptionVecAccountRuleDescriptor(c, &v->accountRules))
+    return parser_ok;
 }
 
 parser_error_t _readDispatchRuleKind(parser_context_t* c, pd_DispatchRuleKind_t* v)
 {
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+    switch (v->value) {
+    case 0: // Xcm
+        break;
+    case 1: // Response
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+    return parser_ok;
 }
 
 parser_error_t _readXcmOrigin(parser_context_t* c, pd_XcmOrigin_t* v)
@@ -9464,6 +9543,43 @@ parser_error_t _toStringListingId(
     return _toStringH256(&v->value, outValue, outValueLen, pageIdx, pageCount);
 }
 
+parser_error_t _toStringConsumptionOfT(
+        const pd_ConsumptionOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringCompactu128(&v->totalConsumed, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringOptionu32(&v->lastResetBlock, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringCompactu128(&v->totalConsumed, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringOptionu32(&v->lastResetBlock, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
 parser_error_t _toStringAuctionDataOfT(
         const pd_AuctionDataOfT_t* v,
         char* outValue,
@@ -9739,6 +9855,210 @@ parser_error_t _toStringStakingInfo(
 
     if (pageIdx < pages[1]) {
         CHECK_ERROR(_toStringPerbill(&v->collator_payout_cut, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringUserAccountManagement(
+    const pd_UserAccountManagement_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringbool(&v->tankReservesExistentialDeposit, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringbool(&v->tankReservesAccountCreationDeposit, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringbool(&v->tankReservesExistentialDeposit, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringbool(&v->tankReservesAccountCreationDeposit, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringOptionUserAccountManagement(
+    const pd_OptionUserAccountManagement_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringUserAccountManagement(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount))
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringShouldMutateOption(
+    const pd_ShouldMutateOption_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    *pageCount = 1;
+    switch (v->value) {
+    case 0: // NoMutation
+        snprintf(outValue, outValueLen, "NoMutation");
+        break;
+    case 1: // SomeMutation
+        CHECK_ERROR(_toStringOptionUserAccountManagement(&v->set, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _toStringOptionbool(
+        const pd_Optionbool_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringbool(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount))
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringAccountRuleDescriptor(
+        const pd_AccountRuleDescriptor_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    *pageCount = 1;
+    switch (v->value) {
+    case 0: // WhitelistedCallers
+        CHECK_ERROR(_toStringVecAccountId(&v->whitelisted_callers, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 1: // RequireToken
+        CHECK_ERROR(_toStringTokenAssetId(&v->require_token, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _toStringVecAccountRuleDescriptor(
+        const pd_VecAccountRuleDescriptor_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    GEN_DEF_TOSTRING_VECTOR(VecAccountRuleDescriptor);
+}
+
+parser_error_t _toStringOptionVecAccountRuleDescriptor(
+        const pd_OptionVecAccountRuleDescriptor_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringVecAccountRuleDescriptor(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount))
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringTankMutation(
+    const pd_FuelTankMutationOf_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    pd_ShouldMutateOption_t userAccountManagement;
+    pd_Optionbool_t providesDeposit;
+    pd_OptionVecAccountRuleDescriptor_t accountRules;
+
+    // First measure number of pages
+    uint8_t pages[3] = { 0 };
+    CHECK_ERROR(_toStringShouldMutateOption(&v->userAccountManagement, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringOptionbool(&v->providesDeposit, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringOptionVecAccountRuleDescriptor(&v->accountRules, outValue, outValueLen, 0, &pages[2]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx >= *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringShouldMutateOption(&v->userAccountManagement, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringOptionbool(&v->providesDeposit, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringOptionVecAccountRuleDescriptor(&v->accountRules, outValue, outValueLen, pageIdx, &pages[2]))
         return parser_ok;
     }
 

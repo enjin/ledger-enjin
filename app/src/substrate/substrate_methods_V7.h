@@ -63,7 +63,7 @@ extern "C" {
 #define PD_CALL_FELLOWSHIPCOLLECTIVE_V7 106 // ok
 #define PD_CALL_FELLOWSHIPREFERENDA_V7 107 // ok
 #define PD_CALL_MARKETPLACE_V7 249 // ok
-#define PD_CALL_FUELTANKS_V7 54
+#define PD_CALL_FUELTANKS_V7 254 // ok
 
 #define PD_CALL_UTILITY_BATCH_V7 0
 typedef struct {
@@ -1382,33 +1382,36 @@ typedef struct {
     pd_OptionAccountIdLookupOfT_t funds_backer;
 } pd_marketplace_force_place_bid_V7_t;
 
+#define PD_CALL_FUELTANKS_CREATE_FUEL_TANK_V7 0
+typedef struct {
+    pd_FuelTankDescriptorOf_t descriptor;
+} pd_fueltanks_create_fuel_tank_V7_t;
+
+#define PD_CALL_FUELTANKS_MUTATE_FUEL_TANK_V7 1
+typedef struct {
+    pd_AccountIdLookupOfT_t tank_id;
+    pd_FuelTankMutationOf_t mutation;
+} pd_fueltanks_mutate_fuel_tank_V7_t;
+
 #define PD_CALL_FUELTANKS_ADD_ACCOUNT_V7 2
 typedef struct {
     pd_AccountIdLookupOfT_t tank_id;
     pd_AccountIdLookupOfT_t user_id;
 } pd_fueltanks_add_account_V7_t;
 
-#define PD_CALL_FUELTANKS_BATCH_ADD_ACCOUNT_V7 10
+#define PD_CALL_FUELTANKS_REMOVE_ACCOUNT_V7 3
 typedef struct {
     pd_AccountIdLookupOfT_t tank_id;
-    pd_VecAccountIdLookupOfT_t user_ids;
-} pd_fueltanks_batch_add_account_V7_t;
+    pd_AccountIdLookupOfT_t user_id;
+} pd_fueltanks_remove_account_V7_t;
 
-#define PD_CALL_FUELTANKS_BATCH_REMOVE_ACCOUNT_V7 11
+#define PD_CALL_FUELTANKS_REMOVE_ACCOUNT_RULE_DATA_V7 4
 typedef struct {
     pd_AccountIdLookupOfT_t tank_id;
-    pd_VecAccountIdLookupOfT_t user_ids;
-} pd_fueltanks_batch_remove_account_V7_t;
-
-#define PD_CALL_FUELTANKS_CREATE_FUEL_TANK_V7 0
-typedef struct {
-    pd_FuelTankDescriptorOf_t descriptor;
-} pd_fueltanks_create_fuel_tank_V7_t;
-
-#define PD_CALL_FUELTANKS_DESTROY_FUEL_TANK_V7 13
-typedef struct {
-    pd_AccountIdLookupOfT_t tank_id;
-} pd_fueltanks_destroy_fuel_tank_V7_t;
+    pd_AccountIdLookupOfT_t user_id;
+    pd_u32_t rule_set_id;
+    pd_DispatchRuleKind_t rule_kind;
+} pd_fueltanks_remove_account_rule_data_V7_t;
 
 #define PD_CALL_FUELTANKS_DISPATCH_V7 5
 typedef struct {
@@ -1426,18 +1429,37 @@ typedef struct {
     pd_OptionDispatchSettings_t settings;
 } pd_fueltanks_dispatch_and_touch_V7_t;
 
-#define PD_CALL_FUELTANKS_FORCE_BATCH_ADD_ACCOUNT_V7 15
+#define PD_CALL_FUELTANKS_MUTATE_FREEZE_STATE_V7 7
 typedef struct {
-    pd_AccountIdLookupOfT_t owner;
+    pd_AccountIdLookupOfT_t tank_id;
+    pd_Optionu32_t rule_set_id;
+    pd_bool_t is_frozen;
+} pd_fueltanks_mutate_freeze_state_V7_t;
+
+#define PD_CALL_FUELTANKS_INSERT_RULE_SET_V7 8
+typedef struct {
+    pd_AccountIdLookupOfT_t tank_id;
+    pd_u32_t rule_set_id;
+    pd_VecDispatchRuleDescriptor_t rules;
+} pd_fueltanks_insert_rule_set_V7_t;
+
+#define PD_CALL_FUELTANKS_REMOVE_RULE_SET_V7 9
+typedef struct {
+    pd_AccountIdLookupOfT_t tank_id;
+    pd_u32_t rule_set_id;
+} pd_fueltanks_remove_rule_set_V7_t;
+
+#define PD_CALL_FUELTANKS_BATCH_ADD_ACCOUNT_V7 10
+typedef struct {
     pd_AccountIdLookupOfT_t tank_id;
     pd_VecAccountIdLookupOfT_t user_ids;
-} pd_fueltanks_force_batch_add_account_V7_t;
+} pd_fueltanks_batch_add_account_V7_t;
 
-#define PD_CALL_FUELTANKS_FORCE_CREATE_FUEL_TANK_V7 14
+#define PD_CALL_FUELTANKS_BATCH_REMOVE_ACCOUNT_V7 11
 typedef struct {
-    pd_AccountIdLookupOfT_t owner;
-    pd_FuelTankDescriptorOf_t descriptor;
-} pd_fueltanks_force_create_fuel_tank_V7_t;
+    pd_AccountIdLookupOfT_t tank_id;
+    pd_VecAccountIdLookupOfT_t user_ids;
+} pd_fueltanks_batch_remove_account_V7_t;
 
 #define PD_CALL_FUELTANKS_FORCE_SET_CONSUMPTION_V7 12
 typedef struct {
@@ -1447,46 +1469,23 @@ typedef struct {
     pd_ConsumptionOf_t consumption;
 } pd_fueltanks_force_set_consumption_V7_t;
 
-#define PD_CALL_FUELTANKS_INSERT_RULE_SET_V7 8
+#define PD_CALL_FUELTANKS_DESTROY_FUEL_TANK_V7 13
 typedef struct {
     pd_AccountIdLookupOfT_t tank_id;
-    pd_u32_t rule_set_id;
-    pd_VecDispatchRuleDescriptor_t rules;
-} pd_fueltanks_insert_rule_set_V7_t;
+} pd_fueltanks_destroy_fuel_tank_V7_t;
 
-#define PD_CALL_FUELTANKS_MUTATE_FUEL_TANKS_V7 1
+#define PD_CALL_FUELTANKS_FORCE_CREATE_FUEL_TANK_V7 14
 typedef struct {
-    pd_AccountIdLookupOfT_t tank_id;
-    pd_FuelTankMutationOf_t mutation;
-} pd_fueltanks_mutate_fuel_tank_V7_t;
+    pd_AccountIdLookupOfT_t owner;
+    pd_FuelTankDescriptorOf_t descriptor;
+} pd_fueltanks_force_create_fuel_tank_V7_t;
 
-#define PD_CALL_FUELTANKS_REMOVE_ACCOUNT_V7 3
+#define PD_CALL_FUELTANKS_FORCE_BATCH_ADD_ACCOUNT_V7 15
 typedef struct {
+    pd_AccountIdLookupOfT_t owner;
     pd_AccountIdLookupOfT_t tank_id;
-    pd_AccountIdLookupOfT_t user_id;
-} pd_fueltanks_remove_account_V7_t;
-
-#define PD_CALL_FUELTANKS_REMOVE_ACCOUNT_RULE_DATA_V7 4
-typedef struct {
-    pd_AccountIdLookupOfT_t tank_id;
-    pd_AccountIdLookupOfT_t user_id;
-    pd_u32_t rule_set_id;
-    pd_DispatchRuleKind_t rule_kind;
-} pd_fueltanks_remove_account_rule_data_V7_t;
-
-#define PD_CALL_FUELTANKS_REMOVE_RULE_SET_V7 9
-typedef struct {
-    pd_AccountIdLookupOfT_t tank_id;
-    pd_u32_t rule_set_id;
-} pd_fueltanks_remove_rule_set_V7_t;
-
-#define PD_CALL_FUELTANKS_SCHEDULE_MUTATE_FREEZE_STATE_V7 7
-typedef struct {
-    pd_AccountIdLookupOfT_t tank_id;
-    pd_Optionu32_t rule_set_id;
-    pd_bool_t is_frozen;
-} pd_fueltanks_schedule_mutate_freeze_state_V7_t;
-
+    pd_VecAccountIdLookupOfT_t user_ids;
+} pd_fueltanks_force_batch_add_account_V7_t;
 
 #endif
 
@@ -1723,22 +1722,22 @@ typedef union {
     pd_marketplace_set_protocol_fee_V7_t marketplace_set_protocol_fee_V7;
     pd_marketplace_force_create_listing_V7_t marketplace_force_create_listing_V7;
     pd_marketplace_force_place_bid_V7_t marketplace_force_place_bid_V7;
-    pd_fueltanks_add_account_V7_t fueltanks_add_account_V7;
-    pd_fueltanks_batch_add_account_V7_t fueltanks_batch_add_account_V7;
-    pd_fueltanks_batch_remove_account_V7_t fueltanks_batch_remove_account_V7;
     pd_fueltanks_create_fuel_tank_V7_t fueltanks_create_fuel_tank_V7;
-    pd_fueltanks_destroy_fuel_tank_V7_t fueltanks_destroy_fuel_tank_V7;
-    pd_fueltanks_dispatch_V7_t fueltanks_dispatch_V7;
-    pd_fueltanks_dispatch_and_touch_V7_t fueltanks_dispatch_and_touch_V7;
-    pd_fueltanks_force_batch_add_account_V7_t fueltanks_force_batch_add_account_V7;
-    pd_fueltanks_force_create_fuel_tank_V7_t fueltanks_force_create_fuel_tank_V7;
-    pd_fueltanks_force_set_consumption_V7_t fueltanks_force_set_consumption_V7;
-    pd_fueltanks_insert_rule_set_V7_t fueltanks_insert_rule_set_V7;
     pd_fueltanks_mutate_fuel_tank_V7_t fueltanks_mutate_fuel_tank_V7;
+    pd_fueltanks_add_account_V7_t fueltanks_add_account_V7;
     pd_fueltanks_remove_account_V7_t fueltanks_remove_account_V7;
     pd_fueltanks_remove_account_rule_data_V7_t fueltanks_remove_account_rule_data_V7;
+    pd_fueltanks_dispatch_V7_t fueltanks_dispatch_V7;
+    pd_fueltanks_dispatch_and_touch_V7_t fueltanks_dispatch_and_touch_V7;
+    pd_fueltanks_mutate_freeze_state_V7_t fueltanks_mutate_freeze_state_V7;
+    pd_fueltanks_insert_rule_set_V7_t fueltanks_insert_rule_set_V7;
     pd_fueltanks_remove_rule_set_V7_t fueltanks_remove_rule_set_V7;
-    pd_fueltanks_schedule_mutate_freeze_state_V7_t fueltanks_schedule_mutate_freeze_state_V7;
+    pd_fueltanks_batch_add_account_V7_t fueltanks_batch_add_account_V7;
+    pd_fueltanks_batch_remove_account_V7_t fueltanks_batch_remove_account_V7;
+    pd_fueltanks_force_set_consumption_V7_t fueltanks_force_set_consumption_V7;
+    pd_fueltanks_destroy_fuel_tank_V7_t fueltanks_destroy_fuel_tank_V7;
+    pd_fueltanks_force_create_fuel_tank_V7_t fueltanks_force_create_fuel_tank_V7;
+    pd_fueltanks_force_batch_add_account_V7_t fueltanks_force_batch_add_account_V7;
 #endif
 } pd_MethodBasic_V7_t;
 
