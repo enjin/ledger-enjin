@@ -220,9 +220,9 @@ parser_error_t _readDispatchRuleKind(parser_context_t* c, pd_DispatchRuleKind_t*
 parser_error_t _readBoxPalletsProposalOrigin(parser_context_t* c, pd_BoxPalletsProposalOrigin_t* v);
 parser_error_t _readVoteCurrency(parser_context_t* c, pd_VoteCurrency_t* v);
 parser_error_t _readConfigOpu128(parser_context_t* c, pd_ConfigOpu128_t* v);
+parser_error_t _readOptionVecu128(parser_context_t* c, pd_OptionVecu128_t* v);
 
 // Common toString functions
-
 parser_error_t _toStringu8(
     const pd_u8_t* v,
     char* outValue,

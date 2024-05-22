@@ -1714,36 +1714,52 @@ __Z_INLINE parser_error_t _readMethod_multitokens_force_transfer_V7(
 __Z_INLINE parser_error_t _readMethod_multitokens_finish_claim_tokens_V7(
         parser_context_t* c, pd_multitokens_finish_claim_tokens_V7_t* m)
 {
+    CHECK_ERROR(_readAccountId(c, &m->destination))
+    CHECK_ERROR(_readEthereumAddress(c, &m->ethereum_address))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_multitokens_force_create_ethereum_collection_V7(
         parser_context_t* c, pd_multitokens_force_create_ethereum_collection_V7_t* m)
 {
+    CHECK_ERROR(_readAccountId(c, &m->owner))
+    CHECK_ERROR(_readEthereumAddress(c, &m->claimer))
+    CHECK_ERROR(_readCompactCollectionId(c, &m->ethereum_collection_id))
+    CHECK_ERROR(_readCollectionDescriptor(c, &m->descriptor))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_multitokens_force_set_ethereum_account_V7(
         parser_context_t* c, pd_multitokens_force_set_ethereum_account_V7_t* m)
 {
+    CHECK_ERROR(_readEthereumAddress(c, &m->address))
+    CHECK_ERROR(_readOptionVecu128(c, &m->value))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_multitokens_force_set_ethereum_collection_id_V7(
         parser_context_t* c, pd_multitokens_force_set_ethereum_collection_id_V7_t* m)
 {
+    CHECK_ERROR(_readCompactCollectionId(c, &m->ethereum_collection_id))
+    CHECK_ERROR(_readOptionu128(c, &m->native_collection_id))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_multitokens_force_set_ethereum_unmintable_token_ids_V7(
         parser_context_t* c, pd_multitokens_force_set_ethereum_unmintable_token_ids_V7_t* m)
 {
+    CHECK_ERROR(_readCompactCollectionId(c, &m->ethereum_collection_id))
+    CHECK_ERROR(_readCompactu64(c, &m->base_token_id))
+    CHECK_ERROR(_readCompactu64(c, &m->token_index))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_multitokens_force_set_unmintable_token_ids_V7(
         parser_context_t* c, pd_multitokens_force_set_unmintable_token_ids_V7_t* m)
 {
+    CHECK_ERROR(_readCompactCollectionId(c, &m->collection_id))
+    CHECK_ERROR(_readCompactu64(c, &m->base_token_id))
+    CHECK_ERROR(_readCompactu64(c, &m->token_index))
     return parser_ok;
 }
 
