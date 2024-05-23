@@ -10357,7 +10357,7 @@ parser_error_t _getMethod_ItemValue_V7(
                     outValue, outValueLen,
                     pageIdx, pageCount);
         case 2: /* fueltanks_insert_rule_set_V7 - rules */;
-            return _toStringRuleDescriptorsOfT(
+            return _toStringVecDispatchRuleDescriptor(
                     &m->basic.fueltanks_insert_rule_set_V7.rules,
                     outValue, outValueLen,
                     pageIdx, pageCount);

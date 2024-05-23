@@ -2798,6 +2798,39 @@ parser_error_t _readShouldMutateOption(parser_context_t* c, pd_ShouldMutateOptio
     return parser_ok;
 }
 
+parser_error_t _readAccountRuleDescriptor(parser_context_t* c, pd_AccountRuleDescriptor_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+
+    switch (v->value) {
+        case 0: // WhitelistedCallers
+        CHECK_ERROR(_readVecAccountId(c, &v->whitelisted_callers))
+            break;
+        case 1: // RequireToken
+        CHECK_ERROR(_readTokenAssetId(c, &v->require_token))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _readVecAccountRuleDescriptor(parser_context_t* c, pd_VecAccountRuleDescriptor_t* v)
+{
+    GEN_DEF_READVECTOR(AccountRuleDescriptor)
+}
+
+parser_error_t _readOptionVecAccountRuleDescriptor(parser_context_t* c, pd_OptionVecAccountRuleDescriptor_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+        CHECK_ERROR(_readVecAccountRuleDescriptor(c, &v->contained))
+    }
+    return parser_ok;
+}
+
 parser_error_t _readFuelTankDescriptorOfT(parser_context_t* c, pd_FuelTankDescriptorOfT_t* v)
 {
     CHECK_INPUT()
@@ -2835,11 +2868,58 @@ parser_error_t _readConsumptionOf(parser_context_t* c, pd_ConsumptionOf_t* v)
     return parser_ok;
 }
 
+parser_error_t _readUserFuelBudget(parser_context_t* c, pd_UserFuelBudget_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readCompactu128(c, &v->amount))
+    CHECK_ERROR(_readu32(c, &v->reset_period))
+    return parser_ok;
+}
+
+parser_error_t _readTankFuelBudget(parser_context_t* c, pd_TankFuelBudget_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readCompactu128(c, &v->amount))
+    CHECK_ERROR(_readu32(c, &v->reset_period))
+    return parser_ok;
+}
+
 parser_error_t _readDispatchRuleDescriptor(parser_context_t* c, pd_DispatchRuleDescriptor_t* v)
 {
     CHECK_INPUT()
-    // CHECK_ERROR(_readAccountId(c, &v->accountId))
-    // CHECK_ERROR(_readTransferParamsOfT(c, &v->params))
+    CHECK_ERROR(_readUInt8(c, &v->value))
+
+    switch (v->value) {
+        case 0: // WhitelistedCallers
+        CHECK_ERROR(_readVecAccountId(c, &v->whitelisted_callers))
+            break;
+        case 1: // WhitelistedCollections
+        CHECK_ERROR(_readVecu128(c, &v->whitelisted_collections))
+            break;
+        case 2: // MaxFuelBurnPerTransaction
+        CHECK_ERROR(_readu128(c, &v->max_fuel_burn_per_transaction))
+            break;
+        case 3: // UserFuelBudget
+        CHECK_ERROR(_readUserFuelBudget(c, &v->user_fuel_budget))
+            break;
+        case 4: // TankFuelBudget
+        CHECK_ERROR(_readTankFuelBudget(c, &v->tank_fuel_budget))
+            break;
+        case 5: // RequireToken
+        CHECK_ERROR(_readTokenAssetId(c, &v->require_token))
+            break;
+        case 6: // PermittedCalls
+        CHECK_ERROR(_readVecCall(c, &v->permitted_calls))
+            break;
+        case 7: // PermittedExtrinsics
+        CHECK_ERROR(_readVecCall(c, &v->permitted_extrinsics))
+            break;
+        case 8: // WhitelistedPallets
+        CHECK_ERROR(_readVecCall(c, &v->whitelisted_pallets))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
     return parser_ok;
 }
 
@@ -10136,6 +10216,238 @@ parser_error_t _toStringFuelTankDescriptorOfT(
 
     return parser_display_idx_out_of_range;
 }
+
+parser_error_t _toStringDispatchSettings(
+    const pd_DispatchSettings_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringbool(&v->useNoneOrigin, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringbool(&v->paysRemainingFee, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx >= *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringbool(&v->useNoneOrigin, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringbool(&v->paysRemainingFee, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringOptionDispatchSettings(
+    const pd_OptionDispatchSettings_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringDispatchSettings(
+                &v->contained,
+                outValue, outValueLen,
+                pageIdx, pageCount))
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+
+    return parser_ok;
+}
+
+parser_error_t _toStringRulesDispatchRuleKind(
+    const pd_DispatchRuleKind_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    UNUSED(pageIdx);
+    *pageCount = 1;
+
+    switch (v->value) {
+    case 0: // WhitelistedCallers
+        snprintf(outValue, outValueLen, "WhitelistedCallers");
+        break;
+    case 1: // WhitelistedCollections
+        snprintf(outValue, outValueLen, "WhitelistedCollections");
+        break;
+    case 2: // MaxFuelBurnPerTransaction
+        snprintf(outValue, outValueLen, "MaxFuelBurnPerTransaction");
+        break;
+    case 3: // UserFuelBudget
+        snprintf(outValue, outValueLen, "UserFuelBudget");
+        break;
+    case 4: // TankFuelBudget
+        snprintf(outValue, outValueLen, "TankFuelBudget");
+        break;
+    case 5: // RequireToken
+        snprintf(outValue, outValueLen, "RequireToken");
+        break;
+    case 6: // PermittedCalls
+        snprintf(outValue, outValueLen, "PermittedCalls");
+        break;
+    case 7: // PermittedExtrinsics
+        snprintf(outValue, outValueLen, "PermittedExtrinsics");
+        break;
+    case 8: // WhitelistedPallets
+        snprintf(outValue, outValueLen, "WhitelistedPallets");
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _toStringUserFuelBudget(
+    const pd_UserFuelBudget_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringCompactu128(&v->amount, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringu32(&v->reset_period, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx >= *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringCompactu128(&v->amount, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringu32(&v->reset_period, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringTankFuelBudget(
+    const pd_TankFuelBudget_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringCompactu128(&v->amount, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringu32(&v->reset_period, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx >= *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringCompactu128(&v->amount, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringu32(&v->reset_period, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringDispatchRuleDescriptor(
+        const pd_DispatchRuleDescriptor_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    *pageCount = 1;
+    switch (v->value) {
+    case 0: // WhitelistedCallers
+        CHECK_ERROR(_toStringVecAccountId(&v->whitelisted_callers, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 1: // WhitelistedCollections
+        CHECK_ERROR(_toStringVecu128(&v->whitelisted_collections, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 2: // MaxFuelBurnPerTransaction
+        CHECK_ERROR(_toStringu128(&v->max_fuel_burn_per_transaction, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 3: // UserFuelBudget
+        CHECK_ERROR(_toStringUserFuelBudget(&v->user_fuel_budget, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 4: // TankFuelBudget
+        CHECK_ERROR(_toStringTankFuelBudget(&v->tank_fuel_budget, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 5: // RequireToken
+        CHECK_ERROR(_toStringTokenAssetId(&v->require_token, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 6: // PermittedCalls
+        CHECK_ERROR(_toStringVecCall(&v->permitted_calls, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 7: // PermittedExtrinsics
+        CHECK_ERROR(_toStringVecCall(&v->permitted_extrinsics, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 8: // WhitelistedPallets
+        CHECK_ERROR(_toStringVecCall(&v->whitelisted_pallets, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _toStringVecDispatchRuleDescriptor(
+        const pd_VecDispatchRuleDescriptor_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    GEN_DEF_TOSTRING_VECTOR(DispatchRuleDescriptor);
+}
+
 
 ///////////////////////////////////
 ///////////////////////////////////

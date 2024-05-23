@@ -1564,7 +1564,28 @@ typedef struct {
 } pd_ShouldMutateOption_t;
 
 typedef struct {
+    pd_Compactu128_t amount;
+    pd_u32_t reset_period;
+} pd_TankFuelBudget_t;
 
+typedef struct {
+    pd_Compactu128_t amount;
+    pd_u32_t reset_period;
+} pd_UserFuelBudget_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_VecAccountId_t whitelisted_callers;
+        pd_Vecu128_t whitelisted_collections;
+        pd_u128_t max_fuel_burn_per_transaction;
+        pd_UserFuelBudget_t user_fuel_budget;
+        pd_TankFuelBudget_t tank_fuel_budget;
+        pd_TokenAssetId_t require_token;
+        pd_VecCall_t permitted_calls;
+        pd_VecCall_t permitted_extrinsics;
+        pd_VecCall_t whitelisted_pallets;
+    };
 } pd_DispatchRuleDescriptor_t;
 
 typedef struct {

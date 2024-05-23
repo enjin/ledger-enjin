@@ -1634,6 +1634,13 @@ parser_error_t _toStringOptionDispatchSettings(
         uint8_t pageIdx,
         uint8_t* pageCount);
 
+parser_error_t _toStringVecDispatchRuleDescriptor(
+        const pd_VecDispatchRuleDescriptor_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
 #ifdef __cplusplus
 }
 #endif

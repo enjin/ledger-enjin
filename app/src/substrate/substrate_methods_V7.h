@@ -1276,7 +1276,6 @@ typedef struct {
     pd_u32_t max;
 } pd_fellowshipcollective_cleanup_poll_V7_t;
 
-// TODO: FIX TYPES
 #define PD_CALL_FELLOWSHIPREFERENDA_SUBMIT_V7 0
 typedef struct {
     pd_BoxPalletsProposalOrigin_t proposal_origin;
