@@ -1384,7 +1384,7 @@ typedef struct {
 
 #define PD_CALL_FUELTANKS_CREATE_FUEL_TANK_V7 0
 typedef struct {
-    pd_FuelTankDescriptorOf_t descriptor;
+    pd_FuelTankDescriptorOfT_t descriptor;
 } pd_fueltanks_create_fuel_tank_V7_t;
 
 #define PD_CALL_FUELTANKS_MUTATE_FUEL_TANK_V7 1
@@ -1477,7 +1477,7 @@ typedef struct {
 #define PD_CALL_FUELTANKS_FORCE_CREATE_FUEL_TANK_V7 14
 typedef struct {
     pd_AccountIdLookupOfT_t owner;
-    pd_FuelTankDescriptorOf_t descriptor;
+    pd_FuelTankDescriptorOfT_t descriptor;
 } pd_fueltanks_force_create_fuel_tank_V7_t;
 
 #define PD_CALL_FUELTANKS_FORCE_BATCH_ADD_ACCOUNT_V7 15

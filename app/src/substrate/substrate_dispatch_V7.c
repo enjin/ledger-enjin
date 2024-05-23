@@ -2111,7 +2111,7 @@ __Z_INLINE parser_error_t _readMethod_marketplace_force_place_bid_V7(
 __Z_INLINE parser_error_t _readMethod_fueltanks_create_fuel_tank_V7(
         parser_context_t* c, pd_fueltanks_create_fuel_tank_V7_t* m)
 {
-    CHECK_ERROR(_readFuelTankDescriptorOf(c, &m->descriptor))
+    CHECK_ERROR(_readFuelTankDescriptorOfT(c, &m->descriptor))
     return parser_ok;
 }
 
@@ -2232,7 +2232,7 @@ __Z_INLINE parser_error_t _readMethod_fueltanks_force_create_fuel_tank_V7(
         parser_context_t* c, pd_fueltanks_force_create_fuel_tank_V7_t* m)
 {
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->owner))
-    CHECK_ERROR(_readFuelTankDescriptorOf(c, &m->descriptor))
+    CHECK_ERROR(_readFuelTankDescriptorOfT(c, &m->descriptor))
     return parser_ok;
 }
 
@@ -2788,7 +2788,7 @@ parser_error_t _readMethod_V7(
         break;
     case 4864: /* module 19 call 0 */
         CHECK_ERROR(_readMethod_stakeexchange_create_offer_V7(c, &method->basic.stakeexchange_create_offer_V7))
-            break;
+        break;
     case 4865: /* module 19 call 1 */
         CHECK_ERROR(_readMethod_stakeexchange_cancel_offer_V7(c, &method->basic.stakeexchange_cancel_offer_V7))
         break;

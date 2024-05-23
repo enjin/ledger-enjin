@@ -211,7 +211,7 @@ parser_error_t _readStakingInfo(parser_context_t* c, pd_StakingInfo_t* v);
 parser_error_t _readTokenAssetId(parser_context_t* c, pd_TokenAssetId_t* v);
 parser_error_t _readListingIdOf(parser_context_t* c, pd_ListingIdOfT_t* v);
 parser_error_t _readOptionAuctionDataOfT(parser_context_t* c, pd_OptionAuctionDataOfT_t* v);
-parser_error_t _readFuelTankDescriptorOf(parser_context_t* c, pd_FuelTankDescriptorOf_t* v);
+parser_error_t _readFuelTankDescriptorOfT(parser_context_t* c, pd_FuelTankDescriptorOfT_t* v);
 parser_error_t _readOptionDispatchSettings(parser_context_t* c, pd_OptionDispatchSettings_t* v);
 parser_error_t _readConsumptionOf(parser_context_t* c, pd_ConsumptionOf_t* v);
 parser_error_t _readVecDispatchRuleDescriptor(parser_context_t* c, pd_VecDispatchRuleDescriptor_t* v);
@@ -223,7 +223,10 @@ parser_error_t _readConfigOpu128(parser_context_t* c, pd_ConfigOpu128_t* v);
 parser_error_t _readOptionVecu128(parser_context_t* c, pd_OptionVecu128_t* v);
 parser_error_t _readOptionUserAccountManagement(parser_context_t* c, pd_OptionUserAccountManagement_t* v);
 parser_error_t _readOptionVecAccountRuleDescriptor(parser_context_t* c, pd_OptionVecAccountRuleDescriptor_t* v);
-
+parser_error_t _readRulesAccountRuleDescriptor(parser_context_t* c, pd_AccountRuleDescriptor_t* v);
+parser_error_t _readVecAccountRuleDescriptor(parser_context_t* c, pd_VecAccountRuleDescriptor_t* v);
+        
+        
 // Common toString functions
 parser_error_t _toStringu8(
     const pd_u8_t* v,
@@ -1590,7 +1593,7 @@ parser_error_t _toStringOptionVecu128(
         uint8_t* pageCount);
 
 parser_error_t _toStringFuelTankDescriptorOfT(
-        const pd_FuelTankDescriptorOf_t* v,
+        const pd_FuelTankDescriptorOfT_t* v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,
@@ -1611,7 +1614,7 @@ parser_error_t _toStringRulesDispatchRuleKind(
         uint8_t* pageCount);
 
 parser_error_t _toStringRuleDescriptorsOfT(
-        const pd_DispatchRuleDescriptor_t* v,
+        const pd_VecDispatchRuleDescriptor_t* v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,
@@ -1619,6 +1622,13 @@ parser_error_t _toStringRuleDescriptorsOfT(
 
 parser_error_t _toStringConsumptionOfT(
         const pd_ConsumptionOf_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringOptionDispatchSettings(
+        const pd_OptionDispatchSettings_t* v,
         char* outValue,
         uint16_t outValueLen,
         uint8_t pageIdx,

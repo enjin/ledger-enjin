@@ -2781,14 +2781,31 @@ parser_error_t _readOptionUserAccountManagement(parser_context_t* c, pd_OptionUs
     return parser_ok;
 }
 
-parser_error_t _readFuelTankDescriptorOf(parser_context_t* c, pd_FuelTankDescriptorOf_t* v)
+parser_error_t _readShouldMutateOption(parser_context_t* c, pd_ShouldMutateOption_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+
+    switch (v->value) {
+        case 0: // NoMutation
+            break;
+        case 1: // SomeMutation
+        CHECK_ERROR(_readOptionUserAccountManagement(c, &v->set))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
+    return parser_ok;
+}
+
+parser_error_t _readFuelTankDescriptorOfT(parser_context_t* c, pd_FuelTankDescriptorOfT_t* v)
 {
     CHECK_INPUT()
     CHECK_ERROR(_readBytes(c, &v->name))
     CHECK_ERROR(_readOptionUserAccountManagement(c, &v->userAccountManagement))
     CHECK_ERROR(_readBytes(c, &v->ruleSets))
     CHECK_ERROR(_readbool(c, &v->providesDeposit))
-    CHECK_ERROR(_readRulesAccountRuleDescriptor(c, &v->accountRules))
+    CHECK_ERROR(_readVecAccountRuleDescriptor(c, &v->accountRules))
     return parser_ok;
 }
 
@@ -2835,7 +2852,7 @@ parser_error_t _readVecDispatchRuleDescriptor(parser_context_t* c, pd_VecDispatc
 parser_error_t _readFuelTankMutationOf(parser_context_t* c, pd_FuelTankMutationOf_t* v)
 {
     CHECK_INPUT()
-    CHECK_ERROR(_readOptionUserAccountManagement(c, &v->userAccountManagement))
+    CHECK_ERROR(_readShouldMutateOption(c, &v->userAccountManagement))
     CHECK_ERROR(_readOptionbool(c, &v->providesDeposit))
     CHECK_ERROR(_readOptionVecAccountRuleDescriptor(c, &v->accountRules))
     return parser_ok;
@@ -10027,10 +10044,6 @@ parser_error_t _toStringTankMutation(
 {
     CLEAN_AND_CHECK()
 
-    pd_ShouldMutateOption_t userAccountManagement;
-    pd_Optionbool_t providesDeposit;
-    pd_OptionVecAccountRuleDescriptor_t accountRules;
-
     // First measure number of pages
     uint8_t pages[3] = { 0 };
     CHECK_ERROR(_toStringShouldMutateOption(&v->userAccountManagement, outValue, outValueLen, 0, &pages[0]))
@@ -10056,6 +10069,7 @@ parser_error_t _toStringTankMutation(
         CHECK_ERROR(_toStringOptionbool(&v->providesDeposit, outValue, outValueLen, pageIdx, &pages[1]))
         return parser_ok;
     }
+    pageIdx -= pages[1];
 
     if (pageIdx < pages[1]) {
         CHECK_ERROR(_toStringOptionVecAccountRuleDescriptor(&v->accountRules, outValue, outValueLen, pageIdx, &pages[2]))
@@ -10065,6 +10079,63 @@ parser_error_t _toStringTankMutation(
     return parser_display_idx_out_of_range;
 }
 
+parser_error_t _toStringFuelTankDescriptorOfT(
+    const pd_FuelTankDescriptorOfT_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[5] = { 0 };
+    CHECK_ERROR(_toStringBytes(&v->name, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringOptionUserAccountManagement(&v->userAccountManagement, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringBytes(&v->ruleSets, outValue, outValueLen, 0, &pages[2]))
+    CHECK_ERROR(_toStringbool(&v->providesDeposit, outValue, outValueLen, 0, &pages[3]))
+    CHECK_ERROR(_toStringVecAccountRuleDescriptor(&v->accountRules, outValue, outValueLen, 0, &pages[4]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx >= *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringBytes(&v->name, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringOptionUserAccountManagement(&v->userAccountManagement, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    pageIdx -= pages[1];
+
+    if (pageIdx < pages[2]) {
+        CHECK_ERROR(_toStringBytes(&v->ruleSets, outValue, outValueLen, pageIdx, &pages[2]))
+        return parser_ok;
+    }
+        pageIdx -= pages[2];
+
+    if (pageIdx < pages[3]) {
+        CHECK_ERROR(_toStringbool(&v->providesDeposit, outValue, outValueLen, pageIdx, &pages[3]))
+        return parser_ok;
+    }
+    pageIdx -= pages[3];
+
+    if (pageIdx < pages[4]) {
+        CHECK_ERROR(_toStringVecAccountRuleDescriptor(&v->accountRules, outValue, outValueLen, pageIdx, &pages[4]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
 
 ///////////////////////////////////
 ///////////////////////////////////

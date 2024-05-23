@@ -1515,19 +1515,33 @@ typedef struct {
     pd_UserAccountManagement_t contained;
 } pd_OptionUserAccountManagement_t;
 
+// typedef struct {
+//     uint64_t _len;
+//     const uint8_t* _ptr;
+//     uint64_t _lenBuffer;
+// } pd_VecRulesAccountRuleDescriptor_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_VecAccountId_t whitelisted_callers;
+        pd_TokenAssetId_t require_token;
+    };
+} pd_AccountRuleDescriptor_t;
+
 typedef struct {
     uint64_t _len;
     const uint8_t* _ptr;
     uint64_t _lenBuffer;
-} pd_VecRulesAccountRuleDescriptor_t;
+} pd_VecAccountRuleDescriptor_t;
 
 typedef struct {
     pd_Bytes_t name;
     pd_OptionUserAccountManagement_t userAccountManagement;
     pd_Bytes_t ruleSets;
     pd_bool_t providesDeposit;
-    pd_VecRulesAccountRuleDescriptor_t accountRules;
-} pd_FuelTankDescriptorOf_t;
+    pd_VecAccountRuleDescriptor_t  accountRules;
+} pd_FuelTankDescriptorOfT_t;
 
 typedef struct {
     pd_bool_t useNoneOrigin;
@@ -1548,20 +1562,6 @@ typedef struct {
     uint8_t value;
     pd_OptionUserAccountManagement_t set;
 } pd_ShouldMutateOption_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_VecAccountId_t whitelisted_callers;
-        pd_TokenAssetId_t require_token;
-    };
-} pd_AccountRuleDescriptor_t;
-
-typedef struct {
-    uint64_t _len;
-    const uint8_t* _ptr;
-    uint64_t _lenBuffer;
-} pd_VecAccountRuleDescriptor_t;
 
 typedef struct {
 
