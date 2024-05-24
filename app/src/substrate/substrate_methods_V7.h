@@ -778,20 +778,20 @@ typedef struct {
 
 #define PD_CALL_VOTEMANAGER_REMOVE_VOTE_V7 1
 typedef struct {
-    pd_Optionu16_t class;
+    pd_Optionu16_t class_;
     pd_u32_t index;
 } pd_votemanager_remove_vote_V7_t;
 
 #define PD_CALL_VOTEMANAGER_REMOVE_OTHER_VOTE_V7 2
 typedef struct {
     pd_AccountIdLookupOfT_t target;
-    pd_u16_t class;
+    pd_u16_t class_;
     pd_u32_t index;
 } pd_votemanager_remove_other_vote_V7_t;
 
 #define PD_CALL_VOTEMANAGER_UNLOCK_V7 3
 typedef struct {
-    pd_u16_t class;
+    pd_u16_t class_;
     pd_AccountIdLookupOfT_t target;
     pd_u32_t index;
 } pd_votemanager_unlock_V7_t;

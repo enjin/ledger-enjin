@@ -1315,7 +1315,7 @@ __Z_INLINE parser_error_t _readMethod_votemanager_vote_V7(
 __Z_INLINE parser_error_t _readMethod_votemanager_remove_vote_V7(
     parser_context_t* c, pd_votemanager_remove_vote_V7_t* m)
 {
-    CHECK_ERROR(_readOptionu16(c, &m->class))
+    CHECK_ERROR(_readOptionu16(c, &m->class_))
     CHECK_ERROR(_readu32(c, &m->index))
     return parser_ok;
 }
@@ -1324,7 +1324,7 @@ __Z_INLINE parser_error_t _readMethod_votemanager_remove_other_vote_V7(
     parser_context_t* c, pd_votemanager_remove_other_vote_V7_t* m)
 {
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->target))
-    CHECK_ERROR(_readu16(c, &m->class))
+    CHECK_ERROR(_readu16(c, &m->class_))
     CHECK_ERROR(_readu32(c, &m->index))
     return parser_ok;
 }
@@ -1332,7 +1332,7 @@ __Z_INLINE parser_error_t _readMethod_votemanager_remove_other_vote_V7(
 __Z_INLINE parser_error_t _readMethod_votemanager_unlock_V7(
     parser_context_t* c, pd_votemanager_unlock_V7_t* m)
 {
-    CHECK_ERROR(_readu16(c, &m->class))
+    CHECK_ERROR(_readu16(c, &m->class_))
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->target))
     CHECK_ERROR(_readu32(c, &m->index))
     return parser_ok;
@@ -8978,7 +8978,7 @@ parser_error_t _getMethod_ItemValue_V7(
         switch (itemIdx) {
         case 0: /* votemanager_remove_vote_V7 - class */;
             return _toStringOptionu16(
-                &m->basic.votemanager_remove_vote_V7.class,
+                &m->basic.votemanager_remove_vote_V7.class_,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* votemanager_remove_vote_V7 - index */;
@@ -8998,7 +8998,7 @@ parser_error_t _getMethod_ItemValue_V7(
                 pageIdx, pageCount);
         case 1: /* votemanager_remove_other_vote_V7 - class */;
             return _toStringu16(
-                &m->basic.votemanager_remove_other_vote_V7.class,
+                &m->basic.votemanager_remove_other_vote_V7.class_,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2: /* votemanager_remove_other_vote_V7 - index */;
@@ -9013,7 +9013,7 @@ parser_error_t _getMethod_ItemValue_V7(
         switch (itemIdx) {
         case 0: /* votemanager_unlock_V7 - class */;
             return _toStringu16(
-                &m->basic.votemanager_unlock_V7.class,
+                &m->basic.votemanager_unlock_V7.class_,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* votemanager_unlock_V7 - target */;
