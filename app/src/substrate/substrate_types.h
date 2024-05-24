@@ -1515,12 +1515,6 @@ typedef struct {
     pd_UserAccountManagement_t contained;
 } pd_OptionUserAccountManagement_t;
 
-// typedef struct {
-//     uint64_t _len;
-//     const uint8_t* _ptr;
-//     uint64_t _lenBuffer;
-// } pd_VecRulesAccountRuleDescriptor_t;
-
 typedef struct {
     uint8_t value;
     union {

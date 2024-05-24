@@ -3559,6 +3559,8 @@ const char* _getMethod_Name_V7_ParserFull(uint16_t callPrivIdx)
         return STR_ME_PAUSE_EXTRINSIC;
     case 65281: /* module 255 call 1 */
         return STR_ME_RESUME_EXTRINSIC;
+    case 4864: /* module 19 call 0 */
+        return STR_ME_CREATE_OFFER;
     case 4865: /* module 19 call 1 */
         return STR_ME_CANCEL_OFFER;
     case 4866: /* module 19 call 2 */
