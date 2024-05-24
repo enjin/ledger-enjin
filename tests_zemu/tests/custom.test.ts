@@ -42,14 +42,14 @@ const TXNS = [
     name: 'session_setkeys',
     blob: txSession_setKeys,
   },
-  {
-    name: 'staking_nominate',
-    blob: txStaking_nominate,
-  },
-  {
-    name: 'proxy_proxy',
-    blob: txProxy_proxy,
-  },
+  // {
+  //   name: 'staking_nominate',
+  //   blob: txStaking_nominate,
+  // },
+  // {
+  //   name: 'proxy_proxy',
+  //   blob: txProxy_proxy,
+  // },
   {
     name: 'txUtility_batch',
     blob: txUtility_batch,

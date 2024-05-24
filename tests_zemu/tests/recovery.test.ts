@@ -38,8 +38,8 @@ describe('Recovery', function () {
 
       const enjin_expected_address = 'enEgRU9nN8czrFQputvBDeiimW7HfD2o671kfWcPkk9ni1ukb'
       const enjin_expected_pk = 'b0eab5dffb19c225c010b61a7f3b6838bb462f70936298a4943711287d2596c9'
-      const polkadot_expected_address = '166wVhuQsKFeb7bd1faydHgVvX1bZU2rUuY7FJmWApNz2fQY'
-      const polkadot_expected_pk = 'e1b4d72d27b3e91b9b6116555b4ea17138ddc12ca7cdbab30e2e0509bd848419'
+      const polkadot_expected_address = 'enGTmPu84fTWwFyuM2LPuoZyYacdN8cqJqND94gEYKfnQpgax'
+      const polkadot_expected_pk = 'ffbc10f71d63e0da1b9e7ee2eb4037466551dc32b9d4641aafd73a65970fae42'
 
       let resp = await app.getAddress(0x80000000, 0x80000000, 0x80000000)
 
