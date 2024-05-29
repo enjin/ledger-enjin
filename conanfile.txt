@@ -4,6 +4,3 @@ fmt/7.0.2
 
 [generators]
 cmake
-
-[settings]
-compiler.version=17
