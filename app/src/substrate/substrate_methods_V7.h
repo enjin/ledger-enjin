@@ -1830,6 +1830,22 @@ typedef struct {
 typedef struct {
 } pd_session_purge_keys_V7_t;
 
+///////////////////////////////////
+// Custom
+///////////////////////////////////
+#define PD_CALL_BALANCES_SET_BALANCE_DEPRECATED_V7 1
+typedef struct {
+    pd_AccountIdLookupOfT_t who;
+    pd_CompactBalance_t new_free;
+    pd_CompactBalance_t old_reserved;
+} pd_balances_set_balance_deprecated_V7_t;
+
+#define PD_CALL_BALANCES_TRANSFER_V7 7
+typedef struct {
+    pd_AccountIdLookupOfT_t dest;
+    pd_CompactBalance_t value;
+} pd_balances_transfer_V7_t;
+
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS
 #endif
@@ -1985,6 +2001,11 @@ typedef union {
     pd_staking_rebond_V7_t staking_rebond_V7;
     pd_session_set_keys_V7_t session_set_keys_V7;
     pd_session_purge_keys_V7_t session_purge_keys_V7;
+///////////////////////////////////
+// Custom
+///////////////////////////////////
+    pd_balances_set_balance_deprecated_V7_t balances_set_balance_deprecated_V7;
+    pd_balances_transfer_V7_t balances_transfer_V7;
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS
 #endif

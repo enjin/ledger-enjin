@@ -1303,6 +1303,23 @@ __Z_INLINE parser_error_t _readMethod_auctions_cancel_auction_V7(
 ////// Custom
 ////////////////////////////////////////////
 
+__Z_INLINE parser_error_t _readMethod_balances_set_balance_deprecated_V7(
+    parser_context_t* c, pd_balances_set_balance_deprecated_V7_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->who))
+    CHECK_ERROR(_readCompactBalance(c, &m->new_free))
+    CHECK_ERROR(_readCompactBalance(c, &m->old_reserved))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_balances_transfer_V7(
+    parser_context_t* c, pd_balances_transfer_V7_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->dest))
+    CHECK_ERROR(_readCompactBalance(c, &m->value))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_votemanager_vote_V7(
     parser_context_t* c, pd_votemanager_vote_V7_t* m)
 {
@@ -2345,6 +2362,16 @@ parser_error_t _readMethod_V7(
         CHECK_ERROR(_readMethod_crowdloan_contribute_all_V7(c, &method->basic.crowdloan_contribute_all_V7))
         break;
 
+/////////////////////////
+////// Custom
+/////////////////////////
+    case 1537: /* module 6 call 1 */
+        CHECK_ERROR(_readMethod_balances_set_balance_deprecated_V7(c, &method->nested.balances_set_balance_deprecated_V7))
+        break;
+    case 1543: /* module 6 call 7 */
+        CHECK_ERROR(_readMethod_balances_transfer_V7(c, &method->nested.balances_transfer_V7))
+        break;
+
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS
     case 25345: /* module 99 call 1 */
@@ -3119,7 +3146,7 @@ const char* _getMethod_ModuleName_V7(uint8_t moduleIdx)
     switch (moduleIdx) {
     case 6: // ok
         return STR_MO_BALANCES;
-    case 7:
+    case 7: // ok
         return STR_MO_STAKING;
     case 10: // ok 
         return STR_MO_SESSION;
@@ -3257,6 +3284,13 @@ const char* _getMethod_Name_V7(uint8_t moduleIdx, uint8_t callIdx)
         return STR_ME_POKE;
     case 18696: /* module 73 call 8 */
         return STR_ME_CONTRIBUTE_ALL;
+//////////////////////////////////
+///// Custom
+//////////////////////////////////
+    case 1537: /* module 6 call 1 */
+        return STR_ME_SET_BALANCE_DEPRECATED;
+    case 1543: /* module 6 call 7 */
+        return STR_ME_TRANSFER;
     default:
         return _getMethod_Name_V7_ParserFull(callPrivIdx);
     }
@@ -3839,6 +3873,13 @@ uint8_t _getMethod_NumItems_V7(uint8_t moduleIdx, uint8_t callIdx)
     case 18695: /* module 73 call 7 */
         return 1;
     case 18696: /* module 73 call 8 */
+        return 2;
+////////////////////////////////
+// Custom
+////////////////////////////////
+    case 1537: /* module 6 call 1 */
+        return 3;
+    case 1543: /* module 6 call 7 */
         return 2;
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS
@@ -4599,6 +4640,29 @@ const char* _getMethod_ItemName_V7(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             return STR_IT_index;
         case 1:
             return STR_IT_signature;
+        default:
+            return NULL;
+        }
+//////////////////////////////////
+// Custom
+//////////////////////////////////
+    case 1537: /* module 6 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_who;
+        case 1:
+            return STR_IT_new_free;
+        case 2:
+            return STR_IT_old_reserved;
+        default:
+            return NULL;
+        }
+    case 1543: /* module 6 call 7 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_dest;
+        case 1:
+            return STR_IT_value;
         default:
             return NULL;
         }
@@ -7205,6 +7269,44 @@ parser_error_t _getMethod_ItemValue_V7(
         case 1: /* crowdloan_contribute_all_V7 - signature */;
             return _toStringOptionMultiSignature(
                 &m->basic.crowdloan_contribute_all_V7.signature,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+////////////////////////////////
+// Custom
+////////////////////////////////
+    case 1537: /* module 6 call 1 */
+        switch (itemIdx) {
+        case 0: /* balances_set_balance_deprecated_V7 - dest */;
+            return _toStringAccountIdLookupOfT(
+                &m->nested.balances_set_balance_deprecated_V7.who,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* balances_set_balance_deprecated_V7 - amount */;
+            return _toStringCompactBalance(
+                &m->nested.balances_set_balance_deprecated_V7.new_free,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* balances_set_balance_deprecated_V7 - new_free */;
+            return _toStringCompactBalance(
+                &m->nested.balances_set_balance_deprecated_V7.old_reserved,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 1543: /* module 6 call 7 */
+        switch (itemIdx) {
+        case 0: /* balances_transfer_V7 - dest */;
+            return _toStringAccountIdLookupOfT(
+                &m->nested.balances_transfer_V7.dest,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* balances_transfer_V7 - value */;
+            return _toStringCompactBalance(
+                &m->nested.balances_transfer_V7.value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
