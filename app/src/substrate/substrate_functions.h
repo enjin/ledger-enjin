@@ -225,6 +225,7 @@ parser_error_t _readOptionUserAccountManagement(parser_context_t* c, pd_OptionUs
 parser_error_t _readOptionVecAccountRuleDescriptor(parser_context_t* c, pd_OptionVecAccountRuleDescriptor_t* v);
 parser_error_t _readRulesAccountRuleDescriptor(parser_context_t* c, pd_AccountRuleDescriptor_t* v);
 parser_error_t _readVecAccountRuleDescriptor(parser_context_t* c, pd_VecAccountRuleDescriptor_t* v);
+parser_error_t _readAsyncBackingParams(parser_context_t* c, pd_AsyncBackingParams_t* v);
         
         
 // Common toString functions
@@ -1640,6 +1641,21 @@ parser_error_t _toStringVecDispatchRuleDescriptor(
         uint16_t outValueLen,
         uint8_t pageIdx,
         uint8_t* pageCount);
+
+parser_error_t _toStringNewAsyncBackingParams(
+        const pd_NewAsyncBackingParams_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
+parser_error_t _toStringAsyncBackingParams(
+        const pd_AsyncBackingParams_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
+
 
 #ifdef __cplusplus
 }

@@ -1599,6 +1599,15 @@ typedef struct {
     pd_OptionVecAccountRuleDescriptor_t accountRules;
 } pd_FuelTankMutationOf_t;
 
+typedef struct {
+    pd_u32_t max_candidate_depth;
+    pd_u32_t allowed_ancestry_len;
+} pd_NewAsyncBackingParams_t;
+
+typedef struct {
+    pd_NewAsyncBackingParams_t new_;
+} pd_AsyncBackingParams_t;
+
 #ifdef __cplusplus
 }
 #endif

@@ -1486,6 +1486,11 @@ typedef struct {
     pd_VecAccountIdLookupOfT_t user_ids;
 } pd_fueltanks_force_batch_add_account_V7_t;
 
+#define PD_CALL_CONFIGURATION_SET_ASYNC_BACKING_PARAMS_V7 45
+typedef struct {
+    pd_AsyncBackingParams_t new_;
+} pd_configuration_set_async_backing_params_V7_t;
+
 #endif
 
 typedef union {
@@ -1737,6 +1742,7 @@ typedef union {
     pd_fueltanks_destroy_fuel_tank_V7_t fueltanks_destroy_fuel_tank_V7;
     pd_fueltanks_force_create_fuel_tank_V7_t fueltanks_force_create_fuel_tank_V7;
     pd_fueltanks_force_batch_add_account_V7_t fueltanks_force_batch_add_account_V7;
+    pd_configuration_set_async_backing_params_V7_t configuration_set_async_backing_params_V7;
 #endif
 } pd_MethodBasic_V7_t;
 

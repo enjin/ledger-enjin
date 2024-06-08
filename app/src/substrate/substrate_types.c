@@ -3012,6 +3012,21 @@ parser_error_t _readVoteCurrency(parser_context_t* c, pd_VoteCurrency_t* v)
     return parser_ok;
 }
 
+parser_error_t _readNewAsyncBackingParams(parser_context_t* c, pd_NewAsyncBackingParams_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readu32(c, &v->max_candidate_depth))
+    CHECK_ERROR(_readu32(c, &v->allowed_ancestry_len))
+    return parser_ok;
+}
+
+parser_error_t _readAsyncBackingParams(parser_context_t* c, pd_AsyncBackingParams_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readNewAsyncBackingParams(c, &v->new_))
+    return parser_ok;
+}
+
 
 ///////////////////////////////////
 ///////////////////////////////////
@@ -10446,6 +10461,73 @@ parser_error_t _toStringVecDispatchRuleDescriptor(
         uint8_t* pageCount)
 {
     GEN_DEF_TOSTRING_VECTOR(DispatchRuleDescriptor);
+}
+
+parser_error_t _toStringNewAsyncBackingParams(
+    const pd_NewAsyncBackingParams_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringu32(&v->max_candidate_depth, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringu32(&v->allowed_ancestry_len, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringu32(&v->max_candidate_depth, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }    
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringu32(&v->allowed_ancestry_len, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringAsyncBackingParams(
+    const pd_AsyncBackingParams_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[1] = { 0 };
+    CHECK_ERROR(_toStringNewAsyncBackingParams(&v->new_, outValue, outValueLen, 0, &pages[0]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringNewAsyncBackingParams(&v->new_, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
 }
 
 

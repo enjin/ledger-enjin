@@ -2262,6 +2262,13 @@ __Z_INLINE parser_error_t _readMethod_fueltanks_force_batch_add_account_V7(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_configuration_set_async_backing_params_V7(
+    parser_context_t* c, pd_configuration_set_async_backing_params_V7_t* m)
+{
+    CHECK_ERROR(_readAsyncBackingParams(c, &m->new_))
+    return parser_ok;
+}
+
 #endif
 
 parser_error_t _readMethod_V7(
@@ -3128,6 +3135,9 @@ parser_error_t _readMethod_V7(
     case 65039: /* module 254 call 15 */
         CHECK_ERROR(_readMethod_fueltanks_force_batch_add_account_V7(c, &method->basic.fueltanks_force_batch_add_account_V7))
         break;
+    case 13101: /* module 51 call 45 */
+        CHECK_ERROR(_readMethod_configuration_set_async_backing_params_V7(c, &method->basic.configuration_set_async_backing_params_V7))
+        break;
 #endif
     default:
         return parser_unexpected_callIndex;
@@ -3803,6 +3813,8 @@ const char* _getMethod_Name_V7_ParserFull(uint16_t callPrivIdx)
         return STR_ME_FORCE_CREATE_FUEL_TANK;
     case 65039: /* module 254 call 15 */
         return STR_ME_FORCE_BATCH_ADD_ACCOUNT;
+    case 13101: /* module 51 call 45 */
+        return STR_ME_SET_ASYNC_BACKING_PARAMS;
 #endif
     default:
         return NULL;
@@ -4387,6 +4399,8 @@ uint8_t _getMethod_NumItems_V7(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 4636: /* module 18 call 28 */
         return 0;
+    case 13101: /* module 51 call 45 */
+        return 1;
 #endif
     default:
         return 0;
@@ -6864,6 +6878,13 @@ const char* _getMethod_ItemName_V7(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         }
     case 4636: /* module 18 call 28 */
         switch (itemIdx) {
+        default:
+            return NULL;
+        }
+    case 13101: /* module 51 call 45 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_new_;
         default:
             return NULL;
         }
@@ -10882,6 +10903,16 @@ parser_error_t _getMethod_ItemValue_V7(
         switch (itemIdx) {
         default:
             return parser_no_data;
+        }
+    case 13101: /* module 51 call 45 */
+        switch (itemIdx) {
+        case 0: /* configuration_set_async_backing_params_V7 - new_ */;
+            return _toStringAsyncBackingParams(
+                    &m->basic.configuration_set_async_backing_params_V7.new_,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        default:
+            return NULL;
         }
 #endif
     default:

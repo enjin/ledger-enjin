@@ -322,6 +322,7 @@ static const char* STR_ME_FORCE_SET_CONSUMPTION = "Force set consumption";
 static const char* STR_ME_DESTROY_FUEL_TANK = "Destroy fuel tank";
 static const char* STR_ME_FORCE_CREATE_FUEL_TANK = "Force create fuel tank";
 static const char* STR_ME_FORCE_BATCH_ADD_ACCOUNT = "Force batch add account";
+static const char* STR_ME_SET_ASYNC_BACKING_PARAMS = "Set async backing params";
 
 // Items names
 static const char* STR_IT_remark = "Remark";
