@@ -3027,6 +3027,18 @@ parser_error_t _readAsyncBackingParams(parser_context_t* c, pd_AsyncBackingParam
     return parser_ok;
 }
 
+parser_error_t _readSessionKeys(parser_context_t* c, pd_SessionKeys_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readBytes(c, &v->grandpa))
+    CHECK_ERROR(_readBytes(c, &v->babe))
+    CHECK_ERROR(_readBytes(c, &v->im_online))
+    CHECK_ERROR(_readBytes(c, &v->para_validator))
+    CHECK_ERROR(_readBytes(c, &v->para_assignment))
+    CHECK_ERROR(_readBytes(c, &v->authority_discovery))
+    return parser_ok;
+}
+
 
 ///////////////////////////////////
 ///////////////////////////////////
@@ -7552,6 +7564,16 @@ parser_error_t _toStringOfferOfT(
     return parser_display_idx_out_of_range;
 }
 
+parser_error_t _toStringCollectionId(
+        const pd_CollectionId_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+    return _toStringu128(&v->value, outValue, outValueLen, pageIdx, pageCount);
+}
+
 parser_error_t _toStringTokenId(
         const pd_TokenId_t* v,
         char* outValue,
@@ -10530,6 +10552,70 @@ parser_error_t _toStringAsyncBackingParams(
     return parser_display_idx_out_of_range;
 }
 
+parser_error_t _toStringSessionKeys(
+    const pd_SessionKeys_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[6] = { 0 };
+    CHECK_ERROR(_toStringBytes(&v->grandpa, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringBytes(&v->babe, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringBytes(&v->im_online, outValue, outValueLen, 0, &pages[2]))
+    CHECK_ERROR(_toStringBytes(&v->para_validator, outValue, outValueLen, 0, &pages[3]))
+    CHECK_ERROR(_toStringBytes(&v->para_assignment, outValue, outValueLen, 0, &pages[4]))
+    CHECK_ERROR(_toStringBytes(&v->authority_discovery, outValue, outValueLen, 0, &pages[5]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringBytes(&v->grandpa, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }    
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringBytes(&v->babe, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    pageIdx -= pages[1];
+
+    if (pageIdx < pages[2]) {
+        CHECK_ERROR(_toStringBytes(&v->im_online, outValue, outValueLen, pageIdx, &pages[2]))
+        return parser_ok;
+    }
+    pageIdx -= pages[2];
+
+    if (pageIdx < pages[3]) {
+        CHECK_ERROR(_toStringBytes(&v->para_validator, outValue, outValueLen, pageIdx, &pages[3]))
+        return parser_ok;
+    }
+    pageIdx -= pages[3];
+
+    if (pageIdx < pages[4]) {
+        CHECK_ERROR(_toStringBytes(&v->para_assignment, outValue, outValueLen, pageIdx, &pages[4]))
+        return parser_ok;
+    }
+    pageIdx -= pages[4];
+
+    if (pageIdx < pages[5]) {
+        CHECK_ERROR(_toStringBytes(&v->authority_discovery, outValue, outValueLen, pageIdx, &pages[5]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
 
 ///////////////////////////////////
 ///////////////////////////////////

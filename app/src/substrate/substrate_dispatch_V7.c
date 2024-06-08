@@ -136,14 +136,6 @@ __Z_INLINE parser_error_t _readMethod_staking_rebond_V7(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_session_set_keys_V7(
-    parser_context_t* c, pd_session_set_keys_V7_t* m)
-{
-    CHECK_ERROR(_readKeys(c, &m->keys))
-    CHECK_ERROR(_readBytes(c, &m->proof))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_session_purge_keys_V7(
     parser_context_t* c, pd_session_purge_keys_V7_t* m)
 {
@@ -2266,6 +2258,14 @@ __Z_INLINE parser_error_t _readMethod_configuration_set_async_backing_params_V7(
     parser_context_t* c, pd_configuration_set_async_backing_params_V7_t* m)
 {
     CHECK_ERROR(_readAsyncBackingParams(c, &m->new_))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_session_set_keys_V7(
+    parser_context_t* c, pd_session_set_keys_V7_t* m)
+{
+    CHECK_ERROR(_readSessionKeys(c, &m->keys))
+    CHECK_ERROR(_readBytes(c, &m->proof))
     return parser_ok;
 }
 
@@ -7080,21 +7080,6 @@ parser_error_t _getMethod_ItemValue_V7(
         default:
             return parser_no_data;
         }
-    case 2560: /* module 10 call 0 */
-        switch (itemIdx) {
-        case 0: /* session_set_keys_V7 - keys */;
-            return _toStringKeys(
-                &m->nested.session_set_keys_V7.keys,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* session_set_keys_V7 - proof */;
-            return _toStringBytes(
-                &m->nested.session_set_keys_V7.proof,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
     case 2561: /* module 10 call 1 */
         switch (itemIdx) {
         default:
@@ -10912,7 +10897,22 @@ parser_error_t _getMethod_ItemValue_V7(
                     outValue, outValueLen,
                     pageIdx, pageCount);
         default:
-            return NULL;
+            return parser_no_data;
+        }
+    case 2560: /* module 10 call 0 */
+        switch (itemIdx) {
+        case 0: /* session_set_keys_V7 - keys */;
+            return _toStringSessionKeys(
+                &m->nested.session_set_keys_V7.keys,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* session_set_keys_V7 - proof */;
+            return _toStringBytes(
+                &m->nested.session_set_keys_V7.proof,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
         }
 #endif
     default:

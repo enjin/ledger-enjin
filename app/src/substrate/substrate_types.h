@@ -1608,6 +1608,15 @@ typedef struct {
     pd_NewAsyncBackingParams_t new_;
 } pd_AsyncBackingParams_t;
 
+typedef struct {
+    pd_Bytes_t grandpa;
+    pd_Bytes_t babe;
+    pd_Bytes_t im_online;
+    pd_Bytes_t para_validator;
+    pd_Bytes_t para_assignment;
+    pd_Bytes_t authority_discovery;
+} pd_SessionKeys_t;
+
 #ifdef __cplusplus
 }
 #endif

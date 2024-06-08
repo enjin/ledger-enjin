@@ -1826,12 +1826,6 @@ typedef struct {
     pd_BalanceOf_t amount;
 } pd_staking_rebond_V7_t;
 
-#define PD_CALL_SESSION_SET_KEYS_V7 0
-typedef struct {
-    pd_Keys_t keys;
-    pd_Bytes_t proof;
-} pd_session_set_keys_V7_t;
-
 #define PD_CALL_SESSION_PURGE_KEYS_V7 1
 typedef struct {
 } pd_session_purge_keys_V7_t;
@@ -1851,6 +1845,12 @@ typedef struct {
     pd_AccountIdLookupOfT_t dest;
     pd_CompactBalance_t value;
 } pd_balances_transfer_V7_t;
+
+#define PD_CALL_SESSION_SET_KEYS_V7 0
+typedef struct {
+    pd_SessionKeys_t keys;
+    pd_Bytes_t proof;
+} pd_session_set_keys_V7_t;
 
 #ifdef SUBSTRATE_PARSER_FULL
 #ifndef TARGET_NANOS

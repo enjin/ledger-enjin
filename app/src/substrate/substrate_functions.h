@@ -226,7 +226,7 @@ parser_error_t _readOptionVecAccountRuleDescriptor(parser_context_t* c, pd_Optio
 parser_error_t _readRulesAccountRuleDescriptor(parser_context_t* c, pd_AccountRuleDescriptor_t* v);
 parser_error_t _readVecAccountRuleDescriptor(parser_context_t* c, pd_VecAccountRuleDescriptor_t* v);
 parser_error_t _readAsyncBackingParams(parser_context_t* c, pd_AsyncBackingParams_t* v);
-        
+parser_error_t _readSessionKeys(parser_context_t* c, pd_SessionKeys_t* v);
         
 // Common toString functions
 parser_error_t _toStringu8(
@@ -1656,6 +1656,12 @@ parser_error_t _toStringAsyncBackingParams(
         uint8_t pageIdx,
         uint8_t* pageCount);
 
+parser_error_t _toStringSessionKeys(
+        const pd_SessionKeys_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount);
 
 #ifdef __cplusplus
 }
