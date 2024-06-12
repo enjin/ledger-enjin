@@ -1020,14 +1020,23 @@ typedef struct {
 } pd_VoteCurrency_t;
 
 typedef struct {
-    pd_u128_t value;
+    pd_Compactu128_t value;
 } pd_OfferId_t;
 
 typedef struct {
+    uint8_t value;
+    union {
+        pd_Bytes_t whitelist;
+        pd_Bytes_t blocklist;
+    };
+} pd_TokenFilter_t;
+
+typedef struct {
     pd_AccountId_t account;
-    pd_u128_t total;
-    pd_u128_t rate;
-    pd_Perbill_t min_average_commission;
+    pd_Compactu128_t total;
+    pd_CompactPerbill_t rate;
+    pd_Compactu128_t min_average_reward_rate;
+    pd_TokenFilter_t token_filter;
 } pd_OfferOfT_t;
 
 typedef struct {

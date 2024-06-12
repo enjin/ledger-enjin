@@ -1387,7 +1387,7 @@ __Z_INLINE parser_error_t _readMethod_stakeexchange_create_offer_V7(
 __Z_INLINE parser_error_t _readMethod_stakeexchange_cancel_offer_V7(
         parser_context_t* c, pd_stakeexchange_cancel_offer_V7_t* m)
 {
-    CHECK_ERROR(_readOfferId(c, &m->offer_id))
+    CHECK_ERROR(_readCompactu128(c, &m->offer_id))
     return parser_ok;
 }
 
@@ -1402,7 +1402,7 @@ __Z_INLINE parser_error_t _readMethod_stakeexchange_withdraw_liquidity_V7(
         parser_context_t* c, pd_stakeexchange_withdraw_liquidity_V7_t* m)
 {
     CHECK_ERROR(_readOfferId(c, &m->offer_id))
-    CHECK_ERROR(_readBalanceOf(c, &m->amount))
+    CHECK_ERROR(_readCompactu128(c, &m->amount))
     return parser_ok;
 }
 
@@ -1410,16 +1410,16 @@ __Z_INLINE parser_error_t _readMethod_stakeexchange_add_liquidity_V7(
         parser_context_t* c, pd_stakeexchange_add_liquidity_V7_t* m)
 {
     CHECK_ERROR(_readOfferId(c, &m->offer_id))
-    CHECK_ERROR(_readBalanceOf(c, &m->amount))
+    CHECK_ERROR(_readCompactu128(c, &m->amount))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_stakeexchange_buy_V7(
         parser_context_t* c, pd_stakeexchange_buy_V7_t* m)
 {
-    CHECK_ERROR(_readOfferId(c, &m->offer_id))
-    CHECK_ERROR(_readBalanceOf(c, &m->amount))
-    CHECK_ERROR(_readTokenIdOf(c, &m->token_id))
+    CHECK_ERROR(_readCompactu128(c, &m->offer_id))
+    CHECK_ERROR(_readCompactu128(c, &m->amount))
+    CHECK_ERROR(_readCompactu128(c, &m->token_id))
     return parser_ok;
 }
 
@@ -9206,7 +9206,7 @@ parser_error_t _getMethod_ItemValue_V7(
     case 4865: /* module 19 call 1 */
         switch (itemIdx) {
         case 0: /* stakeexchange_cancel_offer_V7 - offer_id */;
-            return _toStringOfferId(
+            return _toStringCompactu128(
                             &m->basic.stakeexchange_cancel_offer_V7.offer_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -9231,7 +9231,7 @@ parser_error_t _getMethod_ItemValue_V7(
                             outValue, outValueLen,
                             pageIdx, pageCount);
         case 1: /* stakeexchange_withdraw_liquidity_V7 - amount */;
-            return _toStringBalanceOf(
+            return _toStringCompactu128(
                             &m->basic.stakeexchange_withdraw_liquidity_V7.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -9246,7 +9246,7 @@ parser_error_t _getMethod_ItemValue_V7(
                             outValue, outValueLen,
                             pageIdx, pageCount);
         case 1: /* stakeexchange_add_liquidity_V7 - amount */;
-            return _toStringBalanceOf(
+            return _toStringCompactu128(
                             &m->basic.stakeexchange_add_liquidity_V7.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
@@ -9256,17 +9256,17 @@ parser_error_t _getMethod_ItemValue_V7(
     case 4869: /* module 19 call 5 */
         switch (itemIdx) {
         case 0: /* stakeexchange_buy_V7 - offer_id */;
-            return _toStringOfferId(
+            return _toStringCompactu128(
                             &m->basic.stakeexchange_buy_V7.offer_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);
         case 1: /* stakeexchange_buy_V7 - amount */;
-            return _toStringBalanceOf(
+            return _toStringCompactu128(
                             &m->basic.stakeexchange_buy_V7.amount,
                             outValue, outValueLen,
                             pageIdx, pageCount);
         case 2: /* stakeexchange_buy_V7 - token_id */;
-            return _toStringTokenIdOf(
+            return _toStringCompactu128(
                             &m->basic.stakeexchange_buy_V7.token_id,
                             outValue, outValueLen,
                             pageIdx, pageCount);

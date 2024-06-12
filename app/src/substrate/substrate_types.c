@@ -1862,16 +1862,37 @@ parser_error_t _toStringOptionAttributeOf(
 
 parser_error_t _readOfferId(parser_context_t* c, pd_OfferId_t* v)
 {
-    return _readu128(c, &v->value);
+    return _readCompactu128(c, &v->value);
+}
+
+parser_error_t _readTokenFilter(parser_context_t* c, pd_TokenFilter_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+
+    switch (v->value) {
+        case 0: // All
+            break;
+        case 1: // Whitelist
+        CHECK_ERROR(_readBytes(c, &v->whitelist))
+            break;
+        case 2: // Blocklist
+        CHECK_ERROR(_readBytes(c, &v->blocklist))
+            break;
+        default:
+            return parser_unexpected_value;
+    }
+    return parser_ok;
 }
 
 parser_error_t _readOfferOfT(parser_context_t* c, pd_OfferOfT_t* v)
 {
     CHECK_INPUT()
     CHECK_ERROR(_readAccountId(c, &v->account))
-    CHECK_ERROR(_readu128(c, &v->total))
-    CHECK_ERROR(_readu128(c, &v->rate))
-    CHECK_ERROR(_readPerbill(c, &v->min_average_commission))
+    CHECK_ERROR(_readCompactu128(c, &v->total))
+    CHECK_ERROR(_readCompactPerbill(c, &v->rate))
+    CHECK_ERROR(_readCompactu128(c, &v->min_average_reward_rate))
+    CHECK_ERROR(_readTokenFilter(c, &v->token_filter))
     return parser_ok;
 }
 
@@ -7510,7 +7531,33 @@ parser_error_t _toStringOfferId(
         uint8_t pageIdx,
         uint8_t* pageCount)
 {
-    return _toStringu128(&v->value, outValue, outValueLen, pageIdx, pageCount);
+    return _toStringCompactu128(&v->value, outValue, outValueLen, pageIdx, pageCount);
+}
+
+parser_error_t _toStringTokenFilter(
+        const pd_TokenFilter_t* v,
+        char* outValue,
+        uint16_t outValueLen,
+        uint8_t pageIdx,
+        uint8_t* pageCount)
+{
+   CLEAN_AND_CHECK()
+    *pageCount = 1;
+    switch (v->value) {
+        case 0: // All
+            snprintf(outValue, outValueLen, "All");
+            break;
+        case 1: // Whitelist
+        CHECK_ERROR(_toStringBytes(&v->whitelist, outValue, outValueLen, pageIdx, pageCount))
+            break;
+        case 2: // Blocklist
+        CHECK_ERROR(_toStringBytes(&v->blocklist, outValue, outValueLen, pageIdx, pageCount))
+            break;
+        default:
+            return parser_not_supported;
+    }
+
+    return parser_ok;
 }
 
 parser_error_t _toStringOfferOfT(
@@ -7523,11 +7570,12 @@ parser_error_t _toStringOfferOfT(
     CLEAN_AND_CHECK()
 
     // First measure number of pages
-    uint8_t pages[4] = { 0 };
+    uint8_t pages[5] = { 0 };
     CHECK_ERROR(_toStringAccountId(&v->account, outValue, outValueLen, 0, &pages[0]))
-    CHECK_ERROR(_toStringu128(&v->total, outValue, outValueLen, 0, &pages[1]))
-    CHECK_ERROR(_toStringu128(&v->rate, outValue, outValueLen, 0, &pages[2]))
-    CHECK_ERROR(_toStringPerbill(&v->min_average_commission, outValue, outValueLen, 0, &pages[3]))
+    CHECK_ERROR(_toStringCompactu128(&v->total, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringCompactPerbill(&v->rate, outValue, outValueLen, 0, &pages[2]))
+    CHECK_ERROR(_toStringCompactu128(&v->min_average_reward_rate, outValue, outValueLen, 0, &pages[3]))
+    CHECK_ERROR(_toStringTokenFilter(&v->token_filter, outValue, outValueLen, 0, &pages[4]))
 
     *pageCount = 0;
     for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
@@ -7545,19 +7593,25 @@ parser_error_t _toStringOfferOfT(
     pageIdx -= pages[0];
 
     if (pageIdx < pages[1]) {
-        CHECK_ERROR(_toStringu128(&v->total, outValue, outValueLen, pageIdx, &pages[1]))
+        CHECK_ERROR(_toStringCompactu128(&v->total, outValue, outValueLen, pageIdx, &pages[1]))
         return parser_ok;
     }
     pageIdx -= pages[1];
 
     if (pageIdx < pages[2]) {
-        CHECK_ERROR(_toStringu128(&v->rate, outValue, outValueLen, pageIdx, &pages[2]))
+        CHECK_ERROR(_toStringCompactPerbill(&v->rate, outValue, outValueLen, pageIdx, &pages[2]))
         return parser_ok;
     }
     pageIdx -= pages[2];
 
     if (pageIdx < pages[3]) {
-        CHECK_ERROR(_toStringPerbill(&v->min_average_commission, outValue, outValueLen, pageIdx, &pages[3]))
+        CHECK_ERROR(_toStringCompactu128(&v->min_average_reward_rate, outValue, outValueLen, pageIdx, &pages[3]))
+        return parser_ok;
+    }
+    pageIdx -= pages[3];
+
+    if (pageIdx < pages[4]) {
+        CHECK_ERROR(_toStringTokenFilter(&v->token_filter, outValue, outValueLen, pageIdx, &pages[4]))
         return parser_ok;
     }
 

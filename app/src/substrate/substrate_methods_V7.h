@@ -825,7 +825,7 @@ typedef struct {
 
 #define PD_CALL_STAKEEXCHANGE_CANCEL_OFFER_V7 1
 typedef struct {
-    pd_OfferId_t offer_id;
+    pd_Compactu128_t offer_id;
 } pd_stakeexchange_cancel_offer_V7_t;
 
 #define PD_CALL_STAKEEXCHANGE_CONFIGURE_LIQUIDITY_ACCOUNT_V7 2
@@ -836,20 +836,20 @@ typedef struct {
 #define PD_CALL_STAKEEXCHANGE_WITHDRAW_LIQUIDITY_V7 3
 typedef struct {
     pd_OfferId_t offer_id;
-    pd_BalanceOf_t amount;
+    pd_Compactu128_t amount;
 } pd_stakeexchange_withdraw_liquidity_V7_t;
 
 #define PD_CALL_STAKEEXCHANGE_ADD_LIQUIDITY_V7 4
 typedef struct {
     pd_OfferId_t offer_id;
-    pd_BalanceOf_t amount;
+    pd_Compactu128_t amount;
 } pd_stakeexchange_add_liquidity_V7_t;
 
 #define PD_CALL_STAKEEXCHANGE_BUY_V7 5
 typedef struct {
-    pd_OfferId_t offer_id;
-    pd_BalanceOf_t amount;
-    pd_TokenIdOf_t token_id;
+    pd_Compactu128_t offer_id;
+    pd_Compactu128_t amount;
+    pd_Compactu128_t token_id;
 } pd_stakeexchange_buy_V7_t;
 
 #define PD_CALL_MULTITOKENS_CREATE_COLLECTION_V7 0
