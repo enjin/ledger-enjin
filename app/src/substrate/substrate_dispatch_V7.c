@@ -10962,75 +10962,75 @@ bool _getMethod_IsNestingSupported_V7(uint8_t moduleIdx, uint8_t callIdx)
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
-    case 2560: // Preimage:Note preimage
-    case 2561: // Preimage:Unnote preimage
-    case 2562: // Preimage:Request preimage
-    case 2563: // Preimage:Unrequest preimage
-    case 2564: // Preimage:Ensure updated
+    case 25856: // Preimage:Note preimage
+    case 25857: // Preimage:Unnote preimage
+    case 25858: // Preimage:Request preimage
+    case 25859: // Preimage:Unrequest preimage
+    case 25860: // Preimage:Ensure updated
     case 512: // Timestamp:Set
-    case 1285: // Balances:Force unreserve
-    case 1286: // Balances:Upgrade accounts
-    case 1288: // Balances:Force set balance
-    case 1801: // Staking:Set validator count
-    case 1802: // Staking:Increase validator count
-    case 1803: // Staking:Scale validator count
-    case 1804: // Staking:Force no eras
-    case 1805: // Staking:Force new era
-    case 1806: // Staking:Set invulnerables
-    case 1807: // Staking:Force unstake
-    case 1808: // Staking:Force new era always
-    case 1809: // Staking:Cancel deferred slash
-    case 1812: // Staking:Reap stash
-    case 1813: // Staking:Kick
-    case 1814: // Staking:Set staking configs
-    case 1815: // Staking:Chill other
-    case 1816: // Staking:Force apply min commission
-    case 1817: // Staking:Set min commission
-    case 4864: // Treasury:Propose spend
-    case 4865: // Treasury:Reject proposal
-    case 4866: // Treasury:Approve proposal
-    case 4867: // Treasury:Spend local
-    case 4868: // Treasury:Remove approval
-    case 4870: // Treasury:Payout
-    case 4871: // Treasury:Check status
-    case 4872: // Treasury:Void spend
-    case 5376: // Referenda:Submit
-    case 5377: // Referenda:Place decision deposit
-    case 5378: // Referenda:Refund decision deposit
-    case 5379: // Referenda:Cancel
-    case 5380: // Referenda:Kill
-    case 5381: // Referenda:Nudge referendum
-    case 5382: // Referenda:One fewer deciding
-    case 5383: // Referenda:Refund submission deposit
-    case 5384: // Referenda:Set metadata
-    case 5888: // Whitelist:Whitelist call
-    case 5889: // Whitelist:Remove whitelisted call
-    case 5890: // Whitelist:Dispatch whitelisted call
-    case 5891: // Whitelist:Dispatch whitelisted call with preimage
-    case 6656: // Utility:Batch
-    case 6658: // Utility:Batch all
-    case 6659: // Utility:Dispatch as
-    case 6660: // Utility:Force batch
-    case 6661: // Utility:With weight
-    case 7168: // Identity:Add registrar
-    case 7169: // Identity:Set identity
-    case 7170: // Identity:Set subs
-    case 7171: // Identity:Clear identity
-    case 7172: // Identity:Request judgement
-    case 7173: // Identity:Cancel request
-    case 7174: // Identity:Set fee
-    case 7175: // Identity:Set account id
-    case 7177: // Identity:Provide judgement
-    case 7178: // Identity:Kill identity
-    case 7179: // Identity:Add sub
-    case 7180: // Identity:Rename sub
-    case 7181: // Identity:Remove sub
-    case 7182: // Identity:Quit sub
+    case 1541: // Balances:Force unreserve
+    case 1542: // Balances:Upgrade accounts
+    case 1544: // Balances:Force set balance
+    case 2313: // Staking:Set validator count
+    case 2314: // Staking:Increase validator count
+    case 2315: // Staking:Scale validator count
+    case 2316: // Staking:Force no eras
+    case 2317: // Staking:Force new era
+    case 2318: // Staking:Set invulnerables
+    case 2319: // Staking:Force unstake
+    case 2320: // Staking:Force new era always
+    case 2321: // Staking:Cancel deferred slash
+    case 2324: // Staking:Reap stash
+    case 2325: // Staking:Kick
+    case 2326: // Staking:Set staking configs
+    case 2327: // Staking:Chill other
+    case 2328: // Staking:Force apply min commission
+    case 2329: // Staking:Set min commission
+    case 3072: // Treasury:Propose spend
+    case 3073: // Treasury:Reject proposal
+    case 3074: // Treasury:Approve proposal
+    case 3075: // Treasury:Spend local
+    case 3076: // Treasury:Remove approval
+    case 3078: // Treasury:Payout
+    case 3079: // Treasury:Check status
+    case 3080: // Treasury:Void spend
+    case 26368: // Referenda:Submit
+    case 26369: // Referenda:Place decision deposit
+    case 26370: // Referenda:Refund decision deposit
+    case 26371: // Referenda:Cancel
+    case 26372: // Referenda:Kill
+    case 26373: // Referenda:Nudge referendum
+    case 26374: // Referenda:One fewer deciding
+    case 26375: // Referenda:Refund submission deposit
+    case 26376: // Referenda:Set metadata
+    case 26880: // Whitelist:Whitelist call
+    case 26881: // Whitelist:Remove whitelisted call
+    case 26882: // Whitelist:Dispatch whitelisted call
+    case 26883: // Whitelist:Dispatch whitelisted call with preimage
+    case 5120: // Utility:Batch
+    case 5122: // Utility:Batch all
+    case 5123: // Utility:Dispatch as
+    case 5124: // Utility:Force batch
+    case 5125: // Utility:With weight
+    case 27648: // Identity:Add registrar
+    case 27649: // Identity:Set identity
+    case 27650: // Identity:Set subs
+    case 27651: // Identity:Clear identity
+    case 27652: // Identity:Request judgement
+    case 27653: // Identity:Cancel request
+    case 27654: // Identity:Set fee
+    case 27655: // Identity:Set account id
+    case 27657: // Identity:Provide judgement
+    case 27658: // Identity:Kill identity
+    case 27659: // Identity:Add sub
+    case 27660: // Identity:Rename sub
+    case 27661: // Identity:Remove sub
+    case 27662: // Identity:Quit sub
     case 7427: // Proxy:Remove proxies
     case 7433: // Proxy:Proxy announced
-    case 9472: // VoterList:Rebag
-    case 9473: // VoterList:Put in front of
-    case 9474: // VoterList:Put in front of other
+    case 4352: // VoterList:Rebag
+    case 4353: // VoterList:Put in front of
+    case 4354: // VoterList:Put in front of other
     case 13056: // Configuration:Set validation upgrade cooldown
     case 13057: // Configuration:Set validation upgrade delay
     case 13058: // Configuration:Set code retention period
