@@ -957,6 +957,14 @@ parser_error_t _readAccountVoteSplit(parser_context_t* c, pd_AccountVoteSplit_t*
     return parser_ok;
 }
 
+parser_error_t _readAccountVoteSplitAbstain(parser_context_t* c, pd_AccountVoteSplitAbstain_t* v)
+{
+    CHECK_ERROR(_readBalanceOf(c, &v->aye));
+    CHECK_ERROR(_readBalanceOf(c, &v->nay));
+    CHECK_ERROR(_readBalanceOf(c, &v->abstain));
+    return parser_ok;
+}
+
 parser_error_t _readAccountVoteStandard(parser_context_t* c, pd_AccountVoteStandard_t* v)
 {
     CHECK_ERROR(_readVote(c, &v->vote));
@@ -1149,8 +1157,11 @@ parser_error_t _readAccountVote(parser_context_t* c, pd_AccountVote_t* v)
     case 1:
         CHECK_ERROR(_readAccountVoteSplit(c, &v->voteSplit))
         break;
-    default:
+    case 2:
+        CHECK_ERROR(_readAccountVoteSplitAbstain(c, &v->voteSplitAbstain))
         break;
+    default:
+        return parser_unexpected_value;
     }
 
     return parser_ok;
@@ -5543,6 +5554,7 @@ parser_error_t _toStringAccountVoteSplitAbstain(
         CHECK_ERROR(_toStringBalanceOf(&v->nay, outValue, outValueLen, pageIdx, &pages[2]));
         return parser_ok;
     }
+    pageIdx -= pages[2];
 
     /////////
     /////////
