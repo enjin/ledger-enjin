@@ -6532,9 +6532,13 @@ const char* _getMethod_ItemName_V7(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
     case 63751: /* module 249 call 7 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_dest;
+            return STR_IT_bidder;
         case 1:
-            return STR_IT_amount;
+            return STR_IT_listing_id;
+        case 2:
+            return STR_IT_price;
+        case 3:
+            return STR_IT_funds_backer;
         default:
             return NULL;
         }
@@ -10963,7 +10967,7 @@ bool _getMethod_IsNestingSupported_V7(uint8_t moduleIdx, uint8_t callIdx)
     case 2562: // Preimage:Request preimage
     case 2563: // Preimage:Unrequest preimage
     case 2564: // Preimage:Ensure updated
-    case 768: // Timestamp:Set
+    case 512: // Timestamp:Set
     case 1285: // Balances:Force unreserve
     case 1286: // Balances:Upgrade accounts
     case 1288: // Balances:Force set balance
