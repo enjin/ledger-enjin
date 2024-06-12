@@ -3156,7 +3156,7 @@ const char* _getMethod_ModuleName_V7(uint8_t moduleIdx)
     switch (moduleIdx) {
     case 6: // ok
         return STR_MO_BALANCES;
-    case 7: // ok
+    case 9: // ok
         return STR_MO_STAKING;
     case 10: // ok 
         return STR_MO_SESSION;
@@ -10931,21 +10931,21 @@ bool _getMethod_ItemIsExpert_V7(uint8_t moduleIdx, uint8_t callIdx, __Z_UNUSED u
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
-    case 1795: // Staking:Withdraw Unbonded
+    case 2307: // Staking:Withdraw Unbonded
         switch (itemIdx) {
         case 0: // Num slashing spans
             return true;
         default:
             return false;
         }
-    case 1807: // Staking:Force unstake
+    case 2319: // Staking:Force unstake
         switch (itemIdx) {
         case 1: // Num slashing spans
             return true;
         default:
             return false;
         }
-    case 1812: // Staking:Reap stash
+    case 2324: // Staking:Reap stash
         switch (itemIdx) {
         case 1: // Num slashing spans
             return true;
