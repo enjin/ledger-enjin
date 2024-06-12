@@ -1539,14 +1539,6 @@ typedef struct {
 } pd_VecAccountRuleDescriptor_t;
 
 typedef struct {
-    pd_Bytes_t name;
-    pd_OptionUserAccountManagement_t userAccountManagement;
-    pd_Bytes_t ruleSets;
-    pd_bool_t providesDeposit;
-    pd_VecAccountRuleDescriptor_t  accountRules;
-} pd_FuelTankDescriptorOfT_t;
-
-typedef struct {
     pd_bool_t useNoneOrigin;
     pd_bool_t paysRemainingFee;
 } pd_DispatchSettings_t;
@@ -1596,6 +1588,25 @@ typedef struct {
     const uint8_t* _ptr;
     uint64_t _lenBuffer;
 } pd_VecDispatchRuleDescriptor_t;
+
+typedef struct {
+    pd_u32_t value;
+    pd_VecDispatchRuleDescriptor_t dispatch_rules;
+} pd_Tupleu32RuleSetDescriptor_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecTupleu32RuleSetDescriptor_t;
+
+typedef struct {
+    pd_Bytes_t name;
+    pd_OptionUserAccountManagement_t userAccountManagement;
+    pd_VecTupleu32RuleSetDescriptor_t ruleSets;
+    pd_bool_t providesDeposit;
+    pd_VecAccountRuleDescriptor_t  accountRules;
+} pd_FuelTankDescriptorOfT_t;
 
 typedef struct {
     uint8_t some;

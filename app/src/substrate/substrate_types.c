@@ -2863,12 +2863,24 @@ parser_error_t _readOptionVecAccountRuleDescriptor(parser_context_t* c, pd_Optio
     return parser_ok;
 }
 
+parser_error_t _readTupleu32RuleSetDescriptor(parser_context_t* c, pd_Tupleu32RuleSetDescriptor_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readu32(c, &v->value))
+    CHECK_ERROR(_readVecDispatchRuleDescriptor(c, &v->dispatch_rules))
+    return parser_ok;
+}
+
+parser_error_t _readVecTupleu32RuleSetDescriptor(parser_context_t* c, pd_VecTupleu32RuleSetDescriptor_t* v) {
+    GEN_DEF_READVECTOR(Tupleu32RuleSetDescriptor)
+}
+
 parser_error_t _readFuelTankDescriptorOfT(parser_context_t* c, pd_FuelTankDescriptorOfT_t* v)
 {
     CHECK_INPUT()
     CHECK_ERROR(_readBytes(c, &v->name))
     CHECK_ERROR(_readOptionUserAccountManagement(c, &v->userAccountManagement))
-    CHECK_ERROR(_readBytes(c, &v->ruleSets))
+    CHECK_ERROR(_readVecTupleu32RuleSetDescriptor(c, &v->ruleSets))
     CHECK_ERROR(_readbool(c, &v->providesDeposit))
     CHECK_ERROR(_readVecAccountRuleDescriptor(c, &v->accountRules))
     return parser_ok;
@@ -10262,6 +10274,54 @@ parser_error_t _toStringTankMutation(
     return parser_display_idx_out_of_range;
 }
 
+parser_error_t _toStringTupleu32RuleSetDescriptor(
+    const pd_Tupleu32RuleSetDescriptor_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringu32(&v->value, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringVecDispatchRuleDescriptor(&v->dispatch_rules, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx >= *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringu32(&v->value, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringVecDispatchRuleDescriptor(&v->dispatch_rules, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
+}
+
+parser_error_t _toStringVecTupleu32RuleSetDescriptor(
+    const pd_VecTupleu32RuleSetDescriptor_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    GEN_DEF_TOSTRING_VECTOR(Tupleu32RuleSetDescriptor);
+}
+
+
 parser_error_t _toStringFuelTankDescriptorOfT(
     const pd_FuelTankDescriptorOfT_t* v,
     char* outValue,
@@ -10275,7 +10335,7 @@ parser_error_t _toStringFuelTankDescriptorOfT(
     uint8_t pages[5] = { 0 };
     CHECK_ERROR(_toStringBytes(&v->name, outValue, outValueLen, 0, &pages[0]))
     CHECK_ERROR(_toStringOptionUserAccountManagement(&v->userAccountManagement, outValue, outValueLen, 0, &pages[1]))
-    CHECK_ERROR(_toStringBytes(&v->ruleSets, outValue, outValueLen, 0, &pages[2]))
+    CHECK_ERROR(_toStringVecTupleu32RuleSetDescriptor(&v->ruleSets, outValue, outValueLen, 0, &pages[2]))
     CHECK_ERROR(_toStringbool(&v->providesDeposit, outValue, outValueLen, 0, &pages[3]))
     CHECK_ERROR(_toStringVecAccountRuleDescriptor(&v->accountRules, outValue, outValueLen, 0, &pages[4]))
 
@@ -10301,10 +10361,10 @@ parser_error_t _toStringFuelTankDescriptorOfT(
     pageIdx -= pages[1];
 
     if (pageIdx < pages[2]) {
-        CHECK_ERROR(_toStringBytes(&v->ruleSets, outValue, outValueLen, pageIdx, &pages[2]))
+        CHECK_ERROR(_toStringVecTupleu32RuleSetDescriptor(&v->ruleSets, outValue, outValueLen, pageIdx, &pages[2]))
         return parser_ok;
     }
-        pageIdx -= pages[2];
+    pageIdx -= pages[2];
 
     if (pageIdx < pages[3]) {
         CHECK_ERROR(_toStringbool(&v->providesDeposit, outValue, outValueLen, pageIdx, &pages[3]))
