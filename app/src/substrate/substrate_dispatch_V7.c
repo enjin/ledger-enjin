@@ -522,8 +522,8 @@ __Z_INLINE parser_error_t _readMethod_treasury_approve_proposal_V7(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_treasury_spend_local_V7(
-    parser_context_t* c, pd_treasury_spend_local_V7_t* m)
+__Z_INLINE parser_error_t _readMethod_treasury_spend_V7(
+    parser_context_t* c, pd_treasury_spend_V7_t* m)
 {
     CHECK_ERROR(_readCompactBalance(c, &m->amount))
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->beneficiary))
@@ -2491,7 +2491,7 @@ parser_error_t _readMethod_V7(
         CHECK_ERROR(_readMethod_treasury_approve_proposal_V7(c, &method->basic.treasury_approve_proposal_V7))
         break;
     case 3075: /* module 12 call 3 */
-        CHECK_ERROR(_readMethod_treasury_spend_local_V7(c, &method->basic.treasury_spend_local_V7))
+        CHECK_ERROR(_readMethod_treasury_spend_V7(c, &method->basic.treasury_spend_V7))
         break;
     case 3076: /* module 12 call 4 */
         CHECK_ERROR(_readMethod_treasury_remove_approval_V7(c, &method->basic.treasury_remove_approval_V7))
@@ -3383,7 +3383,7 @@ const char* _getMethod_Name_V7_ParserFull(uint16_t callPrivIdx)
     case 3074: /* module 12 call 2 */
         return STR_ME_APPROVE_PROPOSAL;
     case 3075: /* module 12 call 3 */
-        return STR_ME_SPEND_LOCAL;
+        return STR_ME_SPEND;
     case 3076: /* module 12 call 4 */
         return STR_ME_REMOVE_APPROVAL;
     case 3078: /* module 12 call 6 */
@@ -7797,14 +7797,14 @@ parser_error_t _getMethod_ItemValue_V7(
         }
     case 3075: /* module 12 call 3 */
         switch (itemIdx) {
-        case 0: /* treasury_spend_local_V7 - amount */;
+        case 0: /* treasury_spend_V7 - amount */;
             return _toStringCompactBalance(
-                &m->basic.treasury_spend_local_V7.amount,
+                &m->basic.treasury_spend_V7.amount,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 1: /* treasury_spend_local_V7 - beneficiary */;
+        case 1: /* treasury_spend_V7 - beneficiary */;
             return _toStringAccountIdLookupOfT(
-                &m->basic.treasury_spend_local_V7.beneficiary,
+                &m->basic.treasury_spend_V7.beneficiary,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -11004,7 +11004,7 @@ bool _getMethod_IsNestingSupported_V7(uint8_t moduleIdx, uint8_t callIdx)
     case 3072: // Treasury:Propose spend
     case 3073: // Treasury:Reject proposal
     case 3074: // Treasury:Approve proposal
-    case 3075: // Treasury:Spend local
+    case 3075: // Treasury:Spend
     case 3076: // Treasury:Remove approval
     case 3078: // Treasury:Payout
     case 3079: // Treasury:Check status

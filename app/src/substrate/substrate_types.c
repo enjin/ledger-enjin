@@ -1493,7 +1493,7 @@ parser_error_t _readConviction(parser_context_t* c, pd_Conviction_t* v)
 {
     CHECK_INPUT()
     CHECK_ERROR(_readUInt8(c, &v->value))
-    if (v->value > 5) {
+    if (v->value > 6) {
         return parser_value_out_of_range;
     }
     return parser_ok;
@@ -6886,6 +6886,9 @@ parser_error_t _toStringConviction(
         break;
     case 5:
         snprintf(outValue, outValueLen, "Locked5x");
+        break;
+    case 6:
+        snprintf(outValue, outValueLen, "Locked6x");
         break;
     default:
         return parser_print_not_supported;

@@ -317,11 +317,11 @@ typedef struct {
     pd_Compactu32_t proposal_id;
 } pd_treasury_approve_proposal_V7_t;
 
-#define PD_CALL_TREASURY_SPEND_LOCAL_V7 3
+#define PD_CALL_TREASURY_SPEND_V7 3
 typedef struct {
     pd_CompactBalance_t amount;
     pd_AccountIdLookupOfT_t beneficiary;
-} pd_treasury_spend_local_V7_t;
+} pd_treasury_spend_V7_t;
 
 #define PD_CALL_TREASURY_REMOVE_APPROVAL_V7 4
 typedef struct {
@@ -1540,7 +1540,7 @@ typedef union {
     pd_treasury_propose_spend_V7_t treasury_propose_spend_V7;
     pd_treasury_reject_proposal_V7_t treasury_reject_proposal_V7;
     pd_treasury_approve_proposal_V7_t treasury_approve_proposal_V7;
-    pd_treasury_spend_local_V7_t treasury_spend_local_V7;
+    pd_treasury_spend_V7_t treasury_spend_V7;
     pd_treasury_remove_approval_V7_t treasury_remove_approval_V7;
     pd_treasury_payout_V7_t treasury_payout_V7;
     pd_treasury_check_status_V7_t treasury_check_status_V7;
