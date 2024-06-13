@@ -574,10 +574,10 @@ typedef struct {
     pd_BlockNumber_t new_;
 } pd_configuration_set_group_rotation_frequency_V7_t;
 
-#define PD_CALL_CONFIGURATION_SET_PARAS_AVAILABILITY_PERIOD_V7 9
+#define PD_CALL_CONFIGURATION_SET_CHAIN_AVAILABILITY_PERIOD_V7 9
 typedef struct {
     pd_BlockNumber_t new_;
-} pd_configuration_set_paras_availability_period_V7_t;
+} pd_configuration_set_chain_availability_period_V7_t;
 
 #define PD_CALL_CONFIGURATION_SET_SCHEDULING_LOOKAHEAD_V7 11
 typedef struct {
@@ -1588,7 +1588,7 @@ typedef union {
     pd_configuration_set_on_demand_cores_V7_t configuration_set_on_demand_cores_V7;
     pd_configuration_set_on_demand_retries_V7_t configuration_set_on_demand_retries_V7;
     pd_configuration_set_group_rotation_frequency_V7_t configuration_set_group_rotation_frequency_V7;
-    pd_configuration_set_paras_availability_period_V7_t configuration_set_paras_availability_period_V7;
+    pd_configuration_set_chain_availability_period_V7_t configuration_set_chain_availability_period_V7;
     pd_configuration_set_scheduling_lookahead_V7_t configuration_set_scheduling_lookahead_V7;
     pd_configuration_set_max_validators_per_core_V7_t configuration_set_max_validators_per_core_V7;
     pd_configuration_set_max_validators_V7_t configuration_set_max_validators_V7;

@@ -1018,8 +1018,8 @@ __Z_INLINE parser_error_t _readMethod_configuration_set_group_rotation_frequency
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_configuration_set_paras_availability_period_V7(
-    parser_context_t* c, pd_configuration_set_paras_availability_period_V7_t* m)
+__Z_INLINE parser_error_t _readMethod_configuration_set_chain_availability_period_V7(
+    parser_context_t* c, pd_configuration_set_chain_availability_period_V7_t* m)
 {
     CHECK_ERROR(_readBlockNumber(c, &m->new_))
     return parser_ok;
@@ -2680,7 +2680,7 @@ parser_error_t _readMethod_V7(
         CHECK_ERROR(_readMethod_configuration_set_group_rotation_frequency_V7(c, &method->basic.configuration_set_group_rotation_frequency_V7))
         break;
     case 13065: /* module 51 call 9 */
-        CHECK_ERROR(_readMethod_configuration_set_paras_availability_period_V7(c, &method->basic.configuration_set_paras_availability_period_V7))
+        CHECK_ERROR(_readMethod_configuration_set_chain_availability_period_V7(c, &method->basic.configuration_set_chain_availability_period_V7))
         break;
     case 13067: /* module 51 call 11 */
         CHECK_ERROR(_readMethod_configuration_set_scheduling_lookahead_V7(c, &method->basic.configuration_set_scheduling_lookahead_V7))
@@ -3509,7 +3509,7 @@ const char* _getMethod_Name_V7_ParserFull(uint16_t callPrivIdx)
     case 13064: /* module 51 call 8 */
         return STR_ME_SET_GROUP_ROTATION_FREQUENCY;
     case 13065: /* module 51 call 9 */
-        return STR_ME_SET_PARAS_AVAILABILITY_PERIOD;
+        return STR_ME_SET_CHAIN_AVAILABILITY_PERIOD;
     case 13067: /* module 51 call 11 */
         return STR_ME_SET_SCHEDULING_LOOKAHEAD;
     case 13068: /* module 51 call 12 */
@@ -8672,9 +8672,9 @@ parser_error_t _getMethod_ItemValue_V7(
         }
     case 13065: /* module 51 call 9 */
         switch (itemIdx) {
-        case 0: /* configuration_set_paras_availability_period_V7 - new_ */;
+        case 0: /* configuration_set_chain_availability_period_V7 - new_ */;
             return _toStringBlockNumber(
-                &m->basic.configuration_set_paras_availability_period_V7.new_,
+                &m->basic.configuration_set_chain_availability_period_V7.new_,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -11055,7 +11055,7 @@ bool _getMethod_IsNestingSupported_V7(uint8_t moduleIdx, uint8_t callIdx)
     case 13062: // Configuration:Set on demand cores
     case 13063: // Configuration:Set on demand retries
     case 13064: // Configuration:Set group rotation frequency
-    case 13065: // Configuration:Set paras availability period
+    case 13065: // Configuration:Set chain availability period
     case 13067: // Configuration:Set scheduling lookahead
     case 13068: // Configuration:Set max validators per core
     case 13069: // Configuration:Set max validators
