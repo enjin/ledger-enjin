@@ -9443,6 +9443,21 @@ parser_error_t _getMethod_ItemValue_V7(
         default:
             return parser_no_data;
         }
+    case 64781: /* module 253 call 13 */
+        switch (itemIdx) {
+        case 0: /* multitokens_batch_mint_V7 - collection_id */;
+            return _toStringCompactCollectionId(
+                    &m->basic.multitokens_batch_mint_V7.collection_id,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        case 1: /* multitokens_batch_mint_V7 - recipients */;
+            return _toStringVecMintRecipientsOf(
+                    &m->basic.multitokens_batch_mint_V7.recipients,
+                    outValue, outValueLen,
+                    pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
     case 64782: /* module 253 call 14 */
         switch (itemIdx) {
         case 0: /* multitokens_batch_set_attribute_V7 - collection_id */;
