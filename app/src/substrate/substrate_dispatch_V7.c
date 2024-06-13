@@ -3587,6 +3587,8 @@ const char* _getMethod_Name_V7_ParserFull(uint16_t callPrivIdx)
 //////////////////////////////////
 // Custom
 //////////////////////////////////
+    case 512: /* module 2 call 0 */
+        return STR_ME_SET;
     case 27904: /* module 109 call 0 */
         return STR_ME_VOTE;
     case 27905: /* module 109 call 1 */
