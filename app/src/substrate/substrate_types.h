@@ -556,6 +556,12 @@ typedef struct {
 typedef struct {
     pd_BalanceOf_t aye;
     pd_BalanceOf_t nay;
+    pd_BalanceOf_t abstain;
+} pd_AccountVoteSplitAbstain_t;
+
+typedef struct {
+    pd_BalanceOf_t aye;
+    pd_BalanceOf_t nay;
 } pd_AccountVoteSplit_t;
 
 typedef struct {
@@ -674,6 +680,7 @@ typedef struct {
     union {
         pd_AccountVoteStandard_t voteStandard;
         pd_AccountVoteSplit_t voteSplit;
+        pd_AccountVoteSplitAbstain_t voteSplitAbstain;
     };
 } pd_AccountVote_t;
 
@@ -874,6 +881,11 @@ typedef struct {
 
 typedef struct {
     uint8_t some;
+    pd_u16_t contained;
+} pd_Optionu16_t;
+
+typedef struct {
+    uint8_t some;
     pd_u32_t contained;
 } pd_Optionu32_t;
 
@@ -932,6 +944,698 @@ typedef struct {
     const uint8_t* _ptr;
     uint64_t _lenBuffer;
 } pd_Vecu8_t;
+////////////////////////////////////////
+// Custom
+////////////////////////////////////////
+typedef struct {
+    uint8_t value;
+    union {
+        pd_MultiLocationV3_t xcm;
+        pd_MultiLocationV3_t response;
+    };
+} pd_XcmOrigin_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_SystemOrigin_t system;
+        pd_PolkadotOrigins_t origins;
+        pd_XcmOrigin_t xcmPallet;
+        pd_ParachainsOrigin_t parachainsOrigin;
+    };
+} pd_BoxPalletsProposalOrigin_t;
+
+typedef struct {
+    uint8_t some;
+    pd_AccountIdLookupOfT_t contained;
+} pd_OptionAccountIdLookupOfT_t;
+
+typedef struct {
+    uint8_t some;
+    pd_Bytes_t contained;
+} pd_OptionBytes_t;
+
+typedef struct {
+    const uint8_t* _ptr;
+} pd_u128_t;
+
+typedef struct {
+    uint8_t some;
+    pd_u64_t contained;
+} pd_Optionu64_t;
+
+typedef struct {
+    uint8_t some;
+    pd_u128_t contained;
+} pd_Optionu128_t;
+
+typedef struct {
+    uint8_t value;
+    pd_u128_t set;
+} pd_ConfigOpu128_t;
+
+typedef struct {
+    compactInt_t value;
+} pd_CompactPerbill_t;
+
+typedef struct {
+    uint8_t some;
+    pd_bool_t contained;
+} pd_Optionbool_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_Vecu128_t;
+
+typedef struct {
+    uint8_t some;
+    pd_Vecu128_t contained;
+} pd_OptionVecu128_t;
+
+typedef struct {
+    uint8_t value;
+    pd_u128_t senj;
+} pd_VoteCurrency_t;
+
+typedef struct {
+    pd_Compactu128_t value;
+} pd_OfferId_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_Bytes_t whitelist;
+        pd_Bytes_t blocklist;
+    };
+} pd_TokenFilter_t;
+
+typedef struct {
+    pd_AccountId_t account;
+    pd_Compactu128_t total;
+    pd_CompactPerbill_t rate;
+    pd_Compactu128_t min_average_reward_rate;
+    pd_TokenFilter_t token_filter;
+} pd_OfferOfT_t;
+
+typedef struct {
+    pd_u128_t value;
+} pd_CollectionId_t;
+
+typedef struct {
+    pd_Compactu128_t value;
+} pd_CompactCollectionId_t;
+
+typedef struct {
+    pd_bool_t isFrozen;
+} pd_TransferPolicy_t;
+
+typedef struct {
+    pd_Optionu64_t maxTokenCount;
+    pd_Optionu128_t maxTokenSupply;
+    pd_bool_t forceSingleMint;
+} pd_MintPolicyDescriptor_t;
+
+typedef struct {
+    pd_AccountId_t beneficiary;
+    pd_CompactPerbill_t percentage;
+} pd_MarketPolicyRoyalty_t;
+
+typedef struct {
+    uint8_t some;
+    pd_MarketPolicyRoyalty_t contained;
+} pd_OptionMarketPolicyRoyalty_t;
+
+typedef struct {
+    pd_MintPolicyDescriptor_t mint;
+    pd_TransferPolicy_t transfer;
+    pd_OptionMarketPolicyRoyalty_t market;
+} pd_CollectionPolicy_t;
+
+typedef struct {
+    pd_AccountId_t owner;
+    pd_CollectionPolicy_t policy;
+    pd_Compactu64_t tokenCount;
+    pd_Compactu32_t attributeCount;
+    pd_Compactu128_t totalDeposit;
+    pd_OptionBytes_t explicitRoyaltyCurrencies;
+} pd_CollectionOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_CollectionOf_t contained;
+} pd_OptionCollectionOf_t;
+
+typedef struct {
+    uint8_t value;
+    pd_Vecu128_t set;
+} pd_LiquidityAccountConfigOfT_t;
+
+typedef struct {
+    pd_Compactu128_t value;
+} pd_CompactTokenId_t;
+
+typedef struct {
+    pd_u128_t value;
+} pd_TokenId_t;
+
+typedef struct {
+    pd_TokenId_t value;
+} pd_TokenIdOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_TokenId_t contained;
+} pd_OptionTokenId_t;
+
+typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_Compactu128_t amount;
+    pd_bool_t keepAlive;
+    pd_bool_t removeTokenStorage;
+} pd_BurnParamsOfT_t;
+
+typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_Compactu128_t amount;
+    pd_bool_t keepAlive;
+} pd_SimpleTransferParams_t;
+
+typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_AccountId_t source;
+    pd_Compactu128_t amount;
+    pd_bool_t keepAlive;
+} pd_OperatorTransferParams_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_SimpleTransferParams_t simple;
+        pd_OperatorTransferParams_t operator_;
+    };
+} pd_TransferParamsOfT_t;
+
+typedef struct {
+    pd_AccountId_t accountId;
+    pd_TransferParamsOfT_t params;
+} pd_TransferRecipientsOf_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecTransferRecipientsOf_t;
+
+typedef struct {
+    uint8_t value;
+} pd_FreezeState_t;
+
+typedef struct {
+    uint8_t some;
+    pd_FreezeState_t contained;
+} pd_OptionFreezeState_t;
+
+typedef struct {
+    pd_TokenId_t tokenId;
+    pd_OptionFreezeState_t freezeState;
+} pd_TokenFreezeType_t;
+
+typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_AccountId_t accountId;
+} pd_TokenAccountFreezeType_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_TokenFreezeType_t token;
+        pd_AccountId_t collectionAccount;
+        pd_TokenAccountFreezeType_t tokenAccount;
+    };
+} pd_FreezeType_t;
+
+typedef struct {
+    pd_Compactu128_t collectionId;
+    pd_FreezeType_t freezeType;
+} pd_FreezeOf_t;
+
+typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_Compactu128_t amount;
+    pd_Optionu128_t unitPrice;
+} pd_MintTokenMintParam_t;
+
+typedef struct {
+    pd_Optionu128_t unitPrice;
+} pd_InsufficientPolicyMintSufficiencyParam_t;
+
+typedef struct {
+    pd_u128_t minimumBalance;
+} pd_SufficientPolicyMintSufficiencyParam_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_InsufficientPolicyMintSufficiencyParam_t insufficient;
+        pd_SufficientPolicyMintSufficiencyParam_t sufficient;
+    };
+} pd_PolicyMintSufficiencyParam_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_Compactu128_t supply;
+        pd_Compactu128_t collapsingSupply;
+    };
+} pd_TokenTokenCap_t;
+
+typedef struct {
+    uint8_t some;
+    pd_TokenTokenCap_t contained;
+} pd_OptionTokenTokenCap_t;
+
+typedef struct {
+    pd_AccountId_t beneficiary;
+    pd_CompactPerbill_t percentage;
+} pd_HasRoyaltyTokenTokenMarketBehavior;
+
+typedef struct {
+    uint8_t value;
+    pd_HasRoyaltyTokenTokenMarketBehavior hasRoyalty;
+} pd_TokenTokenMarketBehavior_t;
+
+typedef struct {
+    uint8_t some;
+    pd_TokenTokenMarketBehavior_t contained;
+} pd_OptionTokenTokenMarketBehavior_t;
+
+typedef struct {
+    pd_Bytes_t key;
+    pd_Bytes_t value;
+} pd_AttributeKeyValuePair_t;
+
+typedef struct {
+    pd_Bytes_t value;
+    pd_Compactu128_t deposit;
+} pd_AttributeOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_AttributeOf_t contained;
+} pd_OptionAttributeOf_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecAttributeKeyValuePair_t;
+
+typedef struct {
+    uint8_t some;
+    pd_MultiLocationV3_t contained;
+} pd_OptionXcmV3MultiLocation;
+
+typedef struct {
+    pd_Compactu32_t decimalCount;
+    pd_Bytes_t name;
+    pd_Bytes_t symbol;
+    pd_OptionXcmV3MultiLocation location;
+    pd_Optionu128_t unitsPerSecond;
+
+} pd_PolicyMintForeignTokenCreationParams_t;
+
+typedef struct {
+    uint8_t some;
+    pd_PolicyMintForeignTokenCreationParams_t contained;
+} pd_OptionPolicyMintForeignTokenCreationParams_t;
+
+typedef struct {
+    pd_OptionMarketPolicyRoyalty_t royalty;
+} pd_MarketPolicyDescriptor_t;
+
+typedef struct {
+    pd_MintPolicyDescriptor_t mint;
+    pd_MarketPolicyDescriptor_t market;
+} pd_CollectionPolicyDescriptor_t;
+
+typedef struct {
+    pd_Compactu128_t collectionId;
+    pd_CompactTokenId_t tokenId;
+} pd_TokenAssetId_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecTokenAssetId_t;
+
+typedef struct {
+    pd_CollectionPolicyDescriptor_t policy;
+    pd_VecTokenAssetId_t explicitRoyaltyCurrencies;
+    pd_VecAttributeKeyValuePair_t attributes;
+} pd_CollectionDescriptor_t;
+
+typedef struct {
+    pd_CompactTokenId_t tokenId;
+    pd_Compactu128_t initialSupply;
+    pd_PolicyMintSufficiencyParam_t sufficiency;
+    pd_OptionTokenTokenCap_t cap;
+    pd_OptionTokenTokenMarketBehavior_t behavior;
+    pd_bool_t listingForbidden;
+    pd_OptionFreezeState_t freezeState;
+    pd_VecAttributeKeyValuePair_t attributes;
+    pd_OptionPolicyMintForeignTokenCreationParams_t foreignParams;
+} pd_CreateTokenMintParam_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_CreateTokenMintParam_t createToken;
+        pd_MintTokenMintParam_t mint;
+    };
+} pd_MintParamsOf_t;
+
+typedef struct {
+    pd_AccountId_t accountId;
+    pd_MintParamsOf_t params;
+} pd_MintRecipientsOf_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecMintRecipientsOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_VecTokenAssetId_t contained;
+} pd_OptionVecTokenAssetId_t;
+
+typedef struct {
+    uint8_t value;
+    pd_OptionMarketPolicyRoyalty_t set;
+} pd_RoyaltyMutation_t;
+
+typedef struct {
+    pd_OptionAccountId_t owner;
+    pd_RoyaltyMutation_t royalty;
+    pd_OptionVecTokenAssetId_t explicitRoyaltyCurrencies;
+} pd_CollectionMutation_t;
+
+typedef struct {
+    uint8_t value;
+    pd_OptionTokenTokenMarketBehavior_t set;
+} pd_TokenTokenMarketBehaviorMutation_t;
+
+typedef struct {
+    uint8_t value;
+    pd_bool_t set;
+} pd_ShouldMutateBool_t;
+
+typedef struct {
+    pd_Compactu32_t decimalCount;
+    pd_Bytes_t name;
+    pd_Bytes_t symbol;
+    pd_OptionXcmV3MultiLocation location;
+    pd_Optionu128_t unitsPerSecond;
+    pd_Compactu128_t premintedSupply;
+} pd_MutateForeignTokenMetadata_t;
+
+typedef struct {
+    uint8_t value;
+    pd_MutateForeignTokenMetadata_t set;
+} pd_TokenMetadata_t;
+
+typedef struct {
+    uint8_t value;
+    pd_TokenMetadata_t set;
+} pd_ShouldMutateTokenMetadata_t;
+
+typedef struct {
+    uint8_t value;
+    pd_OptionTokenTokenMarketBehavior_t set;
+} pd_ShouldMutateTokenMarketBehavior_t;
+
+typedef struct {
+    pd_ShouldMutateTokenMarketBehavior_t behavior;
+    pd_ShouldMutateBool_t listingForbidden;
+    pd_ShouldMutateTokenMetadata_t metadata;
+} pd_TokenMutation_t;
+
+typedef struct {
+    pd_Compactu128_t unitPrice;
+} pd_InsufficientTokenSufficiency_t;
+
+typedef struct {
+    uint8_t value;
+    pd_InsufficientTokenSufficiency_t set;
+} pd_TokenSufficiency_t;
+
+typedef struct {
+    pd_Compactu128_t supply;
+    pd_OptionTokenTokenCap_t cap;
+    pd_OptionFreezeState_t freezeState;
+    pd_Compactu128_t minimumBalance;
+    pd_TokenSufficiency_t sufficiency;
+    pd_Compactu128_t mintDeposit;
+    pd_Compactu32_t attributeCount;
+    pd_OptionTokenTokenMarketBehavior_t marketBehavior;
+    pd_bool_t listingForbidden;
+    pd_TokenMetadata_t metadata;
+} pd_TokenOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_TokenOf_t contained;
+} pd_OptionTokenOf_t;
+
+typedef struct {
+    pd_bool_t isFrozen;
+    pd_OptionBytes_t approvals;
+    pd_Compactu32_t accountCount;
+} pd_CollectionAccountOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_CollectionAccountOf_t contained;
+} pd_OptionCollectionAccountOf_t;
+
+typedef struct {
+    pd_Compactu128_t balance;
+    pd_Compactu128_t reservedBalance;
+    pd_Compactu128_t lockedBalance;
+    pd_OptionBytes_t namedReserves;
+    pd_OptionBytes_t locks;
+    pd_OptionBytes_t approvals;
+    pd_bool_t isFrozen;
+} pd_TokenAccountOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_TokenAccountOf_t contained;
+} pd_OptionTokenAccountOf_t;
+
+typedef struct {
+    uint8_t some;
+    pd_Perbill_t contained;
+} pd_OptionPerbill_t;
+
+typedef struct {
+    uint8_t value;
+    pd_OptionPerbill_t set;
+} pd_NewCommissionMutation_t;
+
+typedef struct {
+    pd_Perbill_t max_delta;
+    pd_u32_t min_delay;
+} pd_CommissionChangeRate_t;
+
+typedef struct {
+    uint8_t some;
+    pd_CommissionChangeRate_t contained;
+} pd_OptionCommissionChangeRate_t;
+
+typedef struct {
+    uint8_t value;
+    pd_OptionAccountId_t set;
+} pd_NewAdminMutation_t;
+
+typedef struct {
+    uint8_t value;
+    pd_OptionAccountId_t set;
+} pd_NewNominatorMutation_t;
+
+typedef struct {
+    pd_NewAdminMutation_t newAdmin;
+    pd_NewNominatorMutation_t newNominator;
+} pd_RolesMutation_t;
+
+typedef struct {
+    uint8_t some;
+    pd_RolesMutation_t contained;
+} pd_OptionPoolRolesMutation_t;
+
+typedef struct {
+    pd_Optionu32_t duration;
+    pd_NewCommissionMutation_t newCommission;
+    pd_OptionPerbill_t maxCommission;
+    pd_OptionCommissionChangeRate_t changeRate;
+    pd_Optionu128_t capacity;
+    pd_OptionBytes_t name;
+} pd_PoolMutationOfT_t;
+
+typedef struct {
+    uint8_t value;
+    pd_CompactBalance_t amount;
+} pd_BondValueOfT_t;
+
+typedef struct {
+    pd_Perbill_t annual_inflation_rate;
+    pd_Perbill_t collator_payout_cut;
+} pd_StakingInfo_t;
+
+typedef struct {
+    pd_Compactu32_t startBlock;
+    pd_Compactu32_t endBlock;
+} pd_AuctionDataOfT_t;
+
+typedef struct {
+    uint8_t some;
+    pd_AuctionDataOfT_t contained;
+} pd_OptionAuctionDataOfT_t;
+
+typedef struct {
+    pd_H256_t value;
+} pd_ListingIdOfT_t;
+
+typedef struct {
+    uint8_t value;
+} pd_DispatchRuleKind_t;
+
+typedef struct {
+    pd_bool_t tankReservesExistentialDeposit;
+    pd_bool_t tankReservesAccountCreationDeposit;
+} pd_UserAccountManagement_t;
+
+typedef struct {
+    uint8_t some;
+    pd_UserAccountManagement_t contained;
+} pd_OptionUserAccountManagement_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_VecAccountId_t whitelisted_callers;
+        pd_TokenAssetId_t require_token;
+    };
+} pd_AccountRuleDescriptor_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecAccountRuleDescriptor_t;
+
+typedef struct {
+    pd_bool_t useNoneOrigin;
+    pd_bool_t paysRemainingFee;
+} pd_DispatchSettings_t;
+
+typedef struct {
+    uint8_t some;
+    pd_DispatchSettings_t contained;
+} pd_OptionDispatchSettings_t;
+
+typedef struct {
+    pd_Compactu128_t totalConsumed;
+    pd_Optionu32_t lastResetBlock;
+} pd_ConsumptionOf_t;
+
+typedef struct {
+    uint8_t value;
+    pd_OptionUserAccountManagement_t set;
+} pd_ShouldMutateOption_t;
+
+typedef struct {
+    pd_Compactu128_t amount;
+    pd_u32_t reset_period;
+} pd_TankFuelBudget_t;
+
+typedef struct {
+    pd_Compactu128_t amount;
+    pd_u32_t reset_period;
+} pd_UserFuelBudget_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_VecAccountId_t whitelisted_callers;
+        pd_Vecu128_t whitelisted_collections;
+        pd_u128_t max_fuel_burn_per_transaction;
+        pd_UserFuelBudget_t user_fuel_budget;
+        pd_TankFuelBudget_t tank_fuel_budget;
+        pd_TokenAssetId_t require_token;
+        pd_VecCall_t permitted_calls;
+        pd_VecCall_t permitted_extrinsics;
+        pd_VecCall_t whitelisted_pallets;
+    };
+} pd_DispatchRuleDescriptor_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecDispatchRuleDescriptor_t;
+
+typedef struct {
+    pd_u32_t value;
+    pd_VecDispatchRuleDescriptor_t dispatch_rules;
+} pd_Tupleu32RuleSetDescriptor_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_VecTupleu32RuleSetDescriptor_t;
+
+typedef struct {
+    pd_Bytes_t name;
+    pd_OptionUserAccountManagement_t userAccountManagement;
+    pd_VecTupleu32RuleSetDescriptor_t ruleSets;
+    pd_bool_t providesDeposit;
+    pd_VecAccountRuleDescriptor_t  accountRules;
+} pd_FuelTankDescriptorOfT_t;
+
+typedef struct {
+    uint8_t some;
+    pd_VecAccountRuleDescriptor_t contained;
+} pd_OptionVecAccountRuleDescriptor_t;
+
+typedef struct {
+    pd_ShouldMutateOption_t userAccountManagement;
+    pd_Optionbool_t providesDeposit;
+    pd_OptionVecAccountRuleDescriptor_t accountRules;
+} pd_FuelTankMutationOf_t;
+
+typedef struct {
+    pd_u32_t max_candidate_depth;
+    pd_u32_t allowed_ancestry_len;
+} pd_NewAsyncBackingParams_t;
+
+typedef struct {
+    pd_NewAsyncBackingParams_t new_;
+} pd_AsyncBackingParams_t;
+
+typedef struct {
+    pd_Bytes_t grandpa;
+    pd_Bytes_t babe;
+    pd_Bytes_t im_online;
+    pd_Bytes_t para_validator;
+    pd_Bytes_t para_assignment;
+    pd_Bytes_t authority_discovery;
+} pd_SessionKeys_t;
 
 #ifdef __cplusplus
 }

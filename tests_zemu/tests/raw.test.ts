@@ -15,7 +15,7 @@
  ******************************************************************************* */
 
 import Zemu, { DEFAULT_START_OPTIONS } from '@zondax/zemu'
-import { newPolkadotApp } from '@zondax/ledger-substrate'
+import { newSubstrateApp } from '@zondax/ledger-substrate'
 import { APP_SEED, models } from './common'
 
 // @ts-expect-error missing typings
@@ -31,6 +31,7 @@ const defaultOptions = {
 
 jest.setTimeout(180000)
 
+const CHAIN = 'Enjin'
 const TESTS = [
   {
     name: 'raw_sign',
@@ -47,7 +48,7 @@ describe.each(TESTS)('Raw signing', function (data) {
     const sim = new Zemu(m.path)
     try {
       await sim.start({ ...defaultOptions, model: m.name })
-      const app = newPolkadotApp(sim.getTransport())
+      const app = newSubstrateApp(sim.getTransport(), CHAIN)
       const pathAccount = 0x80000000
       const pathChange = 0x80000000
       const pathIndex = 0x80000000
@@ -90,7 +91,7 @@ test.concurrent.each(models)('raw signing - incorrect', async function (m) {
   const sim = new Zemu(m.path)
   try {
     await sim.start({ ...defaultOptions, model: m.name })
-    const app = newPolkadotApp(sim.getTransport())
+    const app = newSubstrateApp(sim.getTransport(), CHAIN)
     const pathAccount = 0x80000000
     const pathChange = 0x80000000
     const pathIndex = 0x80000000
